@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/JaredScene.unity
-    guid: 74d1c7eddc53aec42ae660f94eec5583
+  m_Scenes: []
   m_configObjects: {}
