@@ -44,12 +44,10 @@ public class EnemyMovement : MonoBehaviour
             playerLastPosition = playerTransform.position;
             knowsLastPosition = true;
             r.velocity *= 0.99f;
-            return;
         }
         if (knowsLastPosition)
         {
             agent.SetDestination(playerLastPosition);
-            return;
         }
         if(CheckDestinationReached(playerLastPosition))
         {
@@ -89,17 +87,17 @@ public class EnemyMovement : MonoBehaviour
         if ((CheckDestinationReached(start)) && !agent.pathPending )
         {
             agent.SetDestination(end);
-            Debug.Log("end: "+agent.destination);
+            //Debug.Log("end: "+agent.destination);
         }
         else if ((CheckDestinationReached(end)) && !agent.pathPending )
         {
             agent.SetDestination(start);
-            Debug.Log("start: "+agent.destination);
+            //Debug.Log("start: "+agent.destination);
         }
         else if(!patrolStarted){
             patrolStarted = true;
             agent.SetDestination(start);
-            Debug.Log(agent.destination);
+            //Debug.Log(agent.destination);
         }
     }
 

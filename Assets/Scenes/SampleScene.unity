@@ -26425,7 +26425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mRaycastRadius: 4
-  mTargetDetectionDistance: 50
+  mTargetDetectionDistance: 10
   enemyState: {fileID: 1870245018}
 --- !u!114 &1870245018
 MonoBehaviour:
