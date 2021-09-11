@@ -21,7 +21,6 @@ public class EnemyDetection : MonoBehaviour {
             Debug.Log("Player detected by " + this.gameObject.name );
         } else
         {
-            Debug.Log("Player not detected");
             enemyState.isPlayerDetected = false;
         }
     }
