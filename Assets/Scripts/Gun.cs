@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour
     IEnumerator HotReload()
     {
         isReloading = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         animator.SetBool("Reloading", true);
         startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
@@ -111,11 +111,18 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             Target target = hit.transform.GetComponent<Target>();
+            EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
             if (target != null)
             {
                 target.TakeDamage(damage);
             }
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
 
             if (hit.rigidbody != null)
             {

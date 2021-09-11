@@ -18,14 +18,16 @@ public class EnemyDetection : MonoBehaviour {
         if (isDetecting && _mHitInfo.transform.CompareTag("Player"))
         {
             enemyState.isPlayerDetected = true;
+            Debug.Log("Player detected by " + this.gameObject.name );
         } else
         {
+            Debug.Log("Player not detected");
             enemyState.isPlayerDetected = false;
         }
     }
     private void OnDrawGizmos()
     {
-        if (isDetecting)
+        if ( enemyState.isPlayerDetected )
         {
             Gizmos.color = Color.red;
         } else

@@ -44,10 +44,12 @@ public class EnemyMovement : MonoBehaviour
             playerLastPosition = playerTransform.position;
             knowsLastPosition = true;
             r.velocity *= 0.99f;
+            return;
         }
         if (knowsLastPosition)
         {
             agent.SetDestination(playerLastPosition);
+            return;
         }
         if(CheckDestinationReached(playerLastPosition))
         {
