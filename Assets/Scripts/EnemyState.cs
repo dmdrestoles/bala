@@ -6,13 +6,19 @@ using UnityEngine.AI;
 public class EnemyState : MonoBehaviour
 {
     public bool isPlayerDetected;
-    void Start()
+    public float health = 50f;
+
+    public void TakeDamage(float amount)
     {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Die()
     {
-
+        Destroy(gameObject);
     }
 }

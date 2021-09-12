@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float movementSpeed = 4f;
+    public float movementSpeed = 10f;
     public EnemyState enemyState;
 
     [HideInInspector]
