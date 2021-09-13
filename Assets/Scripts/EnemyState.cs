@@ -5,18 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyState : MonoBehaviour
 {
+    public bool isPlayerDetected;
     public float health = 50f;
-
-    public bool isPlayerDetected = false;
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void TakeDamage(float amount)
     {

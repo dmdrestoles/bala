@@ -26,7 +26,7 @@ public class EnemyDetection : MonoBehaviour {
     }
     private void OnDrawGizmos()
     {
-        if ( enemyState.isPlayerDetected )
+        if (isDetecting && _mHitInfo.transform.CompareTag("Player"))
         {
             Gizmos.color = Color.red;
         } else

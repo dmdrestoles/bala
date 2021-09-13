@@ -106,22 +106,23 @@ public class Gun : MonoBehaviour
         currentAmmo -= 1;
         muzzleFlash.Play();
         RaycastHit hit;
+        Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, new Color(255, 0, 0), 2f);
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
+            //Target target = hit.transform.GetComponent<Target>();
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
-
-            if (target != null)
-            {
-                target.TakeDamage(damage);
-            }
 
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
+
+            /*if (target != null)
+            {
+                target.TakeDamage(damage);
+            }*/
 
 
             if (hit.rigidbody != null)
