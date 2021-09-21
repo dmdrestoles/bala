@@ -10,8 +10,11 @@ public class Gun : MonoBehaviour
     public float reloadTime = 3f;
     public float bulletReload = 0.5f;
 
-    public int maxAmmo = 5;
+    public int maxAmmo = 50;
+    public int magazineAmmo = 5;
     public int currentAmmo;
+
+    public bool isReliable = true;
 
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
@@ -29,7 +32,7 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        currentAmmo = magazineAmmo;
     }
 
     void OnEnable()
@@ -42,16 +45,15 @@ public class Gun : MonoBehaviour
         if (isReloading)
         {
             return;
-
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
+        if (currentAmmo <= 0 && maxAmmo <= 0)
         {
-            StartCoroutine(HotReload());
+            // play blank fire sound
             return;
         }
 
-        if (currentAmmo <= 0)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
         {
             StartCoroutine(HotReload());
             return;
@@ -60,8 +62,21 @@ public class Gun : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            Shoot();
+            if (currentAmmo > 0)
+            {
+                Shoot();
+
+                if (!isReliable)
+                {
+                    Destroy(this.gameObject, 1.5f);
+                }
+            }
+            else
+            {
+                StartCoroutine(HotReload());
+            }
         }
+
     }
 
     /*IEnumerator FullReload()
@@ -73,7 +88,7 @@ public class Gun : MonoBehaviour
 
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(0.25f);
-        currentAmmo = maxAmmo;
+        currentAmmo = magazineAmmo;
         isReloading = false;
 
     }*/
@@ -85,9 +100,10 @@ public class Gun : MonoBehaviour
         animator.SetBool("Reloading", true);
         startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
-        while (currentAmmo < maxAmmo)
+        while (currentAmmo < magazineAmmo)
         {
             loadBulletSound.Play();
+            maxAmmo -= 1;
             currentAmmo += 1;
             Debug.Log("Loading ammo: " + currentAmmo);
             yield return new WaitForSeconds(bulletReload);

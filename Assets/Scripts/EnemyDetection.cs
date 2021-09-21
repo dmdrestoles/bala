@@ -17,8 +17,14 @@ public class EnemyDetection : MonoBehaviour {
         isDetecting = Physics.SphereCast(transform.position, mRaycastRadius, transform.forward, out _mHitInfo, mTargetDetectionDistance);
         if (isDetecting && _mHitInfo.transform.CompareTag("Player"))
         {
-            enemyState.isPlayerDetected = true;
-            Debug.Log("Player detected by " + this.gameObject.name );
+            Debug.Log("Player in vicinity");
+            PlayerMovement pm = _mHitInfo.transform.gameObject.GetComponent<PlayerMovement>();
+            Debug.Log(pm);
+            if (pm.checkVisibility())
+            {
+                enemyState.isPlayerDetected = true;
+                Debug.Log("Player detected by " + this.gameObject.name);
+            }
         } else
         {
             enemyState.isPlayerDetected = false;

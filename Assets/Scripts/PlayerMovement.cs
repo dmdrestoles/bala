@@ -9,12 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
     Vector3 velocity;
     bool isGrounded;
+
+    bool isVisible = true;
 
     void Update()
     {
@@ -39,5 +42,32 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "HidingSpot")
+        {
+            isVisible = false;
+            //Debug.Log("Player in hiding.");
+        }
+        else
+        {
+            isVisible = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "HidingSpot")
+        {
+            isVisible = true;
+            //Debug.Log("Player visible.");
+        }
+    }
+
+    public bool checkVisibility()
+    {
+        return isVisible;
     }
 }
