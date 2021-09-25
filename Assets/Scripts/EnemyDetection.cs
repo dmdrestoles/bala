@@ -7,6 +7,7 @@ public class EnemyDetection : MonoBehaviour {
     public float mTargetDetectionDistance;
 
     public GameObject player;
+    public Gun rifle, revolver;
     private RaycastHit hit;
     public EnemyState enemyState; 
     private bool isDetecting;
@@ -23,12 +24,19 @@ public class EnemyDetection : MonoBehaviour {
     private void CheckForTargetInLineOfSight()
     {
         isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
-        if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
+        if(rifle.isFiring || revolver.isFiring)
+        {
+            enemyState.isPlayerDetected = true;
+            rifle.isFiring = false;
+            revolver.isFiring = false;
+        }
+        else if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
         {
             Debug.DrawLine(transform.position, hit.point,Color.red);
             PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
             enemyState.isPlayerDetected = pm.checkVisibility();
-        } else
+        }
+        else
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             enemyState.isPlayerDetected = false;

@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
 
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
+    public bool isFiring = false;
     // public ParticleSystem impactEffect;
 
     private float nextTimeToFire = 0f;
@@ -79,20 +80,6 @@ public class Gun : MonoBehaviour
 
     }
 
-    /*IEnumerator FullReload()
-    {
-        yield return new WaitForSeconds(1f);
-        isReloading = true;
-        animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(reloadTime - 0.25f);
-
-        animator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);
-        currentAmmo = magazineAmmo;
-        isReloading = false;
-
-    }*/
-
     IEnumerator HotReload()
     {
         isReloading = true;
@@ -118,6 +105,7 @@ public class Gun : MonoBehaviour
     }
     void Shoot()
     {
+        isFiring = true;
         fireSound.Play();
         currentAmmo -= 1;
         muzzleFlash.Play();
@@ -127,19 +115,12 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            //Target target = hit.transform.GetComponent<Target>();
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
-
-            /*if (target != null)
-            {
-                target.TakeDamage(damage);
-            }*/
-
 
             if (hit.rigidbody != null)
             {
