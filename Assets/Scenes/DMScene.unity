@@ -1578,6 +1578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mRaycastRadius: 2
   mTargetDetectionDistance: 10
+  player: {fileID: 865930621}
   enemyState: {fileID: 148436348}
 --- !u!114 &148436348
 MonoBehaviour:
@@ -6672,6 +6673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mRaycastRadius: 2
   mTargetDetectionDistance: 10
+  player: {fileID: 865930621}
   enemyState: {fileID: 177973470}
 --- !u!114 &177973470
 MonoBehaviour:
@@ -18192,6 +18194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mRaycastRadius: 2
   mTargetDetectionDistance: 10
+  player: {fileID: 865930621}
   enemyState: {fileID: 1367012476}
 --- !u!114 &1367012476
 MonoBehaviour:
@@ -28964,7 +28967,7 @@ MonoBehaviour:
   impactForce: 100
   reloadTime: 6
   bulletReload: 1
-  maxAmmo: 0
+  maxAmmo: 5
   magazineAmmo: 5
   currentAmmo: 0
   isReliable: 1
@@ -29604,6 +29607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mRaycastRadius: 2
   mTargetDetectionDistance: 10
+  player: {fileID: 865930621}
   enemyState: {fileID: 1943628487}
 --- !u!114 &1943628487
 MonoBehaviour:
