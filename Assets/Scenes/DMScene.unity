@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b78f7842bf3aa9d47a47a285f751b4a0,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -1580,6 +1581,8 @@ MonoBehaviour:
   mTargetDetectionDistance: 10
   player: {fileID: 865930621}
   enemyState: {fileID: 148436348}
+  materialOnAlert: {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  materialOnNormal: {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
 --- !u!114 &148436348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,7 +1684,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  - {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6675,6 +6678,8 @@ MonoBehaviour:
   mTargetDetectionDistance: 10
   player: {fileID: 865930621}
   enemyState: {fileID: 177973470}
+  materialOnAlert: {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  materialOnNormal: {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
 --- !u!114 &177973470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6776,7 +6781,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  - {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11741,7 +11746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d279304fad34a3741ab2c10925dabc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartDelay: 1
+  restartDelay: 3
   reachedBridgeUI: {fileID: 1082369181}
 --- !u!4 &638665001
 Transform:
@@ -16191,7 +16196,7 @@ GameObject:
   - component: {fileID: 1082369183}
   - component: {fileID: 1082369182}
   m_Layer: 5
-  m_Name: BridgeObjective
+  m_Name: BridgeObjectiveEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18086,7 +18091,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  - {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18196,6 +18201,8 @@ MonoBehaviour:
   mTargetDetectionDistance: 10
   player: {fileID: 865930621}
   enemyState: {fileID: 1367012476}
+  materialOnAlert: {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  materialOnNormal: {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
 --- !u!114 &1367012476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29609,6 +29616,8 @@ MonoBehaviour:
   mTargetDetectionDistance: 10
   player: {fileID: 865930621}
   enemyState: {fileID: 1943628487}
+  materialOnAlert: {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  materialOnNormal: {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
 --- !u!114 &1943628487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29710,7 +29719,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b861d1cd08c6c174995f74ab7603913e, type: 2}
+  - {fileID: 2100000, guid: df4ad3398643edd449f78656bff96357, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

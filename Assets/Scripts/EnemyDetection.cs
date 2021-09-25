@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour {
     public float mRaycastRadius;
     public float mTargetDetectionDistance;
+    private bool isDetecting;
 
     public GameObject player;
     private RaycastHit hit;
     public EnemyState enemyState; 
-    private bool isDetecting;
     private Transform playerTransform;
+
+    public Material materialOnAlert;
+    public Material materialOnNormal;
     void Start() 
     {
     }
@@ -23,15 +26,19 @@ public class EnemyDetection : MonoBehaviour {
     private void CheckForTargetInLineOfSight()
     {
         isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
+        MeshRenderer mr = GetComponent<MeshRenderer>();
         if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
         {
             Debug.DrawLine(transform.position, hit.point,Color.red);
             PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
             enemyState.isPlayerDetected = pm.checkVisibility();
+            mr.material = materialOnAlert;
+
         } else
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             enemyState.isPlayerDetected = false;
+            mr.material = materialOnNormal;
         }
     }
 

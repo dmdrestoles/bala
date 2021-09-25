@@ -4,13 +4,14 @@ public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
 
-    public float restartDelay = 1f;
+    public float restartDelay = 2f;
 
     public GameObject reachedBridgeUI;
     public void CompleteLevel()
     {
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the bridge!");
+        Invoke("Restart", restartDelay);
     }
 
     public void EndGame()
