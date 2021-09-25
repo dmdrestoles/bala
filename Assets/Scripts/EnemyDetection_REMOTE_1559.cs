@@ -5,16 +5,13 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour {
     public float mRaycastRadius;
     public float mTargetDetectionDistance;
-    private bool isDetecting;
 
     public GameObject player;
     public Gun rifle, revolver;
     private RaycastHit hit;
     public EnemyState enemyState; 
+    private bool isDetecting;
     private Transform playerTransform;
-
-    public Material materialOnAlert;
-    public Material materialOnNormal;
     void Start() 
     {
     }
@@ -27,7 +24,6 @@ public class EnemyDetection : MonoBehaviour {
     private void CheckForTargetInLineOfSight()
     {
         isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
-        MeshRenderer mr = GetComponent<MeshRenderer>();
         if(rifle.isFiring || revolver.isFiring)
         {
             enemyState.isPlayerDetected = true;
@@ -39,14 +35,11 @@ public class EnemyDetection : MonoBehaviour {
             Debug.DrawLine(transform.position, hit.point,Color.red);
             PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
             enemyState.isPlayerDetected = pm.checkVisibility();
-            mr.material = materialOnAlert;
-
-        } 
+        }
         else
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             enemyState.isPlayerDetected = false;
-            mr.material = materialOnNormal;
         }
     }
 

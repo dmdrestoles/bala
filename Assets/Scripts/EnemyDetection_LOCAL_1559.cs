@@ -8,7 +8,6 @@ public class EnemyDetection : MonoBehaviour {
     private bool isDetecting;
 
     public GameObject player;
-    public Gun rifle, revolver;
     private RaycastHit hit;
     public EnemyState enemyState; 
     private Transform playerTransform;
@@ -28,21 +27,14 @@ public class EnemyDetection : MonoBehaviour {
     {
         isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
         MeshRenderer mr = GetComponent<MeshRenderer>();
-        if(rifle.isFiring || revolver.isFiring)
-        {
-            enemyState.isPlayerDetected = true;
-            rifle.isFiring = false;
-            revolver.isFiring = false;
-        }
-        else if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
+        if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
         {
             Debug.DrawLine(transform.position, hit.point,Color.red);
             PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
             enemyState.isPlayerDetected = pm.checkVisibility();
             mr.material = materialOnAlert;
 
-        } 
-        else
+        } else
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             enemyState.isPlayerDetected = false;
