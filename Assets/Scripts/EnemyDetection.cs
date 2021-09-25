@@ -6,40 +6,53 @@ public class EnemyDetection : MonoBehaviour {
     public float mRaycastRadius;
     public float mTargetDetectionDistance;
 
-    private RaycastHit _mHitInfo;
+    public GameObject player;
+    private RaycastHit hit;
     public EnemyState enemyState; 
     private bool isDetecting;
+    private Transform playerTransform;
     void Start() 
     {
     }
-    public void CheckForTargetInLineOfSight()
+    void Update() 
     {
-        isDetecting = Physics.SphereCast(transform.position, mRaycastRadius, transform.forward, out _mHitInfo, mTargetDetectionDistance);
-        if (isDetecting && _mHitInfo.transform.CompareTag("Player"))
+        playerTransform = player.transform;
+        this.CheckForTargetInLineOfSight();
+    }
+
+    private void CheckForTargetInLineOfSight()
+    {
+        isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
+        if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
         {
+            Debug.DrawLine(transform.position, hit.point,Color.red);
             enemyState.isPlayerDetected = true;
-            Debug.Log("Player detected by " + this.gameObject.name );
         } else
         {
+            Debug.DrawLine(transform.position, hit.point, Color.green);
             enemyState.isPlayerDetected = false;
         }
     }
-    private void OnDrawGizmos()
+
+    private bool IsPlayerWithinFOV()
     {
-        if (isDetecting && _mHitInfo.transform.CompareTag("Player"))
+        bool result = false;
+        float deg = Vector3.Angle( transform.forward, playerTransform.position - transform.position );
+        if( deg <= 45)
         {
-            Gizmos.color = Color.red;
-        } else
-        {
-            Gizmos.color = Color.green;
+            result = true;
         }
-
-        Gizmos.matrix = transform.localToWorldMatrix;
-
-        Gizmos.DrawCube(new Vector3(0f, 0f, mTargetDetectionDistance / 2f), new Vector3(mRaycastRadius, mRaycastRadius, mTargetDetectionDistance));
+        return result;
     }
-    void Update() 
+
+    private bool IsPlayerWithinSeeDistance(RaycastHit hit)
     {
-        this.CheckForTargetInLineOfSight();
+        bool result = false;
+        if (hit.distance <= 20)
+        {
+            result = true;
+        }
+        return result;
     }
+
 }
