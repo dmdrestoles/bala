@@ -19,12 +19,7 @@ public class EnemyDetection : MonoBehaviour {
         {
             Debug.Log("Player in vicinity");
             PlayerMovement pm = _mHitInfo.transform.gameObject.GetComponent<PlayerMovement>();
-            Debug.Log(pm);
-            if (pm.checkVisibility())
-            {
-                enemyState.isPlayerDetected = true;
-                Debug.Log("Player detected by " + this.gameObject.name);
-            }
+            enemyState.isPlayerDetected = pm.checkVisibility();
         } else
         {
             enemyState.isPlayerDetected = false;
