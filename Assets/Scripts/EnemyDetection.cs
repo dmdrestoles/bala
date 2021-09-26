@@ -31,9 +31,7 @@ public class EnemyDetection : MonoBehaviour {
         if(rifle.isFiring || revolver.isFiring || paltik.isFiring)
         {
             enemyState.isPlayerDetected = true;
-            rifle.isFiring = false;
-            revolver.isFiring = false;
-            paltik.isFiring = false;
+            StartCoroutine(HandleGunFiring());
         }
         else if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
         {
@@ -69,6 +67,14 @@ public class EnemyDetection : MonoBehaviour {
             result = true;
         }
         return result;
+    }
+
+    IEnumerator HandleGunFiring()
+    {
+        yield return new WaitForSeconds (3);
+        rifle.isFiring = false;
+        revolver.isFiring = false;
+        paltik.isFiring = false;
     }
 
 }
