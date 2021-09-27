@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}
@@ -6550,7 +6550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603625260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95, y: 10.06, z: 0}
+  m_LocalPosition: {x: 95, y: 16.576, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1662072616}
@@ -9807,7 +9807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}
@@ -20625,7 +20625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}
@@ -22316,7 +22316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}
@@ -35109,7 +35109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}
@@ -36841,7 +36841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e1fa8b5c2b174a9ee3cf8b8227135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRaycastRadius: 4
+  mRaycastRadius: 6
   mTargetDetectionDistance: 50
   player: {fileID: 267339886}
   rifle: {fileID: 984934306}

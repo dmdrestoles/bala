@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour {
-    public float mRaycastRadius;
     public float mTargetDetectionDistance;
     private bool isDetecting;
 
@@ -62,7 +61,7 @@ public class EnemyDetection : MonoBehaviour {
     private bool IsPlayerWithinSeeDistance(RaycastHit hit)
     {
         bool result = false;
-        if (hit.distance <= 20)
+        if (hit.distance <= mTargetDetectionDistance)
         {
             result = true;
         }
@@ -71,7 +70,7 @@ public class EnemyDetection : MonoBehaviour {
 
     IEnumerator HandleGunFiring()
     {
-        yield return new WaitForSeconds (3);
+        yield return new WaitForSeconds (1);
         rifle.isFiring = false;
         revolver.isFiring = false;
         paltik.isFiring = false;
