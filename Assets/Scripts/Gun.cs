@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class Gun : MonoBehaviour
     public int maxAmmo = 50;
     public int magazineAmmo = 5;
     public int currentAmmo;
+    
+    public string weaponName;
+    public Image weaponImage;
 
     public bool isReliable = true;
+    public bool isActive = false;
 
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
@@ -131,5 +136,10 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
+    }
+
+    public bool IsWeaponInLoadout()
+    {
+        return isActive;
     }
 }

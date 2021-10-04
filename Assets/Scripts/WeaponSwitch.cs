@@ -3,9 +3,14 @@
 public class WeaponSwitch : MonoBehaviour
 {
     public int equippedWeapon = 0;
+    public bool isSwitching = false;
+    public GameObject[] weapons;
+    private GameObject weaponsList;
 
     void Start()
     {
+        weaponsList = GameObject.FindWithTag("WeaponsList");
+        SelectActiveWeapons();
         SelectWeapon();
     }
 
@@ -15,7 +20,7 @@ public class WeaponSwitch : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel")> 0f)
         {
-            if (equippedWeapon >= transform.childCount - 1)
+            if (equippedWeapon >= weapons.Length)
             {
                 equippedWeapon = 0;
             }
@@ -29,7 +34,7 @@ public class WeaponSwitch : MonoBehaviour
         {
             if (equippedWeapon <= 0)
             {
-                equippedWeapon = transform.childCount - 1;
+                equippedWeapon = weapons.Length - 1;
             }
             else
             {
@@ -47,24 +52,32 @@ public class WeaponSwitch : MonoBehaviour
             equippedWeapon = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
-        {
-            equippedWeapon = 2;
-        }
-
         if (previousEquippedWeapon != equippedWeapon)
         {
             SelectWeapon();
         }
     }
 
+    void SelectActiveWeapons()
+    {
+        for (int i = 0; i < weaponsList.transform.childCount - 1; i++)
+        {
+            if (weaponsList.transform.GetChild(i).GetComponent<GameObject>().activeSelf)
+            {
+                Debug.Log(weaponsList.transform.GetChild(i).name);
+                weapons[i].GetComponent<Gun>().isActive = true;
+            }
+        }
+    }
+
     void SelectWeapon()
     {
         int i = 0;
+        isSwitching = true;
 
         foreach (Transform weapon in transform)
         {
-            if (i == equippedWeapon)
+            if (i == equippedWeapon && weapon.GetComponent<Gun>().isActive)
             {
                 weapon.gameObject.SetActive(true);
             }
@@ -75,5 +88,7 @@ public class WeaponSwitch : MonoBehaviour
 
             i += 1;
         }
+
+        isSwitching = false;
     }
 }

@@ -26,44 +26,22 @@ public class SelectLevelScript : MonoBehaviour
 
     public void PlayScene()
     {
+        DontDestroyOnLoad(playerWeapons);
         StartCoroutine(LoadScene(sceneName));
     }   
 
     IEnumerator LoadScene(string name)
     {
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+
         Scene currentScene = SceneManager.GetActiveScene();
-        Debug.Log( currentScene.name );
-        AsyncOperation scene = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
-        scene.allowSceneActivation = false;
-        sceneAsync = scene;
-
-        while ( scene.progress < 0.9f )
-        {
-            Debug.Log("Loading scene " + " [][] Progress: " + scene.progress);
-            yield return null;
-        }
-        yield return new WaitForSeconds(2.0f);
-        OnFinishedLoadingAllScene();
-    }
-
-    void EnableScene(string name)
-    {
-        sceneAsync.allowSceneActivation = true;
-
         Scene sceneToLoad = SceneManager.GetSceneByName(name);
 
-        if ( sceneToLoad.IsValid() )
-        {
-            Debug.Log("Scene is valid, loading.");
-            SceneManager.MoveGameObjectToScene(playerWeapons, sceneToLoad);
-            SceneManager.SetActiveScene(sceneToLoad);
-        }
-    }
+        SceneManager.MoveGameObjectToScene(playerWeapons, sceneToLoad);
 
-    void OnFinishedLoadingAllScene()
-    {
-        Debug.Log("Done Loading Scene.");
-        EnableScene(sceneName);
-        Debug.Log("Scene activated!");
+        yield return null;
+
+        SceneManager.UnloadSceneAsync(currentScene);
+        
     }
 }
