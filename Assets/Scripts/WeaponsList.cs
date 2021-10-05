@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class WeaponsList : MonoBehaviour
 {
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    
 }

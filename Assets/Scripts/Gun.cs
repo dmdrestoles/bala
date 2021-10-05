@@ -74,7 +74,7 @@ public class Gun : MonoBehaviour
 
                 if (!isReliable)
                 {
-                    Destroy(this.gameObject, 1.5f);
+                    isActive = false;
                 }
             }
             else

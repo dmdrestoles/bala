@@ -26,22 +26,48 @@ public class SelectLevelScript : MonoBehaviour
 
     public void PlayScene()
     {
-        DontDestroyOnLoad(playerWeapons);
-        StartCoroutine(LoadScene(sceneName));
+        // DontDestroyOnLoad(playerWeapons);
+        GetActiveWeapons();
+        SceneManager.LoadScene(sceneName);
     }   
 
-    IEnumerator LoadScene(string name)
+    // IEnumerator LoadScene(string name)
+    // {
+    //     yield return null;
+
+    //     Scene currentScene = SceneManager.GetActiveScene();
+    //     SceneManager.LoadScene(name, LoadSceneMode.Additive);
+
+    //     Scene sceneToLoad = SceneManager.GetSceneByName(name);
+
+    //     SceneManager.MoveGameObjectToScene(playerWeapons, sceneToLoad);
+
+    //     yield return null;
+
+    //     SceneManager.UnloadSceneAsync(currentScene);
+
+    // }
+
+    void GetActiveWeapons()
     {
-        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        for (int i = 0; i < playerWeapons.transform.childCount - 1; i ++)
+        {
+            GameObject weapon = playerWeapons.transform.GetChild(i).gameObject;
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        Scene sceneToLoad = SceneManager.GetSceneByName(name);
-
-        SceneManager.MoveGameObjectToScene(playerWeapons, sceneToLoad);
-
-        yield return null;
-
-        SceneManager.UnloadSceneAsync(currentScene);
-        
+            if (weapon.activeSelf)
+            {
+                if (weapon.GetComponent<Weapon>().type == "Primary")
+                {
+                    PlayerPrefs.SetInt("Primary", i);
+                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
+                }
+                else if (weapon.GetComponent<Weapon>().type == "Secondary")
+                {
+                    PlayerPrefs.SetInt("Secondary", i);
+                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
+                }
+            }
+            PlayerPrefs.Save();
+        }
     }
 }

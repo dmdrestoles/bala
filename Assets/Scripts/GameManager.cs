@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 2f;
 
     public GameObject reachedBridgeUI;
+
     public void CompleteLevel()
     {
         reachedBridgeUI.SetActive(true);

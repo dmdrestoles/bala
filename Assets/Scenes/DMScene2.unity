@@ -2882,6 +2882,7 @@ MonoBehaviour:
   weaponName: Paltik
   weaponImage: {fileID: 0}
   isReliable: 0
+  isActive: 0
   fireSound: {fileID: 220144387}
   fullReloadSound: {fileID: 220144386}
   startReloadSound: {fileID: 220144385}
@@ -2926,7 +2927,7 @@ Transform:
   m_Children:
   - {fileID: 1232892611}
   m_Father: {fileID: 672613439}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &226764834
 MonoBehaviour:
@@ -2952,6 +2953,7 @@ MonoBehaviour:
   weaponName: Colt Single Action Army
   weaponImage: {fileID: 0}
   isReliable: 1
+  isActive: 0
   fireSound: {fileID: 226764839}
   fullReloadSound: {fileID: 226764838}
   startReloadSound: {fileID: 226764837}
@@ -13307,8 +13309,8 @@ Transform:
   - {fileID: 984934300}
   - {fileID: 1783539344}
   - {fileID: 220144382}
-  - {fileID: 1926861537}
   - {fileID: 226764833}
+  - {fileID: 1926861537}
   - {fileID: 849323803}
   m_Father: {fileID: 500580740}
   m_RootOrder: 0
@@ -13350,8 +13352,8 @@ MonoBehaviour:
   - {fileID: 984934299}
   - {fileID: 1783539343}
   - {fileID: 220144381}
-  - {fileID: 1926861536}
   - {fileID: 226764832}
+  - {fileID: 1926861536}
   - {fileID: 849323802}
 --- !u!1 &678354054
 GameObject:
@@ -20477,6 +20479,7 @@ MonoBehaviour:
   weaponName: Sumpit
   weaponImage: {fileID: 0}
   isReliable: 0
+  isActive: 0
   fireSound: {fileID: 849323808}
   fullReloadSound: {fileID: 849323807}
   startReloadSound: {fileID: 849323806}
@@ -22563,6 +22566,7 @@ MonoBehaviour:
   weaponName: Mauser Model 1893
   weaponImage: {fileID: 0}
   isReliable: 1
+  isActive: 0
   fireSound: {fileID: 984934305}
   fullReloadSound: {fileID: 984934304}
   startReloadSound: {fileID: 984934303}
@@ -41090,6 +41094,7 @@ MonoBehaviour:
   weaponName: Remington
   weaponImage: {fileID: 0}
   isReliable: 1
+  isActive: 0
   fireSound: {fileID: 1783539349}
   fullReloadSound: {fileID: 1783539348}
   startReloadSound: {fileID: 1783539347}
@@ -52077,7 +52082,7 @@ Transform:
   m_Children:
   - {fileID: 9188738901783771264}
   m_Father: {fileID: 672613439}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1926861538
 AudioSource:
@@ -52583,6 +52588,7 @@ MonoBehaviour:
   weaponName: S&W No.3 Russian
   weaponImage: {fileID: 0}
   isReliable: 1
+  isActive: 0
   fireSound: {fileID: 1926861542}
   fullReloadSound: {fileID: 1926861541}
   startReloadSound: {fileID: 1926861540}
