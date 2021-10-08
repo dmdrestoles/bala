@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
 
     public bool isReliable = true;
     public bool isActive = false;
+    public bool isEnemy = false;
 
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
@@ -48,40 +49,44 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        if (isReloading)
+        if ( !isEnemy )
         {
-            return;
-        }
-
-        if (currentAmmo <= 0 && maxAmmo <= 0)
-        {
-            // play blank fire sound
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
-        {
-            StartCoroutine(HotReload());
-            return;
-        }
-
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            if (currentAmmo > 0)
+            if (isReloading)
             {
-                Shoot();
-
-                if (!isReliable)
-                {
-                    isActive = false;
-                }
+                return;
             }
-            else
+
+            if (currentAmmo <= 0 && maxAmmo <= 0)
+            {
+                // play blank fire sound
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
                 StartCoroutine(HotReload());
+                return;
+            }
+
+            if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
+                if (currentAmmo > 0)
+                {
+                    Shoot();
+
+                    if (!isReliable)
+                    {
+                        isActive = false;
+                    }
+                }
+                else
+                {
+                    StartCoroutine(HotReload());
+                }
             }
         }
+        
 
     }
 

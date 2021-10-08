@@ -14,7 +14,9 @@ public class Melee : MonoBehaviour
 
     public Animator animator;
     public GameObject weapon;
+    public Transform playerTransform;
     private RaycastHit hit;
+
 
     public float meleeRange;
     public float damage;
@@ -22,7 +24,7 @@ public class Melee : MonoBehaviour
 
     public void CheckForEnemies()
     {
-        isHitting = Physics.Linecast(transform.position, transform.position + (transform.forward * meleeRange), out hit);
+        isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
 
         if (isHitting && hit.transform.CompareTag("Enemy") && IsEnemyWithinAngle(hit) && IsEnemyWithinHitDistance(hit))
         {
