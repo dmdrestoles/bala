@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
@@ -7,14 +8,18 @@ public class WeaponSwitch : MonoBehaviour
 
     private int primaryWep;
     private int secondaryWep;
+    private int melee;
 
     public bool isSwitching = false;
+
     public GameObject[] weapons;
+    public Animator animator;
 
     void Start()
     {
         primaryWep = PlayerPrefs.GetInt("Primary");
         secondaryWep = PlayerPrefs.GetInt("Secondary");
+        melee = PlayerPrefs.GetInt("Melee");
         // LoadWeapons();
         SelectActiveWeapons();
         SelectWeapon();
@@ -24,40 +29,9 @@ public class WeaponSwitch : MonoBehaviour
     {
         int previousEquippedWeapon = equippedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            while (true)
-            {
-                equippedWeapon -= 1;
-
-                if (equippedWeapon < 0)
-                {
-                    equippedWeapon = weapons.Length - 1;
-                }
-                
-                if (weapons[equippedWeapon].GetComponent<Gun>().isActive)
-                {
-                    break;
-                }
-            }
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            while (true)
-            {
-                equippedWeapon += 1;
-
-                if (equippedWeapon >= weapons.Length)
-                {
-                    equippedWeapon = 0;
-                }
-                
-                if (weapons[equippedWeapon].GetComponent<Gun>().isActive)
-                {
-                    break;
-                }
-            }
+            StartCoroutine(MeleeAttack());
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -76,21 +50,14 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    // void LoadWeapons()
-    // {
-    //     foreach (Transform weapon in transform)
-    //     {
-    //         weapons.Add(weapon.gameObject);
-    //         Debug.Log("Adding weapon: " + weapon.gameObject.GetComponent<Gun>().weaponName);
-    //     }
-    // }
-
     void SelectActiveWeapons()
     {
         Debug.Log(weapons[primaryWep].GetComponent<Gun>().weaponName);
         weapons[primaryWep].GetComponent<Gun>().isActive = true;
         Debug.Log(weapons[secondaryWep].GetComponent<Gun>().weaponName);
         weapons[secondaryWep].GetComponent<Gun>().isActive = true;
+        Debug.Log(weapons[melee].GetComponent<Melee>().weaponName);
+        weapons[melee].GetComponent<Melee>().isActive = true;
 
         equippedWeapon = primaryWep;
     }
@@ -102,7 +69,7 @@ public class WeaponSwitch : MonoBehaviour
 
         foreach (Transform weapon in transform)
         {
-            if (i == equippedWeapon && weapon.GetComponent<Gun>().isActive)
+            if (i == equippedWeapon && weapon.GetComponent<Gun>().isActive )
             {
                 weapon.gameObject.SetActive(true);
             }
@@ -116,4 +83,28 @@ public class WeaponSwitch : MonoBehaviour
 
         isSwitching = false;
     }
+
+    IEnumerator MeleeAttack()
+    {
+        weapons[equippedWeapon].SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].SetActive(true);
+        animator.SetTrigger("Melee");
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].GetComponent<Melee>().CheckForEnemies();
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].gameObject.SetActive(false);
+        weapons[equippedWeapon].SetActive(true);
+    }
+
+    public int GetPrimaryWeapon()
+    {
+        return primaryWep;
+    }
+
+    public int GetSecondaryWeapon()
+    {
+        return secondaryWep;
+    }
+
 }

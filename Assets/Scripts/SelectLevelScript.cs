@@ -66,6 +66,11 @@ public class SelectLevelScript : MonoBehaviour
                     PlayerPrefs.SetInt("Secondary", i);
                     Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
                 }
+                else if (weapon.GetComponent<Weapon>().type == "Melee")
+                {
+                    PlayerPrefs.SetInt("Melee", i);
+                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
+                }
             }
             PlayerPrefs.Save();
         }
