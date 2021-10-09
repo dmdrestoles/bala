@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
 
     public float restartDelay = 2f;
+    public static bool IsInputEnabled = true;
 
     public GameObject reachedBridgeUI;
 

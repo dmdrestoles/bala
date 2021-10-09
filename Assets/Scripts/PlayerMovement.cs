@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public PlayerState playerState;
     
-    public float speed = 12f;
+    public static float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
@@ -28,18 +28,21 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (GameManager.IsInputEnabled == true)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
     }
 
     void OnTriggerStay(Collider other)
