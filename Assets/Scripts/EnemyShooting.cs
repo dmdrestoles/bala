@@ -7,7 +7,6 @@ public class EnemyShooting : MonoBehaviour
     public EnemyState state;
     public GameObject gun;
     public GameObject player;
-    public float range;
     public AudioSource fireSound, fullReloadSound, startReloadSound;
     public AudioSource loadBulletSound, endReloadSound;
     public ParticleSystem muzzleFlash;

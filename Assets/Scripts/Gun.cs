@@ -125,7 +125,7 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
         RaycastHit hit;
         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, new Color(255, 0, 0), 2f);
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && weaponSwitch.equippedWeapon )
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
 
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
@@ -144,7 +144,7 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
-        else if (weaponSwitch.equippedWeapon == 3)
+        else if (isSilent)
         {
             Rigidbody bulletForward;
             float speed = 50;

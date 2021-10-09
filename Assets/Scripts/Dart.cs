@@ -11,7 +11,7 @@ public class Dart : MonoBehaviour
     {
         if (gameObject.name == "Dart(Clone)" )
         {
-            Destroy(gameObject,2);
+            Destroy(gameObject, 2);
         }
     }
 
@@ -27,11 +27,11 @@ public class Dart : MonoBehaviour
         {
             EnemyState enemyState = collision.gameObject.GetComponent<EnemyState>();
             enemyState.isAsleep = true;
-            Destroy(dartBody);
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(dartBody);
+            Destroy(gameObject);
         }
         
     }

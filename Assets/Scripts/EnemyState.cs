@@ -22,22 +22,23 @@ public class EnemyState : MonoBehaviour
     {
         if (isAsleep)
         {
-            mr.material = materialOnSleep;
+            // mr.material = materialOnSleep;
             HandleSleeping();
         }
         
         else if (isPlayerDetected)
         {
-            mr.material = materialOnAlert; 
+            // mr.material = materialOnAlert; 
         }
 
         else if (!isPlayerDetected && !isAsleep)
         {
-            mr.material = materialOnNormal;
+            // mr.material = materialOnNormal;
         }
     }
     public void TakeDamage(float amount)
     {
+        Debug.Log("Player hit!");
         health -= amount;
         if (health <= 0f)
         {

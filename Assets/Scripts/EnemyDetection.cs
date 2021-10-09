@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour {
-    public float mTargetDetectionDistance;
-    public float mRaycastRadius;
     public float detectionDistance;
     private bool isDetecting;
 
@@ -33,7 +31,7 @@ public class EnemyDetection : MonoBehaviour {
     {
         if (Physics.Linecast(transform.position, playerTransform.position, out hit))
         {
-            if(weapons[0].isFiring || weapons[1].isFiring)
+            if( (weapons[0].isFiring && !weapons[0].isSilent) || (weapons[1].isFiring && !weapons[1].isSilent) )
             {
                 enemyState.alertLevel = 1;
                 enemyState.isPlayerDetected = true;
