@@ -21,7 +21,11 @@ public class Gun : MonoBehaviour
     public bool isReliable = true;
     public bool isActive = false;
     public bool isEnemy = false;
+    public bool isSilent = false;
 
+    public Rigidbody dart;
+    public Transform dartOrigin;
+    public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
     public AudioSource startReloadSound;
@@ -102,7 +106,7 @@ public class Gun : MonoBehaviour
             loadBulletSound.Play();
             maxAmmo -= 1;
             currentAmmo += 1;
-            Debug.Log("Loading ammo: " + currentAmmo);
+
             yield return new WaitForSeconds(bulletReload);
         }
 
@@ -121,9 +125,8 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
         RaycastHit hit;
         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, new Color(255, 0, 0), 2f);
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && weaponSwitch.equippedWeapon )
         {
-            Debug.Log(hit.transform.name);
 
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
@@ -140,6 +143,14 @@ public class Gun : MonoBehaviour
             /* GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
              * Destroy(impact, 0.5f);
              */
+        }
+        else if (weaponSwitch.equippedWeapon == 3)
+        {
+            Rigidbody bulletForward;
+            float speed = 50;
+
+            bulletForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
+            bulletForward.velocity = transform.TransformDirection(Vector3.forward * speed);
         }
     }
 

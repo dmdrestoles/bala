@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour {
     public float mTargetDetectionDistance;
+    public float mRaycastRadius;
+    public float detectionDistance;
     private bool isDetecting;
 
     public GameObject player;
     public Gun[] weapons;
     private RaycastHit hit;
     public EnemyState enemyState; 
+    public PlayerState playerState;
     private Transform playerTransform;
 
-    public Material materialOnAlert;
-    public Material materialOnNormal;
+    
     void Start() 
     {
         CheckActiveWeapons();
@@ -21,31 +23,34 @@ public class EnemyDetection : MonoBehaviour {
     void Update() 
     {
         playerTransform = player.transform;
-        this.CheckForTargetInLineOfSight();
+        if (!enemyState.isAsleep)
+        {
+            this.CheckForTargetInLineOfSight();
+        }
     }
 
     private void CheckForTargetInLineOfSight()
     {
-        isDetecting = Physics.Linecast(transform.position, playerTransform.position, out hit);
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-    
-        if(weapons[0].isFiring || weapons[1].isFiring)
+        if (Physics.Linecast(transform.position, playerTransform.position, out hit))
         {
-            enemyState.isPlayerDetected = true;
-            StartCoroutine(HandleGunFiring());
-        }
-        else if (isDetecting && hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit))
-        {
-            Debug.DrawLine(transform.position, hit.point,Color.red);
-            PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
-            enemyState.isPlayerDetected = pm.checkVisibility();
-            mr.material = materialOnAlert;
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, hit.point, Color.green);
-            enemyState.isPlayerDetected = false;
-            mr.material = materialOnNormal;
+            if(weapons[0].isFiring || weapons[1].isFiring)
+            {
+                enemyState.alertLevel = 1;
+                enemyState.isPlayerDetected = true;
+                StartCoroutine(HandleGunFiring());
+            }
+            else if (hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit) && IsPlayerVisible())
+            {
+                enemyState.alertLevel = 1;
+                Debug.DrawLine(transform.position, hit.point,Color.red);
+                PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
+                enemyState.isPlayerDetected = true;
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.green);
+                enemyState.isPlayerDetected = false;
+            }
         }
         
     }
@@ -64,7 +69,17 @@ public class EnemyDetection : MonoBehaviour {
     private bool IsPlayerWithinSeeDistance(RaycastHit hit)
     {
         bool result = false;
-        if (hit.distance <= mTargetDetectionDistance)
+        if (hit.distance <= detectionDistance)
+        {
+            result = true;
+        }
+        return result;
+    }
+
+    private bool IsPlayerVisible()
+    {
+        bool result = playerState.isVisible;
+        if (enemyState.alertLevel == 1)
         {
             result = true;
         }
