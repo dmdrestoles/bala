@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
+    public PlayerState playerState;
     
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -16,8 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-
-    bool isVisible = true;
 
     void Update()
     {
@@ -48,12 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "HidingSpot")
         {
-            isVisible = false;
-            //Debug.Log("Player in hiding.");
+            playerState.isVisible = false;
         }
         else
         {
-            isVisible = true;
+            playerState.isVisible = true;
         }
     }
 
@@ -61,13 +58,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "HidingSpot")
         {
-            isVisible = true;
-            //Debug.Log("Player visible.");
+            playerState.isVisible = true;
         }
     }
 
     public bool checkVisibility()
     {
-        return isVisible;
+        return playerState.isVisible;
     }
 }
