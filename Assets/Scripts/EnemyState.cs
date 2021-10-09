@@ -9,12 +9,8 @@ public class EnemyState : MonoBehaviour
     public bool isAsleep = false;
     public float health = 50f;
     public float distanceFromPlyaer;
-    public MeshRenderer mr;
     [HideInInspector]
     public int ammo, alertLevel;
-    public Material materialOnSleep;
-    public Material materialOnAlert;
-    public Material materialOnNormal;
     private float waitTime = 10.0f;
     private float timer = 0.0f;
 

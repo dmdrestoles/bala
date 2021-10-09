@@ -107,4 +107,15 @@ public class WeaponSwitch : MonoBehaviour
         return secondaryWep;
     }
 
+    public void SetPrimary()
+    {
+        primaryWep = PlayerPrefs.GetInt("Primary");
+    }
+
+    public void SetSecondary()
+    {
+        secondaryWep = PlayerPrefs.GetInt("Secondary");
+        SelectActiveWeapons();
+    }
+
 }

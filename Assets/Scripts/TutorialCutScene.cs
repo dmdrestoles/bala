@@ -120,6 +120,8 @@ public class TutorialCutScene : MonoBehaviour
                                         canvas.transform.GetChild(4).GetComponent<Text>().text = "Spanish Soldier";
                                         canvas.transform.GetChild(5).GetComponent<Text>().text = "Ataque!";
                                         yield return new WaitForSeconds(1);
+                                        PlayerPrefs.SetInt("Secondary", 3);
+                                        Player.transform.parent.GetChild(1).GetChild(0).GetComponent<WeaponSwitch>().SetSecondary();
                                         objectiveMarker.SetActive(true);
                                         canvas.transform.GetChild(4).GetComponent<Text>().text = "";
                                         canvas.transform.GetChild(5).GetComponent<Text>().text = "";
