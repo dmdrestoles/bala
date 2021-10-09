@@ -5,7 +5,7 @@ public class WeaponSwitch : MonoBehaviour
     public int equippedWeapon = 0;
 
     void Start()
-    {
+    {   
         SelectWeapon();
     }
 
