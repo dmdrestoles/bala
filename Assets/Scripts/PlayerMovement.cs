@@ -10,13 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public PlayerState playerState;
     
-    public static float speed = 12f;
+    public static float moveSpeed = 10f;
+    private float speed;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
     Vector3 velocity;
     bool isGrounded;
 
+    void Start()
+    {
+        speed = moveSpeed;
+    }
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -30,6 +35,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (GameManager.IsInputEnabled == true)
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = moveSpeed * 1.5f;
+            }
+            else
+            {
+                speed = moveSpeed;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                speed = moveSpeed;
+            }
             Vector3 move = transform.right * x + transform.forward * z;
 
             controller.Move(move * speed * Time.deltaTime);

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static bool IsInputEnabled = true;
 
     public GameObject reachedBridgeUI;
+    public GameObject playerDiedUI;
 
     public void CompleteLevelOne()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameHasEnded)
         {
+            playerDiedUI.SetActive(true);
             gameHasEnded = true;
             Debug.Log("GAME OVER!");
             Invoke("Restart", restartDelay);

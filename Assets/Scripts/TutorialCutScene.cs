@@ -27,7 +27,7 @@ public class TutorialCutScene : MonoBehaviour
         canvas.transform.GetChild(5).GetComponent<Text>().text = "";
         canvas.transform.GetChild(6).GetComponent<Text>().text = "";
         canvas.transform.GetChild(7).GetComponent<Text>().text = "";
-        PlayerMovement.speed = 0;
+        PlayerMovement.moveSpeed = 0;
         officer.enabled = false;
 
         GameManager.IsInputEnabled = false;
@@ -93,7 +93,7 @@ public class TutorialCutScene : MonoBehaviour
                                 Cam2.SetActive(false);
                                 PlayerCam.SetActive(true);
                                 GameManager.IsInputEnabled = true;
-                                PlayerMovement.speed = 12f;
+                                PlayerMovement.moveSpeed = 12f;
                                 canvas.transform.GetChild(6).GetComponent<Text>().text = "Use W-A-S-D to move.";
                                 canvas.transform.GetChild(7).GetComponent<Text>().text = "Go to the Officer";
                                 minimarker.SetActive(true);
