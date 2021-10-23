@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void LoadLevelTwo()
     {
-        SceneManager.LoadScene("DMScene2");
+        SceneManager.LoadScene("JaredScene3");
     }
 
     void Restart()

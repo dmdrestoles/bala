@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public EnemyState state;
-    public GameObject gun;
-    public GameObject player;
+    public GameObject gun, player, bullet;
     public AudioSource fireSound, fullReloadSound, startReloadSound;
     public AudioSource loadBulletSound, endReloadSound;
     public ParticleSystem muzzleFlash;
@@ -17,11 +16,6 @@ public class EnemyShooting : MonoBehaviour
     private float timer = 0.0f;
     private Transform target;
     private bool isReloading;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -36,9 +30,14 @@ public class EnemyShooting : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
+        GameObject bulletForward;
+
         bool shootCast = Physics.Linecast(gun.transform.position, CalculateMiss(target.position), out hit);
         if (shootCast && hit.transform.tag == "Player")
         {
+            bulletForward = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+            bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+
             Debug.DrawLine(transform.position, hit.point, Color.black, 2f);
             PlayerState player = hit.transform.GetComponent<PlayerState>();
             player.TakeDamage(25);

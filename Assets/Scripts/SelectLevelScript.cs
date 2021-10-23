@@ -17,7 +17,7 @@ public class SelectLevelScript : MonoBehaviour
 
     public void SelectLevelTwo()
     {
-        sceneName = "DMScene2";
+        sceneName = "JaredScene3";
     }
 
     public void setSceneName(string name)

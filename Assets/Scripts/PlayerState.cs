@@ -7,13 +7,12 @@ public class PlayerState : MonoBehaviour
 {
     // Start is called before the first frame update
     public float maxHealth = 100f;
-    private float currentHealth;
     public bool isVisible;
     public Text healthText;
     public GameManager gameManager;
-
     public Image damageScreen;
-    Color alphaColor;
+    private Color alphaColor;
+    private float currentHealth;
 
     void Start()
     {

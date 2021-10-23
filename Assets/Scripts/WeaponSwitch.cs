@@ -5,15 +5,14 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     public int equippedWeapon = 0;
-
-    private int primaryWep;
-    private int secondaryWep;
-    private int melee;
-
     public bool isSwitching = false;
 
     public GameObject[] weapons;
     public Animator animator;
+    
+    private int primaryWep;
+    private int secondaryWep;
+    private int melee;
 
     void Start()
     {
