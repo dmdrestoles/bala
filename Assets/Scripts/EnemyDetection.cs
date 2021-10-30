@@ -10,12 +10,14 @@ public class EnemyDetection : MonoBehaviour {
     public EnemyState enemyState; 
     public PlayerState playerState;
     public Detection_Utils utils;
+    [HideInInspector]
     private Transform playerTransform;
-
+    private Animator animator;
     
     void Start() 
     {
         CheckActiveWeapons();
+        animator = GetComponent<Animator>();
     }
     void Update() 
     {
@@ -33,6 +35,7 @@ public class EnemyDetection : MonoBehaviour {
             Debug.DrawLine(transform.position, hit.point, Color.green);
             if( (weapons[0].isFiring && !weapons[0].isSilent) || (weapons[1].isFiring && !weapons[1].isSilent) )
             {
+                animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
                 enemyState.isPlayerDetected = true;
                 StartCoroutine(HandleGunFiring());
@@ -40,6 +43,7 @@ public class EnemyDetection : MonoBehaviour {
             else if (hit.transform.CompareTag("Player") && utils.IsHitWithinObjectAngle(hit, transform, 45)
                     && utils.IsHitWithinObjectDistance(hit, detectionDistance) && IsPlayerVisible())
             {
+                animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
                 Debug.DrawLine(transform.position, hit.point,Color.red);
                 PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();

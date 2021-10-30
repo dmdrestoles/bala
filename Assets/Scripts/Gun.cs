@@ -128,11 +128,13 @@ public class Gun : MonoBehaviour
         currentAmmo -= 1;
         muzzleFlash.Play();
         
+        bulletForward = Instantiate(bullet, bulletOrigin.position, fpsCamera.transform.rotation);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
 
-            bulletForward = Instantiate(bullet, bulletOrigin.position, fpsCamera.transform.rotation);
-            bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+            
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)

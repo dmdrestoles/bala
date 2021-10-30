@@ -60,17 +60,14 @@ public class SelectLevelScript : MonoBehaviour
                 if (weapon.GetComponent<Weapon>().type == "Primary")
                 {
                     PlayerPrefs.SetInt("Primary", i);
-                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
                 }
                 else if (weapon.GetComponent<Weapon>().type == "Secondary")
                 {
                     PlayerPrefs.SetInt("Secondary", i);
-                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
                 }
                 else if (weapon.GetComponent<Weapon>().type == "Melee")
                 {
                     PlayerPrefs.SetInt("Melee", i);
-                    Debug.Log("Setting weapon " + i + ": " + weapon.GetComponent<Weapon>().weaponName);
                 }
             }
             PlayerPrefs.Save();

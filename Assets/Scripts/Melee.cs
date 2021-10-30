@@ -33,7 +33,6 @@ public class Melee : MonoBehaviour
         if (isHitting && hit.transform.CompareTag("Enemy") && utils.IsHitWithinObjectAngle(hit, playerTransform, meleeAngle) 
             && utils.IsHitWithinObjectDistance(hit,meleeRange))
         {
-            Debug.Log(hit.transform.name);
             hit.transform.gameObject.GetComponent<EnemyState>().TakeDamage(damage);
         }
     }

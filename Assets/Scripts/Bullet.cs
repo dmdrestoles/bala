@@ -10,13 +10,12 @@ public class Bullet : MonoBehaviour
     {
         if (gameObject.name == "Bullet(Clone)" )
         {
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.3f);
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         Destroy(bulletBody);
-        Debug.Log("Stop");
     }
 }

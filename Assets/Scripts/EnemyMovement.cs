@@ -19,11 +19,12 @@ public class EnemyMovement : MonoBehaviour
     private bool knowsLastPosition = false;
     private bool patrolStarted = false;
     private float timer = 0.0f;
+    private Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = movementSpeed;
+        animator = GetComponent<Animator>();
         r = GetComponent<Rigidbody>();
         isPlayerDetected = enemyState.isPlayerDetected;
         StopMovement();
@@ -52,14 +53,17 @@ public class EnemyMovement : MonoBehaviour
             agent.destination = playerTransform.position;
             playerLastPosition = playerTransform.position;
             r.velocity *= 0.99f;
+            agent.speed = 20f;
 
             enemyState.distanceFromPlyaer = Vector3.Distance(transform.position, playerTransform.position);
 
             transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
             HoldStillToFire();
         }
-        if (knowsLastPosition)
+        if (knowsLastPosition && !isPlayerDetected)
         {
+            agent.speed = 20f;
+            animator.SetBool("isMoving", true);
             agent.SetDestination(playerLastPosition);
         }
         if(CheckDestinationReached(playerLastPosition,2) && knowsLastPosition)
@@ -87,9 +91,12 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void StopMovement(){
-        r.freezeRotation = true;
-        r.constraints = RigidbodyConstraints.FreezePosition;
+        //r.freezeRotation = true;
+        //r.constraints = RigidbodyConstraints.FreezePosition;
         agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        animator.SetBool("isMoving", false);
+
     }
 
     void ResumeMovement() {
@@ -99,7 +106,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void Patrol(Vector3 start, Vector3 end){
-        
+        animator.SetBool("isMoving", true);
         if ((CheckDestinationReached(start,1)) && !agent.pathPending )
         {
             agent.SetDestination(end);
@@ -116,7 +123,9 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void PatrolKnownLastPosition(Vector3 start, Vector3 end, float time){
-        agent.acceleration = 3;
+        agent.speed = 3;
+        animator.SetBool("isMoving", true);
+
         if ((CheckDestinationReached(start,1)) && !agent.pathPending )
         {
             agent.SetDestination(end);
@@ -130,18 +139,16 @@ public class EnemyMovement : MonoBehaviour
 
         if (timer > time)
         {
-            // Remove the recorded seconds.
             timer = timer - time;
             knowsLastPosition = false;
             enemyState.alertLevel = 0;
             agent.acceleration = 8;
             StopMovement();
-            
         }
     }
 
     void HoldStillToFire(){
-        if (CheckDestinationReached(playerTransform.position,15))
+        if (CheckDestinationReached(playerTransform.position,20))
         {
             StopMovement();
         }

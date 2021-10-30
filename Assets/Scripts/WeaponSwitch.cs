@@ -51,11 +51,8 @@ public class WeaponSwitch : MonoBehaviour
 
     void SelectActiveWeapons()
     {
-        Debug.Log(weapons[primaryWep].GetComponent<Gun>().weaponName);
         weapons[primaryWep].GetComponent<Gun>().isActive = true;
-        Debug.Log(weapons[secondaryWep].GetComponent<Gun>().weaponName);
         weapons[secondaryWep].GetComponent<Gun>().isActive = true;
-        Debug.Log(weapons[melee].GetComponent<Melee>().weaponName);
         weapons[melee].GetComponent<Melee>().isActive = true;
 
         equippedWeapon = primaryWep;

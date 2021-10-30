@@ -12,10 +12,17 @@ public class EnemyShooting : MonoBehaviour
     public int magazineAmmo = 5;
     public int currentAmmo = 5;
     public float bulletReload = 0.5f;
-    private float waitTime = 4.1f;
+    [HideInInspector]
+    private float waitTime = 4.0f;
     private float timer = 0.0f;
     private Transform target;
     private bool isReloading;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,13 +38,15 @@ public class EnemyShooting : MonoBehaviour
     {
         RaycastHit hit;
         GameObject bulletForward;
+        
+        StartCoroutine(ShootAnimation());
 
         bool shootCast = Physics.Linecast(gun.transform.position, CalculateMiss(target.position), out hit);
+        bulletForward = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        
         if (shootCast && hit.transform.tag == "Player")
         {
-            bulletForward = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
-            bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
-
             Debug.DrawLine(transform.position, hit.point, Color.black, 2f);
             PlayerState player = hit.transform.GetComponent<PlayerState>();
             player.TakeDamage(25);
@@ -62,14 +71,12 @@ public class EnemyShooting : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (timer > waitTime && state.isPlayerDetected)
+        if (timer > waitTime && state.isPlayerDetected )
         {
             // Remove the recorded 2 seconds.
-            timer = timer - waitTime;
+            timer = timer - waitTime;   
             Shoot();
             currentAmmo-=1;
-            fireSound.Play();
-            muzzleFlash.Play();
         }
     }
 
@@ -106,5 +113,15 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isReloading = false;
 
+    }
+
+    IEnumerator ShootAnimation()
+    {
+        animator.SetTrigger("triggerFire");
+        Debug.Log("shooting");
+        fireSound.Play();
+        muzzleFlash.Play();
+        yield return new WaitForSeconds(0.15f);
+        animator.ResetTrigger("triggerFire");
     }
 }
