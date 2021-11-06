@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public EnemyState state;
-    public GameObject gun, player, bullet;
+    public GameObject muzzle, player, bullet;
     public AudioSource fireSound, fullReloadSound, startReloadSound;
     public AudioSource loadBulletSound, endReloadSound;
     public ParticleSystem muzzleFlash;
@@ -41,8 +41,8 @@ public class EnemyShooting : MonoBehaviour
         
         StartCoroutine(ShootAnimation());
 
-        bool shootCast = Physics.Linecast(gun.transform.position, CalculateMiss(target.position), out hit);
-        bulletForward = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+        bool shootCast = Physics.Linecast(muzzle.transform.position, CalculateMiss(target.position), out hit);
+        bulletForward = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
         bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
         
         if (shootCast && hit.transform.tag == "Player")
@@ -118,7 +118,6 @@ public class EnemyShooting : MonoBehaviour
     IEnumerator ShootAnimation()
     {
         animator.SetTrigger("triggerFire");
-        Debug.Log("shooting");
         fireSound.Play();
         muzzleFlash.Play();
         yield return new WaitForSeconds(0.15f);

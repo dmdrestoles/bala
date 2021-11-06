@@ -70,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 start = RandomNavSphere(playerLastPosition, 4, -1); 
             Vector3 end = RandomNavSphere(playerLastPosition, 4, -1);
+            Debug.Log("Patrolling");
             PatrolKnownLastPosition(start, end,2);
             
         }
