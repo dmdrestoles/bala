@@ -5,15 +5,14 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     public int equippedWeapon = 0;
-
-    private int primaryWep;
-    private int secondaryWep;
-    private int melee;
-
     public bool isSwitching = false;
 
     public GameObject[] weapons;
     public Animator animator;
+    
+    private int primaryWep;
+    private int secondaryWep;
+    private int melee;
 
     void Start()
     {
@@ -52,11 +51,8 @@ public class WeaponSwitch : MonoBehaviour
 
     void SelectActiveWeapons()
     {
-        Debug.Log(weapons[primaryWep].GetComponent<Gun>().weaponName);
         weapons[primaryWep].GetComponent<Gun>().isActive = true;
-        Debug.Log(weapons[secondaryWep].GetComponent<Gun>().weaponName);
         weapons[secondaryWep].GetComponent<Gun>().isActive = true;
-        Debug.Log(weapons[melee].GetComponent<Melee>().weaponName);
         weapons[melee].GetComponent<Melee>().isActive = true;
 
         equippedWeapon = primaryWep;

@@ -15,42 +15,26 @@ public class Melee : MonoBehaviour
     public Animator animator;
     public GameObject weapon;
     public Transform playerTransform;
-    private RaycastHit hit;
-
-
+    public Detection_Utils utils;
     public float meleeRange;
+    public float meleeAngle;
     public float damage;
     private bool isHitting;
+    private RaycastHit hit;
 
+    void Start()
+    {
+        meleeAngle = meleeAngle == 0 ? meleeAngle : 45;
+    }
     public void CheckForEnemies()
     {
         isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
 
-        if (isHitting && hit.transform.CompareTag("Enemy") && IsEnemyWithinAngle(hit) && IsEnemyWithinHitDistance(hit))
+        if (isHitting && hit.transform.CompareTag("Enemy") && utils.IsHitWithinObjectAngle(hit, playerTransform, meleeAngle) 
+            && utils.IsHitWithinObjectDistance(hit,meleeRange))
         {
-            Debug.Log(hit.transform.name);
             hit.transform.gameObject.GetComponent<EnemyState>().TakeDamage(damage);
         }
     }
-
-    private bool IsEnemyWithinAngle(RaycastHit hit)
-    {
-        bool result = false;
-        float deg = Vector3.Angle( transform.forward, hit.transform.position - transform.position );
-        if(deg <= 45)
-        {
-            result = true;
-        }
-        return result;
-    }
-
-    private bool IsEnemyWithinHitDistance(RaycastHit hit)
-    {
-        bool result = false;
-        if (hit.distance <= meleeRange)
-        {
-            result = true;
-        }
-        return result;
-    }   
+ 
 }

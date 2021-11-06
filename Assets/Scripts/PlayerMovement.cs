@@ -11,12 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public PlayerState playerState;
     
     public static float moveSpeed = 10f;
-    private float speed;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
-    Vector3 velocity;
-    bool isGrounded;
+    public Vector3 velocity;
+    public bool isGrounded;
+    private float speed;
 
     void Start()
     {

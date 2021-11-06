@@ -24,7 +24,8 @@ public class Gun : MonoBehaviour
     public bool isSilent = false;
 
     public Rigidbody dart;
-    public Transform dartOrigin;
+    public GameObject bullet;
+    public Transform dartOrigin, bulletOrigin;
     public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
@@ -36,7 +37,6 @@ public class Gun : MonoBehaviour
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash;
     public bool isFiring = false;
-    // public ParticleSystem impactEffect;
 
     private float nextTimeToFire = 0f;
     private bool isReloading = false;
@@ -119,15 +119,22 @@ public class Gun : MonoBehaviour
     }
     void Shoot()
     {
+        GameObject bulletForward;
+        Rigidbody dartForward;
+        RaycastHit hit;
+
         isFiring = true;
         fireSound.Play();
         currentAmmo -= 1;
         muzzleFlash.Play();
-        RaycastHit hit;
-        Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, new Color(255, 0, 0), 2f);
+        
+        bulletForward = Instantiate(bullet, bulletOrigin.position, fpsCamera.transform.rotation);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
 
+            
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)
@@ -146,11 +153,11 @@ public class Gun : MonoBehaviour
         }
         else if (isSilent)
         {
-            Rigidbody bulletForward;
+            
             float speed = 50;
 
-            bulletForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
-            bulletForward.velocity = transform.TransformDirection(Vector3.forward * speed);
+            dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
+            dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
         }
     }
 
