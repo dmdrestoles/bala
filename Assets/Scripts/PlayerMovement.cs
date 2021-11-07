@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public PlayerState playerState;
+    public Animator animator;
     
     public static float moveSpeed = 10f;
     private float speed;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
+    
     Vector3 velocity;
     bool isGrounded;
 
@@ -35,8 +37,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (GameManager.IsInputEnabled == true)
         {
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            if ( move.magnitude <= 0.001f )
+            {
+                animator.SetBool("Moving", false);
+            }
+            else
+            {
+                animator.SetBool("Moving", true);
+            }
+            
             if (Input.GetKey(KeyCode.LeftShift))
             {
+                animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
             }
             else
@@ -46,9 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
+                animator.SetBool("Running", false);
                 speed = moveSpeed;
             }
-            Vector3 move = transform.right * x + transform.forward * z;
 
             controller.Move(move * speed * Time.deltaTime);
 
