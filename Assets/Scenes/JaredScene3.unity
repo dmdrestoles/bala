@@ -3906,6 +3906,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerState: {fileID: 267339890}
+  animator: {fileID: 672613440}
   gravity: -15
   jumpHeight: 1.5
   velocity: {x: 0, y: 0, z: 0}

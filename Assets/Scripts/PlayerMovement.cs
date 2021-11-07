@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
-    Vector3 velocity;
-    bool isGrounded;
     public Vector3 velocity;
     public bool isGrounded;
     private float speed;
@@ -42,16 +40,16 @@ public class PlayerMovement : MonoBehaviour
 
             if ( move.magnitude <= 0.001f )
             {
-                animator.SetBool("Moving", false);
+                // animator.SetBool("Moving", false);
             }
             else
             {
-                animator.SetBool("Moving", true);
+                // animator.SetBool("Moving", true);
             }
             
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                animator.SetBool("Running", true);
+                // animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
             }
             else
@@ -61,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                animator.SetBool("Running", false);
+                // animator.SetBool("Running", false);
                 speed = moveSpeed;
             }
 
