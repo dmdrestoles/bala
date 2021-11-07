@@ -10,6 +10,7 @@ public class EnemyState : MonoBehaviour
     public float health = 50f;
     public float distanceFromPlyaer;
     [HideInInspector]
+    public bool isAiming, isWalking, isFiring;
     public int ammo, alertLevel;
     private float waitTime = 10.0f;
     private float timer = 0.0f;
@@ -34,7 +35,6 @@ public class EnemyState : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
-        Debug.Log("Player hit!");
         health -= amount;
         if (health <= 0f)
         {

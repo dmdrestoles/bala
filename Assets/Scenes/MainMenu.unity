@@ -3227,7 +3227,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DMScene2
+          m_StringArgument: JaredScene3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &744608807
@@ -6383,7 +6383,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582421818}
-  - component: {fileID: 1582421817}
   m_Layer: 0
   m_Name: WeaponsList
   m_TagString: WeaponsList
@@ -6391,18 +6390,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1582421817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582421816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68806ec653d547140b157c9d2c3e4e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1582421818
 RectTransform:
   m_ObjectHideFlags: 0

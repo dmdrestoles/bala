@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour {
     public float detectionDistance;
-    private bool isDetecting;
-
     public GameObject player;
     public Gun[] weapons;
     private RaycastHit hit;
     public EnemyState enemyState; 
     public PlayerState playerState;
+    public Detection_Utils utils;
+    [HideInInspector]
     private Transform playerTransform;
-
+    private Animator animator;
     
     void Start() 
     {
         CheckActiveWeapons();
+        animator = GetComponent<Animator>();
     }
     void Update() 
     {
@@ -31,14 +32,18 @@ public class EnemyDetection : MonoBehaviour {
     {
         if (Physics.Linecast(transform.position, playerTransform.position, out hit))
         {
+            Debug.DrawLine(transform.position, hit.point, Color.green);
             if( (weapons[0].isFiring && !weapons[0].isSilent) || (weapons[1].isFiring && !weapons[1].isSilent) )
             {
+                animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
                 enemyState.isPlayerDetected = true;
                 StartCoroutine(HandleGunFiring());
             }
-            else if (hit.transform.CompareTag("Player") && IsPlayerWithinFOV() && IsPlayerWithinSeeDistance(hit) && IsPlayerVisible())
+            else if (hit.transform.CompareTag("Player") && utils.IsHitWithinObjectAngle(hit, transform, 45)
+                    && utils.IsHitWithinObjectDistance(hit, detectionDistance) && IsPlayerVisible())
             {
+                animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
                 Debug.DrawLine(transform.position, hit.point,Color.red);
                 PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
@@ -46,32 +51,10 @@ public class EnemyDetection : MonoBehaviour {
             }
             else
             {
-                Debug.DrawLine(transform.position, hit.point, Color.green);
                 enemyState.isPlayerDetected = false;
             }
         }
         
-    }
-
-    private bool IsPlayerWithinFOV()
-    {
-        bool result = false;
-        float deg = Vector3.Angle( transform.forward, playerTransform.position - transform.position );
-        if(deg <= 45)
-        {
-            result = true;
-        }
-        return result;
-    }
-
-    private bool IsPlayerWithinSeeDistance(RaycastHit hit)
-    {
-        bool result = false;
-        if (hit.distance <= detectionDistance)
-        {
-            result = true;
-        }
-        return result;
     }
 
     private bool IsPlayerVisible()
