@@ -8,6 +8,7 @@ public class EnemyDetection : MonoBehaviour {
     public Gun[] weapons;
     private RaycastHit hit;
     public EnemyState enemyState; 
+    public EnemyMovement enemyMovement;
     public PlayerState playerState;
     public Detection_Utils utils;
     [HideInInspector]
@@ -52,6 +53,8 @@ public class EnemyDetection : MonoBehaviour {
             else
             {
                 enemyState.isPlayerDetected = false;
+                enemyState.isFiring = false;
+                enemyMovement.ResumeMovement();
             }
         }
         
