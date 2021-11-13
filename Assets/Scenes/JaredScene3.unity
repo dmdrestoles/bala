@@ -7572,7 +7572,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -7643,6 +7643,7 @@ MonoBehaviour:
   - {fileID: 226764834}
   - {fileID: 1926861543}
   enemyState: {fileID: 605545883}
+  enemyMovement: {fileID: 605545882}
   playerState: {fileID: 267339890}
   utils: {fileID: 1077160649}
 --- !u!114 &605545885
@@ -7658,6 +7659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 605545883}
+  movement: {fileID: 605545882}
   muzzle: {fileID: 1182980203}
   player: {fileID: 267339886}
   bullet: {fileID: 1455269025}

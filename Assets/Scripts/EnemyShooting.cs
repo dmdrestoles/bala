@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public EnemyState state;
+    public EnemyMovement movement;
     public GameObject muzzle, player, bullet;
     public AudioSource fireSound, fullReloadSound, startReloadSound;
     public AudioSource loadBulletSound, endReloadSound;
@@ -13,7 +14,7 @@ public class EnemyShooting : MonoBehaviour
     public int currentAmmo = 5;
     public float bulletReload = 0.5f;
     [HideInInspector]
-    private float waitTime = 4.0f;
+    private float waitTime = 2.0f;
     private float timer = 0.0f;
     private Transform target;
     private bool isReloading;
@@ -66,7 +67,7 @@ public class EnemyShooting : MonoBehaviour
             return;
         }
 
-        if (state.isPlayerDetected)
+        if (state.isFiring)
         {
             timer += Time.deltaTime;
         }
@@ -117,10 +118,12 @@ public class EnemyShooting : MonoBehaviour
 
     IEnumerator ShootAnimation()
     {
+        movement.StopMovement();
         animator.SetTrigger("triggerFire");
         fireSound.Play();
         muzzleFlash.Play();
         yield return new WaitForSeconds(0.15f);
         animator.ResetTrigger("triggerFire");
+        movement.ResumeMovement();
     }
 }
