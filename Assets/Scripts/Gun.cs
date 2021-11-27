@@ -41,6 +41,10 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire = 0f;
     private bool isReloading = false;
 
+    //For Ammo Count UI
+    public GameObject left;
+    public GameObject right;
+
     void Start()
     {
         currentAmmo = magazineAmmo;
@@ -90,8 +94,20 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-        
 
+        if (isEnemy == false)
+        {
+            if (maxAmmo <= 0)
+            {
+                right.GetComponent<Text>().text = "0";
+                left.GetComponent<Text>().text = currentAmmo.ToString();
+            }
+            else
+            {
+                left.GetComponent<Text>().text = currentAmmo.ToString();
+                right.GetComponent<Text>().text = maxAmmo.ToString();
+            }
+        }
     }
 
     IEnumerator HotReload()
@@ -101,7 +117,7 @@ public class Gun : MonoBehaviour
         animator.SetBool("Reloading", true);
         startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
-        while (currentAmmo < magazineAmmo)
+        while (currentAmmo < magazineAmmo && maxAmmo > 0)
         {
             loadBulletSound.Play();
             maxAmmo -= 1;

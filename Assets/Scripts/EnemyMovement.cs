@@ -7,9 +7,10 @@ public class EnemyMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
     public EnemyState enemyState;
+    public Transform playerTransform;
 
     [HideInInspector]
-    public Transform playerTransform;
+    //public Transform playerTransform;
     public bool isPlayerDetected;
     public Vector3 startPatrolLocation;
     public Vector3 endPatrolLocation;
