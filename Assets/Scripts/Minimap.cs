@@ -4,23 +4,13 @@ using UnityEngine;
 
 public class Minimap : MonoBehaviour
 {
-    public GameObject objective;
-    public GameObject minimapCamera;
+    public GameObject player;
     Vector3 temp;
 
     void Update()
     {
-        temp = objective.transform.position;
+        temp = player.transform.position;
+        temp.y = 50f;
         transform.position = temp;
-        transform.rotation = minimapCamera.transform.rotation;
-    }
-
-    void LateUpdate()
-    {
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minimapCamera.transform.position.x - 14f, 14f + minimapCamera.transform.position.x),
-            transform.position.y,
-            Mathf.Clamp(transform.position.z, minimapCamera.transform.position.z - 14f, 14f + minimapCamera.transform.position.z)
-            );
     }
 }
