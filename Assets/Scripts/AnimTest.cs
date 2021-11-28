@@ -9,10 +9,16 @@ public class AnimTest : MonoBehaviour
     private bool isAiming = false;
     private bool isReloading = false;
     // Start is called before the first frame update
+
+    GameObject primary;
+    GameObject secondary;
     void Start()
     {
-        gameObject.transform.Find("Primary").gameObject.SetActive(true);
-        gameObject.transform.Find("Secondary").gameObject.SetActive(false);
+        primary = gameObject.transform.Find("WeaponHolder").Find("Primary").gameObject;
+        secondary = gameObject.transform.Find("WeaponHolder").Find("Secondary").gameObject;
+
+        primary.SetActive(true);
+        secondary.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,17 +47,17 @@ public class AnimTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             animator.SetBool("inPrimary", true);
-            gameObject.transform.Find("Primary").gameObject.SetActive(true);
+            primary.SetActive(true);
             animator.SetBool("inSecondary", false);
-            gameObject.transform.Find("Secondary").gameObject.SetActive(false);
+            secondary.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             animator.SetBool("inPrimary", false);
-            gameObject.transform.Find("Primary").gameObject.SetActive(false);
+            primary.SetActive(false);
             animator.SetBool("inSecondary", true);
-            gameObject.transform.Find("Secondary").gameObject.SetActive(true);
+            secondary.SetActive(true);
         }
     }
 

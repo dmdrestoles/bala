@@ -79,10 +79,10 @@ public class EnemyDetection : MonoBehaviour {
 
     void CheckActiveWeapons()
     {
-        WeaponSwitch playerWeapons = GameObject.FindWithTag("WeaponHolder").GetComponent<WeaponSwitch>();
+        //WeaponSwitch playerWeapons = GameObject.FindWithTag("Primary").GetComponent<WeaponSwitch>();
 
-        weapons[0] = playerWeapons.weapons[ playerWeapons.GetPrimaryWeapon() ].GetComponent<Gun>();
-        weapons[1] = playerWeapons.weapons[ playerWeapons.GetSecondaryWeapon() ].GetComponent<Gun>();
+        //weapons[0] = playerWeapons.weapons[ playerWeapons.GetPrimaryWeapon() ].GetComponent<Gun>();
+        //weapons[1] = playerWeapons.weapons[ playerWeapons.GetSecondaryWeapon() ].GetComponent<Gun>();
     }
 
 }
