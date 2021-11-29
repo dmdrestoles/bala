@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
-    public EnemyState enemyState;
+    
     public Transform playerTransform;
 
     [HideInInspector]
     public bool isPlayerDetected;
     public Vector3 startPatrolLocation;
     public Vector3 endPatrolLocation;
+    private EnemyState enemyState;
     NavMeshAgent agent;
     Rigidbody r;
     private Vector3 playerLastPosition;
@@ -25,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        enemyState = GetComponent<EnemyState>();
         r = GetComponent<Rigidbody>();
         isPlayerDetected = enemyState.isPlayerDetected;
     }

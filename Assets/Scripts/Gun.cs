@@ -35,15 +35,15 @@ public class Gun : MonoBehaviour
     public Animator animator;
 
     public Camera fpsCamera;
-    public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash, aimedMuzzleFlash;
     public bool isFiring = false;
 
     private float nextTimeToFire = 0f;
     private bool isReloading = false;
 
     //For Ammo Count UI
-    public GameObject left;
-    public GameObject right;
+    public GameObject currentAmmoUI;
+    public GameObject maxAmmoUI;
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class Gun : MonoBehaviour
     void OnEnable()
     {
         isReloading = false;
-        animator.SetBool("Reloading", false);
+        animator.SetBool("isReloading", false);
     }
     void Update()
     {
@@ -81,6 +81,10 @@ public class Gun : MonoBehaviour
                 nextTimeToFire = Time.time + 1f / fireRate;
                 if (currentAmmo > 0)
                 {
+                    if (isSilent && !animator.GetBool("isAiming"))
+                    {
+                        return;
+                    }
                     Shoot();
 
                     if (!isReliable)
@@ -99,13 +103,13 @@ public class Gun : MonoBehaviour
         {
             if (maxAmmo <= 0)
             {
-                right.GetComponent<Text>().text = "0";
-                left.GetComponent<Text>().text = currentAmmo.ToString();
+                maxAmmoUI.GetComponent<Text>().text = "0";
+                currentAmmoUI.GetComponent<Text>().text = currentAmmo.ToString();
             }
             else
             {
-                left.GetComponent<Text>().text = currentAmmo.ToString();
-                right.GetComponent<Text>().text = maxAmmo.ToString();
+                currentAmmoUI.GetComponent<Text>().text = currentAmmo.ToString();
+                maxAmmoUI.GetComponent<Text>().text = maxAmmo.ToString();
             }
         }
     }
@@ -114,7 +118,7 @@ public class Gun : MonoBehaviour
     {
         isReloading = true;
         yield return new WaitForSeconds(0.25f);
-        animator.SetBool("Reloading", true);
+        animator.SetBool("isReloading", true);
         startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
         while (currentAmmo < magazineAmmo && maxAmmo > 0)
@@ -127,9 +131,8 @@ public class Gun : MonoBehaviour
         }
 
         endReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        animator.SetBool("isReloading", false);
         isReloading = false;
 
     }
@@ -138,19 +141,28 @@ public class Gun : MonoBehaviour
         GameObject bulletForward;
         Rigidbody dartForward;
         RaycastHit hit;
+        ParticleSystem muzzle = selectMuzzle();
 
         isFiring = true;
-        fireSound.Play();
+        animator.SetTrigger("Firing");
         currentAmmo -= 1;
-        muzzleFlash.Play();
-        
-        bulletForward = Instantiate(bullet, bulletOrigin.position, fpsCamera.transform.rotation);
-        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
-        
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range) && !isSilent )
+        if (isSilent)
         {
+            float speed = 50;
 
-            
+            dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
+            dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
+            return;
+        }
+
+        fireSound.Play();
+        muzzle.Play();
+        bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        if (Physics.Raycast(muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.forward, out hit, range) && !isSilent )
+        {
+            Debug.Log(hit.GetType());
+
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)
@@ -167,18 +179,38 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
-        else if (isSilent)
-        {
-            
-            float speed = 50;
-
-            dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
-            dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
-        }
     }
 
     public bool IsWeaponInLoadout()
     {
         return isActive;
     }
+
+    private ParticleSystem selectMuzzle()
+    {
+        bool isAiming = animator.GetBool("isAiming");
+
+        if (isAiming)
+        {
+            return aimedMuzzleFlash;
+        }
+
+        return muzzleFlash;
+    }
+
+    private float ReloadAnimationTime(string gun)
+    {
+        float result = 0;
+
+        if (gun == "Paltik")
+        {
+            result = 3.5f;
+        }
+        else if (gun == "Sumpit")
+        {
+            result = 0f;
+        }
+        return result;
+    }
+    
 }

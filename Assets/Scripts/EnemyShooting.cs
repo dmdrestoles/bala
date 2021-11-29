@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public EnemyState state;
-    public EnemyMovement movement;
     public GameObject muzzle, player, bullet;
     public AudioSource fireSound, fullReloadSound, startReloadSound;
     public AudioSource loadBulletSound, endReloadSound;
@@ -14,6 +12,8 @@ public class EnemyShooting : MonoBehaviour
     public int currentAmmo = 5;
     public float bulletReload = 0.5f;
     [HideInInspector]
+    private EnemyState state;
+    private EnemyMovement movement;
     private float waitTime = 2.0f;
     private float timer = 0.0f;
     private Transform target;
@@ -23,6 +23,8 @@ public class EnemyShooting : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        state = GetComponent<EnemyState>();
+        movement = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
