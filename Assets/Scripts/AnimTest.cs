@@ -40,25 +40,29 @@ public class AnimTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            animator.SetBool("inPrimary", true);
-            gameObject.transform.Find("Primary").gameObject.SetActive(true);
-            animator.SetBool("inSecondary", false);
-            gameObject.transform.Find("Secondary").gameObject.SetActive(false);
+            StartCoroutine(ChangeWeapon(true));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            animator.SetBool("inPrimary", false);
-            gameObject.transform.Find("Primary").gameObject.SetActive(false);
-            animator.SetBool("inSecondary", true);
-            gameObject.transform.Find("Secondary").gameObject.SetActive(true);
+            StartCoroutine(ChangeWeapon(false));
         }
+    }
+
+    IEnumerator ChangeWeapon(bool isPrimary)
+    {
+        animator.SetBool("inPrimary", isPrimary);
+        animator.SetBool("inSecondary", !isPrimary);
+        yield return new WaitForSeconds(0.5f);
+        secondary.SetActive(!isPrimary);
+        primary.SetActive(isPrimary);
     }
 
     IEnumerator HotReload()
     {
         isReloading = true;
         yield return new WaitForSeconds(0.25f);
+        animator.SetTrigger("Reload");
         animator.SetBool("isReloading", true);
         //startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
