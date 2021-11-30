@@ -29,21 +29,30 @@ public class EnemyMovement : MonoBehaviour
         enemyState = GetComponent<EnemyState>();
         r = GetComponent<Rigidbody>();
         isPlayerDetected = enemyState.isPlayerDetected;
+        
+        HandleNonPatrol();
     }
 
     void Update()
     {
         isPlayerDetected = enemyState.isPlayerDetected;
-        if (!enemyState.isAsleep && animator.GetBool("isMoving"))
+        if (!isPlayerDetected && !enemyState.hasPatrol && enemyState.alertLevel != 1)
         {
+            StopMovement();
+        }
+        else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
+        {
+            animator.SetBool("isAiming", false);
             HandleDetection(isPlayerDetected);
         }
         else if(enemyState.isFiring)
         {
             transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
+            StopMovement();
         }
         else
         {
+            animator.SetBool("isAiming", false);
             StopMovement();
         }
     }
@@ -60,7 +69,6 @@ public class EnemyMovement : MonoBehaviour
             r.velocity *= 0.99f;
             agent.speed = 20f;
             animator.SetBool("isMoving", true);
-
             enemyState.distanceFromPlyaer = Vector3.Distance(transform.position, playerTransform.position);
 
             transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
@@ -75,14 +83,15 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 start = RandomNavSphere(playerLastPosition, 3.5f, -1); 
             Vector3 end = RandomNavSphere(playerLastPosition, 3.5f, -1);
-            
             PatrolKnownLastPosition(start, end,2);
             
+            
         }
-        if(!isPlayerDetected && !knowsLastPosition)
+        if(!isPlayerDetected && !knowsLastPosition && enemyState.hasPatrol)
         {
             ResumeMovement();
             Patrol(startPatrolLocation,endPatrolLocation);
+
         }
 
     }
@@ -102,6 +111,7 @@ public class EnemyMovement : MonoBehaviour
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
         animator.SetBool("isMoving", false);
+        animator.SetBool("isWalking", false);
 
     }
 
@@ -172,5 +182,18 @@ public class EnemyMovement : MonoBehaviour
         NavMesh.SamplePosition (origin, out navHit, distance, NavMesh.AllAreas);
         result = navHit.position;
         return result;
+    }
+
+    private void HandleNonPatrol()
+    {
+        if (enemyState.hasPatrol)
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isMoving", true);
+        }else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isMoving", false);
+        }
     }
 }

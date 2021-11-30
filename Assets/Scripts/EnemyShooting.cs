@@ -71,6 +71,8 @@ public class EnemyShooting : MonoBehaviour
 
         if (state.isFiring)
         {
+            state.isAiming = true;
+            animator.SetBool("isAiming", true);
             timer += Time.deltaTime;
         }
 
@@ -127,5 +129,6 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         animator.ResetTrigger("triggerFire");
         movement.ResumeMovement();
+        animator.SetBool("isAiming", false);
     }
 }

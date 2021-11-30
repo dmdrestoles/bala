@@ -52,12 +52,21 @@ public class EnemyDetection : MonoBehaviour {
                 PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
                 enemyState.isPlayerDetected = true;
             }
-            else
+            else if(enemyState.hasPatrol)
             {
                 enemyState.isPlayerDetected = false;
                 enemyState.isFiring = false;
                 enemyMovement.ResumeMovement();
             }
+            else
+            {
+                enemyState.isPlayerDetected = false;
+                enemyState.isFiring = false;
+            }
+        }
+        else
+        {
+            enemyState.isFiring = false;
         }
         
     }
