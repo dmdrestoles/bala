@@ -13,8 +13,8 @@ public class AnimTest : MonoBehaviour
     private GameObject secondary;
     void Start()
     {
-        primary = gameObject.transform.Find("Primary").gameObject;
-        secondary = gameObject.transform.Find("Secondary").gameObject;
+        primary = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Primary").gameObject;
+        secondary = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Secondary").gameObject;
     }
 
     // Update is called once per frame
