@@ -9,10 +9,12 @@ public class AnimTest : MonoBehaviour
     private bool isAiming = false;
     private bool isReloading = false;
     // Start is called before the first frame update
+    private GameObject primary;
+    private GameObject secondary;
     void Start()
     {
-        gameObject.transform.Find("Primary").gameObject.SetActive(true);
-        gameObject.transform.Find("Secondary").gameObject.SetActive(false);
+        primary = gameObject.transform.Find("Primary").gameObject;
+        secondary = gameObject.transform.Find("Secondary").gameObject;
     }
 
     // Update is called once per frame
