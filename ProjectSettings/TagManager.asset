@@ -19,6 +19,7 @@ TagManager:
   - 
   - 
   - Ground
+  - icons
   - 
   - 
   - 
@@ -40,8 +41,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - trees
   m_SortingLayers:
   - name: Default
     uniqueID: 0

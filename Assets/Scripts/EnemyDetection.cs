@@ -7,17 +7,20 @@ public class EnemyDetection : MonoBehaviour {
     public GameObject player;
     public Gun[] weapons;
     private RaycastHit hit;
-    public EnemyState enemyState; 
     public PlayerState playerState;
     public Detection_Utils utils;
     [HideInInspector]
     private Transform playerTransform;
     private Animator animator;
+    private EnemyState enemyState; 
+    private EnemyMovement enemyMovement;
     
     void Start() 
     {
         CheckActiveWeapons();
         animator = GetComponent<Animator>();
+        enemyState = GetComponent<EnemyState>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
     void Update() 
     {
@@ -52,6 +55,8 @@ public class EnemyDetection : MonoBehaviour {
             else
             {
                 enemyState.isPlayerDetected = false;
+                enemyState.isFiring = false;
+                enemyMovement.ResumeMovement();
             }
         }
         
@@ -76,10 +81,10 @@ public class EnemyDetection : MonoBehaviour {
 
     void CheckActiveWeapons()
     {
-        WeaponSwitch playerWeapons = GameObject.FindWithTag("WeaponHolder").GetComponent<WeaponSwitch>();
+        //WeaponSwitch playerWeapons = GameObject.FindWithTag("WeaponHolder").GetComponent<WeaponSwitch>();
 
-        weapons[0] = playerWeapons.weapons[ playerWeapons.GetPrimaryWeapon() ].GetComponent<Gun>();
-        weapons[1] = playerWeapons.weapons[ playerWeapons.GetSecondaryWeapon() ].GetComponent<Gun>();
+        //weapons[0] = playerWeapons.weapons[ playerWeapons.GetPrimaryWeapon() ].GetComponent<Gun>();
+        //weapons[1] = playerWeapons.weapons[ playerWeapons.GetSecondaryWeapon() ].GetComponent<Gun>();
     }
 
 }
