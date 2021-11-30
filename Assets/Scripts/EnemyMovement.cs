@@ -40,6 +40,11 @@ public class EnemyMovement : MonoBehaviour
         {
             StopMovement();
         }
+        else if (enemyState.isAsleep)
+        {
+            animator.SetBool("isMoving", false);
+            StopMovement();
+        }
         else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
         {
             animator.SetBool("isAiming", false);

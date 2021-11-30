@@ -22,24 +22,6 @@ public class AnimTest : MonoBehaviour
     {
         // Check animations per button press.
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            isAiming = !isAiming;
-            Debug.Log("Aiming! " + isAiming);
-            animator.SetBool("isAiming", isAiming);
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            //animator.SetTrigger("Firing");
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //StartCoroutine(HotReload());
-            //return;
-        }
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StartCoroutine(ChangeWeapon(true));
@@ -58,21 +40,5 @@ public class AnimTest : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         secondary.SetActive(!isPrimary);
         primary.SetActive(isPrimary);
-    }
-
-    IEnumerator HotReload()
-    {
-        isReloading = true;
-        yield return new WaitForSeconds(0.25f);
-        animator.SetTrigger("Reload");
-        animator.SetBool("isReloading", true);
-        //startReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
-        //endReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("isReloading", false);
-        yield return new WaitForSeconds(0.25f);
-        isReloading = false;
-
     }
 }

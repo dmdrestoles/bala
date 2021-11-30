@@ -39,7 +39,8 @@ public class Gun : MonoBehaviour
     public bool isFiring = false;
 
     private float nextTimeToFire = 0f;
-    private bool isReloading = false;
+    bool isReloading = false;
+    bool isAiming = false;
 
     //For Ammo Count UI
     public GameObject currentAmmoUI;
@@ -54,6 +55,7 @@ public class Gun : MonoBehaviour
     {
         isReloading = false;
         animator.SetBool("isReloading", false);
+        animator.ResetTrigger("Firing");
     }
     void Update()
     {
@@ -64,17 +66,33 @@ public class Gun : MonoBehaviour
                 return;
             }
 
+            if (Input.GetButtonDown("Fire2"))
+            {
+                isAiming = !isAiming;
+                Debug.Log("Aiming! " + isAiming);
+                animator.SetBool("isAiming", isAiming);
+                StartCoroutine(WaitTime(1.5f));
+                return;
+            }
+
             if (currentAmmo <= 0 && maxAmmo <= 0)
             {
                 // play blank fire sound
                 return;
             }
+            
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo == 0 && maxAmmo > 0)
+            {
+                StartCoroutine(FullReload());
+                return;
+            }
 
-            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
+            /*else if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
                 StartCoroutine(HotReload());
                 return;
-            }
+            }*/
+
 
             if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
             {
@@ -94,7 +112,7 @@ public class Gun : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(HotReload());
+                    //StartCoroutine(HotReload());
                 }
             }
         }
@@ -112,6 +130,11 @@ public class Gun : MonoBehaviour
                 maxAmmoUI.GetComponent<Text>().text = maxAmmo.ToString();
             }
         }
+    }
+
+    IEnumerator WaitTime(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 
     IEnumerator HotReload()
@@ -136,8 +159,24 @@ public class Gun : MonoBehaviour
         isReloading = false;
 
     }
+
+    IEnumerator FullReload()
+    {
+        isReloading = true;
+        animator.SetBool("isReloading", true);
+        animator.ResetTrigger("Firing");
+        yield return new WaitForSeconds(0.25f);
+        fullReloadSound.Play();
+        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        maxAmmo -= magazineAmmo;
+        currentAmmo = magazineAmmo;
+        yield return new WaitForSeconds(0.25f);
+        animator.SetBool("isReloading", false);
+        isReloading = false;
+    }
     void Shoot()
     {
+        animator.ResetTrigger("Firing");
         GameObject bulletForward;
         Rigidbody dartForward;
         RaycastHit hit;
@@ -179,6 +218,7 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
+
     }
 
     public bool IsWeaponInLoadout()
@@ -204,7 +244,7 @@ public class Gun : MonoBehaviour
 
         if (gun == "Paltik")
         {
-            result = 3.5f;
+            result = 5.0f;
         }
         else if (gun == "Sumpit")
         {
