@@ -31,13 +31,13 @@ public class AnimTest : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            animator.SetTrigger("Firing");
+            //animator.SetTrigger("Firing");
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            StartCoroutine(HotReload());
-            return;
+            //StartCoroutine(HotReload());
+            //return;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

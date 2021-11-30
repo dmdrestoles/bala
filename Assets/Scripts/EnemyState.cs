@@ -7,6 +7,7 @@ public class EnemyState : MonoBehaviour
 {
     public bool isPlayerDetected = false;
     public bool isAsleep = false;
+    public bool hasPatrol = true;
     public float health = 50f;
     public float distanceFromPlyaer;
     [HideInInspector]
