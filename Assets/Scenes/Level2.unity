@@ -1838,6 +1838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143028008}
   - component: {fileID: 143028009}
+  - component: {fileID: 143028010}
   m_Layer: 0
   m_Name: Sumpit
   m_TagString: Untagged
@@ -1896,11 +1897,8 @@ MonoBehaviour:
   dartOrigin: {fileID: 1414292382}
   bulletOrigin: {fileID: 0}
   weaponSwitch: {fileID: 0}
-  fireSound: {fileID: 849323808}
+  fireSound: {fileID: 143028010}
   fullReloadSound: {fileID: 849323807}
-  startReloadSound: {fileID: 849323806}
-  loadBulletSound: {fileID: 849323805}
-  endReloadSound: {fileID: 849323804}
   animator: {fileID: 3316233292230441452}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 193621562}
@@ -1908,6 +1906,102 @@ MonoBehaviour:
   isFiring: 0
   currentAmmoUI: {fileID: 1725382122}
   maxAmmoUI: {fileID: 906739649}
+--- !u!82 &143028010
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143028007}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a27d7de1bdb9017478ffae8755219c76, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &143234605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,9 +8002,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 220144387}
   fullReloadSound: {fileID: 220144386}
-  startReloadSound: {fileID: 220144385}
-  loadBulletSound: {fileID: 220144384}
-  endReloadSound: {fileID: 220144383}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 1025689025}
@@ -7989,9 +8080,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 226764839}
   fullReloadSound: {fileID: 226764838}
-  startReloadSound: {fileID: 226764837}
-  loadBulletSound: {fileID: 226764836}
-  endReloadSound: {fileID: 226764835}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 732543449}
@@ -26478,9 +26566,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 849323808}
   fullReloadSound: {fileID: 849323807}
-  startReloadSound: {fileID: 849323806}
-  loadBulletSound: {fileID: 849323805}
-  endReloadSound: {fileID: 849323804}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 1243290600}
@@ -28500,9 +28585,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 984934305}
   fullReloadSound: {fileID: 984934304}
-  startReloadSound: {fileID: 984934303}
-  loadBulletSound: {fileID: 984934302}
-  endReloadSound: {fileID: 984934301}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 1802321707}
@@ -51200,9 +51282,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 1327738973}
   fullReloadSound: {fileID: 1327738972}
-  startReloadSound: {fileID: 1327738971}
-  loadBulletSound: {fileID: 1327738970}
-  endReloadSound: {fileID: 1327738969}
   animator: {fileID: 3316233292230441452}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 1497009145}
@@ -67575,9 +67654,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 1783539349}
   fullReloadSound: {fileID: 1783539348}
-  startReloadSound: {fileID: 1783539347}
-  loadBulletSound: {fileID: 1783539346}
-  endReloadSound: {fileID: 1783539345}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 664543171}
@@ -78923,9 +78999,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 1926861542}
   fullReloadSound: {fileID: 1926861541}
-  startReloadSound: {fileID: 1926861540}
-  loadBulletSound: {fileID: 1926861539}
-  endReloadSound: {fileID: 1926861538}
   animator: {fileID: 0}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 1853881236}

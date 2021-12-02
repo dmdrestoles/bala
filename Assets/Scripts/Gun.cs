@@ -29,9 +29,9 @@ public class Gun : MonoBehaviour
     public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
-    public AudioSource startReloadSound;
-    public AudioSource loadBulletSound;
-    public AudioSource endReloadSound;
+    //public AudioSource startReloadSound;
+    //public AudioSource loadBulletSound;
+    //public AudioSource endReloadSound;
     public Animator animator;
 
     public Camera fpsCamera;
@@ -68,9 +68,7 @@ public class Gun : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2"))
             {
-                isAiming = !isAiming;
-                Debug.Log("Aiming! " + isAiming);
-                animator.SetBool("isAiming", isAiming);
+                animator.SetBool("isAiming", !animator.GetBool("isAiming"));
                 StartCoroutine(WaitTime(1.5f));
                 return;
             }
@@ -142,18 +140,18 @@ public class Gun : MonoBehaviour
         isReloading = true;
         yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", true);
-        startReloadSound.Play();
+        //startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
         while (currentAmmo < magazineAmmo && maxAmmo > 0)
         {
-            loadBulletSound.Play();
+            //loadBulletSound.Play();
             maxAmmo -= 1;
             currentAmmo += 1;
 
             yield return new WaitForSeconds(bulletReload);
         }
 
-        endReloadSound.Play();
+        //endReloadSound.Play();
         yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
         animator.SetBool("isReloading", false);
         isReloading = false;

@@ -24,11 +24,15 @@ public class AnimTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            animator.SetBool("isAiming", false);
+            animator.ResetTrigger("Firing");
             StartCoroutine(ChangeWeapon(true));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            animator.SetBool("isAiming", false);
+            animator.ResetTrigger("Firing");
             StartCoroutine(ChangeWeapon(false));
         }
     }
