@@ -18,9 +18,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
     private float speed;
+    
+    private int energy;
+    private bool energyDraining = true;
+    private bool energyGaining = true;
 
     void Start()
     {
+        energy = 6;
         speed = moveSpeed;
     }
     void Update()
@@ -47,10 +52,24 @@ public class PlayerMovement : MonoBehaviour
                 // animator.SetBool("Moving", true);
             }
             
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
             {
                 // animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
+                if (energyDraining)
+                {
+                    StartCoroutine(DrainEnergy());
+                    Debug.Log("Sprinting");
+                }
+            }
+            else if (energy < 1)
+            {
+                Debug.Log("Energy drained.");
+                if (energyGaining)
+                {
+                    StartCoroutine(GainEnergy());
+                    Debug.Log("Resting");
+                }
             }
             else
             {
@@ -99,5 +118,22 @@ public class PlayerMovement : MonoBehaviour
     public bool checkVisibility()
     {
         return playerState.isVisible;
+    }
+
+    IEnumerator DrainEnergy()
+    {
+        energyDraining = false;
+        energy--;
+        yield return new WaitForSeconds(1f);
+        energyDraining = true;
+    }
+
+    IEnumerator GainEnergy()
+    {
+        energyGaining = false;
+        yield return new WaitForSeconds(6f);
+        energy = 6;
+        energyGaining = true;
+        Debug.Log("Energy filled!");
     }
 }
