@@ -8899,7 +8899,10 @@ MonoBehaviour:
   gravity: -15
   jumpHeight: 1.5
   velocity: {x: 0, y: 0, z: 0}
+  originalCamPos: {x: 0, y: 0, z: 0}
   isGrounded: 0
+  cameraHolder: {fileID: 1039752709}
+  playerBody: {fileID: 0}
 --- !u!143 &267339888
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12338,7 +12341,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562626731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12801,7 +12804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionDistance: 40
-  player: {fileID: 267339886}
+  player: {fileID: 1039752709}
   weapons:
   - {fileID: 984934306}
   - {fileID: 1783539350}
@@ -12823,7 +12826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 1182980203}
-  player: {fileID: 267339886}
+  player: {fileID: 1039752709}
   bullet: {fileID: 1455269025}
   fireSound: {fileID: 605545887}
   fullReloadSound: {fileID: 605545888}
@@ -33964,7 +33967,7 @@ GameObject:
   - component: {fileID: 1039752710}
   m_Layer: 0
   m_Name: CameraHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
