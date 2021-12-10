@@ -15,13 +15,16 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
-    public Vector3 velocity;
+    public Vector3 velocity, originalCamPos;
     public bool isGrounded;
-    private float speed;
+    public GameObject cameraHolder, playerBody;
+    private float speed, maxCrouchHeight, crouchHeight;
 
     void Start()
     {
         speed = moveSpeed;
+        originalCamPos = cameraHolder.transform.position;
+        maxCrouchHeight = 0.68f;
     }
     void Update()
     {
@@ -52,14 +55,26 @@ public class PlayerMovement : MonoBehaviour
                 // animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
             }
+            else if(Input.GetKey(KeyCode.LeftControl))
+            {
+                speed = moveSpeed * 0.5f;
+                if (crouchHeight < maxCrouchHeight)
+                {
+                    cameraHolder.transform.position = new Vector3(
+                        cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.1f, cameraHolder.transform.position.z);
+                    crouchHeight += 0.1f;
+                }
+               
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                cameraHolder.transform.position = new Vector3(
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
+                crouchHeight = 0;
+            }
+            
             else
             {
-                speed = moveSpeed;
-            }
-
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                // animator.SetBool("Running", false);
                 speed = moveSpeed;
             }
 

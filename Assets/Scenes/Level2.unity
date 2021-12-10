@@ -1906,6 +1906,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 193621562}
   aimedMuzzleFlash: {fileID: 1414292383}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 1725382122}
   maxAmmoUI: {fileID: 906739649}
 --- !u!1 &143234605
@@ -7916,6 +7918,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1025689025}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!1 &226764832
@@ -7997,6 +8001,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 732543449}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!82 &226764835
@@ -8924,7 +8930,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 562626732}
-  - {fileID: 500580740}
+  - {fileID: 1039752710}
   - {fileID: 1404085513}
   - {fileID: 1603071351}
   - {fileID: 1236287783}
@@ -11374,6 +11380,7 @@ GameObject:
   - component: {fileID: 500580741}
   - component: {fileID: 500580743}
   - component: {fileID: 500580742}
+  - component: {fileID: 500580744}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11389,12 +11396,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500580739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.59, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2688209411075760977}
-  m_Father: {fileID: 267339889}
-  m_RootOrder: 1
+  m_Father: {fileID: 1039752710}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &500580741
 Camera:
@@ -11453,6 +11460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 267339889}
+  cameraTransform: {fileID: 0}
 --- !u!81 &500580743
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11461,6 +11469,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500580739}
   m_Enabled: 1
+--- !u!114 &500580744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500580739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78662945b2c56c74a92b3e9c675aa244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &516152306
 GameObject:
   m_ObjectHideFlags: 0
@@ -12760,6 +12780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerDetected: 0
   isAsleep: 0
+  hasPatrol: 1
   health: 20
   distanceFromPlyaer: 0
   isAiming: 0
@@ -26485,6 +26506,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1243290600}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!1 &867335824
@@ -28507,6 +28530,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1802321707}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!1 &992695206
@@ -33928,6 +33953,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028497253}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1039752709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039752710}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039752710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039752709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5900002, z: 0.09999849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 500580740}
+  m_Father: {fileID: 267339889}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045932183
 GameObject:
   m_ObjectHideFlags: 0
@@ -51207,6 +51263,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1497009145}
   aimedMuzzleFlash: {fileID: 1239905834}
   isFiring: 0
+  mouseLook: {fileID: 500580742}
+  cameraShake: {fileID: 500580744}
   currentAmmoUI: {fileID: 1725382122}
   maxAmmoUI: {fileID: 906739649}
 --- !u!82 &1327738969
@@ -67582,6 +67640,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 664543171}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!1 &1790349353
@@ -78930,6 +78990,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1853881236}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 0}
   maxAmmoUI: {fileID: 0}
 --- !u!1 &1927677401

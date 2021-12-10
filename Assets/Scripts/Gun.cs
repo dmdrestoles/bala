@@ -40,6 +40,8 @@ public class Gun : MonoBehaviour
 
     private float nextTimeToFire = 0f;
     private bool isReloading = false;
+    public MouseLook mouseLook;
+    public CameraShake cameraShake;
 
     //For Ammo Count UI
     public GameObject currentAmmoUI;
@@ -76,7 +78,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 if (currentAmmo > 0)
@@ -144,7 +146,7 @@ public class Gun : MonoBehaviour
         ParticleSystem muzzle = selectMuzzle();
 
         isFiring = true;
-        animator.SetTrigger("Firing");
+        StartCoroutine(FireAnimation());
         currentAmmo -= 1;
         if (isSilent)
         {
@@ -154,7 +156,7 @@ public class Gun : MonoBehaviour
             dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
             return;
         }
-
+        
         fireSound.Play();
         muzzle.Play();
         bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);
@@ -179,6 +181,8 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
+        StartCoroutine(cameraShake.Shake(0.05f,0.5f));
+        mouseLook.Recoil(5.0f);
     }
 
     public bool IsWeaponInLoadout()
@@ -204,13 +208,21 @@ public class Gun : MonoBehaviour
 
         if (gun == "Paltik")
         {
-            result = 3.5f;
+            result = 3.0f;
         }
         else if (gun == "Sumpit")
         {
             result = 0f;
         }
         return result;
+    }
+
+    private IEnumerator FireAnimation()
+    {
+        animator.SetTrigger("Firing");
+        yield return new WaitForSeconds(0.5f);
+        animator.ResetTrigger("Firing");
+
     }
     
 }
