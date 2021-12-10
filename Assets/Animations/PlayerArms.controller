@@ -916,7 +916,7 @@ AnimatorStateMachine:
     m_Position: {x: 730, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3266812459866224999}
-    m_Position: {x: 667.46234, y: 248.91516, z: 0}
+    m_Position: {x: 700, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2777682029332230525}
     m_Position: {x: 420, y: 360, z: 0}
@@ -1026,7 +1026,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rig_Player_PaltikReload
-  m_Speed: 1
+  m_Speed: 0.6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 385971946202601236}
@@ -1232,7 +1232,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rig_Player_SumpitReload
-  m_Speed: 1
+  m_Speed: 0.6
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2405041841764770899}
