@@ -9,6 +9,7 @@ public class EnemyDetection : MonoBehaviour {
     private RaycastHit hit;
     public PlayerState playerState;
     public Detection_Utils utils;
+    public Gun primary, secondary;
     [HideInInspector]
     private Transform playerTransform;
     private Animator animator;
@@ -36,7 +37,7 @@ public class EnemyDetection : MonoBehaviour {
         if (Physics.Linecast(transform.position, playerTransform.position, out hit))
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
-            if( (weapons[0].isFiring && !weapons[0].isSilent) || (weapons[1].isFiring && !weapons[1].isSilent) )
+            if( (primary.isFiring && !primary.isSilent) || (secondary.isFiring && !secondary.isSilent) )
             {
                 animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
@@ -84,8 +85,8 @@ public class EnemyDetection : MonoBehaviour {
     IEnumerator HandleGunFiring()
     {
         yield return new WaitForSeconds (1);
-        weapons[0].isFiring = false;
-        weapons[1].isFiring = false;
+        primary.isFiring = false;
+        secondary.isFiring = false;
     }
 
     void CheckActiveWeapons()

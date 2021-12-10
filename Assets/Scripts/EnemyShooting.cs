@@ -86,7 +86,7 @@ public class EnemyShooting : MonoBehaviour
     }
 
     Vector3 CalculateMiss(Vector3 target){
-        double missFactor = System.Math.Pow(2, 0.05*(double)state.distanceFromPlyaer) - 1;
+        double missFactor = System.Math.Pow(2, 0.01*(double)state.distanceFromPlyaer) - 1;
         float a = (float)missFactor;
 
         float xRand = Random.Range(-a, a);
