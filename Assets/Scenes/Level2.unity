@@ -12261,7 +12261,7 @@ MonoBehaviour:
   originalCamPos: {x: 0, y: 0, z: 0}
   isGrounded: 0
   cameraHolder: {fileID: 1039752709}
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 562626731}
 --- !u!143 &267339888
 CharacterController:
   m_ObjectHideFlags: 0
@@ -14700,7 +14700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 500580739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78662945b2c56c74a92b3e9c675aa244, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bf6df8d7f1859f46b97736a65cbd0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &516152306
@@ -15829,16 +15829,13 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 952622249}
   fullReloadSound: {fileID: 952622248}
-  startReloadSound: {fileID: 952622247}
-  loadBulletSound: {fileID: 952622246}
-  endReloadSound: {fileID: 952622245}
   animator: {fileID: 4963236201422564283}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 692597897}
   aimedMuzzleFlash: {fileID: 254098401}
   isFiring: 0
-  mouseLook: {fileID: 500580742}
-  cameraShake: {fileID: 500580744}
+  mouseLook: {fileID: 0}
+  cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 1725382122}
   maxAmmoUI: {fileID: 906739649}
 --- !u!1 &601193664
@@ -16076,7 +16073,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 149767447c59f9e4685b12a379da1b61, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9c8d11d24053d2544b7a7fa1e0e53015, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.582
   m_Pitch: 1
@@ -16172,7 +16169,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0707450408d39644aa8f357f137e2dd6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 49e7dae0d3886a74795ddead463d549e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -30318,7 +30315,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0707450408d39644aa8f357f137e2dd6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 49e7dae0d3886a74795ddead463d549e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -30414,7 +30411,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 149767447c59f9e4685b12a379da1b61, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9c8d11d24053d2544b7a7fa1e0e53015, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -30534,9 +30531,6 @@ MonoBehaviour:
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 952622249}
   fullReloadSound: {fileID: 952622248}
-  startReloadSound: {fileID: 952622247}
-  loadBulletSound: {fileID: 952622246}
-  endReloadSound: {fileID: 952622245}
   animator: {fileID: 4963236201422564283}
   fpsCamera: {fileID: 500580741}
   muzzleFlash: {fileID: 744530580}
@@ -44952,7 +44946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1813787279
 Transform:
   m_ObjectHideFlags: 0
