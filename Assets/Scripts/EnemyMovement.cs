@@ -176,6 +176,7 @@ public class EnemyMovement : MonoBehaviour
         if (CheckDestinationReached(playerTransform.position,20))
         {
             StopMovement();
+            animator.SetBool("isAiming", true);
             enemyState.isFiring = true;
         }
     }

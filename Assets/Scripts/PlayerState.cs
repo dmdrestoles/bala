@@ -7,7 +7,7 @@ public class PlayerState : MonoBehaviour
 {
     // Start is called before the first frame update
     public float maxHealth = 100f;
-    public bool isVisible;
+    public bool isVisible, isCrouching, isSprinting;
     public Text healthText;
     public GameManager gameManager;
     public Image damageScreen;

@@ -15,10 +15,12 @@ public class EnemyDetection : MonoBehaviour {
     private Animator animator;
     private EnemyState enemyState; 
     private EnemyMovement enemyMovement;
+    private float originalDetectionDistance;
     
     void Start() 
     {
         CheckActiveWeapons();
+        originalDetectionDistance = detectionDistance;
         animator = GetComponent<Animator>();
         enemyState = GetComponent<EnemyState>();
         enemyMovement = GetComponent<EnemyMovement>();
@@ -28,6 +30,7 @@ public class EnemyDetection : MonoBehaviour {
         playerTransform = player.transform;
         if (!enemyState.isAsleep)
         {
+            HandleSprintCrouching();
             this.CheckForTargetInLineOfSight();
         }
     }
@@ -87,6 +90,20 @@ public class EnemyDetection : MonoBehaviour {
         yield return new WaitForSeconds (1);
         primary.isFiring = false;
         secondary.isFiring = false;
+    }
+
+    void HandleSprintCrouching()
+    {
+        if (playerState.isCrouching)
+        {
+            detectionDistance = originalDetectionDistance * 0.5f;
+        } else if (playerState.isSprinting)
+        {
+            detectionDistance = originalDetectionDistance * 2.0f;
+        } else
+        {
+            detectionDistance = originalDetectionDistance;
+        }
     }
 
     void CheckActiveWeapons()
