@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 velocity, originalCamPos;
     public bool isGrounded;
-    private float speed;
     
     private int energy;
     private bool energyDraining = true;

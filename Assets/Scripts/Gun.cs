@@ -41,7 +41,6 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire = 0f;
     bool isReloading = false;
     bool isAiming = false;
-    private bool isReloading = false;
     public MouseLook mouseLook;
     public CameraShake cameraShake;
 
@@ -220,7 +219,7 @@ public class Gun : MonoBehaviour
              */
         }
         StartCoroutine(cameraShake.Shake(0.05f,0.5f));
-        mouseLook.Recoil(5.0f);
+        StartCoroutine(mouseLook.Recoil(1.5f, 0.25f));
     }
 
     public bool IsWeaponInLoadout()

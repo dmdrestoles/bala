@@ -29,9 +29,14 @@ public class MouseLook : MonoBehaviour
         }        
     }
 
-    public void Recoil(float recoilVal)
+    public IEnumerator Recoil(float recoilVal, float recoilIncrement)
     {
-        xRotation -= recoilVal;
-        cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        while (Mathf.Abs(xRotation) <= recoilVal)
+        {   
+            Debug.Log("xRotation: " + xRotation + " || Recoil: " + recoilVal);
+            xRotation -= recoilVal * recoilIncrement;
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            yield return null;
+        }
     }
 }
