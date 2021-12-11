@@ -7,9 +7,11 @@ public class TutorialMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
     public EnemyState enemyState;
+    public Transform enemyTransform;
+    public Transform playerTransform;
+    public bool isSteady;
 
     [HideInInspector]
-    public Transform playerTransform;
     public bool isPlayerDetected;
     public Vector3 endPatrolLocation;
     NavMeshAgent agent;
@@ -26,7 +28,14 @@ public class TutorialMovement : MonoBehaviour
 
     void Update()
     {
-        CutSceneMovement(endPatrolLocation);
+        if (isSteady == false)
+        {
+            CutSceneMovement(endPatrolLocation);
+        }
+        else
+        {
+            StopMovement();
+        }
         isPlayerDetected = enemyState.isPlayerDetected;
         HandleDetection(isPlayerDetected);
     }
@@ -36,9 +45,14 @@ public class TutorialMovement : MonoBehaviour
         agent.SetDestination(end);
         if (CheckDestinationReached(end))
         {
+            var lookPos = playerTransform.position - enemyTransform.position;
+            lookPos.y = 2;
+            var rotation = Quaternion.LookRotation(lookPos);
+            enemyTransform.rotation = Quaternion.Slerp(enemyTransform.rotation, rotation, Time.deltaTime * 2);
+
             StopMovement();
         }
-
+        
     }
 
     private void HandleDetection(bool isPlayerDetected)
@@ -55,6 +69,7 @@ public class TutorialMovement : MonoBehaviour
         bool result = false;
         if (distanceToTarget < 0.5f)
         {
+            //enemyTransform.rotation.y = playerTransform.rotation.y + 180;
             result = true;
         }
         return result;
@@ -62,8 +77,8 @@ public class TutorialMovement : MonoBehaviour
 
     void StopMovement()
     {
-        r.freezeRotation = true;
         r.constraints = RigidbodyConstraints.FreezePosition;
+        r.constraints = RigidbodyConstraints.FreezeRotation;
         agent.isStopped = true;
     }
 }
