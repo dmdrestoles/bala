@@ -33,7 +33,6 @@ public class MouseLook : MonoBehaviour
     {
         while (Mathf.Abs(xRotation) <= recoilVal)
         {   
-            Debug.Log("xRotation: " + xRotation + " || Recoil: " + recoilVal);
             xRotation -= recoilVal * recoilIncrement;
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             yield return null;

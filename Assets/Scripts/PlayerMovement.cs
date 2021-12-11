@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
             
             if(Input.GetKey(KeyCode.LeftControl))
             {
+                playerState.isCrouching = true;
+                playerState.isSprinting = false;
                 speed = moveSpeed * 0.5f;
                 if (crouchHeight < maxCrouchHeight)
                 {
@@ -68,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.LeftControl))
             {
+                playerState.isCrouching = false;
                 cameraHolder.transform.position = new Vector3(
                     cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
                 crouchHeight = 0;
@@ -75,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
 
             else if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
             {
+                playerState.isSprinting = true;
+                playerState.isCrouching = false;
                 // animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
                 if (energyDraining)
@@ -85,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (energy < 1)
             {
+                playerState.isSprinting = false;
                 Debug.Log("Energy drained.");
                 if (energyGaining)
                 {
@@ -95,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             
             else
             {
+                playerState.isSprinting = false;
                 speed = moveSpeed;
             }
 
