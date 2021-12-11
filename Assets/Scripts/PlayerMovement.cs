@@ -55,7 +55,25 @@ public class PlayerMovement : MonoBehaviour
                 // animator.SetBool("Moving", true);
             }
             
-            if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
+            if(Input.GetKey(KeyCode.LeftControl))
+            {
+                speed = moveSpeed * 0.5f;
+                if (crouchHeight < maxCrouchHeight)
+                {
+                    cameraHolder.transform.position = new Vector3(
+                        cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.1f, cameraHolder.transform.position.z);
+                    crouchHeight += 0.1f;
+                }
+               
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                cameraHolder.transform.position = new Vector3(
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
+                crouchHeight = 0;
+            }
+
+            else if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
             {
                 // animator.SetBool("Running", true);
                 speed = moveSpeed * 1.5f;
@@ -73,23 +91,6 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(GainEnergy());
                     Debug.Log("Resting");
                 }
-            }
-            else if(Input.GetKey(KeyCode.LeftControl))
-            {
-                speed = moveSpeed * 0.5f;
-                if (crouchHeight < maxCrouchHeight)
-                {
-                    cameraHolder.transform.position = new Vector3(
-                        cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.1f, cameraHolder.transform.position.z);
-                    crouchHeight += 0.1f;
-                }
-               
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftControl))
-            {
-                cameraHolder.transform.position = new Vector3(
-                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
-                crouchHeight = 0;
             }
             
             else
