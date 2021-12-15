@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     public bool isSilent = false;
 
     public Rigidbody dart;
-    public GameObject bullet;
+    public GameObject bullet, crosshair;
     public Transform dartOrigin, bulletOrigin;
     public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
@@ -51,13 +51,13 @@ public class Gun : MonoBehaviour
     void Start()
     {
         currentAmmo = magazineAmmo;
+        DisableCrosshair();
     }
 
     void OnEnable()
     {
         isReloading = false;
         animator.SetBool("isReloading", false);
-        animator.ResetTrigger("Firing");
     }
     void Update()
     {
@@ -71,6 +71,7 @@ public class Gun : MonoBehaviour
             if (Input.GetButtonDown("Fire2"))
             {
                 animator.SetBool("isAiming", !animator.GetBool("isAiming"));
+                DisableCrosshair();
                 StartCoroutine(WaitTime(1.5f));
                 return;
             }
@@ -262,4 +263,14 @@ public class Gun : MonoBehaviour
 
     }
     
+    private void DisableCrosshair(){
+        if (animator.GetBool("isAiming"))
+        {
+            crosshair.SetActive(true);
+        } else 
+        {
+            crosshair.SetActive(false);
+        }
+
+    }
 }

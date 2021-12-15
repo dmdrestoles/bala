@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "HidingSpot")
+        if (other.gameObject.tag == "HidingSpot" && playerState.isCrouching)
         {
             playerState.isVisible = false;
         }
