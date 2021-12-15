@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the bridge!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the bridge!");
-        Invoke("Restart", restartDelay);
+        Invoke("LoadLevelThree", restartDelay);
     }
 
     public void EndGame()
@@ -40,7 +40,12 @@ public class GameManager : MonoBehaviour
 
     void LoadLevelTwo()
     {
-        SceneManager.LoadScene("JaredScene3");
+        SceneManager.LoadScene("Level2");
+    }
+
+    void LoadLevelThree()
+    {
+        SceneManager.LoadScene("Level3");
     }
 
     void Restart()
