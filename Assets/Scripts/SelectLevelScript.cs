@@ -11,13 +11,13 @@ public class SelectLevelScript : MonoBehaviour
 
     public void SelectLevelOne()
     {
-        sceneName = "Cath's Scene - Tutorial";
+        sceneName = "Level1";
         PlayerPrefs.SetInt("Primary", 2);
     }
 
     public void SelectLevelTwo()
     {
-        sceneName = "JaredScene3";
+        sceneName = "Level2";
     }
 
     public void setSceneName(string name)

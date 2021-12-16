@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Caths_Scene-Tutorial.unity
     guid: 510f9d4d053d1eb439aeecf0348c30d9
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 9119e122a0f787f46ab0d9d8fb820176
   m_configObjects: {}
