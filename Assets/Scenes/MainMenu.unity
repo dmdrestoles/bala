@@ -646,13 +646,14 @@ GameObject:
   m_Component:
   - component: {fileID: 209270070}
   - component: {fileID: 209270071}
+  - component: {fileID: 209270072}
   m_Layer: 5
   m_Name: Level1Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &209270070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -690,6 +691,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   playerWeapons: {fileID: 1582421816}
+--- !u!82 &209270072
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209270069}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 42123e9fc2ec5774f8f8470c415e02ae, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &255094830
 GameObject:
   m_ObjectHideFlags: 0
@@ -6571,12 +6668,12 @@ MonoBehaviour:
     ordered his troops to seize El Polvorin in San Juan del Monte, By the evening
     of August 29, 1896, the Battle of San Juan del Monte took place, with the Katipuneros
     skirmishing with the Spanish infantry and artillery guarding the powder magazine.
-    \n\nA surprise attack at 4 o'clock in the morning caught the Spanish offguard,
-    but the Katipuneros eventually got pushed back by infantry and cavalry from Manila
-    by the morning and afternoon. Eventually, they are being pushed back upon the
-    arrival of 73rd \"Jolo\" Regiment under General Bernardo Echaluce.\n\nYour fellow
-    soldiers are holding back the Spanish offensive, with you as the runner for your
-    men."
+    \n\nA surprise attack by the Katipuneros at 4 o'clock in the morning caught the
+    Spanish offguard, but the Katipuneros eventually got pushed back by infantry
+    and cavalry from Manila by the morning and afternoon. Eventually, they are being
+    pushed back upon the arrival of 73rd \"Jolo\" Regiment under General Bernardo
+    Echaluce.\n\nYour fellow soldiers are holding back the Spanish offensive, with
+    you as the runner for your men."
 --- !u!222 &1436734649
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7615,7 +7712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1838854550
 RectTransform:
   m_ObjectHideFlags: 0
