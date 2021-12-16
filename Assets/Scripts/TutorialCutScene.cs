@@ -16,6 +16,11 @@ public class TutorialCutScene : MonoBehaviour
     public GameObject objectiveMarker;
     public GameObject Player;
     public Animator officer;
+    public GameObject FPPlayer;
+    public GameObject playerHolder;
+    public GameObject textHolder;
+    public GameObject textHolder1;
+
 
     public static bool reachedMarker = false;
     public static bool reachedLastMarker = false;
@@ -35,9 +40,32 @@ public class TutorialCutScene : MonoBehaviour
         StartCoroutine(TheSequence());
     }
 
+    void Update()
+    {
+        if (canvas.transform.GetChild(4).GetComponent<Text>().text != "" || canvas.transform.GetChild(5).GetComponent<Text>().text != "" || canvas.transform.GetChild(6).GetComponent<Text>().text != "")
+        {
+           textHolder.SetActive(true);
+        }
+        else
+        {
+            textHolder.SetActive(false);
+        }
+
+        if (canvas.transform.GetChild(7).GetComponent<Text>().text != "" )
+        {
+            textHolder1.SetActive(true);
+        }
+        else
+        {
+            textHolder1.SetActive(false);
+        }
+    }
+
     IEnumerator TheSequence()
     {
         yield return new WaitForSeconds(5);
+        playerHolder.SetActive(false);
+        FPPlayer.SetActive(true);
         PlayerCam.SetActive(true);
         Debug.Log("Player camera active");
         canvas.SetActive(true);
@@ -80,6 +108,8 @@ public class TutorialCutScene : MonoBehaviour
                                 GameManager.IsInputEnabled = false;
                                 yield return new WaitForSeconds(1);
                                 PlayerCam.SetActive(false);
+                                Player.SetActive(false);
+                                playerHolder.SetActive(true);
                                 Cam2.SetActive(true);
                                 yield return new WaitForSeconds(1);
                                 officer.enabled = true;
@@ -93,6 +123,8 @@ public class TutorialCutScene : MonoBehaviour
                                 canvas.transform.GetChild(5).GetComponent<Text>().text = "";
                                 Cam2.SetActive(false);
                                 PlayerCam.SetActive(true);
+                                Player.SetActive(true);
+                                playerHolder.SetActive(false);
                                 GameManager.IsInputEnabled = true;
                                 PlayerMovement.moveSpeed = 12f;
                                 canvas.transform.GetChild(6).GetComponent<Text>().text = "Use W-A-S-D to move.";
