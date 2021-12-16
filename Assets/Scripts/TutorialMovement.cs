@@ -10,20 +10,23 @@ public class TutorialMovement : MonoBehaviour
     public Transform enemyTransform;
     public Transform playerTransform;
     public bool isSteady;
+    public bool isFriendly;
 
     [HideInInspector]
     public bool isPlayerDetected;
     public Vector3 endPatrolLocation;
     NavMeshAgent agent;
     Rigidbody r;
+    private Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         agent.speed = movementSpeed;
         r = GetComponent<Rigidbody>();
         isPlayerDetected = enemyState.isPlayerDetected;
-        CutSceneMovement(endPatrolLocation);
+        //CutSceneMovement(endPatrolLocation);
     }
 
     void Update()
@@ -32,16 +35,13 @@ public class TutorialMovement : MonoBehaviour
         {
             CutSceneMovement(endPatrolLocation);
         }
-        else
-        {
-            StopMovement();
-        }
-        isPlayerDetected = enemyState.isPlayerDetected;
+        isPlayerDetected = true;
         HandleDetection(isPlayerDetected);
     }
 
     private void CutSceneMovement(Vector3 end)
     {
+        animator.SetBool("isMoving", true);
         agent.SetDestination(end);
         if (CheckDestinationReached(end))
         {
@@ -49,7 +49,6 @@ public class TutorialMovement : MonoBehaviour
             lookPos.y = 2;
             var rotation = Quaternion.LookRotation(lookPos);
             enemyTransform.rotation = Quaternion.Slerp(enemyTransform.rotation, rotation, Time.deltaTime * 2);
-
             StopMovement();
         }
         
@@ -57,9 +56,14 @@ public class TutorialMovement : MonoBehaviour
 
     private void HandleDetection(bool isPlayerDetected)
     {
-        if (isPlayerDetected)
+        if (isPlayerDetected && isFriendly == false)
         {
-            // Insert Enemy Shooting Mechanic
+            transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
+            HoldStillToFire();
+        }
+        else
+        {
+            HoldStillToFire();
         }
     }
 
@@ -77,9 +81,21 @@ public class TutorialMovement : MonoBehaviour
 
     void StopMovement()
     {
+        animator.SetBool("isMoving", false);
         r.constraints = RigidbodyConstraints.FreezePosition;
         r.constraints = RigidbodyConstraints.FreezeRotation;
         agent.isStopped = true;
+    }
+
+    void HoldStillToFire()
+    {
+        if (CheckDestinationReached(endPatrolLocation) || isSteady == true)
+        {
+            StopMovement();
+            animator.SetBool("isAiming", true);
+            enemyState.isFiring = true;
+            enemyState.isPlayerDetected = true;
+        }
     }
 }
 

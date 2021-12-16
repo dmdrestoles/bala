@@ -20,6 +20,11 @@ public class EndTrigger : MonoBehaviour
             {
                 gameManager.CompleteLevelTwo();
             }
+
+            if ( level == 3 )
+            {
+                gameManager.CompleteLevelThree();
+            }
         }
     }
 }
