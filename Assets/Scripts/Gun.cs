@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -13,107 +14,194 @@ public class Gun : MonoBehaviour
     public int maxAmmo = 50;
     public int magazineAmmo = 5;
     public int currentAmmo;
+    
+    public string weaponName;
+    public Image weaponImage;
 
     public bool isReliable = true;
+    public bool isActive = false;
+    public bool isEnemy = false;
+    public bool isSilent = false;
 
+    public Rigidbody dart;
+    public GameObject bullet, crosshair;
+    public Transform dartOrigin, bulletOrigin;
+    public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
-    public AudioSource startReloadSound;
-    public AudioSource loadBulletSound;
-    public AudioSource endReloadSound;
+    //public AudioSource startReloadSound;
+    //public AudioSource loadBulletSound;
+    //public AudioSource endReloadSound;
     public Animator animator;
 
     public Camera fpsCamera;
-    public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash, aimedMuzzleFlash;
     public bool isFiring = false;
-    // public ParticleSystem impactEffect;
 
     private float nextTimeToFire = 0f;
-    private bool isReloading = false;
+    bool isReloading = false;
+    bool isAiming = false;
+    public MouseLook mouseLook;
+    public CameraShake cameraShake;
+
+    //For Ammo Count UI
+    public GameObject currentAmmoUI;
+    public GameObject maxAmmoUI;
 
     void Start()
     {
         currentAmmo = magazineAmmo;
+        DisableCrosshair();
     }
 
     void OnEnable()
     {
         isReloading = false;
-        animator.SetBool("Reloading", false);
+        animator.SetBool("isReloading", false);
     }
     void Update()
     {
-        if (isReloading)
+        if ( !isEnemy )
         {
-            return;
-        }
-
-        if (currentAmmo <= 0 && maxAmmo <= 0)
-        {
-            // play blank fire sound
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
-        {
-            StartCoroutine(HotReload());
-            return;
-        }
-
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            if (currentAmmo > 0)
+            if (isReloading)
             {
-                Shoot();
+                return;
+            }
 
-                if (!isReliable)
+            if (Input.GetButtonDown("Fire2"))
+            {
+                animator.SetBool("isAiming", !animator.GetBool("isAiming"));
+                DisableCrosshair();
+                StartCoroutine(WaitTime(1.5f));
+                return;
+            }
+
+            if (currentAmmo <= 0 && maxAmmo <= 0)
+            {
+                // play blank fire sound
+                return;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo == 0 && maxAmmo > 0)
+            {
+                StartCoroutine(FullReload());
+                return;
+            }
+
+            /*else if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
+            {
+                StartCoroutine(HotReload());
+                return;
+            }*/
+
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
+                if (currentAmmo > 0)
                 {
-                    Destroy(this.gameObject, 1.5f);
+                    if (isSilent && !animator.GetBool("isAiming"))
+                    {
+                        return;
+                    }
+                    Shoot();
+
+                    if (!isReliable)
+                    {
+                        isActive = false;
+                    }
                 }
+                else
+                {
+                    //StartCoroutine(HotReload());
+                }
+            }
+        }
+
+        if (isEnemy == false)
+        {
+            if (maxAmmo <= 0)
+            {
+                maxAmmoUI.GetComponent<Text>().text = "0";
+                currentAmmoUI.GetComponent<Text>().text = currentAmmo.ToString();
             }
             else
             {
-                StartCoroutine(HotReload());
+                currentAmmoUI.GetComponent<Text>().text = currentAmmo.ToString();
+                maxAmmoUI.GetComponent<Text>().text = maxAmmo.ToString();
             }
         }
+    }
 
+    IEnumerator WaitTime(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 
     IEnumerator HotReload()
     {
         isReloading = true;
         yield return new WaitForSeconds(0.25f);
-        animator.SetBool("Reloading", true);
-        startReloadSound.Play();
+        animator.SetBool("isReloading", true);
+        //startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
-        while (currentAmmo < magazineAmmo)
+        while (currentAmmo < magazineAmmo && maxAmmo > 0)
         {
-            loadBulletSound.Play();
+            //loadBulletSound.Play();
             maxAmmo -= 1;
             currentAmmo += 1;
-            Debug.Log("Loading ammo: " + currentAmmo);
+
             yield return new WaitForSeconds(bulletReload);
         }
 
-        endReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);
+        //endReloadSound.Play();
+        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        animator.SetBool("isReloading", false);
         isReloading = false;
 
     }
+
+    IEnumerator FullReload()
+    {
+        isReloading = true;
+        animator.SetBool("isReloading", true);
+        animator.ResetTrigger("Firing");
+        yield return new WaitForSeconds(0.25f);
+        fullReloadSound.Play();
+        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        maxAmmo -= magazineAmmo;
+        currentAmmo = magazineAmmo;
+        yield return new WaitForSeconds(0.25f);
+        animator.SetBool("isReloading", false);
+        isReloading = false;
+    }
     void Shoot()
     {
-        isFiring = true;
-        fireSound.Play();
-        currentAmmo -= 1;
-        muzzleFlash.Play();
+        animator.ResetTrigger("Firing");
+        GameObject bulletForward;
+        Rigidbody dartForward;
         RaycastHit hit;
-        Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * range, new Color(255, 0, 0), 2f);
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+        ParticleSystem muzzle = selectMuzzle();
+
+        isFiring = true;
+        StartCoroutine(FireAnimation());
+        currentAmmo -= 1;
+        if (isSilent)
         {
-            Debug.Log(hit.transform.name);
+            float speed = 50;
+
+            dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
+            dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
+            return;
+        }
+        
+        fireSound.Play();
+        muzzle.Play();
+        bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        if (Physics.Raycast(muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.forward, out hit, range) && !isSilent )
+        {
+            Debug.Log(hit.GetType());
 
             EnemyState enemy = hit.transform.GetComponent<EnemyState>();
 
@@ -131,5 +219,58 @@ public class Gun : MonoBehaviour
              * Destroy(impact, 0.5f);
              */
         }
+        StartCoroutine(cameraShake.Shake(0.05f,0.5f));
+        StartCoroutine(mouseLook.Recoil(1.5f, 0.25f));
+    }
+
+    public bool IsWeaponInLoadout()
+    {
+        return isActive;
+    }
+
+    private ParticleSystem selectMuzzle()
+    {
+        bool isAiming = animator.GetBool("isAiming");
+
+        if (isAiming)
+        {
+            return aimedMuzzleFlash;
+        }
+
+        return muzzleFlash;
+    }
+
+    private float ReloadAnimationTime(string gun)
+    {
+        float result = 0;
+
+        if (gun == "Paltik")
+        {
+            result = 5.0f;
+        }
+        else if (gun == "Sumpit")
+        {
+            result = 0f;
+        }
+        return result;
+    }
+
+    private IEnumerator FireAnimation()
+    {
+        animator.SetTrigger("Firing");
+        yield return new WaitForSeconds(0.5f);
+        animator.ResetTrigger("Firing");
+
+    }
+    
+    private void DisableCrosshair(){
+        if (animator.GetBool("isAiming"))
+        {
+            crosshair.SetActive(true);
+        } else 
+        {
+            crosshair.SetActive(false);
+        }
+
     }
 }

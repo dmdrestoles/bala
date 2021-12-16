@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Minimap.cs.meta
+guid: e7d8babff622073448ad6fdaf91ef13b
+=======
+guid: a2a7489b4fa197e41aa24ea8b84ced9b
+>>>>>>> 41a0939a705ef1b914b344b11b4e1c22eba6e59d:Assets/Scripts/Bullet.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

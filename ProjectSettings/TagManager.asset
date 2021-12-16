@@ -6,6 +6,9 @@ TagManager:
   tags:
   - player
   - HidingSpot
+  - WeaponsList
+  - WeaponHolder
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,6 +19,7 @@ TagManager:
   - 
   - 
   - Ground
+  - icons
   - 
   - 
   - 
@@ -37,8 +41,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - trees
   m_SortingLayers:
   - name: Default
     uniqueID: 0
