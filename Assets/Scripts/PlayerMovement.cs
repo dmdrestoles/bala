@@ -85,17 +85,14 @@ public class PlayerMovement : MonoBehaviour
                 if (energyDraining)
                 {
                     StartCoroutine(DrainEnergy());
-                    Debug.Log("Sprinting");
                 }
             }
             else if (energy < 1)
             {
                 playerState.isSprinting = false;
-                Debug.Log("Energy drained.");
                 if (energyGaining)
                 {
                     StartCoroutine(GainEnergy());
-                    Debug.Log("Resting");
                 }
             }
             
@@ -157,6 +154,5 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(6f);
         energy = 6;
         energyGaining = true;
-        Debug.Log("Energy filled!");
     }
 }

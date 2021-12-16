@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the safehouse!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the safehouse!");
-        Invoke("Restart", restartDelay);
+        Application.Quit();
     }
 
     public void EndGame()
