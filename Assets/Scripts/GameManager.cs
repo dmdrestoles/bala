@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
 
-    public float restartDelay = 2f;
+    public float restartDelay = 1f;
     public static bool IsInputEnabled = true;
 
     public GameObject reachedBridgeUI;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the safehouse!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the safehouse!");
-        Application.Quit();
+        Invoke("QuitGame", 3f);
     }
 
     public void EndGame()
@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
     void LoadLevelThree()
     {
         SceneManager.LoadScene("Level3");
+    }
+
+    void QuitGame()
+    {
+        Application.Quit();
     }
 
     void Restart()
