@@ -16,6 +16,8 @@ public class EnemyDetection : MonoBehaviour {
     private EnemyState enemyState; 
     private EnemyMovement enemyMovement;
     private float originalDetectionDistance;
+    private GameObject parent;
+    private List<GameObject> enemyList;
     
     void Start() 
     {
@@ -24,6 +26,8 @@ public class EnemyDetection : MonoBehaviour {
         animator = GetComponent<Animator>();
         enemyState = GetComponent<EnemyState>();
         enemyMovement = GetComponent<EnemyMovement>();
+        parent = transform.parent.gameObject;
+        enemyList = GetListEnemies(parent);
     }
     void Update() 
     {
@@ -32,6 +36,7 @@ public class EnemyDetection : MonoBehaviour {
         {
             HandleSprintCrouching();
             this.CheckForTargetInLineOfSight();
+            this.HandleEnemyAlerts();
         }
     }
 
@@ -62,17 +67,61 @@ public class EnemyDetection : MonoBehaviour {
                 enemyState.isFiring = false;
                 enemyMovement.ResumeMovement();
             }
-            else
+            /* commented out for bug fixing later on
+            else 
             {
                 enemyState.isPlayerDetected = false;
                 enemyState.isFiring = false;
-            }
+            }*/
         }
         else
         {
             enemyState.isFiring = false;
         }
         
+    }
+
+    IEnumerator ConnectEnemyLineCast(GameObject enemyOther) 
+    {
+        if(Physics.Linecast(transform.position, enemyOther.transform.position, out hit))
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.magenta);
+            Debug.Log(transform.position + "----" +enemyOther.transform.position);
+            float distance = Vector3.Distance(enemyOther.transform.position, transform.position);
+            EnemyState enemyOtherState = enemyOther.GetComponent<EnemyState>();
+
+            if (enemyState.isPlayerDetected && distance < 10)
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.black);
+
+                yield return new WaitForSeconds(2);
+                enemyOtherState.isPlayerDetected = true;
+                enemyOtherState.hasPatrol = false;
+            }
+            else if (enemyState.isFiring)
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.black);
+
+                yield return new WaitForSeconds(3);
+                enemyOtherState.isPlayerDetected = true;
+                enemyOtherState.hasPatrol = false;
+            }
+        }
+    }
+
+    private void HandleEnemyAlerts()
+    {
+        foreach (var enemy in enemyList)
+        {
+            if (transform.name == enemy.name)
+            {
+                continue;
+            } 
+            else 
+            {
+                StartCoroutine(ConnectEnemyLineCast(enemy));
+            }
+        }
     }
 
     private bool IsPlayerVisible()
@@ -104,6 +153,21 @@ public class EnemyDetection : MonoBehaviour {
         {
             detectionDistance = originalDetectionDistance;
         }
+    }
+
+    public List<GameObject> GetListEnemies(GameObject Go)
+    {
+        List<GameObject> list = new List<GameObject>();
+        for (int i = 0; i< Go.transform.childCount; i++)
+        {
+            list.Add(Go.transform.GetChild(i).gameObject);
+        }
+        for (int i = 0; i< list.Count; i++)
+        {
+            Debug.Log(list[i].name);
+        }
+    
+        return list;
     }
 
     void CheckActiveWeapons()

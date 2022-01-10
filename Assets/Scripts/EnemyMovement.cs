@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyState enemyState;
     NavMeshAgent agent;
     Rigidbody r;
-    private Vector3 playerLastPosition;
+    public Vector3 playerLastPosition;
     private bool knowsLastPosition = false;
     private bool patrolStarted = false;
     private float timer = 0.0f;
