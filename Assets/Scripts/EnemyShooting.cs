@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject muzzle, player, bullet;
-    public AudioSource fireSound, fullReloadSound, startReloadSound;
+    public AudioSource fireSound, fullReloadSound, startReloadSound, attackSound;
     public AudioSource loadBulletSound, endReloadSound;
     public ParticleSystem muzzleFlash;
     public int magazineAmmo = 5;
@@ -98,6 +98,12 @@ public class EnemyShooting : MonoBehaviour
         target.z += zRand;
 
         return target;
+    }
+
+    IEnumerator PlaySound(AudioSource audio)
+    {
+        audio.Play();
+        yield return new WaitWhile( () => audio.isPlaying );
     }
 
     IEnumerator Reload()

@@ -16,9 +16,13 @@ public class EnemyDetection : MonoBehaviour {
     private EnemyState enemyState; 
     private EnemyMovement enemyMovement;
     private float originalDetectionDistance;
+
+    public AudioSource detect;
+    private bool playAudio;
     
     void Start() 
     {
+        playAudio = true;
         CheckActiveWeapons();
         originalDetectionDistance = detectionDistance;
         animator = GetComponent<Animator>();
@@ -55,6 +59,16 @@ public class EnemyDetection : MonoBehaviour {
                 Debug.DrawLine(transform.position, hit.point,Color.red);
                 PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
                 enemyState.isPlayerDetected = true;
+
+                if (playAudio)
+                {
+                    StartCoroutine(PlaySound(detect));
+                    playAudio = false;
+                }
+                if (!detect.isPlaying)
+                {
+                    StartCoroutine(Wait(10.0f));
+                }
             }
             else if(enemyState.hasPatrol)
             {
@@ -83,6 +97,18 @@ public class EnemyDetection : MonoBehaviour {
             result = true;
         }
         return result;
+    }
+
+    IEnumerator PlaySound(AudioSource audio)
+    {
+        audio.Play();
+        yield return new WaitWhile( () => audio.isPlaying );
+    }
+
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        playAudio = true;
     }
 
     IEnumerator HandleGunFiring()
