@@ -26,6 +26,11 @@ public class Melee : MonoBehaviour
     {
         meleeAngle = meleeAngle == 0 ? meleeAngle : 45;
     }
+
+    void Update()
+    {
+        CheckForEnemies();
+    }
     public void CheckForEnemies()
     {
         isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
@@ -33,6 +38,7 @@ public class Melee : MonoBehaviour
         if (isHitting && hit.transform.CompareTag("Enemy") && utils.IsHitWithinObjectAngle(hit, playerTransform, meleeAngle) 
             && utils.IsHitWithinObjectDistance(hit,meleeRange))
         {
+            Debug.Log("Enemy hit!");
             hit.transform.gameObject.GetComponent<EnemyState>().TakeDamage(damage);
         }
     }

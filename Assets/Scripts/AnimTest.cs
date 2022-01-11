@@ -11,10 +11,13 @@ public class AnimTest : MonoBehaviour
     // Start is called before the first frame update
     private GameObject primary;
     private GameObject secondary;
+    private GameObject melee;
+    private bool isPrimary = true;
     void Start()
     {
         primary = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Primary").gameObject;
         secondary = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Secondary").gameObject;
+        melee = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Melee").gameObject;
     }
 
     // Update is called once per frame
@@ -26,15 +29,37 @@ public class AnimTest : MonoBehaviour
         {
             animator.SetBool("isAiming", false);
             animator.ResetTrigger("Firing");
-            StartCoroutine(ChangeWeapon(true));
+            isPrimary = true;
+            StartCoroutine(ChangeWeapon(isPrimary));
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             animator.SetBool("isAiming", false);
             animator.ResetTrigger("Firing");
-            StartCoroutine(ChangeWeapon(false));
+            isPrimary = false;
+            StartCoroutine(ChangeWeapon(isPrimary));
         }
+
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            animator.SetBool("isAiming", false);
+            animator.ResetTrigger("Firing");
+            StartCoroutine(Melee(isPrimary));
+        }
+    }
+
+    IEnumerator Melee(bool isPrimary)
+    {
+        melee.SetActive(true);
+        primary.SetActive(false);
+        secondary.SetActive(false);
+        animator.SetTrigger("Melee");
+        yield return new WaitForSeconds(0.75f);
+        
+        secondary.SetActive(!isPrimary);
+        primary.SetActive(isPrimary);
+        melee.SetActive(false);
     }
 
     IEnumerator ChangeWeapon(bool isPrimary)
