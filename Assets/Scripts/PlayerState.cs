@@ -14,6 +14,9 @@ public class PlayerState : MonoBehaviour
     private Color alphaColor;
     private float currentHealth;
 
+    public AudioSource playerDamaged;
+    public AudioSource playerDied;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -43,6 +46,10 @@ public class PlayerState : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            playerDamaged.Play();
+        }
     }
 
     public void Heal()
@@ -57,6 +64,7 @@ public class PlayerState : MonoBehaviour
 
     void Die()
     {
+        playerDied.Play();
         gameManager.EndGame();
     }
 }
