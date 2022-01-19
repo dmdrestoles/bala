@@ -24,12 +24,12 @@ public class Melee : MonoBehaviour
 
     void Start()
     {
-        meleeAngle = meleeAngle == 0 ? meleeAngle : 45;
+        meleeAngle = meleeAngle == 0 ? meleeAngle : 30;
     }
 
     void Update()
     {
-        CheckForEnemies();
+
     }
     public void CheckForEnemies()
     {

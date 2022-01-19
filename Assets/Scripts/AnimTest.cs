@@ -13,6 +13,8 @@ public class AnimTest : MonoBehaviour
     private GameObject secondary;
     private GameObject melee;
     private bool isPrimary = true;
+    public Melee meleeScript;
+
     void Start()
     {
         primary = gameObject.transform.Find("WeaponHolder").gameObject.transform.Find("Primary").gameObject;
@@ -47,6 +49,8 @@ public class AnimTest : MonoBehaviour
             animator.ResetTrigger("Firing");
             StartCoroutine(Melee(isPrimary));
         }
+
+        
     }
 
     IEnumerator Melee(bool isPrimary)
@@ -55,7 +59,9 @@ public class AnimTest : MonoBehaviour
         primary.SetActive(false);
         secondary.SetActive(false);
         animator.SetTrigger("Melee");
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.45f);
+        meleeScript.CheckForEnemies();
+        yield return new WaitForSeconds(0.30f);
         
         secondary.SetActive(!isPrimary);
         primary.SetActive(isPrimary);
