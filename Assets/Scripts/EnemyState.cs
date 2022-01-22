@@ -11,14 +11,21 @@ public class EnemyState : MonoBehaviour
     public float health = 50f;
     public float distanceFromPlyaer;
     [HideInInspector]
-    public bool isAiming, isWalking, isFiring;
+    public bool isAiming, isWalking, isFiring, isDead;
     public int ammo, alertLevel;
     private float waitTime = 10.0f;
     private float timer = 0.0f;
 
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        if (isAsleep)
+        if (isAsleep && !isDead)
         {
             // mr.material = materialOnSleep;
             HandleSleeping();
@@ -39,13 +46,16 @@ public class EnemyState : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            Die();
+            isDead = true;
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
+    IEnumerator Die()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("triggerDeath");
+        isAsleep = true;
+        yield return new WaitForSeconds(1000000.0f);
     }
 
     private void HandleSleeping() 

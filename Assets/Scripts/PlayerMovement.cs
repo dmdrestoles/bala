@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
-    public Vector3 velocity, originalCamPos;
+    public Vector3 velocity, originalCamPos, oldPosition;
     public bool isGrounded;
     
     private int energy;
@@ -24,12 +24,15 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraHolder, playerBody;
     private float speed, maxCrouchHeight, crouchHeight;
 
+    public AudioSource bushrustling;
+
     void Start()
     {
         energy = 6;
         speed = moveSpeed;
         originalCamPos = cameraHolder.transform.position;
         maxCrouchHeight = 0.68f;
+        oldPosition = transform.position;
     }
     void Update()
     {
@@ -125,6 +128,14 @@ public class PlayerMovement : MonoBehaviour
         {
             playerState.isVisible = true;
         }
+        
+        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        {
+            if (!bushrustling.isPlaying)
+            {
+                StartCoroutine(PlaySound(bushrustling));
+            }
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -138,6 +149,12 @@ public class PlayerMovement : MonoBehaviour
     public bool checkVisibility()
     {
         return playerState.isVisible;
+    }
+
+    IEnumerator PlaySound(AudioSource audio)
+    {
+        audio.Play();
+        yield return new WaitWhile( () => audio.isPlaying );
     }
 
     IEnumerator DrainEnergy()
