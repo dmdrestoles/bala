@@ -18,6 +18,7 @@ public class EnemyDetection : MonoBehaviour {
     private float originalDetectionDistance;
     private GameObject parent;
     private List<GameObject> enemyList;
+    private Vector3 myFacePosition;
     
     void Start() 
     {
@@ -34,6 +35,7 @@ public class EnemyDetection : MonoBehaviour {
         playerTransform = player.transform;
         if (!enemyState.isAsleep)
         {
+            myFacePosition = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
             HandleSprintCrouching();
             this.CheckForTargetInLineOfSight();
             this.HandleEnemyAlerts();
@@ -42,9 +44,10 @@ public class EnemyDetection : MonoBehaviour {
 
     private void CheckForTargetInLineOfSight()
     {
-        if (Physics.Linecast(transform.position, playerTransform.position, out hit))
+        
+        if (Physics.Linecast(myFacePosition, playerTransform.position, out hit))
         {
-            Debug.DrawLine(transform.position, hit.point, Color.green);
+            Debug.DrawLine(myFacePosition, hit.point, Color.green);
             if( (primary.isFiring && !primary.isSilent) || (secondary.isFiring && !secondary.isSilent) )
             {
                 animator.SetBool("isWalking", false);
@@ -57,7 +60,7 @@ public class EnemyDetection : MonoBehaviour {
             {
                 animator.SetBool("isWalking", false);
                 enemyState.alertLevel = 1;
-                Debug.DrawLine(transform.position, hit.point,Color.red);
+                Debug.DrawLine(myFacePosition, hit.point,Color.red);
                 PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
                 enemyState.isPlayerDetected = true;
             }
@@ -83,11 +86,16 @@ public class EnemyDetection : MonoBehaviour {
 
     IEnumerator ConnectEnemyLineCast(GameObject enemyOther) 
     {
-        if(Physics.Linecast(transform.position, enemyOther.transform.position, out hit))
+        Vector3 enemyFacePosition = new Vector3(
+            enemyOther.transform.position.x, 
+            enemyOther.transform.position.y+3,
+            enemyOther.transform.position.z);
+
+        if(Physics.Linecast(myFacePosition, enemyFacePosition, out hit))
         {
-            Debug.DrawLine(transform.position, hit.point, Color.magenta);
-            Debug.Log(transform.position + "----" +enemyOther.transform.position);
-            float distance = Vector3.Distance(enemyOther.transform.position, transform.position);
+            Debug.DrawLine(myFacePosition, hit.point, Color.magenta);
+            Debug.Log(myFacePosition + "----" +enemyFacePosition);
+            float distance = Vector3.Distance(enemyFacePosition, myFacePosition);
             EnemyState enemyOtherState = enemyOther.GetComponent<EnemyState>();
 
             if (enemyState.isPlayerDetected && distance < 10)
@@ -100,7 +108,7 @@ public class EnemyDetection : MonoBehaviour {
             }
             else if (enemyState.isFiring)
             {
-                Debug.DrawLine(transform.position, hit.point, Color.black);
+                Debug.DrawLine(myFacePosition, hit.point, Color.black);
 
                 yield return new WaitForSeconds(3);
                 enemyOtherState.isPlayerDetected = true;

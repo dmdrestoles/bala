@@ -72,11 +72,10 @@ public class EnemyMovement : MonoBehaviour
             agent.destination = playerTransform.position;
             playerLastPosition = playerTransform.position;
             r.velocity *= 0.99f;
-            agent.speed = 20f;
+            agent.speed = 12f;
             animator.SetBool("isMoving", true);
             enemyState.distanceFromPlyaer = Vector3.Distance(transform.position, playerTransform.position);
 
-            transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
             HoldStillToFire();
         }
         if (knowsLastPosition && !isPlayerDetected)
@@ -167,7 +166,7 @@ public class EnemyMovement : MonoBehaviour
             timer = timer - time;
             knowsLastPosition = false;
             enemyState.alertLevel = 0;
-            agent.acceleration = 4;
+            agent.acceleration = 2;
             StopMovement();
         }
     }
