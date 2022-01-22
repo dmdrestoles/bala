@@ -63,6 +63,66 @@ ModelImporter:
   - first:
       74: -5388049918454346509
     second: rig|Player_TPose
+  - first:
+      74: -9130543577362983237
+    second: rig|rig|rig|Player_BoloSlash|rig|Player_BoloSlash
+  - first:
+      74: -2839232176386222550
+    second: rig|rig|rig|Player_PaltikAimStatic|rig|Player_PaltikAimStatic
+  - first:
+      74: 8516748665160270032
+    second: rig|rig|rig|Player_PaltikAim|rig|Player_PaltikAim
+  - first:
+      74: 6262460477016324367
+    second: rig|rig|rig|Player_PaltikEquip|rig|Player_PaltikEquip
+  - first:
+      74: 7961685693477733108
+    second: rig|rig|rig|Player_PaltikFire|rig|Player_PaltikFire
+  - first:
+      74: -2685854273803968536
+    second: rig|rig|rig|Player_PaltikIdle|rig|Player_PaltikIdle
+  - first:
+      74: -8530556540591418996
+    second: rig|rig|rig|Player_PaltikReload|rig|Player_PaltikReload
+  - first:
+      74: 1409537342055699068
+    second: rig|rig|rig|Player_PaltikUnequip|rig|Player_PaltikUnequip
+  - first:
+      74: 4152838305702573300
+    second: rig|rig|rig|Player_SumpitAimStaticLoaded|rig|Player_SumpitAimStatic
+  - first:
+      74: 1659655567735431346
+    second: rig|rig|rig|Player_SumpitAimStaticUnloaded|rig|Player_SumpitAimStat
+  - first:
+      74: -4456217276463704666
+    second: rig|rig|rig|Player_SumpitAim|rig|Player_SumpitAim
+  - first:
+      74: 3032691803735108969
+    second: rig|rig|rig|Player_SumpitFire|rig|Player_SumpitFire
+  - first:
+      74: -6430413627971618302
+    second: rig|rig|rig|Player_SumpitLoadedEquip|rig|Player_SumpitLoadedEquip
+  - first:
+      74: 8018205904509958916
+    second: rig|rig|rig|Player_SumpitLoadedUnequip|rig|Player_SumpitLoadedUnequ
+  - first:
+      74: 5864572294197334610
+    second: rig|rig|rig|Player_SumpitLoaded|rig|Player_SumpitLoaded
+  - first:
+      74: 52714512648895175
+    second: rig|rig|rig|Player_SumpitReload|rig|Player_SumpitReload
+  - first:
+      74: 4560309005518590186
+    second: rig|rig|rig|Player_SumpitUnloadedEquip|rig|Player_SumpitUnloadedEqu
+  - first:
+      74: -6262712054296060618
+    second: rig|rig|rig|Player_SumpitUnloadedUnequip|rig|Player_SumpitUnloadedU
+  - first:
+      74: -8949895257172716664
+    second: rig|rig|rig|Player_SumpitUnloaded|rig|Player_SumpitUnloaded
+  - first:
+      74: -8065871115469234929
+    second: rig|rig|rig|Player_TPose|rig|Player_TPose
   externalObjects: {}
   materials:
     materialImportMode: 1
