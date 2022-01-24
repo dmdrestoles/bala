@@ -48,9 +48,10 @@ public class EnemyMovement : MonoBehaviour
         else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
         {
             animator.SetBool("isAiming", false);
+            
             HandleDetection(isPlayerDetected);
         }
-        else if(enemyState.isFiring)
+        else if(enemyState.isFiring || animator.GetBool("isAiming"))
         {
             transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
             StopMovement();
@@ -75,7 +76,8 @@ public class EnemyMovement : MonoBehaviour
             agent.speed = 12f;
             animator.SetBool("isMoving", true);
             enemyState.distanceFromPlyaer = Vector3.Distance(transform.position, playerTransform.position);
-
+            
+            transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
             HoldStillToFire();
         }
         if (knowsLastPosition && !isPlayerDetected)
@@ -89,13 +91,11 @@ public class EnemyMovement : MonoBehaviour
             Vector3 end = RandomNavSphere(playerLastPosition, 3.5f, -1);
             PatrolKnownLastPosition(start, end,2);
             
-            
         }
         if(!isPlayerDetected && !knowsLastPosition && enemyState.hasPatrol)
         {
             ResumeMovement();
             Patrol(startPatrolLocation,endPatrolLocation);
-
         }
 
     }
