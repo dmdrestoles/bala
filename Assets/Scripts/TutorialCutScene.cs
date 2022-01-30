@@ -33,7 +33,6 @@ public class TutorialCutScene : MonoBehaviour
         canvas.transform.GetChild(6).GetComponent<Text>().text = "";
         canvas.transform.GetChild(7).GetComponent<Text>().text = "";
         PlayerMovement.moveSpeed = 0;
-        officer.enabled = false;
 
         GameManager.IsInputEnabled = false;
         canvas.SetActive(false);
@@ -107,12 +106,10 @@ public class TutorialCutScene : MonoBehaviour
                                 canvas.transform.GetChild(6).GetComponent<Text>().text = "";
                                 GameManager.IsInputEnabled = false;
                                 yield return new WaitForSeconds(1);
-                                PlayerCam.SetActive(false);
-                                Player.SetActive(false);
                                 playerHolder.SetActive(true);
                                 Cam2.SetActive(true);
                                 yield return new WaitForSeconds(1);
-                                officer.enabled = true;
+                                officer.SetTrigger("triggerDeath");
                                 yield return new WaitForSeconds(1);
                                 canvas.transform.GetChild(4).GetComponent<Text>().text = "Officer";
                                 canvas.transform.GetChild(5).GetComponent<Text>().text = "AAHH!";
@@ -124,7 +121,7 @@ public class TutorialCutScene : MonoBehaviour
                                 Cam2.SetActive(false);
                                 PlayerCam.SetActive(true);
                                 Player.SetActive(true);
-                                playerHolder.SetActive(false);
+                                playerHolder.SetActive(true);
                                 GameManager.IsInputEnabled = true;
                                 PlayerMovement.moveSpeed = 12f;
                                 canvas.transform.GetChild(6).GetComponent<Text>().text = "Use W-A-S-D to move.";
@@ -135,17 +132,17 @@ public class TutorialCutScene : MonoBehaviour
                                 {
                                     if (reachedMarker == true)
                                     {
+                                        Debug.Log("Marker Reached");
                                         minimarker.SetActive(false);
                                         canvas.transform.GetChild(6).GetComponent<Text>().text = "";
                                         canvas.transform.GetChild(7).GetComponent<Text>().text = "";
-                                        Player.SetActive(false);
-                                        yield return new WaitForSeconds(0.5f);
+                                        //yield return new WaitForSeconds(0.5f);
                                         GameManager.IsInputEnabled = false;
-                                        PlayerCam.SetActive(false);
                                         Cam3.SetActive(true);
                                         yield return new WaitForSeconds(1);
                                         canvas.transform.GetChild(4).GetComponent<Text>().text = "Officer";
                                         canvas.transform.GetChild(5).GetComponent<Text>().text = "You need to go! Find Sancho Valenzuela and warn him of what happened here!";
+                                        Debug.Log("Text Changed");
                                         yield return new WaitForSeconds(5);
                                         Cam4.SetActive(true); 
                                         Cam3.SetActive(false);
@@ -158,7 +155,6 @@ public class TutorialCutScene : MonoBehaviour
                                         objectiveMarker.SetActive(true);
                                         canvas.transform.GetChild(4).GetComponent<Text>().text = "";
                                         canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-                                        Player.SetActive(true);
                                         GameManager.IsInputEnabled = true;
                                         PlayerCam.SetActive(true);
                                         Cam4.SetActive(false);

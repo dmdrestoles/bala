@@ -107,7 +107,6 @@ public class EnemyDetection : MonoBehaviour {
         if(Physics.Linecast(myFacePosition, enemyFacePosition, out hit))
         {
             Debug.DrawLine(myFacePosition, hit.point, Color.magenta);
-            Debug.Log(myFacePosition + "----" +enemyFacePosition);
             float distance = Vector3.Distance(enemyFacePosition, myFacePosition);
             EnemyState enemyOtherState = enemyOther.GetComponent<EnemyState>();
 
@@ -194,10 +193,6 @@ public class EnemyDetection : MonoBehaviour {
         for (int i = 0; i< Go.transform.childCount; i++)
         {
             list.Add(Go.transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i< list.Count; i++)
-        {
-            Debug.Log(list[i].name);
         }
     
         return list;
