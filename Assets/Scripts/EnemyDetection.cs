@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour {
     public float detectionDistance;
     public GameObject player;
-    public Gun[] weapons;
+    // public Gun[] weapons;
     private RaycastHit hit;
     public PlayerState playerState;
     public Detection_Utils utils;
@@ -25,7 +25,7 @@ public class EnemyDetection : MonoBehaviour {
     void Start() 
     {
         playAudio = true;
-        CheckActiveWeapons();
+        // CheckActiveWeapons();
         originalDetectionDistance = detectionDistance;
         animator = GetComponent<Animator>();
         enemyState = GetComponent<EnemyState>();

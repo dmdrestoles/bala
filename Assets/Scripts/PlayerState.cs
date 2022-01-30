@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerState : MonoBehaviour
 {
@@ -17,11 +18,18 @@ public class PlayerState : MonoBehaviour
     public AudioSource playerDamaged;
     public AudioSource playerDied;
 
+    public GameObject mainCamera;
+    private PostProcessProfile cameraEFfectProfile;
+    private CameraShake cameraShake;
+
     void Start()
     {
         currentHealth = maxHealth;
         isVisible = true;
         alphaColor = damageScreen.color;
+        cameraEFfectProfile = mainCamera.GetComponent<PostProcessVolume>().sharedProfile;
+        cameraShake = mainCamera.GetComponent<CameraShake>();
+        UpdatePostProcessSaturation(0.0f);
     }
 
     void Update()
@@ -40,14 +48,14 @@ public class PlayerState : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        alphaColor.a += .20f;
-        damageScreen.color = alphaColor;
+        StartCoroutine(cameraShake.Shake(0.05f,0.5f));
         if (currentHealth <= 0f)
         {
             Die();
         }
         else
         {
+            StartCoroutine(UpdateUIOnHit());
             playerDamaged.Play();
         }
     }
@@ -66,5 +74,22 @@ public class PlayerState : MonoBehaviour
     {
         playerDied.Play();
         gameManager.EndGame();
+    }
+
+    void UpdatePostProcessSaturation(float value)
+    {
+        ColorGrading colorGradingLayer = null;
+        cameraEFfectProfile.TryGetSettings(out colorGradingLayer);   
+        colorGradingLayer.saturation.value = value;
+    }
+
+    IEnumerator UpdateUIOnHit()
+    {
+        alphaColor.a = 0.5f;
+        damageScreen.color = alphaColor;
+        UpdatePostProcessSaturation(-100.0f);
+        yield return new WaitForSeconds(0.5f);
+        alphaColor.a = 0.0f;
+        damageScreen.color = alphaColor;
     }
 }
