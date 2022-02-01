@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerState.isSprinting = true;
                 playerState.isCrouching = false;
-                // animator.SetBool("Running", true);
+                animator.SetBool("isRunning", true);
                 speed = moveSpeed * 1.5f;
                 if (energyDraining)
                 {
@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             else if (energy < 1)
             {
                 playerState.isSprinting = false;
+                animator.SetBool("isRunning", false);
                 if (energyGaining)
                 {
                     StartCoroutine(GainEnergy());
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 playerState.isSprinting = false;
+                animator.SetBool("isRunning", false);
                 speed = moveSpeed;
             }
 

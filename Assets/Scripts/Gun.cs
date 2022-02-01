@@ -264,13 +264,13 @@ public class Gun : MonoBehaviour
     }
     
     private void DisableCrosshair(){
-        if (animator.GetBool("isAiming"))
-        {
-            crosshair.SetActive(true);
-        } else 
-        {
-            crosshair.SetActive(false);
-        }
+        // if (animator.GetBool("isAiming"))
+        // {
+        //     crosshair.SetActive(true);
+        // } else 
+        // {
+        //     crosshair.SetActive(false);
+        // }
 
     }
 }
