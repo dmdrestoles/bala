@@ -6,11 +6,12 @@ using UnityEngine.AI;
 public class TutorialMovement : MonoBehaviour
 {
     public float movementSpeed = 10f;
-    public EnemyState enemyState;
-    public Transform enemyTransform;
+
     public Transform playerTransform;
     public bool isSteady;
     public bool isFriendly;
+    public AudioSource fireSound;
+    public ParticleSystem muzzleFlash;
 
     [HideInInspector]
     public bool isPlayerDetected;
@@ -18,22 +19,39 @@ public class TutorialMovement : MonoBehaviour
     NavMeshAgent agent;
     Rigidbody r;
     private Animator animator;
+    private EnemyState enemyState;
+    private float timer = 0.0f;
+    private float waitTime = 5.0f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        enemyState = GetComponent<EnemyState>();
         agent.speed = movementSpeed;
         r = GetComponent<Rigidbody>();
         isPlayerDetected = enemyState.isPlayerDetected;
+        waitTime = Random.Range(3.0f, 6.0f);
         //CutSceneMovement(endPatrolLocation);
     }
 
     void Update()
     {
-        if (isSteady == false)
+        if (isSteady == false && !enemyState.isAsleep)
         {
             CutSceneMovement(endPatrolLocation);
+        } else if(isSteady && !enemyState.isAsleep)
+        {
+            enemyState.isAiming = true;
+            animator.SetBool("isAiming", true);
+            timer += Time.deltaTime;
+        } 
+        
+        if (timer > waitTime && !enemyState.isAsleep)
+        {
+            // Remove the recorded 5 seconds.
+            timer = timer - waitTime;   
+            StartCoroutine(ShootAnimation());
         }
         isPlayerDetected = true;
         HandleDetection(isPlayerDetected);
@@ -45,11 +63,12 @@ public class TutorialMovement : MonoBehaviour
         agent.SetDestination(end);
         if (CheckDestinationReached(end))
         {
-            var lookPos = playerTransform.position - enemyTransform.position;
+            var lookPos = playerTransform.position - transform.position;
             lookPos.y = 2;
             var rotation = Quaternion.LookRotation(lookPos);
-            enemyTransform.rotation = Quaternion.Slerp(enemyTransform.rotation, rotation, Time.deltaTime * 2);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2);
             StopMovement();
+            Debug.Log(agent.name + " stopped moving");
         }
         
     }
@@ -85,6 +104,7 @@ public class TutorialMovement : MonoBehaviour
         r.constraints = RigidbodyConstraints.FreezePosition;
         r.constraints = RigidbodyConstraints.FreezeRotation;
         agent.isStopped = true;
+        isSteady = true;
     }
 
     void HoldStillToFire()
@@ -96,6 +116,16 @@ public class TutorialMovement : MonoBehaviour
             enemyState.isFiring = true;
             enemyState.isPlayerDetected = true;
         }
+    }
+
+    IEnumerator ShootAnimation()
+    {
+        yield return new WaitForSeconds(1.0f);
+        animator.SetTrigger("triggerFire");
+        fireSound.Play();
+        muzzleFlash.Play();
+        yield return new WaitForSeconds(1.5f);
+        animator.ResetTrigger("triggerFire");
     }
 }
 
