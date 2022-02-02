@@ -85,10 +85,10 @@ public class PlayerState : MonoBehaviour
 
     IEnumerator UpdateUIOnHit()
     {
-        alphaColor.a = 0.5f;
+        alphaColor.a = 0.1f;
         damageScreen.color = alphaColor;
-        UpdatePostProcessSaturation(-100.0f);
-        yield return new WaitForSeconds(0.5f);
+        UpdatePostProcessSaturation(-40.0f);
+        yield return new WaitForSeconds(0.07f);
         alphaColor.a = 0.0f;
         damageScreen.color = alphaColor;
     }
