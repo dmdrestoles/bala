@@ -11,7 +11,7 @@ public class SelectLevelScript : MonoBehaviour
 
     public void SelectLevelOne()
     {
-        sceneName = "Level1";
+        sceneName = "Level1.1";
         PlayerPrefs.SetInt("Primary", 2);
     }
 
