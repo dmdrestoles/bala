@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevelOne()
     {
-        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
+        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the marker!");
         Invoke("LoadLevelTwo", restartDelay);
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     void LoadLevelThree()
     {
-        SceneManager.LoadScene("Level3");
+        SceneManager.LoadScene("Level3.1");
     }
 
     void QuitGame()

@@ -12357,8 +12357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 3
-  reachedBridgeUI: {fileID: 0}
-  playerDiedUI: {fileID: 0}
+  reachedBridgeUI: {fileID: 1250213598}
+  playerDiedUI: {fileID: 1932443534}
 --- !u!4 &198919315
 Transform:
   m_ObjectHideFlags: 0
@@ -16550,8 +16550,8 @@ MonoBehaviour:
   isActive: 0
   isEnemy: 0
   isSilent: 0
-  dart: {fileID: 0}
-  bullet: {fileID: 0}
+  dart: {fileID: 87325520}
+  bullet: {fileID: 1455269025}
   crosshair: {fileID: 1792029643}
   dartOrigin: {fileID: 0}
   bulletOrigin: {fileID: 0}
@@ -21439,6 +21439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guardia Civil
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470031311816155765, guid: 4cc7bbee03ddf224a97c27c3c78f8993,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc7bbee03ddf224a97c27c3c78f8993, type: 3}
@@ -28791,6 +28796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guardia Civil (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470031311816155765, guid: 4cc7bbee03ddf224a97c27c3c78f8993,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc7bbee03ddf224a97c27c3c78f8993, type: 3}
@@ -43924,6 +43934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Guardia Civil (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470031311816155765, guid: 4cc7bbee03ddf224a97c27c3c78f8993,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc7bbee03ddf224a97c27c3c78f8993, type: 3}
@@ -69524,6 +69539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guardia Civil (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6470031311816155765, guid: 4cc7bbee03ddf224a97c27c3c78f8993,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc7bbee03ddf224a97c27c3c78f8993, type: 3}
 --- !u!1 &1813546682
@@ -83868,10 +83888,10 @@ MonoBehaviour:
   isActive: 0
   isEnemy: 0
   isSilent: 1
-  dart: {fileID: 0}
-  bullet: {fileID: 0}
+  dart: {fileID: 87325520}
+  bullet: {fileID: 1455269025}
   crosshair: {fileID: 1792029643}
-  dartOrigin: {fileID: 0}
+  dartOrigin: {fileID: 10381694}
   bulletOrigin: {fileID: 0}
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 0}
@@ -83881,7 +83901,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
-  mouseLook: {fileID: 0}
+  mouseLook: {fileID: 1333536762}
   cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 1232936467}
   maxAmmoUI: {fileID: 1240665915}
