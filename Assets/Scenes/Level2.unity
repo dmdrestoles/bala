@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 5f8a5c7db107a254ab2b647d19f61f58,
+  m_LightingDataAsset: {fileID: 112000000, guid: 3715e6919cd77c64eaeb47d6a7975756,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -30799,7 +30799,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.745283, g: 0.49525318, b: 0.27772337, a: 1}
-  m_Intensity: 0.05
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -30844,7 +30844,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7.150671e+22, y: 6.35707e+28, z: 1.8729225e+31, w: 6.857022e+22}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -59023,7 +59023,7 @@ MonoBehaviour:
   isCrouching: 0
   isSprinting: 0
   healthText: {fileID: 1385219053}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 198919314}
   damageScreen: {fileID: 1010075962}
   playerDamaged: {fileID: 1535884419}
   playerDied: {fileID: 1535884418}
