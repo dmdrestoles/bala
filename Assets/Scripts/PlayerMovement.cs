@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         energy = 6;
         speed = moveSpeed;
         originalCamPos = cameraHolder.transform.position;
-        maxCrouchHeight = 0.68f;
+        maxCrouchHeight = 0.55f;
         oldPosition = transform.position;
     }
     void Update()
@@ -58,25 +58,30 @@ public class PlayerMovement : MonoBehaviour
                 // animator.SetBool("Moving", true);
             }
             
-            if(Input.GetKey(KeyCode.LeftControl))
+            if(Input.GetKeyUp(KeyCode.LeftControl) && !playerState.isCrouching)
             {
                 playerState.isCrouching = true;
                 playerState.isSprinting = false;
                 speed = moveSpeed * 0.5f;
-                if (crouchHeight < maxCrouchHeight)
-                {
-                    cameraHolder.transform.position = new Vector3(
-                        cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.1f, cameraHolder.transform.position.z);
-                    crouchHeight += 0.1f;
-                }
-               
             }
-            else if (Input.GetKeyUp(KeyCode.LeftControl))
+
+            else if (crouchHeight < maxCrouchHeight && playerState.isCrouching)
+            {
+                cameraHolder.transform.position = new Vector3(
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.2f, cameraHolder.transform.position.z);
+                crouchHeight += 0.2f;
+            }
+
+            else if (Input.GetKeyUp(KeyCode.LeftControl) && playerState.isCrouching)
             {
                 playerState.isCrouching = false;
+            }
+
+            else if (crouchHeight >= 0 && !playerState.isCrouching)
+            {
                 cameraHolder.transform.position = new Vector3(
-                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
-                crouchHeight = 0;
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + 0.2f, cameraHolder.transform.position.z);
+                crouchHeight -= 0.2f;
             }
 
             else if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
