@@ -20,6 +20,11 @@ public class SelectLevelScript : MonoBehaviour
         sceneName = "Level2";
     }
 
+    public void SelectLevelThree()
+    {
+        sceneName = "Level3.1";
+    }
+
     public void setSceneName(string name)
     {
         sceneName = name;

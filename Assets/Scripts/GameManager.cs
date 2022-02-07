@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject reachedBridgeUI;
     public GameObject playerDiedUI;
 
+    [HideInInspector]
+    public static string currentScene = "MainMenu";
+
     public void CompleteLevelOne()
     {
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the marker!";
@@ -54,12 +57,16 @@ public class GameManager : MonoBehaviour
 
     void LoadLevelTwo()
     {
-        SceneManager.LoadScene("Level2");
+        Cursor.lockState = CursorLockMode.Confined;
+        currentScene = "level2";
+        SceneManager.LoadScene("MainMenu");
     }
 
     void LoadLevelThree()
     {
-        SceneManager.LoadScene("Level3.1");
+        Cursor.lockState = CursorLockMode.Confined;
+        currentScene = "level3";
+        SceneManager.LoadScene("MainMenu");
     }
 
     void QuitGame()
