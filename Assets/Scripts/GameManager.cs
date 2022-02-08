@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     void LoadMainMenu()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        currentScene = "MainMenu";
         SceneManager.LoadScene("MainMenu");
     }
 
