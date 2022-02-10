@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevelTwo()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the bridge!");
         Invoke("LoadLevelThree", restartDelay);

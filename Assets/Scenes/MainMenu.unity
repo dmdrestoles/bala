@@ -4775,7 +4775,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Although the Katipunan outnumbered the Spanish forces, they were outgunned
-    and outmaneuvered by the more disciplined colonial forces
+    and outmaneuvered by the more disciplined colonial forces.
 --- !u!222 &788187079
 CanvasRenderer:
   m_ObjectHideFlags: 0
