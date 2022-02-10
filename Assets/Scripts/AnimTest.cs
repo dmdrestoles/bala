@@ -58,6 +58,7 @@ public class AnimTest : MonoBehaviour
         melee.SetActive(true);
         primary.SetActive(false);
         secondary.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         animator.SetTrigger("Melee");
         yield return new WaitForSeconds(0.45f);
         meleeScript.CheckForEnemies();

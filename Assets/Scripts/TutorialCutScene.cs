@@ -33,6 +33,7 @@ public class TutorialCutScene : MonoBehaviour
         canvas.transform.GetChild(6).GetComponent<Text>().text = "";
         canvas.transform.GetChild(7).GetComponent<Text>().text = "";
         PlayerMovement.moveSpeed = 0;
+        Cursor.visible = false;
 
         GameManager.IsInputEnabled = false;
         canvas.SetActive(false);

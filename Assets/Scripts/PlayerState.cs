@@ -24,6 +24,7 @@ public class PlayerState : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         currentHealth = maxHealth;
         isVisible = true;
         alphaColor = damageScreen.color;
