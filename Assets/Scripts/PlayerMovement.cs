@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerState.isCrouching = true;
                 playerState.isSprinting = false;
-                speed = moveSpeed * 0.5f;
             }
 
             else if (crouchHeight < maxCrouchHeight && playerState.isCrouching)
@@ -104,6 +103,11 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(GainEnergy());
                 }
             }
+
+            else if (playerState.isCrouching)
+            {
+                speed = moveSpeed * 0.5f;
+            }
             
             else
             {
@@ -111,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("isRunning", false);
                 speed = moveSpeed;
             }
-
             controller.Move(move * speed * Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && isGrounded)

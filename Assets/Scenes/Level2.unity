@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 4229643}
   m_Layer: 11
   m_Name: paltik_match3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 5196538}
   m_Layer: 11
   m_Name: DEF-upper_arm.L.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9038,7 +9038,7 @@ GameObject:
   - component: {fileID: 103754706}
   m_Layer: 11
   m_Name: ORG-spine.003
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9070,7 +9070,7 @@ GameObject:
   - component: {fileID: 106297996}
   m_Layer: 11
   m_Name: DEF-spine.006
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9481,7 +9481,7 @@ GameObject:
   - component: {fileID: 119415334}
   m_Layer: 11
   m_Name: cotton2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9518,7 +9518,7 @@ GameObject:
   - component: {fileID: 123931745}
   m_Layer: 11
   m_Name: Kaskas (projectile)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9756,7 +9756,7 @@ GameObject:
   - component: {fileID: 127718067}
   m_Layer: 11
   m_Name: MCH-spine.003
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10159,7 +10159,7 @@ GameObject:
   - component: {fileID: 146232770}
   m_Layer: 11
   m_Name: DEF-f_pinky.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10529,7 +10529,7 @@ GameObject:
   - component: {fileID: 151724625}
   m_Layer: 11
   m_Name: paltik_match1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10888,7 +10888,7 @@ GameObject:
   - component: {fileID: 162176313}
   m_Layer: 11
   m_Name: DEF-f_middle.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11166,7 +11166,7 @@ GameObject:
   - component: {fileID: 169371093}
   m_Layer: 11
   m_Name: Secondary
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11197,7 +11197,7 @@ GameObject:
   - component: {fileID: 171382069}
   m_Layer: 11
   m_Name: DEF-thumb.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11234,7 +11234,7 @@ GameObject:
   - component: {fileID: 174965000}
   m_Layer: 11
   m_Name: DEF-shoulder.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11322,7 +11322,7 @@ GameObject:
   - component: {fileID: 179116052}
   m_Layer: 11
   m_Name: ORG-palm.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12298,7 +12298,7 @@ GameObject:
   - component: {fileID: 197518142}
   m_Layer: 11
   m_Name: DEF-forearm.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13629,7 +13629,7 @@ GameObject:
   - component: {fileID: 217396532}
   m_Layer: 11
   m_Name: DEF-hand.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15329,7 +15329,7 @@ GameObject:
   - component: {fileID: 253011231}
   m_Layer: 11
   m_Name: cotton.Root
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15567,7 +15567,7 @@ GameObject:
   - component: {fileID: 263901026}
   m_Layer: 10
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15597,7 +15597,7 @@ GameObject:
   - component: {fileID: 265376530}
   m_Layer: 11
   m_Name: DEF-spine.005
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15727,7 +15727,7 @@ GameObject:
   - component: {fileID: 277772240}
   m_Layer: 11
   m_Name: DEF-spine.003
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16152,7 +16152,7 @@ GameObject:
   - component: {fileID: 296537544}
   m_Layer: 11
   m_Name: DEF-f_index.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16306,7 +16306,7 @@ GameObject:
   - component: {fileID: 299835775}
   m_Layer: 11
   m_Name: Paltik
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16695,7 +16695,7 @@ GameObject:
   - component: {fileID: 308597778}
   m_Layer: 11
   m_Name: DEF-hand.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16822,7 +16822,7 @@ GameObject:
   - component: {fileID: 313306082}
   m_Layer: 11
   m_Name: DEF-f_pinky.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16853,7 +16853,7 @@ GameObject:
   - component: {fileID: 314967489}
   m_Layer: 11
   m_Name: DEF-f_ring.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17683,7 +17683,7 @@ GameObject:
   - component: {fileID: 347649111}
   m_Layer: 11
   m_Name: ORG-palm.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17913,7 +17913,7 @@ GameObject:
   - component: {fileID: 354448076}
   m_Layer: 11
   m_Name: DEF-f_pinky.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18383,7 +18383,7 @@ GameObject:
   - component: {fileID: 367191332}
   m_Layer: 10
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18983,7 +18983,7 @@ GameObject:
   - component: {fileID: 382001484}
   m_Layer: 11
   m_Name: ORG-shoulder.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20158,7 +20158,7 @@ GameObject:
   - component: {fileID: 418160050}
   m_Layer: 11
   m_Name: Melee
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20258,7 +20258,7 @@ GameObject:
   - component: {fileID: 421657917}
   m_Layer: 10
   m_Name: Health Bar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20635,7 +20635,7 @@ GameObject:
   - component: {fileID: 433949692}
   m_Layer: 11
   m_Name: DEF-f_ring.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20696,7 +20696,7 @@ GameObject:
   - component: {fileID: 436004205}
   m_Layer: 11
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21169,7 +21169,7 @@ GameObject:
   - component: {fileID: 449422585}
   m_Layer: 11
   m_Name: paltik_lock
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21229,7 +21229,7 @@ GameObject:
   - component: {fileID: 452172351}
   m_Layer: 11
   m_Name: DEF-f_ring.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21956,7 +21956,7 @@ GameObject:
   - component: {fileID: 465590825}
   m_Layer: 11
   m_Name: paltik_match2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21987,7 +21987,7 @@ GameObject:
   - component: {fileID: 465902632}
   m_Layer: 11
   m_Name: DEF-palm.04.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22573,7 +22573,7 @@ GameObject:
   - component: {fileID: 486443976}
   m_Layer: 11
   m_Name: ORG-palm.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25512,7 +25512,7 @@ GameObject:
   - component: {fileID: 554721627}
   m_Layer: 11
   m_Name: paltik_match4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25600,7 +25600,7 @@ GameObject:
   - component: {fileID: 556670320}
   m_Layer: 11
   m_Name: DEF-palm.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25723,7 +25723,7 @@ GameObject:
   - component: {fileID: 558536577}
   m_Layer: 10
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25795,7 +25795,7 @@ GameObject:
   - component: {fileID: 561711514}
   m_Layer: 11
   m_Name: DEF-f_middle.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26689,7 +26689,7 @@ GameObject:
   - component: {fileID: 595752845}
   m_Layer: 11
   m_Name: Primary
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27663,7 +27663,7 @@ GameObject:
   - component: {fileID: 624779469}
   m_Layer: 11
   m_Name: Iron ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28149,7 +28149,7 @@ GameObject:
   - component: {fileID: 632507264}
   m_Layer: 11
   m_Name: PlayerArms
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29135,7 +29135,7 @@ GameObject:
   - component: {fileID: 663120942}
   m_Layer: 11
   m_Name: ORG-palm.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29237,7 +29237,7 @@ GameObject:
   - component: {fileID: 664318803}
   m_Layer: 11
   m_Name: DEF-thumb.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29374,7 +29374,7 @@ GameObject:
   - component: {fileID: 672335805}
   m_Layer: 11
   m_Name: DEF-palm.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30384,7 +30384,7 @@ GameObject:
   - component: {fileID: 697919792}
   m_Layer: 11
   m_Name: DEF-thumb.02.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31361,7 +31361,7 @@ GameObject:
   - component: {fileID: 720831465}
   m_Layer: 11
   m_Name: DEF-f_middle.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32283,7 +32283,7 @@ GameObject:
   - component: {fileID: 740453667}
   m_Layer: 11
   m_Name: DEF-spine.004
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34636,7 +34636,7 @@ GameObject:
   - component: {fileID: 806896578}
   m_Layer: 11
   m_Name: DEF-palm.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34674,7 +34674,7 @@ GameObject:
   - component: {fileID: 807803925}
   m_Layer: 11
   m_Name: Paltik
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34922,7 +34922,7 @@ GameObject:
   - component: {fileID: 816318550}
   m_Layer: 11
   m_Name: DEF-f_middle.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35183,7 +35183,7 @@ GameObject:
   - component: {fileID: 830234422}
   m_Layer: 11
   m_Name: DEF-f_middle.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36102,7 +36102,7 @@ GameObject:
   - component: {fileID: 872527450}
   m_Layer: 11
   m_Name: DEF-f_ring.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36357,7 +36357,7 @@ GameObject:
   - component: {fileID: 877292566}
   m_Layer: 11
   m_Name: cotton3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38125,7 +38125,7 @@ GameObject:
   - component: {fileID: 925417692}
   m_Layer: 10
   m_Name: PlayerDamaged
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39836,7 +39836,7 @@ GameObject:
   - component: {fileID: 981862946}
   m_Layer: 11
   m_Name: DEF-palm.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39897,7 +39897,7 @@ GameObject:
   - component: {fileID: 982637748}
   m_Layer: 11
   m_Name: sumpit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40464,7 +40464,7 @@ GameObject:
   - component: {fileID: 994254313}
   m_Layer: 11
   m_Name: DEF-palm.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41059,7 +41059,7 @@ GameObject:
   - component: {fileID: 1010075962}
   m_Layer: 10
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41345,7 +41345,7 @@ GameObject:
   - component: {fileID: 1024789245}
   m_Layer: 11
   m_Name: Cotton
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42471,7 +42471,7 @@ GameObject:
   - component: {fileID: 1059647324}
   m_Layer: 11
   m_Name: DEF-f_index.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43280,7 +43280,7 @@ GameObject:
   - component: {fileID: 1084944896}
   m_Layer: 11
   m_Name: DEF-f_index.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43526,7 +43526,7 @@ GameObject:
   - component: {fileID: 1090827654}
   m_Layer: 11
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45010,7 +45010,7 @@ GameObject:
   - component: {fileID: 1109354798}
   m_Layer: 11
   m_Name: DEF-shoulder.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45043,7 +45043,7 @@ GameObject:
   - component: {fileID: 1109891596}
   m_Layer: 10
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45125,7 +45125,7 @@ GameObject:
   - component: {fileID: 1113623192}
   m_Layer: 11
   m_Name: cotton_ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45162,7 +45162,7 @@ GameObject:
   - component: {fileID: 1115607006}
   m_Layer: 11
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45851,7 +45851,7 @@ GameObject:
   - component: {fileID: 1141482173}
   m_Layer: 11
   m_Name: DEF-forearm.R.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46498,7 +46498,7 @@ GameObject:
   - component: {fileID: 1162967920}
   m_Layer: 11
   m_Name: WeaponHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48597,7 +48597,7 @@ GameObject:
   - component: {fileID: 1232936469}
   m_Layer: 10
   m_Name: Current
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48917,7 +48917,7 @@ GameObject:
   - component: {fileID: 1240665916}
   m_Layer: 10
   m_Name: Max
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49084,7 +49084,7 @@ GameObject:
   - component: {fileID: 1244300547}
   m_Layer: 11
   m_Name: cotton4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49476,7 +49476,7 @@ GameObject:
   - component: {fileID: 1250213600}
   m_Layer: 10
   m_Name: BridgeObjectiveEnd
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50235,7 +50235,7 @@ GameObject:
   - component: {fileID: 1277742344}
   m_Layer: 11
   m_Name: Bolo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50956,7 +50956,7 @@ GameObject:
   - component: {fileID: 1289743675}
   m_Layer: 11
   m_Name: DEF-f_pinky.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51266,7 +51266,7 @@ GameObject:
   - component: {fileID: 1298193096}
   m_Layer: 11
   m_Name: paltik_trigger
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52253,7 +52253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333536758}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -52263,7 +52263,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   stopNaNPropagation: 1
-  finalBlitToCameraTarget: 1
+  finalBlitToCameraTarget: 0
   antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
@@ -52313,7 +52313,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333536758}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -52465,7 +52465,7 @@ GameObject:
   - component: {fileID: 1334892887}
   m_Layer: 10
   m_Name: Icon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52905,6 +52905,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1343710575}
   - component: {fileID: 1343710576}
+  - component: {fileID: 1343710578}
+  - component: {fileID: 1343710577}
   m_Layer: 10
   m_Name: ArmsCamera
   m_TagString: Player
@@ -52969,6 +52971,83 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1343710577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343710574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1333536759}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1343710578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343710574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e25960016a18aba478b020516fe286c5, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1347505613
 GameObject:
   m_ObjectHideFlags: 0
@@ -53047,7 +53126,7 @@ GameObject:
   - component: {fileID: 1350986842}
   m_Layer: 11
   m_Name: Sumpit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53398,7 +53477,7 @@ GameObject:
   - component: {fileID: 1364461711}
   m_Layer: 11
   m_Name: DEF-upper_arm.R.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53499,7 +53578,7 @@ GameObject:
   - component: {fileID: 1366088490}
   m_Layer: 11
   m_Name: DEF-f_pinky.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54155,7 +54234,7 @@ GameObject:
   - component: {fileID: 1385219053}
   m_Layer: 10
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54686,7 +54765,7 @@ GameObject:
   - component: {fileID: 1399374600}
   m_Layer: 11
   m_Name: DEF-f_ring.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54942,7 +55021,7 @@ GameObject:
   - component: {fileID: 1414831592}
   m_Layer: 11
   m_Name: DEF-palm.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54973,7 +55052,7 @@ GameObject:
   - component: {fileID: 1415967028}
   m_Layer: 11
   m_Name: bolo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55015,7 +55094,7 @@ GameObject:
   - component: {fileID: 1419333496}
   m_Layer: 11
   m_Name: Bolo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55484,7 +55563,7 @@ GameObject:
   - component: {fileID: 1440285594}
   m_Layer: 10
   m_Name: Panel (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59178,6 +59257,7 @@ MonoBehaviour:
   playerDamaged: {fileID: 1535884419}
   playerDied: {fileID: 1535884418}
   mainCamera: {fileID: 1333536758}
+  armsCamera: {fileID: 1343710574}
 --- !u!114 &1535884422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61060,7 +61140,7 @@ GameObject:
   - component: {fileID: 1588495957}
   m_Layer: 11
   m_Name: cotton1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61308,7 +61388,7 @@ GameObject:
   - component: {fileID: 1597288967}
   m_Layer: 11
   m_Name: ORG-palm.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62255,7 +62335,7 @@ GameObject:
   - component: {fileID: 1627044666}
   m_Layer: 11
   m_Name: ORG-palm.04.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62287,7 +62367,7 @@ GameObject:
   - component: {fileID: 1627798626}
   m_Layer: 11
   m_Name: DEF-upper_arm.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62409,7 +62489,7 @@ GameObject:
   - component: {fileID: 1631509980}
   m_Layer: 11
   m_Name: ORG-palm.04.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62987,7 +63067,7 @@ GameObject:
   - component: {fileID: 1642889573}
   m_Layer: 11
   m_Name: DEF-f_middle.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63334,7 +63414,7 @@ GameObject:
   - component: {fileID: 1661479756}
   m_Layer: 10
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64722,7 +64802,7 @@ GameObject:
   - component: {fileID: 1691776557}
   m_Layer: 11
   m_Name: DEF-forearm.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64754,7 +64834,7 @@ GameObject:
   - component: {fileID: 1693229751}
   m_Layer: 11
   m_Name: Arms
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65217,7 +65297,7 @@ GameObject:
   - component: {fileID: 1707759117}
   m_Layer: 10
   m_Name: Border
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65358,7 +65438,7 @@ GameObject:
   - component: {fileID: 1710478447}
   m_Layer: 11
   m_Name: DEF-f_index.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65964,7 +66044,7 @@ GameObject:
   - component: {fileID: 1720397359}
   m_Layer: 11
   m_Name: paltik_match5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65994,7 +66074,7 @@ GameObject:
   - component: {fileID: 1722679760}
   m_Layer: 11
   m_Name: kaskas
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66027,7 +66107,7 @@ GameObject:
   - component: {fileID: 1724171132}
   m_Layer: 10
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66733,7 +66813,7 @@ GameObject:
   - component: {fileID: 1744842539}
   m_Layer: 11
   m_Name: ORG-shoulder.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68357,7 +68437,7 @@ GameObject:
   - component: {fileID: 1787361780}
   m_Layer: 11
   m_Name: ramrod
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68534,7 +68614,7 @@ GameObject:
   - component: {fileID: 1790548636}
   m_Layer: 11
   m_Name: DEF-thumb.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68566,7 +68646,7 @@ GameObject:
   - component: {fileID: 1792029645}
   m_Layer: 10
   m_Name: Crosshair
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68644,7 +68724,7 @@ GameObject:
   - component: {fileID: 1795077190}
   m_Layer: 11
   m_Name: DEF-upper_arm.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69707,7 +69787,7 @@ GameObject:
   - component: {fileID: 1813546683}
   m_Layer: 11
   m_Name: rig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70453,7 +70533,7 @@ GameObject:
   - component: {fileID: 1823165061}
   m_Layer: 11
   m_Name: DEF-f_pinky.03.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70513,7 +70593,7 @@ GameObject:
   - component: {fileID: 1828276396}
   m_Layer: 11
   m_Name: DEF-f_index.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71114,7 +71194,7 @@ GameObject:
   - component: {fileID: 1850157166}
   m_Layer: 11
   m_Name: DEF-thumb.01.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71214,7 +71294,7 @@ GameObject:
   - component: {fileID: 1857187807}
   m_Layer: 11
   m_Name: paltik
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71672,7 +71752,7 @@ GameObject:
   - component: {fileID: 1869618366}
   m_Layer: 11
   m_Name: MCH-spine.002
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71969,7 +72049,7 @@ GameObject:
   - component: {fileID: 1872510220}
   m_Layer: 11
   m_Name: DEF-thumb.01.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72843,7 +72923,7 @@ GameObject:
   - component: {fileID: 1902243510}
   m_Layer: 11
   m_Name: Ramrod
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73576,7 +73656,7 @@ GameObject:
   - component: {fileID: 1915315831}
   m_Layer: 11
   m_Name: DEF-f_index.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73608,7 +73688,7 @@ GameObject:
   - component: {fileID: 1916279235}
   m_Layer: 10
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73872,7 +73952,7 @@ GameObject:
   - component: {fileID: 1925620275}
   m_Layer: 11
   m_Name: DEF-f_ring.03.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74133,7 +74213,7 @@ GameObject:
   - component: {fileID: 1932443536}
   m_Layer: 10
   m_Name: PlayerDeath
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74849,7 +74929,7 @@ GameObject:
   - component: {fileID: 1950671959}
   m_Layer: 10
   m_Name: Minimap Icon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80077,7 +80157,7 @@ GameObject:
   - component: {fileID: 1968648467}
   m_Layer: 11
   m_Name: iron_ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81223,7 +81303,7 @@ GameObject:
   - component: {fileID: 2018650818}
   m_Layer: 11
   m_Name: DEF-spine.002
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83677,7 +83757,7 @@ GameObject:
   - component: {fileID: 2101705632}
   m_Layer: 11
   m_Name: ORG-palm.02.L
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83710,7 +83790,7 @@ GameObject:
   - component: {fileID: 2102281044}
   m_Layer: 11
   m_Name: Cotton ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83893,7 +83973,7 @@ GameObject:
   - component: {fileID: 2105167664}
   m_Layer: 11
   m_Name: Sumpit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84946,7 +85026,7 @@ GameObject:
   - component: {fileID: 2130955511}
   m_Layer: 11
   m_Name: DEF-palm.04.R
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85425,7 +85505,7 @@ GameObject:
   - component: {fileID: 2147007289}
   m_Layer: 11
   m_Name: DEF-forearm.L.001
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -54,6 +54,7 @@ public class EnemyState : MonoBehaviour
     IEnumerator Die()
     {
         animator.SetTrigger("triggerDeath");
+        yield return new WaitForSeconds(1.0f);
         isAsleep = true;
         yield return new WaitForSeconds(1000000.0f);
     }

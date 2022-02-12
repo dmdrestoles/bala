@@ -19,7 +19,10 @@ public class PlayerState : MonoBehaviour
     public AudioSource playerDied;
 
     public GameObject mainCamera;
-    private PostProcessProfile cameraEFfectProfile;
+    public GameObject armsCamera;
+    private PostProcessProfile mainCameraEffectProfile;
+    private PostProcessProfile armsCameraEffectProfile;
+    
     private CameraShake cameraShake;
 
     void Start()
@@ -28,7 +31,8 @@ public class PlayerState : MonoBehaviour
         currentHealth = maxHealth;
         isVisible = true;
         alphaColor = damageScreen.color;
-        cameraEFfectProfile = mainCamera.GetComponent<PostProcessVolume>().sharedProfile;
+        mainCameraEffectProfile = mainCamera.GetComponent<PostProcessVolume>().sharedProfile;
+        armsCameraEffectProfile = armsCamera.GetComponent<PostProcessVolume>().sharedProfile;
         cameraShake = mainCamera.GetComponent<CameraShake>();
         UpdatePostProcessSaturation(0.0f);
     }
@@ -79,16 +83,20 @@ public class PlayerState : MonoBehaviour
 
     void UpdatePostProcessSaturation(float value)
     {
-        ColorGrading colorGradingLayer = null;
-        cameraEFfectProfile.TryGetSettings(out colorGradingLayer);   
-        colorGradingLayer.saturation.value = value;
+        ColorGrading mainCameraColorGradingLayer, armsCameraColorGradingLayer = null;
+        mainCameraEffectProfile.TryGetSettings(out mainCameraColorGradingLayer);
+        armsCameraEffectProfile.TryGetSettings(out armsCameraColorGradingLayer);
+
+        mainCameraColorGradingLayer.saturation.value = value;
+        armsCameraColorGradingLayer.saturation.value = value;
     }
 
     IEnumerator UpdateUIOnHit()
     {
+        Debug.Log("Player hit, updating UI.");
         alphaColor.a = 0.1f;
         damageScreen.color = alphaColor;
-        UpdatePostProcessSaturation(-40.0f);
+        UpdatePostProcessSaturation(-90.0f);
         yield return new WaitForSeconds(0.07f);
         alphaColor.a = 0.0f;
         damageScreen.color = alphaColor;
