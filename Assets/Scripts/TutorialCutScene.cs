@@ -77,7 +77,7 @@ public class TutorialCutScene : MonoBehaviour
         yield return new WaitForSeconds(1);
         canvas.transform.GetChild(4).GetComponent<Text>().text = "";
         canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "Use mouse movement to aim\nTo shoot, use Mouse Left-Click";
+        canvas.transform.GetChild(6).GetComponent<Text>().text = "Use mouse movement and Mouse Right-Click to aim\nTo shoot, use Mouse Left-Click";
 
         while (true)
         {
@@ -160,6 +160,7 @@ public class TutorialCutScene : MonoBehaviour
                                         PlayerCam.SetActive(true);
                                         Cam4.SetActive(false);
                                         canvas.transform.GetChild(7).GetComponent<Text>().text = "Go to the Marker!";
+                                        canvas.transform.GetChild(6).GetComponent<Text>().text = "Press Shift to run";
 
                                         while (true)
                                         {
