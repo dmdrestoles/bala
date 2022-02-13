@@ -9,6 +9,7 @@ TagManager:
   - WeaponsList
   - WeaponHolder
   - Enemy
+  - BushTutorial
   layers:
   - Default
   - TransparentFX

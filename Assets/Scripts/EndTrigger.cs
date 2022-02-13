@@ -25,6 +25,11 @@ public class EndTrigger : MonoBehaviour
             {
                 gameManager.CompleteLevelThree();
             }
+
+            if ( level == 4 )
+            {
+                gameManager.CompleteLevelFour();
+            }
         }
     }
 }

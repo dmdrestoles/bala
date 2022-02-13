@@ -29,13 +29,21 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevelTwo()
     {
-        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the bridge!");
+        Debug.Log("You have reached the marker!");
         Invoke("LoadLevelThree", restartDelay);
     }
 
     public void CompleteLevelThree()
+    {
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the bridge!");
+        Invoke("LoadLevelFour", restartDelay);
+    }
+
+    public void CompleteLevelFour()
     {
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
         reachedBridgeUI.SetActive(true);
@@ -75,6 +83,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "level3";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void LoadLevelFour()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level4";
         SceneManager.LoadScene("MainMenu");
     }
 

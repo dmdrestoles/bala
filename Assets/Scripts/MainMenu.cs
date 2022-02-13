@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject start, level2, level3;
+    public GameObject start, level2, level3, level4;
     void Start()
     {
         if (GameManager.currentScene == "level2")
@@ -16,6 +16,10 @@ public class MainMenu : MonoBehaviour
         {
             start.SetActive(false);
             level3.SetActive(true);
+        } else if (GameManager.currentScene == "level4")
+        {
+            start.SetActive(false);
+            level4.SetActive(true);
         }
     }
     public void PlayGame()
