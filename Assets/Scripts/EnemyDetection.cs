@@ -164,7 +164,6 @@ public class EnemyDetection : MonoBehaviour {
         } else
         {
             timer += Time.deltaTime;
-            Debug.Log(this.name + "---" + "! = " + timer);
         }
     }
 

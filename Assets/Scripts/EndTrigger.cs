@@ -5,28 +5,35 @@ public class EndTrigger : MonoBehaviour
 
     public GameManager gameManager;
     public int level;
-
-    void OnTriggerEnter(Collider col)
+    [HideInInspector]
+    private float objectiveTime = 5.0f;
+    private float timer = 0.0f;
+    void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            if ( level == 1 )
+            if (timer < objectiveTime)
+            {
+                timer += Time.deltaTime;
+                Debug.Log(timer);
+            }
+            else if ( level == 1 )
             {
                 TutorialCutScene.reachedLastMarker = true;
                 gameManager.CompleteLevelOne();
             }
 
-            if( level == 2 )
+            else if( level == 2 )
             {
                 gameManager.CompleteLevelTwo();
             }
 
-            if ( level == 3 )
+            else if ( level == 3 )
             {
                 gameManager.CompleteLevelThree();
             }
 
-            if ( level == 4 )
+            else if ( level == 4 )
             {
                 gameManager.CompleteLevelFour();
             }

@@ -160,7 +160,7 @@ public class TutorialCutScene : MonoBehaviour
                                         PlayerCam.SetActive(true);
                                         Cam4.SetActive(false);
                                         canvas.transform.GetChild(7).GetComponent<Text>().text = "Go to the Marker!";
-                                        canvas.transform.GetChild(6).GetComponent<Text>().text = "Press Shift to run";
+                                        canvas.transform.GetChild(6).GetComponent<Text>().text = "Press Shift to run\nWait for 5 seconds";
 
                                         while (true)
                                         {
