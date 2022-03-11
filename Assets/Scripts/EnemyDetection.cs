@@ -21,7 +21,7 @@ public class EnemyDetection : MonoBehaviour {
     private GameObject parent;
     private List<GameObject> enemyList;
     private Vector3 myFacePosition;
-    private float alertTime = 5.0f;
+    private float alertTime = 2.0f;
     private float timer = 0.0f;
     
     void Start() 
@@ -190,7 +190,7 @@ public class EnemyDetection : MonoBehaviour {
     {
         if (playerState.isCrouching)
         {
-            detectionDistance = originalDetectionDistance * 0.5f;
+            detectionDistance = originalDetectionDistance * 0.85f;
         } else if (playerState.isSprinting)
         {
             detectionDistance = originalDetectionDistance * 2.0f;
