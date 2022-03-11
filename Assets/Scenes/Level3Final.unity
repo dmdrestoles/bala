@@ -7585,8 +7585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 3
-  reachedBridgeUI: {fileID: 0}
-  playerDiedUI: {fileID: 0}
+  reachedBridgeUI: {fileID: 1075282746}
+  playerDiedUI: {fileID: 1480719391}
 --- !u!4 &198919315
 Transform:
   m_ObjectHideFlags: 0
@@ -28790,7 +28790,7 @@ MonoBehaviour:
   dart: {fileID: 87325520}
   bullet: {fileID: 1455269025}
   crosshair: {fileID: 319510064}
-  dartOrigin: {fileID: 0}
+  dartOrigin: {fileID: 1100376106}
   bulletOrigin: {fileID: 0}
   weaponSwitch: {fileID: 0}
   fireSound: {fileID: 0}
@@ -43756,7 +43756,7 @@ MonoBehaviour:
   isCrouching: 0
   isSprinting: 0
   healthText: {fileID: 363026912}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 198919314}
   damageScreen: {fileID: 1913951930}
   playerDamaged: {fileID: 1066181886}
   playerDied: {fileID: 1066181885}
