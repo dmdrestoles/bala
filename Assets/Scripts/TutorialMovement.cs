@@ -53,7 +53,6 @@ public class TutorialMovement : MonoBehaviour
             timer = timer - waitTime;   
             StartCoroutine(ShootAnimation());
         }
-        isPlayerDetected = true;
         HandleDetection(isPlayerDetected);
     }
 
@@ -68,6 +67,7 @@ public class TutorialMovement : MonoBehaviour
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2);
             StopMovement();
+            isPlayerDetected = true;
             Debug.Log(agent.name + " stopped moving");
         }
         

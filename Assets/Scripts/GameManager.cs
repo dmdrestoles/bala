@@ -11,9 +11,17 @@ public class GameManager : MonoBehaviour
     public GameObject reachedBridgeUI;
     public GameObject playerDiedUI;
 
+    [HideInInspector]
+    public static string currentScene = "MainMenu";
+
+    void Awake()
+    {
+        Debug.Log("GameManager ready.");
+    }
+
     public void CompleteLevelOne()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the marker!";
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the marker!");
         Invoke("LoadLevelTwo", restartDelay);
@@ -21,18 +29,26 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevelTwo()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the bridge!");
+        Debug.Log("You have reached the marker!");
         Invoke("LoadLevelThree", restartDelay);
     }
 
     public void CompleteLevelThree()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have reached the safehouse!";
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the bridge!");
+        Invoke("LoadLevelFour", restartDelay);
+    }
+
+    public void CompleteLevelFour()
+    {
+        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
         reachedBridgeUI.SetActive(true);
         Debug.Log("You have reached the safehouse!");
-        Invoke("QuitGame", 3f);
+        Invoke("LoadMainMenu", 3f);
     }
 
     public void EndGame()
@@ -46,18 +62,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void LoadMainMenu()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "MainMenu";
+        SceneManager.LoadScene("MainMenu");
+    }
+
     void LoadLevelTwo()
     {
-        SceneManager.LoadScene("Level2");
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level2";
+        SceneManager.LoadScene("MainMenu");
     }
 
     void LoadLevelThree()
     {
-        SceneManager.LoadScene("Level3.1");
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level3";
+        SceneManager.LoadScene("MainMenu");
     }
 
-    void QuitGame()
+    void LoadLevelFour()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level4";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game!");
         Application.Quit();
     }
 

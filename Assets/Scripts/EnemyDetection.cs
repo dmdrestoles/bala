@@ -21,6 +21,8 @@ public class EnemyDetection : MonoBehaviour {
     private GameObject parent;
     private List<GameObject> enemyList;
     private Vector3 myFacePosition;
+    private float alertTime = 5.0f;
+    private float timer = 0.0f;
     
     void Start() 
     {
@@ -61,21 +63,7 @@ public class EnemyDetection : MonoBehaviour {
             else if (hit.transform.CompareTag("Player") && utils.IsHitWithinObjectAngle(hit, transform, 45)
                     && utils.IsHitWithinObjectDistance(hit, detectionDistance) && IsPlayerVisible())
             {
-                animator.SetBool("isWalking", false);
-                enemyState.alertLevel = 1;
-                Debug.DrawLine(myFacePosition, hit.point,Color.red);
-                PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
-                enemyState.isPlayerDetected = true;
-
-                if (playAudio)
-                {
-                    StartCoroutine(PlaySound(detect));
-                    playAudio = false;
-                }
-                if (!detect.isPlaying)
-                {
-                    StartCoroutine(Wait(10.0f));
-                }
+               HandleAlertTime();
             }
             else if(enemyState.hasPatrol)
             {
@@ -152,6 +140,31 @@ public class EnemyDetection : MonoBehaviour {
             result = true;
         }
         return result;
+    }
+
+    private void HandleAlertTime()
+    {
+        if (timer >= alertTime)
+        {
+            animator.SetBool("isWalking", false);
+            enemyState.alertLevel = 1;
+            Debug.DrawLine(myFacePosition, hit.point,Color.red);
+            PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
+            enemyState.isPlayerDetected = true;
+
+            if (playAudio)
+            {
+                StartCoroutine(PlaySound(detect));
+                playAudio = false;
+            }
+            if (!detect.isPlaying)
+            {
+                StartCoroutine(Wait(10.0f));
+            }
+        } else
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     IEnumerator PlaySound(AudioSource audio)
