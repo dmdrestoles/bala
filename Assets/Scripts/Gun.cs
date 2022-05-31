@@ -43,10 +43,10 @@ public class Gun : MonoBehaviour
     bool isAiming = false;
     public MouseLook mouseLook;
     public CameraShake cameraShake;
-
     //For Ammo Count UI
     public GameObject currentAmmoUI;
     public GameObject maxAmmoUI;
+
 
     void Start()
     {
@@ -61,7 +61,7 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        if ( !isEnemy )
+        if ( !isEnemy && GameManager.IsInputEnabled )
         {
             if (isReloading)
             {
@@ -118,7 +118,7 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (isEnemy == false)
+        if (isEnemy == false && GameManager.IsInputEnabled)
         {
             if (maxAmmo <= 0)
             {

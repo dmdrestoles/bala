@@ -37,13 +37,16 @@ public class EnemyDetection : MonoBehaviour {
     }
     void Update() 
     {
-        playerTransform = player.transform;
-        if (!enemyState.isAsleep)
+        if (GameManager.IsInputEnabled)
         {
-            myFacePosition = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-            HandleSprintCrouching();
-            this.CheckForTargetInLineOfSight();
-            this.HandleEnemyAlerts();
+            playerTransform = player.transform;
+            if (!enemyState.isAsleep)
+            {
+                myFacePosition = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+                HandleSprintCrouching();
+                this.CheckForTargetInLineOfSight();
+                this.HandleEnemyAlerts();
+            }
         }
     }
 

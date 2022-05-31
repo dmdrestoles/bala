@@ -26,31 +26,31 @@ public class AnimTest : MonoBehaviour
     void Update()
     {
         // Check animations per button press.
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (GameManager.IsInputEnabled)
         {
-            animator.SetBool("isAiming", false);
-            animator.ResetTrigger("Firing");
-            isPrimary = true;
-            StartCoroutine(ChangeWeapon(isPrimary));
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                animator.SetBool("isAiming", false);
+                animator.ResetTrigger("Firing");
+                isPrimary = true;
+                StartCoroutine(ChangeWeapon(isPrimary));
+            }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            animator.SetBool("isAiming", false);
-            animator.ResetTrigger("Firing");
-            isPrimary = false;
-            StartCoroutine(ChangeWeapon(isPrimary));
-        }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                animator.SetBool("isAiming", false);
+                animator.ResetTrigger("Firing");
+                isPrimary = false;
+                StartCoroutine(ChangeWeapon(isPrimary));
+            }
 
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            animator.SetBool("isAiming", false);
-            animator.ResetTrigger("Firing");
-            StartCoroutine(Melee(isPrimary));
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                animator.SetBool("isAiming", false);
+                animator.ResetTrigger("Firing");
+                StartCoroutine(Melee(isPrimary));
+            }
         }
-
-        
     }
 
     IEnumerator Melee(bool isPrimary)

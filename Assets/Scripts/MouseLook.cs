@@ -6,7 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody, cameraTransform;
-
+    public GameObject armsCamera;
     float xRotation = 0f;
     
     void Start()
@@ -19,6 +19,9 @@ public class MouseLook : MonoBehaviour
     {
         if (GameManager.IsInputEnabled == true)
         {
+            mouseSensitivity = PlayerPrefs.GetFloat("sense", 50);
+            GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
+            armsCamera.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
             xRotation -= mouseY;

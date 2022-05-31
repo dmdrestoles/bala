@@ -35,31 +35,34 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        isPlayerDetected = enemyState.isPlayerDetected;
-        if (!isPlayerDetected && !enemyState.hasPatrol && enemyState.alertLevel != 1)
+        if (GameManager.IsInputEnabled)
         {
-            StopMovement();
-        }
-        else if (enemyState.isAsleep)
-        {
-            animator.SetBool("isMoving", false);
-            StopMovement();
-        }
-        else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
-        {
-            animator.SetBool("isAiming", false);
-            
-            HandleDetection(isPlayerDetected);
-        }
-        else if(enemyState.isFiring || animator.GetBool("isAiming"))
-        {
-            transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
-            StopMovement();
-        }
-        else
-        {
-            animator.SetBool("isAiming", false);
-            StopMovement();
+            isPlayerDetected = enemyState.isPlayerDetected;
+            if (!isPlayerDetected && !enemyState.hasPatrol && enemyState.alertLevel != 1)
+            {
+                StopMovement();
+            }
+            else if (enemyState.isAsleep)
+            {
+                animator.SetBool("isMoving", false);
+                StopMovement();
+            }
+            else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
+            {
+                animator.SetBool("isAiming", false);
+                
+                HandleDetection(isPlayerDetected);
+            }
+            else if(enemyState.isFiring || animator.GetBool("isAiming"))
+            {
+                transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
+                StopMovement();
+            }
+            else
+            {
+                animator.SetBool("isAiming", false);
+                StopMovement();
+            }
         }
     }
 
