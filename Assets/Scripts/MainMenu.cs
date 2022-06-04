@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject start, level2, level3, level4;
+    public GameObject start, level2, level3, level4, videoScriptObject;
+    public VideoPlayerScript videoPlayerScript;
     void Start()
     {
         if (GameManager.currentScene == "level2")
         {
-            start.SetActive(false);
-            level2.SetActive(true);
+            videoScriptObject.SetActive(true);
+            videoPlayerScript.PlayPaltikVid();
         } else if (GameManager.currentScene == "level3")
         {
             start.SetActive(false);
