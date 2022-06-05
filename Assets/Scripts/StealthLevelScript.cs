@@ -10,7 +10,6 @@ public class StealthLevelScript : MonoBehaviour
     public GameObject Player;
     public GameObject textHolder;
     public GameObject textHolder1;
-    public GameObject border;
     
     private PlayerState playerState;
     private bool stealthTrigger = false;
@@ -49,11 +48,6 @@ public class StealthLevelScript : MonoBehaviour
                 textHolder1.SetActive(false);
             }
 
-            if (Input.GetKeyDown(KeyCode.V) && border.activeSelf)
-            {
-                border.SetActive(false);
-            }
-
             if (!playerState.isVisible && !stealthTrigger)
             {
                 StartCoroutine(UseSecondaryWeapon());
@@ -69,6 +63,8 @@ public class StealthLevelScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         canvas.transform.GetChild(4).GetComponent<Text>().text = "";
         canvas.transform.GetChild(5).GetComponent<Text>().text = "";
+        canvas.transform.GetChild(6).GetComponent<Text>().text = "An Enemy in front of me\n I should take him out quietly.";
+        yield return new WaitForSeconds(5.0f);
         canvas.transform.GetChild(6).GetComponent<Text>().text = "Press Left CTRL to toggle crouch. \nTo melee, press V.";
         yield return new WaitForSeconds(5.0f);
         canvas.transform.GetChild(6).GetComponent<Text>().text = "";

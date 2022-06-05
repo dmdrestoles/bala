@@ -8,7 +8,7 @@ public class Detection_Utils : MonoBehaviour
     {
         bool result = false;
         float deg = Vector3.Angle( source.forward, hit.transform.position - source.position );
-        if(deg <= 45)
+        if(deg <= degree)
         {
             result = true;
         }
