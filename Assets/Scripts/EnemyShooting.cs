@@ -30,10 +30,13 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target = player.transform;
-        if (!state.isAsleep)
+        if (GameManager.IsInputEnabled)
         {
-            HandleShooting();
+            target = player.transform;
+            if (!state.isAsleep)
+            {
+                HandleShooting();
+            }
         }
     }
 

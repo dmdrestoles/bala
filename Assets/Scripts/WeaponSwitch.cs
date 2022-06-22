@@ -26,27 +26,31 @@ public class WeaponSwitch : MonoBehaviour
 
     void Update()
     {
-        int previousEquippedWeapon = equippedWeapon;
-
-        if (Input.GetKeyDown(KeyCode.V))
+        if (GameManager.IsInputEnabled)
         {
-            StartCoroutine(MeleeAttack());
-        }
+            int previousEquippedWeapon = equippedWeapon;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            equippedWeapon = primaryWep;
-        }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                StartCoroutine(MeleeAttack());
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2) 
-        {
-            equippedWeapon = secondaryWep;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                equippedWeapon = primaryWep;
+            }
 
-        if (previousEquippedWeapon != equippedWeapon)
-        {
-            SelectWeapon();
+            if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2) 
+            {
+                equippedWeapon = secondaryWep;
+            }
+
+            if (previousEquippedWeapon != equippedWeapon)
+            {
+                SelectWeapon();
+            }
         }
+        
     }
 
     void SelectActiveWeapons()
