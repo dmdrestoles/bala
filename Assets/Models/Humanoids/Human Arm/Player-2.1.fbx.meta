@@ -74,12 +74,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bamboo
-    second: {fileID: 2100000, guid: 74e064be33130904d93252d786acb482, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BurnCap
-    second: {fileID: 2100000, guid: 48588fd9d371d5545aa7c5c4bd83cef2, type: 2}
+    second: {fileID: 2100000, guid: 5044a7681c3d1604796a95b8449abfdf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -108,28 +103,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Rope
-    second: {fileID: 2100000, guid: 99df40951fa6b4748b39c83125f9282b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tape
-    second: {fileID: 2100000, guid: 1c7ac9b9e9898a64bb1a2d927e5f08d8, type: 2}
+      name: arms
+    second: {fileID: 2100000, guid: e88d9bcab95415045af4f97c6db815bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bolo-texture
     second: {fileID: 2100000, guid: dce298eb8d46565439aad4d24eb1cd2a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: generic_male_1
-    second: {fileID: 2100000, guid: 1d66a553eca81b24dbebd3ff24864594, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: male_casualsuit01
-    second: {fileID: 2100000, guid: 1d3c63fc4280b7949beea8796a5ca360, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
