@@ -4914,7 +4914,7 @@ GameObject:
   - component: {fileID: 683975539}
   - component: {fileID: 683975538}
   - component: {fileID: 683975537}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: First Person Player (1)
   m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -5488,7 +5488,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 683975544}
   armsCamera: {fileID: 314496543}
-  selectedObject: 
 --- !u!20 &713742213
 Camera:
   m_ObjectHideFlags: 0
@@ -6342,7 +6341,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 1270146659}
   armsCamera: {fileID: 1032027807}
-  selectedObject: 
 --- !u!20 &779915515
 Camera:
   m_ObjectHideFlags: 0
@@ -22104,7 +22102,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 092df25bb772fe849bf5f1ee9eccbbe2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36338,6 +36336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363078befb4edaa419b577aa420fc02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedObject: {fileID: 0}
+  redCol: 0
+  blueCol: 0
+  greenCol: 0
+  lookingAtObject: 0
+  flashingIn: 1
+  startedFlashing: 0
 --- !u!1 &922054963045910546
 GameObject:
   m_ObjectHideFlags: 0

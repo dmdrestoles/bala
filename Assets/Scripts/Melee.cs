@@ -11,6 +11,7 @@ public class Melee : MonoBehaviour
 
     public bool isActive = false;
     public bool isReliable = true;
+    public static bool isBoloAcquired = false;
 
     public Animator animator;
     public GameObject weapon;

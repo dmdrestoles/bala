@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public GameObject armsCamera;
-    public string selectedObject;
+    public static string selectedObject;
     public RaycastHit hitObject;
     float xRotation = 0f;
     private Transform cameraTransform;
@@ -35,10 +35,10 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }    
 
-        if (Physics.Raycast(transform.position, transform.forward, out hitObject))
+        if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
         {
             selectedObject = hitObject.transform.gameObject.name;
-            Debug.Log(selectedObject);
+            //Debug.Log(selectedObject+"------"+hitObject.distance);
         }    
     }
 
