@@ -42,6 +42,10 @@ public class MouseLook : MonoBehaviour
         }    
     }
 
+    public string GetSelectedObject(){
+        return selectedObject;
+    }
+
     public IEnumerator Recoil(float recoilVal, float recoilIncrement)
     {
         while (Mathf.Abs(xRotation) <= recoilVal)

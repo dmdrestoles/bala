@@ -20405,9 +20405,11 @@ MonoBehaviour:
   crosshair: {fileID: 517491163}
   dartOrigin: {fileID: 0}
   bulletOrigin: {fileID: 0}
-  weaponSwitch: {fileID: 0}
   fireSound: {fileID: 299835776}
   fullReloadSound: {fileID: 299835775}
+  startReloadSound: {fileID: 0}
+  loadBulletSound: {fileID: 0}
+  endReloadSound: {fileID: 0}
   animator: {fileID: 632507264}
   fpsCamera: {fileID: 1333536760}
   muzzleFlash: {fileID: 1961261911}
@@ -24682,7 +24684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &409938271
 Transform:
   m_ObjectHideFlags: 0
@@ -72695,8 +72697,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 1535884424}
-  cameraTransform: {fileID: 0}
   armsCamera: {fileID: 1343710574}
+  selectedObject: 
 --- !u!114 &1333536763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113644,7 +113646,6 @@ MonoBehaviour:
   Player: {fileID: 1535884416}
   textHolder: {fileID: 1369809314}
   textHolder1: {fileID: 960248128}
-  border: {fileID: 409938270}
 --- !u!4 &2032164846
 Transform:
   m_ObjectHideFlags: 0
@@ -116936,9 +116937,11 @@ MonoBehaviour:
   crosshair: {fileID: 517491163}
   dartOrigin: {fileID: 10381694}
   bulletOrigin: {fileID: 0}
-  weaponSwitch: {fileID: 0}
   fireSound: {fileID: 0}
   fullReloadSound: {fileID: 2105167664}
+  startReloadSound: {fileID: 0}
+  loadBulletSound: {fileID: 0}
+  endReloadSound: {fileID: 0}
   animator: {fileID: 632507264}
   fpsCamera: {fileID: 1333536760}
   muzzleFlash: {fileID: 0}
