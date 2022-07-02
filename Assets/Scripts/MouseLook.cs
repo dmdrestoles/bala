@@ -5,9 +5,13 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
-    public Transform playerBody, cameraTransform;
+    public Transform playerBody;
     public GameObject armsCamera;
+    public static string selectedObject;
+    public RaycastHit hitObject;
     float xRotation = 0f;
+    private Transform cameraTransform;
+    
     
     void Start()
     {
@@ -29,7 +33,13 @@ public class MouseLook : MonoBehaviour
 
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
-        }        
+        }    
+
+        if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
+        {
+            selectedObject = hitObject.transform.gameObject.name;
+            //Debug.Log(selectedObject+"------"+hitObject.distance);
+        }    
     }
 
     public IEnumerator Recoil(float recoilVal, float recoilIncrement)

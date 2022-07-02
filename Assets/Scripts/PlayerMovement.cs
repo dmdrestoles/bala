@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
             else
-            {
+            {     
                 playerState.isSprinting = false;
                 animator.SetBool("isRunning", false);
                 speed = moveSpeed;
