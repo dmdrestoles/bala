@@ -31,7 +31,6 @@ public class Gun : MonoBehaviour
     public AudioSource startReloadSound;
     public AudioSource loadBulletSound;
     public AudioSource endReloadSound;
-    public Animator animator;
 
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash, aimedMuzzleFlash;
@@ -46,11 +45,17 @@ public class Gun : MonoBehaviour
     public GameObject currentAmmoUI;
     public GameObject maxAmmoUI;
 
+    // Animations
+    public Animator animator;
+    public AnimatorOverrideController controller;
 
     void Start()
     {
         currentAmmo = magazineAmmo;
         DisableCrosshair();
+
+        animator.runtimeAnimatorController = controller;
+
     }
 
     void OnEnable()
@@ -274,5 +279,10 @@ public class Gun : MonoBehaviour
             crosshair.SetActive(false);
         }
 
+    }
+    
+    public AnimatorOverrideController GetController()
+    {
+        return controller;
     }
 }

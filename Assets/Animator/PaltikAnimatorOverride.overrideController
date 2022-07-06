@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PaltikAnimatorOverride
+  m_Controller: {fileID: 9100000, guid: c8b12e97c0cec1044abcfd340527bd6e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fa83ad4152561e244baf1c90993b96c8, type: 2}
+    m_OverrideClip: {fileID: 8516748665160270032, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 25fc3fece899f134dbb41806c01e367f, type: 2}
+    m_OverrideClip: {fileID: -2839232176386222550, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 773d6144369331d4d93f9b5198e67536, type: 2}
+    m_OverrideClip: {fileID: 7961685693477733108, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: d9a7c683c99044340a7c42ee244d48b9, type: 2}
+    m_OverrideClip: {fileID: -2685854273803968536, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 3ca77f8e97dcd3745ac58e60ae7fb807, type: 2}
+    m_OverrideClip: {fileID: -8530556540591418996, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 9dae487c4e9e46f4ab2b28f104e0816e, type: 2}
+    m_OverrideClip: {fileID: 1409537342055699068, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 8486902ee31f8664eb4f29b8cf25142c, type: 2}
+    m_OverrideClip: {fileID: -9130543577362983237, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 30812089dd08307429dd929fb1371fab, type: 2}
+    m_OverrideClip: {fileID: 6262460477016324367, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 8b42ce5dfcf149444bf70ac0d17aae1e, type: 2}
+    m_OverrideClip: {fileID: -1278179702158356361, guid: 01474640d3672944c8184175f93d8bfa,
+      type: 3}
