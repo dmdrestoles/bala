@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RemingtonAnimatorOverride
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: c8b12e97c0cec1044abcfd340527bd6e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 82ce18bca545df645bdd0a18506ee8a3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 82ce18bca545df645bdd0a18506ee8a3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8486902ee31f8664eb4f29b8cf25142c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8486902ee31f8664eb4f29b8cf25142c, type: 2}
