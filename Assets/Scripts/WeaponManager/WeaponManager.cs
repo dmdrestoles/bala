@@ -17,9 +17,11 @@ public class WeaponManager : MonoBehaviour
     public GameObject melee;
     public Melee meleeScript;
 
+    public bool isPickup;
+
     void Start()
     {
-        SetActiveAnimator();
+        animator.runtimeAnimatorController = primary.GetComponent<ActiveWeaponManager>().GetController();
     }
 
     // Update is called once per frame
@@ -27,22 +29,32 @@ public class WeaponManager : MonoBehaviour
     {
         if (GameManager.IsInputEnabled)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if ((Input.GetKeyDown(KeyCode.Alpha1) && !isPrimary))
             {
                 animator.SetBool("isAiming", false);
                 animator.ResetTrigger("Firing");
+                animator.SetTrigger("Unequip");
                 isPrimary = true;
                 StartCoroutine(ChangeWeapon(isPrimary));
-                SetActiveAnimator();
             }
 
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if ((Input.GetKeyDown(KeyCode.Alpha2) && isPrimary))
             {
                 animator.SetBool("isAiming", false);
                 animator.ResetTrigger("Firing");
+                animator.SetTrigger("Unequip");
                 isPrimary = false;
                 StartCoroutine(ChangeWeapon(isPrimary));
-                SetActiveAnimator();
+            }
+
+            // Refine such that when picking up, check if it's primary or secondary item
+            else if (isPickup)
+            {
+                animator.SetBool("isAiming", false);
+                animator.ResetTrigger("Firing");
+                animator.SetTrigger("Unequip"); 
+                StartCoroutine(ChangeWeapon(isPrimary));
+                isPickup = false;
             }
 
             else if (Input.GetKeyDown(KeyCode.V) && Melee.isBoloAcquired)
@@ -72,15 +84,7 @@ public class WeaponManager : MonoBehaviour
 
     IEnumerator ChangeWeapon(bool isPrimary)
     {
-        animator.SetBool("inPrimary", isPrimary);
-        animator.SetBool("inSecondary", !isPrimary);
-        yield return new WaitForSeconds(0.5f);
-        secondary.SetActive(!isPrimary);
-        primary.SetActive(isPrimary);
-    }
-
-    void SetActiveAnimator()
-    {
+        yield return new WaitForSeconds(0.167f);
         if (isPrimary)
         {
             animator.runtimeAnimatorController = primary.GetComponent<ActiveWeaponManager>().GetController();
@@ -88,5 +92,10 @@ public class WeaponManager : MonoBehaviour
         else{
             animator.runtimeAnimatorController = secondary.GetComponent<ActiveWeaponManager>().GetController();
         }
+        animator.Rebind();
+        animator.Update(0f);
+        secondary.SetActive(!isPrimary);
+        primary.SetActive(isPrimary);
+        animator.ResetTrigger("Unequip");
     }
 }

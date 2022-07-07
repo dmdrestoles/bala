@@ -9,6 +9,9 @@ public class PickableObjectStateManager : MonoBehaviour
     PickableObjectWorld onWorld;
     public MouseLook mouseLook;
     public string objectName;
+
+    public WeaponManager weaponManager;
+
     // Start is called before the first frame update
     void Start(){
         gameObject.AddComponent<PickableObjectInventory>();

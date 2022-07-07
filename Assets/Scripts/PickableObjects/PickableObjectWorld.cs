@@ -32,10 +32,16 @@ public class PickableObjectWorld : PickableObjectBaseState
         }
     }
 
+    public void TransitionState(PickableObjectStateManager obj){
+        
+    }
+
     public void OnMouseOver(){
+        //Debug.Log(mouseLook.ToString());
         selectedObject = GameObject.Find(mouseLook.GetSelectedObject());
         if (objectName == mouseLook.GetSelectedObject())
         {
+            //Debug.Log("Pickupable!");
             lookingAtObject = true;
             stateManager.HandleObjectPickup(objectName);
             if(!startedFlashing)
