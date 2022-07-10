@@ -10,6 +10,7 @@ TagManager:
   - WeaponHolder
   - Enemy
   - BushTutorial
+  - SusObject
   layers:
   - Default
   - TransparentFX
