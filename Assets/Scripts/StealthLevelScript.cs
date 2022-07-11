@@ -10,7 +10,13 @@ public class StealthLevelScript : MonoBehaviour
     public GameObject Player;
     public GameObject textHolder;
     public GameObject textHolder1;
-    
+
+    //Text Objects
+    public GameObject speaker; //4
+    public GameObject dialogue; //5
+    public GameObject instructions; //6
+    public GameObject objectives; //7
+
     private PlayerState playerState;
     private bool stealthTrigger = false;
 
@@ -18,10 +24,10 @@ public class StealthLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(7).GetComponent<Text>().text = "";
+        speaker.GetComponent<Text>().text = "";
+        dialogue.GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "";
+        objectives.GetComponent<Text>().text = "";
         playerState = Player.GetComponent<PlayerState>();
         StartCoroutine(StartLevelSequence());
     }
@@ -30,7 +36,7 @@ public class StealthLevelScript : MonoBehaviour
     {
         if (GameManager.IsInputEnabled)
         {
-            if (canvas.transform.GetChild(4).GetComponent<Text>().text != "" || canvas.transform.GetChild(5).GetComponent<Text>().text != "" || canvas.transform.GetChild(6).GetComponent<Text>().text != "")
+            if (speaker.GetComponent<Text>().text != "" || dialogue.GetComponent<Text>().text != "" || instructions.GetComponent<Text>().text != "")
             {
                 textHolder.SetActive(true);
             }
@@ -39,7 +45,7 @@ public class StealthLevelScript : MonoBehaviour
                 textHolder.SetActive(false);
             }
 
-            if (canvas.transform.GetChild(7).GetComponent<Text>().text != "" )
+            if (objectives.GetComponent<Text>().text != "" )
             {
                 textHolder1.SetActive(true);
             }
@@ -61,13 +67,13 @@ public class StealthLevelScript : MonoBehaviour
     {
         GameManager.IsInputEnabled = true;
         yield return new WaitForSeconds(1.0f);
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "An Enemy in front of me\n I should take him out quietly.";
+        speaker.GetComponent<Text>().text = "";
+        dialogue.GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "An Enemy in front of me\n I should take him out quietly.";
         yield return new WaitForSeconds(5.0f);
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "Press Left CTRL to toggle crouch. \nTo melee, press V.";
+        instructions.GetComponent<Text>().text = "Press Left CTRL to toggle crouch. \nTo melee, press V.";
         yield return new WaitForSeconds(5.0f);
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "";
 
         yield return null;
     }
@@ -75,15 +81,15 @@ public class StealthLevelScript : MonoBehaviour
     IEnumerator UseSecondaryWeapon()
     {
         yield return new WaitForSeconds(1.0f);
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "While crouched and in bushes, enemies cannot see you.";
+        instructions.GetComponent<Text>().text = "While crouched and in bushes, enemies cannot see you.";
         yield return new WaitForSeconds(4.0f);
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "Press 2 to switch to sumpit.\nYou need to aim the sumpit to fire.";
+        speaker.GetComponent<Text>().text = "";
+        dialogue.GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "Press 2 to switch to sumpit.\nYou need to aim the sumpit to fire.";
         yield return new WaitForSeconds(3.0f);
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "The sumpit is a silent weapon that makes enemies unable to move or detect you.";
+        instructions.GetComponent<Text>().text = "The sumpit is a silent weapon that makes enemies unable to move or detect you.";
         yield return new WaitForSeconds(5.0f);
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "";
         yield return null;
     }
 }

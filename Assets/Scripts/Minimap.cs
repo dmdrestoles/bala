@@ -5,6 +5,7 @@ using UnityEngine;
 public class Minimap : MonoBehaviour
 {
     public GameObject player;
+    public GameObject camLight;
     Vector3 temp;
 
     void Update()
@@ -12,5 +13,6 @@ public class Minimap : MonoBehaviour
         temp = player.transform.position;
         temp.y = 50f;
         transform.position = temp;
+        camLight.transform.position = temp;
     }
 }
