@@ -9,6 +9,7 @@ public class GruntSuspiciousState : GruntBaseState
         grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
         grunt.animator.SetBool("isWalking", true);
         grunt.agent.speed = 3f;
+        grunt.awareness.awareRadius = 5f;
     }
 
     public override void SusDetected(GruntStateManager grunt)
@@ -19,6 +20,11 @@ public class GruntSuspiciousState : GruntBaseState
         if (grunt.aiMove_Utils.CheckDestinationReached(grunt.agent.transform.position, grunt.susPos, 5))
         {
             grunt.aiMove_Utils.StopMovement(grunt.body, grunt.agent, grunt.animator);
+        }
+        else if (grunt.CheckForPlayertInLineOfSight(45, 20))
+        {
+            grunt.susValue = 50;
+            grunt.SwitchState(grunt.huntingState);
         }
         else
         {
@@ -54,4 +60,5 @@ public class GruntSuspiciousState : GruntBaseState
             Debug.Log("Debug: " + grunt.susValue);
         }
     }
+
 }

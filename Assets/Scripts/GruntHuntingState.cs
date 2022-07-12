@@ -9,7 +9,8 @@ public class GruntHuntingState : GruntBaseState
         grunt.animator.SetBool("isAiming", false);
         grunt.animator.SetBool("isMoving", true);
         grunt.animator.SetBool("isWalking", false);
-        grunt.agent.speed = 8f;
+        grunt.awareness.awareRadius = 8f;
+        grunt.agent.speed = 10f;
     }
 
     public override void SusDetected(GruntStateManager grunt)

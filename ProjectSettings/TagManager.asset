@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - BushTutorial
   - SusObject
+  - GunShot
   layers:
   - Default
   - TransparentFX

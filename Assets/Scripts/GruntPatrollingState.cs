@@ -10,19 +10,34 @@ public class GruntPatrollingState : GruntBaseState
     public override void EnterState(GruntStateManager grunt)
     {
         patrolStarted = false;
+        grunt.awareness.awareRadius = 3f;
         grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
     }
 
     public override void SusDetected(GruntStateManager grunt)
     {
-        grunt.susValue += 30;
-        grunt.SwitchState(grunt.suspiciousState);
+        if (grunt.awareness.susObject.name == "Muzzle")
+        {
+            grunt.susValue = 50;
+            grunt.SwitchState(grunt.huntingState);
+        } 
+        else if (grunt.awareness.susObject.name == "FootSteps")
+        {
+            grunt.susValue +=30;
+            grunt.SwitchState(grunt.suspiciousState);
+        }
 
     }
 
     public override void UpdateState(GruntStateManager grunt)
     {
-        if (grunt.susObject)
+        Debug.Log(grunt.CheckForPlayertInLineOfSight(45, 20));
+        if (grunt.CheckForPlayertInLineOfSight(45, 20))
+        {
+            grunt.susValue = 50;
+            grunt.SwitchState(grunt.huntingState);
+        }
+        else if (grunt.susObject)
         {
             SusDetected(grunt);
         }

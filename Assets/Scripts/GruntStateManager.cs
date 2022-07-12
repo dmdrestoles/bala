@@ -6,7 +6,9 @@ using UnityEngine.AI;
 public class GruntStateManager : MonoBehaviour
 {
     public Transform playerTransform;
-    public GameObject susObject;
+    public GameObject susObject, awareIndi;
+    public GameObject muzzle, bullet;
+    public float color;
     public Vector3 susPos;
     public GruntBaseState currentState;
     public float susValue = 0;
@@ -42,6 +44,7 @@ public class GruntStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+        UpdateAwareColor();
         if (awareness.susObject)
         {
             this.susObject = awareness.susObject;
@@ -65,7 +68,7 @@ public class GruntStateManager : MonoBehaviour
 
     public bool CheckForPlayertInLineOfSight(float angle, float distance)
     {
-        Vector3 selfPos = new Vector3(this.transform.position.x , this.transform.position.y + 2, this.transform.position.z);
+        Vector3 selfPos = new Vector3(this.transform.position.x , this.transform.position.y + 3, this.transform.position.z);
         bool result = false;
         if (Physics.Linecast(selfPos, this.playerTransform.position, out hit))
         {
@@ -109,11 +112,21 @@ public class GruntStateManager : MonoBehaviour
         muzzleFlash.Play();
     }
 
+    public GameObject SpawnBullet()
+    {
+        return Instantiate(this.bullet, this.muzzle.transform.position, this.muzzle.transform.rotation);
+    }
+
+    void UpdateAwareColor()
+    {
+        awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
+        awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
+    }
+
     IEnumerator PlaySound(AudioSource audio, float buffer)
     {
         yield return new WaitForSeconds(buffer);
         audio.Play();
         yield return new WaitWhile( () => audio.isPlaying );
     }
-
 }
