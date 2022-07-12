@@ -26,13 +26,11 @@ public class Gun : MonoBehaviour
     public Rigidbody dart;
     public GameObject bullet, crosshair;
     public Transform dartOrigin, bulletOrigin;
-    public WeaponSwitch weaponSwitch;
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
-    //public AudioSource startReloadSound;
-    //public AudioSource loadBulletSound;
-    //public AudioSource endReloadSound;
-    public Animator animator;
+    public AudioSource startReloadSound;
+    public AudioSource loadBulletSound;
+    public AudioSource endReloadSound;
 
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash, aimedMuzzleFlash;
@@ -47,11 +45,17 @@ public class Gun : MonoBehaviour
     public GameObject currentAmmoUI;
     public GameObject maxAmmoUI;
 
+    // Animations
+    public Animator animator;
+    public AnimatorOverrideController controller;
 
     void Start()
     {
         currentAmmo = magazineAmmo;
         DisableCrosshair();
+
+        animator.runtimeAnimatorController = controller;
+
     }
 
     void OnEnable()
@@ -88,11 +92,11 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            /*else if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
+            else if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
                 StartCoroutine(HotReload());
                 return;
-            }*/
+            }
 
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire)
@@ -143,19 +147,22 @@ public class Gun : MonoBehaviour
         isReloading = true;
         yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", true);
-        //startReloadSound.Play();
+        startReloadSound.Play();
         yield return new WaitForSeconds(0.5f);
         while (currentAmmo < magazineAmmo && maxAmmo > 0)
         {
-            //loadBulletSound.Play();
+            loadBulletSound.Play();
             maxAmmo -= 1;
             currentAmmo += 1;
 
+            currentAmmoUI.GetComponent<Text>().text = currentAmmo.ToString();
+            maxAmmoUI.GetComponent<Text>().text = maxAmmo.ToString();
+            
             yield return new WaitForSeconds(bulletReload);
         }
 
-        //endReloadSound.Play();
-        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        endReloadSound.Play();
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("isReloading", false);
         isReloading = false;
 
@@ -168,7 +175,7 @@ public class Gun : MonoBehaviour
         animator.ResetTrigger("Firing");
         yield return new WaitForSeconds(0.25f);
         fullReloadSound.Play();
-        yield return new WaitForSeconds(ReloadAnimationTime(weaponName));
+        yield return new WaitForSeconds(reloadTime);
         maxAmmo -= magazineAmmo;
         currentAmmo = magazineAmmo;
         yield return new WaitForSeconds(0.25f);
@@ -272,5 +279,10 @@ public class Gun : MonoBehaviour
             crosshair.SetActive(false);
         }
 
+    }
+    
+    public AnimatorOverrideController GetController()
+    {
+        return controller;
     }
 }

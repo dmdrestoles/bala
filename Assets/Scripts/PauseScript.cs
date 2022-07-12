@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PauseScript : MonoBehaviour
 {
     GameObject pauseCanvas, mainCanvas;
+    public GameObject codexCanvas;
     bool paused = false;
     private GameObject soundSlider, fovSlider, senseSlider;
     private float sound, fov, sense;
@@ -86,5 +87,31 @@ public class PauseScript : MonoBehaviour
     {
         SavePrefs();
         ResumeGame();
+    }
+
+    public void OpenCodex()
+    {
+        Time.timeScale = 0f;
+        paused = true;
+
+        pauseCanvas.gameObject.SetActive(false);
+        codexCanvas.gameObject.SetActive(true);
+
+        GameManager.IsInputEnabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    public void CloseCodex()
+    {
+        Time.timeScale = 0f;
+        paused = true;
+
+        codexCanvas.gameObject.SetActive(false);
+        pauseCanvas.gameObject.SetActive(true);
+
+        GameManager.IsInputEnabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }
