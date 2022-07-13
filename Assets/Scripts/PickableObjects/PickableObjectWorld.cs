@@ -15,7 +15,7 @@ public class PickableObjectWorld : PickableObjectBaseState
     PickableObjectStateManager stateManager;
 
     public override void EnterState(PickableObjectStateManager obj){
-        Debug.Log("Hello from the world state!");
+        //Debug.Log("Hello from the world state!");
         stateManager = obj;
         mouseLook = obj.mouseLook;
         objectName = obj.objectName;
@@ -24,11 +24,17 @@ public class PickableObjectWorld : PickableObjectBaseState
     public override void UpdateState(PickableObjectStateManager obj){
         if (lookingAtObject && objectName == mouseLook.GetSelectedObject())
         {
-            selectedObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-            selectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color32(
-                (byte)redCol,
-                (byte)greenCol,
-                (byte)blueCol,255) );
+            Material[] objectMatArr = selectedObject.GetComponent<Renderer>().materials;
+
+            foreach (Material mat in objectMatArr)
+            {
+                //Debug.Log("FLASHING MATS");
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", new Color32(
+                    (byte)redCol,
+                    (byte)greenCol,
+                    (byte)blueCol,255) );
+            }
         }
     }
 
@@ -39,6 +45,7 @@ public class PickableObjectWorld : PickableObjectBaseState
     public void OnMouseOver(){
         //Debug.Log(mouseLook.ToString());
         selectedObject = GameObject.Find(mouseLook.GetSelectedObject());
+        //Debug.Log("Debug: Looking at " + selectedObject.name);
         if (objectName == mouseLook.GetSelectedObject())
         {
             //Debug.Log("Pickupable!");
@@ -58,7 +65,13 @@ public class PickableObjectWorld : PickableObjectBaseState
         lookingAtObject = false;
         StopCoroutine(FlashObject());
         if (selectedObject != null){
-            selectedObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Color32(0,0,0,0));
+            Material[] objectMatArr = selectedObject.GetComponent<Renderer>().materials;
+
+            foreach (Material mat in objectMatArr)
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", new Color32(0,0,0,0) );
+            }
         }
     }
 
