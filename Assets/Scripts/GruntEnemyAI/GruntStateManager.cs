@@ -21,6 +21,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntAimingState aimingState = new GruntAimingState();
     public GruntReloadingState reloadingState = new GruntReloadingState();
     public GruntFiringState firingState = new GruntFiringState();
+    public PlayerState playerState;
     public AudioSource reloadAud, fireAud;
     public ParticleSystem muzzleFlash;
     public Vector3 patrol1, patrol2;

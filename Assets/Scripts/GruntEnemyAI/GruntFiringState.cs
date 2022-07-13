@@ -44,8 +44,7 @@ public class GruntFiringState : GruntBaseState
         if (shootCast && hit.transform.tag == "Player")
         {
             Debug.DrawLine(grunt.muzzle.transform.position, hit.point, Color.black, 2f);
-            PlayerState player = hit.transform.GetComponent<PlayerState>();
-            player.TakeDamage(25);
+            grunt.playerState.TakeDamage(25);
         }
     }
 
