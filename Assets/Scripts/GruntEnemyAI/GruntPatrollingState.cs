@@ -18,7 +18,7 @@ public class GruntPatrollingState : GruntBaseState
     {
         if (grunt.awareness.susObject.name == "Muzzle")
         {
-            grunt.susValue = 50;
+            grunt.susValue = 40;
             grunt.SwitchState(grunt.huntingState);
         } 
         else if (grunt.awareness.susObject.name == "FootSteps")

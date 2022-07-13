@@ -23,9 +23,9 @@ public class GruntFiringState : GruntBaseState
     public override void UpdateState(GruntStateManager grunt)
     {
         elapsed += Time.deltaTime;
-        if (elapsed >= 1f)
+        if (elapsed >= 2f)
         {
-            elapsed = elapsed % 1f;
+            elapsed = elapsed % 2f;
             grunt.animator.ResetTrigger("triggerFire");
             grunt.currentAmmo -= 1;
             grunt.SwitchState(grunt.aimingState);

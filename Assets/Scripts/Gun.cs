@@ -35,6 +35,7 @@ public class Gun : MonoBehaviour
     public Camera fpsCamera;
     public ParticleSystem muzzleFlash, aimedMuzzleFlash;
     public bool isFiring = false;
+    public GameObject gunShotGO;
 
     private float nextTimeToFire = 0f;
     bool isReloading = false;
@@ -202,6 +203,7 @@ public class Gun : MonoBehaviour
             return;
         }
         
+        gunShotGO.SetActive(true);
         fireSound.Play();
         muzzle.Play();
         bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);
@@ -267,6 +269,7 @@ public class Gun : MonoBehaviour
         animator.SetTrigger("Firing");
         yield return new WaitForSeconds(0.5f);
         animator.ResetTrigger("Firing");
+        gunShotGO.SetActive(false);
 
     }
     

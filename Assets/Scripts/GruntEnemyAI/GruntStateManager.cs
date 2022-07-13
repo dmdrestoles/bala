@@ -24,7 +24,7 @@ public class GruntStateManager : MonoBehaviour
     public PlayerState playerState;
     public AudioSource reloadAud, fireAud;
     public ParticleSystem muzzleFlash;
-    public Vector3 patrol1, patrol2;
+    public Vector3 patrol1, patrol2, originalPos;
     public Detection_Utils detect_Utils;
     public AIMovement_Utils aiMove_Utils;
     public GruntAwareness awareness;
@@ -40,6 +40,8 @@ public class GruntStateManager : MonoBehaviour
         body = GetComponent<Rigidbody>();
         currentState = relaxedState;
         currentState.EnterState(this);
+
+        originalPos = transform.position;
     }
 
     void Update()

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject footSteps;
     public Animator animator;
     
-    public static float moveSpeed = 10f;
+    public static float moveSpeed = 7f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.LeftControl) && playerState.isCrouching)
             {
                 playerState.isCrouching = false;
-                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 3;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
             }
 
             else if (crouchHeight >= 0 && !playerState.isCrouching)
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 playerState.isSprinting = false;
                 
                 animator.SetBool("isRunning", false);
-                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 3;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 if (energyGaining)
                 {
                     StartCoroutine(GainEnergy());
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
             {     
                 playerState.isSprinting = false;
                 animator.SetBool("isRunning", false);
-                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 3;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 speed = moveSpeed;
             }
             controller.Move(move * speed * Time.deltaTime);
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             playerState.isVisible = true;
         }
         
-        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) && other.gameObject.tag == "HidingSpot")
         {
             if (!bushrustling.isPlaying)
             {
