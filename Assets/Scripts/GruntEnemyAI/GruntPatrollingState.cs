@@ -31,7 +31,7 @@ public class GruntPatrollingState : GruntBaseState
 
     public override void UpdateState(GruntStateManager grunt)
     {
-        Debug.Log(grunt.CheckForPlayertInLineOfSight(45, 20));
+        //Debug.Log(grunt.CheckForPlayertInLineOfSight(45, 20));
         if (grunt.CheckForPlayertInLineOfSight(45, 20))
         {
             grunt.susValue = 50;

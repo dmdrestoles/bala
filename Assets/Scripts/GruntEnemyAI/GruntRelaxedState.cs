@@ -26,6 +26,7 @@ public class GruntRelaxedState : GruntBaseState
 
     public override void UpdateState(GruntStateManager grunt)
     {
+        this.originalPos = grunt.originalPos;
         if (grunt.CheckForPlayertInLineOfSight(45, 20))
         {
             grunt.susValue = 50;

@@ -39,7 +39,8 @@ public class PlayerState : MonoBehaviour
 
     void Update()
     {
-        FallOutOfWorld();
+        //for demo
+        //FallOutOfWorld();
     }
 
     void FallOutOfWorld()
