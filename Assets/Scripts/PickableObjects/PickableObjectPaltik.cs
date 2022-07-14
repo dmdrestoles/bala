@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickableObjectRemington : PickableObjectStateManager
+public class PickableObjectPaltik : PickableObjectStateManager
 {
     public override void HandleObjectPickup(string objectName){
         if (Input.GetKeyDown(KeyCode.F)){

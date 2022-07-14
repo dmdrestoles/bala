@@ -28,6 +28,12 @@ public class ActiveWeaponManager : MonoBehaviour
     public void SetNewWeapon(string wep)
     {
         Debug.Log("Deactivating: " + activeWeapon);
+        Vector3 spawnPoint = activeWeapon.GetComponent<Gun>().muzzleFlash.transform.position;
+        Quaternion spawnRotation = activeWeapon.GetComponent<Gun>().gunInstance.transform.rotation;
+        GameObject droppedWeapon = Instantiate(activeWeapon.GetComponent<Gun>().gunInstance, spawnPoint, spawnRotation);
+        droppedWeapon.name = activeWeapon.GetComponent<Gun>().weaponName;
+        Debug.Log(gameObject.transform.position);
+        droppedWeapon.SetActive(true);
         activeWeapon.SetActive(false);
 
         foreach (GameObject weapon in weapons)
