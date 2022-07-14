@@ -13,7 +13,9 @@ public class GruntStateManager : MonoBehaviour
     public GruntBaseState currentState;
     public float susValue = 0;
     public int currentAmmo = 0;
+    public float health = 50;
     public int maxAmmo = 5;
+    public bool isDead = false;
     public GruntRelaxedState relaxedState = new GruntRelaxedState();
     public GruntPatrollingState patrollingState = new GruntPatrollingState();
     public GruntSuspiciousState suspiciousState = new GruntSuspiciousState();
@@ -21,6 +23,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntAimingState aimingState = new GruntAimingState();
     public GruntReloadingState reloadingState = new GruntReloadingState();
     public GruntFiringState firingState = new GruntFiringState();
+    public GruntDeathState deathState = new GruntDeathState();
     public PlayerState playerState;
     public AudioSource reloadAud, fireAud;
     public ParticleSystem muzzleFlash;
@@ -46,6 +49,7 @@ public class GruntStateManager : MonoBehaviour
 
     void Update()
     {
+        HandleDeath();
         currentState.UpdateState(this);
         UpdateAwareColor();
         if (awareness.susObject)
@@ -126,10 +130,24 @@ public class GruntStateManager : MonoBehaviour
         awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
     }
 
+    void HandleDeath()
+    {
+        if (this.health <= 0 && !isDead)
+        {
+            isDead = true;
+            this.SwitchState(this.deathState);
+        }
+    }
+
     IEnumerator PlaySound(AudioSource audio, float buffer)
     {
         yield return new WaitForSeconds(buffer);
         audio.Play();
         yield return new WaitWhile( () => audio.isPlaying );
+    }
+
+    IEnumerator WaitForALongTime()
+    {
+        yield return new WaitForSeconds(1000000.0f);
     }
 }

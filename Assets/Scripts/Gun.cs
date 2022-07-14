@@ -212,11 +212,11 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(hit.GetType());
 
-            EnemyState enemy = hit.transform.GetComponent<EnemyState>();
+            GruntStateManager enemy = hit.transform.GetComponent<GruntStateManager>();
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.health -= damage;
             }
 
             if (hit.rigidbody != null)
