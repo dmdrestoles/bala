@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Man1_Man1_Man1_Man_RunToIdle_Man1_Man_RunToIdle
+  m_Name: Run-To-Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

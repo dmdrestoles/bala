@@ -37,5 +37,4 @@ public class PickableObjectStateManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 }
