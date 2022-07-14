@@ -23,6 +23,7 @@ public class Gun : MonoBehaviour
     public bool isEnemy = false;
     public bool isSilent = false;
 
+    public GameObject gunInstance;
     public Rigidbody dart;
     public GameObject bullet, crosshair;
     public Transform dartOrigin, bulletOrigin;
