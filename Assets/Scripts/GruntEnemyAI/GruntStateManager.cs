@@ -126,8 +126,16 @@ public class GruntStateManager : MonoBehaviour
 
     void UpdateAwareColor()
     {
-        awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
-        awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
+        if ( susValue <= 0 && awareIndi.activeSelf)
+        {
+            awareIndi.SetActive(false);
+        }
+        else if(susValue > 0 && !awareIndi.activeSelf)
+        {
+            awareIndi.SetActive(true);
+            awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
+            awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
+        }
     }
 
     void HandleDeath()

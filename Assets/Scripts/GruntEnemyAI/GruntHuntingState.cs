@@ -23,6 +23,7 @@ public class GruntHuntingState : GruntBaseState
         }
         else
         {
+            grunt.agent.speed = 10f;
             grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
             grunt.agent.SetDestination(grunt.susPos);
             grunt.animator.SetBool("isMoving", true);
