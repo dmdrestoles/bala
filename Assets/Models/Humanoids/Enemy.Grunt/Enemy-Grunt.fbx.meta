@@ -80,7 +80,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: StrawHat
-    second: {fileID: 2100000, guid: 6da36e1c09525264b8f0d561b81405cc, type: 2}
+    second: {fileID: 2100000, guid: 98427a1fcfc28d14cb6906ac8e8e69c2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -90,12 +90,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: generic_male_1
-    second: {fileID: 2100000, guid: c10593767f8138144a2a2eb6b3d8af82, type: 2}
+    second: {fileID: 2100000, guid: 70a714d5fcf2e1f409f10b9e0f25dbb8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: high-poly
-    second: {fileID: 2100000, guid: 49149413f848e8d4c901eff770b5247d, type: 2}
+    second: {fileID: 2100000, guid: 44be8fc64fff54e45a5e5bb395b4a6f4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
