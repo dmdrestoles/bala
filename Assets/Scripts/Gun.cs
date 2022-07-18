@@ -55,9 +55,10 @@ public class Gun : MonoBehaviour
     {
         currentAmmo = magazineAmmo;
         DisableCrosshair();
+        getFOV();
+        Debug.Log("Gun: Current FOV = " + getFOV());
 
         animator.runtimeAnimatorController = controller;
-
     }
 
     void OnEnable()
@@ -278,9 +279,11 @@ public class Gun : MonoBehaviour
         if (animator.GetBool("isAiming"))
         {
             crosshair.SetActive(true);
+            PlayerPrefs.SetFloat("fov",30);
         } else 
         {
             crosshair.SetActive(false);
+            PlayerPrefs.SetFloat("fov", getFOV());
         }
 
     }
@@ -288,5 +291,10 @@ public class Gun : MonoBehaviour
     public AnimatorOverrideController GetController()
     {
         return controller;
+    }
+
+    static float getFOV()
+    {
+        return PauseScript.getFOV();
     }
 }

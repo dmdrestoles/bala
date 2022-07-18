@@ -31,14 +31,16 @@ public class CodexItems : MonoBehaviour
 
             descContainer.SetActive(true);
             descName.GetComponent<TextMeshProUGUI>().text = image.name;
+            descImage.GetComponent<Image>().sprite = image.transform.GetChild(0).GetComponent<Image>().sprite;
             Debug.Log(weaponList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = weaponDescription[weaponList.IndexOf(image.name)].ToString();
         }
         else if (name == "People")
         {
-            ArrayList peopleList = new ArrayList { "PeopleTemplate" };
+            ArrayList peopleList = new ArrayList { "PeopleTemplate", "Jose Rizal" };
             ArrayList peopleDescription = new ArrayList{
-            " [insert weapon description for Person] "
+            " [insert weapon description for Person] ",
+            " José Rizal, in full José Protasio Rizal Mercado y Alonso Realonda, (born June 19, 1861, Calamba, Philippines—died December 30, 1896, Manila), patriot, physician, and man of letters who was an inspiration to the Philippine nationalist movement."
             };
 
             descContainer.SetActive(true);
