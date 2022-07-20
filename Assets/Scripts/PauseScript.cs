@@ -6,15 +6,21 @@ using UnityEngine.UI;
 public class PauseScript : MonoBehaviour
 {
     GameObject pauseCanvas, mainCanvas;
+    public GameObject codexCanvas;
     bool paused = false;
+    bool canvasOpen = false;
     private GameObject soundSlider, fovSlider, senseSlider;
     private float sound, fov, sense;
+    static float currFOV;
     // Start is called before the first frame update
     void Start()
     {
         pauseCanvas = GameObject.Find("PauseCanvas");
         mainCanvas = GameObject.Find("MainCanvas");
         pauseCanvas.gameObject.SetActive (false);
+
+        Debug.Log("PS: FOV on start" + PlayerPrefs.GetFloat("fov"));
+        currFOV = PlayerPrefs.GetFloat("fov");
     }
 
     // Update is called once per frame
@@ -27,8 +33,12 @@ public class PauseScript : MonoBehaviour
 
         else if(Input.GetKeyUp(KeyCode.Tab) && paused == true)
         {
-            ResumeGame();
+            if (canvasOpen == false)
+            {
+                ResumeGame();
+            }
         }
+        
     }
 
     void PauseGame()
@@ -67,6 +77,8 @@ public class PauseScript : MonoBehaviour
         //soundSlider.GetComponent<Slider>().value = sound;
         senseSlider.GetComponent<Slider>().value = sense;
         fovSlider.GetComponent<Slider>().value = fov;
+
+        Debug.Log("PS: current FOV = " + fov);
     }
 
     private void FindSliderObjects()
@@ -80,11 +92,45 @@ public class PauseScript : MonoBehaviour
         PlayerPrefs.SetFloat("sense", senseSlider.GetComponent<Slider>().value);
         PlayerPrefs.SetFloat("fov", fovSlider.GetComponent<Slider>().value);
         PlayerPrefs.Save();
+
+        currFOV = PlayerPrefs.GetFloat("fov");
     }
 
     public void ApplyPrefs()
     {
         SavePrefs();
         ResumeGame();
+    }
+
+    public void OpenCodex()
+    {
+        Time.timeScale = 0f;
+        paused = true;
+        canvasOpen = true;
+
+        pauseCanvas.gameObject.SetActive(false);
+        codexCanvas.gameObject.SetActive(true);
+
+        GameManager.IsInputEnabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    public void CloseCodex()
+    {
+        Time.timeScale = 0f;
+        paused = true;
+        canvasOpen = false;
+
+        codexCanvas.gameObject.SetActive(false);
+        pauseCanvas.gameObject.SetActive(true);
+
+        GameManager.IsInputEnabled = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+    public static float getFOV()
+    {
+        return currFOV;
     }
 }

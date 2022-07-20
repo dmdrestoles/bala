@@ -44,16 +44,16 @@ public class AnimTest : MonoBehaviour
                 StartCoroutine(ChangeWeapon(isPrimary));
             }
 
-            else if (Input.GetKeyDown(KeyCode.V))
+            else if (Input.GetKeyDown(KeyCode.V) && Melee.isBoloAcquired)
             {
                 animator.SetBool("isAiming", false);
                 animator.ResetTrigger("Firing");
-                StartCoroutine(Melee(isPrimary));
+                StartCoroutine(MeleeAttack(isPrimary));
             }
         }
     }
 
-    IEnumerator Melee(bool isPrimary)
+    IEnumerator MeleeAttack(bool isPrimary)
     {
         melee.SetActive(true);
         primary.SetActive(false);

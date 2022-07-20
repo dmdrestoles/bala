@@ -9,9 +9,10 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public PlayerState playerState;
+    public GameObject footSteps;
     public Animator animator;
     
-    public static float moveSpeed = 10f;
+    public static float moveSpeed = 7f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.LeftControl) && !playerState.isCrouching)
             {
                 playerState.isCrouching = true;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 2;
                 playerState.isSprinting = false;
             }
 
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.LeftControl) && playerState.isCrouching)
             {
                 playerState.isCrouching = false;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
             }
 
             else if (crouchHeight >= 0 && !playerState.isCrouching)
@@ -88,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
                 playerState.isSprinting = true;
                 playerState.isCrouching = false;
                 animator.SetBool("isRunning", true);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 10;
                 speed = moveSpeed * 1.5f;
                 if (energyDraining)
                 {
@@ -97,7 +101,9 @@ public class PlayerMovement : MonoBehaviour
             else if (energy < 1)
             {
                 playerState.isSprinting = false;
+                
                 animator.SetBool("isRunning", false);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 if (energyGaining)
                 {
                     StartCoroutine(GainEnergy());
@@ -110,9 +116,10 @@ public class PlayerMovement : MonoBehaviour
             }
             
             else
-            {
+            {     
                 playerState.isSprinting = false;
                 animator.SetBool("isRunning", false);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 speed = moveSpeed;
             }
             controller.Move(move * speed * Time.deltaTime);
@@ -139,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             playerState.isVisible = true;
         }
         
-        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) && other.gameObject.tag == "HidingSpot")
         {
             if (!bushrustling.isPlaying)
             {

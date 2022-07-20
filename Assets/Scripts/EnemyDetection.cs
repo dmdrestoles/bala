@@ -157,12 +157,8 @@ public class EnemyDetection : MonoBehaviour {
 
             if (playAudio)
             {
-                StartCoroutine(PlaySound(detect));
                 playAudio = false;
-            }
-            if (!detect.isPlaying)
-            {
-                StartCoroutine(Wait(10.0f));
+                StartCoroutine(PlaySound(detect));
             }
         } else
         {
