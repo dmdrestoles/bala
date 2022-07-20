@@ -17219,6 +17219,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5869672672808633945, guid: a53804c0208668747bbc73eb3a0cd0cc,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869672672808633945, guid: a53804c0208668747bbc73eb3a0cd0cc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 31113830960933449ad0bfb2854aa905,
+        type: 3}
     - target: {fileID: 6294110807628659042, guid: a53804c0208668747bbc73eb3a0cd0cc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -22933,9 +22944,9 @@ MonoBehaviour:
   isVisible: 1
   isCrouching: 0
   isSprinting: 0
-  healthText: {fileID: 0}
+  healthText: {fileID: 1306922645}
   gameManager: {fileID: 678920055}
-  damageScreen: {fileID: 0}
+  damageScreen: {fileID: 1673472799}
   playerDamaged: {fileID: 683975539}
   playerDied: {fileID: 683975538}
   mainCamera: {fileID: 713742210}
@@ -25742,10 +25753,10 @@ MonoBehaviour:
   mouseLook: {fileID: 713742212}
   objectName: Remington
   weaponManager: {fileID: 1841870928}
-  primary: {fileID: 0}
-  codexNotif: {fileID: 0}
-  codex: {fileID: 0}
-  remingtonSprite: {fileID: 0}
+  primary: {fileID: 1646092870}
+  codexNotif: {fileID: 1517222319}
+  codex: {fileID: 1852160929}
+  remingtonSprite: {fileID: 21300000, guid: 0525f3652eec2f947a7ec823a00557f0, type: 3}
 --- !u!64 &804238100
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43395,6 +43406,18 @@ Transform:
   m_Father: {fileID: 26661923}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306922645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7741321454535740965, guid: 54e50ac4f2189184bb8976034f71fb83,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873138107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1310374793
 GameObject:
   m_ObjectHideFlags: 0
@@ -66140,6 +66163,18 @@ Tree:
   m_GameObject: {fileID: 1672315649}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 11400000, guid: f1422f5c6e1457147a73440f96e079ac, type: 3}
+--- !u!114 &1673472799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7741321452746622194, guid: 54e50ac4f2189184bb8976034f71fb83,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873138107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676253824
 GameObject:
   m_ObjectHideFlags: 0

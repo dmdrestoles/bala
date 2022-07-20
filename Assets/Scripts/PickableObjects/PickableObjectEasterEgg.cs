@@ -16,7 +16,7 @@ public class PickableObjectEasterEgg : PickableObjectStateManager
             Debug.Log("Picked up object: " + objectName);
 
             // Add to codex here
-            if (!codex.active)
+            if (!codex.activeSelf)
             {
                 codex.SetActive(true);
                 codexNotif.SetActive(true);

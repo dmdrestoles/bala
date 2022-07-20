@@ -24,7 +24,7 @@ public class PickableObjectBolo : PickableObjectStateManager
                 melee.transform.GetChild(1).gameObject.SetActive(true);
                 melee.transform.GetChild(0).gameObject.SetActive(false);
 
-                if (!codex.active)
+                if (!codex.activeSelf)
                 {
                     codex.SetActive(true);
                     codexNotif.SetActive(true);

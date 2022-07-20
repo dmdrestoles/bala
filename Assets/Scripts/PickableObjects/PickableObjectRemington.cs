@@ -19,7 +19,7 @@ public class PickableObjectRemington : PickableObjectStateManager
 
             primary.transform.GetChild(0).GetComponent<Image>().sprite = remingtonSprite;
 
-            if (!codex.active)
+            if (!codex.activeSelf)
             {
                 codex.SetActive(true);
                 codexNotif.SetActive(true);
