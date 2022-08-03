@@ -23,7 +23,7 @@ public class GruntAwareness : MonoBehaviour
      if (other.gameObject.tag == "SusObject")
         {
             susObject = other.gameObject;
-            Debug.Log(susObject.name);
+            //Debug.Log(susObject.name);
         }
     }
 

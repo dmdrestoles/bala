@@ -134,11 +134,12 @@ public class GruntStateManager : MonoBehaviour
         {
             awareIndi.SetActive(false);
         }
-        else if(susValue > 0 && !awareIndi.activeSelf)
+        else if(susValue > 0)
         {
             awareIndi.SetActive(true);
             awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
             awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
+            Debug.Log("Debug: "+awareIndi.GetComponent<Renderer>().material.color.ToString() );
         }
     }
 

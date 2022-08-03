@@ -4,50 +4,68 @@ public class GruntRelaxedState : GruntBaseState
 {
     Vector3 noPatrol = new Vector3(0,0,0);
     Vector3 originalPos;
-    public override void EnterState(GruntStateManager grunt)
+    GruntStateManager grunt;
+    float elapsed = 0;
+    public override void EnterState(GruntStateManager stateManager)
     {
-        grunt.awareness.awareRadius = 3f;
+        this.grunt = stateManager;
+        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.aiMove_Utils.StopMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
         this.originalPos = grunt.originalPos;
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected(GruntStateManager stateManager)
     {
         if (grunt.awareness.susObject.name == "Muzzle")
         {
-            grunt.susValue = 40;
-            grunt.SwitchState(grunt.huntingState);
+            this.grunt.susValue +=20;
+            //this.grunt.SwitchState(grunt.huntingState);
         } 
         else if (grunt.awareness.susObject.name == "FootSteps")
         {
-            grunt.susValue +=30;
-            grunt.SwitchState(grunt.suspiciousState);
+            this.grunt.susValue +=5;
+            //this.grunt.SwitchState(grunt.suspiciousState);
         }
     }
 
-    public override void UpdateState(GruntStateManager grunt)
+    public override void UpdateState(GruntStateManager stateManager)
     {
         this.originalPos = grunt.originalPos;
-        if (grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
         {
-            grunt.susValue = 50;
-            grunt.SwitchState(grunt.huntingState);
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
         }
-        else if (grunt.susObject)
+        else if (this.grunt.susValue >= 20)
         {
-            SusDetected(grunt);
+            this.grunt.SwitchState(this.grunt.suspiciousState);
         }
-        else if (grunt.patrol1 != noPatrol && grunt.patrol2 != noPatrol)
+        else if (this.grunt.susObject)
         {
-            grunt.SwitchState(grunt.patrollingState);
+            RunEverySecond();
         }
-        else if ((grunt.aiMove_Utils.CheckDestinationReached(grunt.agent.transform.position, this.originalPos,1)))
+        else if (this.grunt.patrol1 != noPatrol && this.grunt.patrol2 != noPatrol)
+        {
+            this.grunt.SwitchState(this.grunt.patrollingState);
+        }
+        else if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, this.originalPos,1)))
         {
             //Debug.Log("Debug: "+grunt.gameObject.name + " Stopping Movement");
-            grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
+            this.grunt.aiMove_Utils.StopMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
         }
         else
         {
-            grunt.agent.SetDestination(this.originalPos);
+            this.grunt.agent.SetDestination(this.originalPos);
+        }
+    }
+
+    void RunEverySecond()
+    {
+        elapsed += Time.deltaTime;
+        if (elapsed >= 1f) {
+            elapsed = elapsed % 1f;
+            SusDetected(this.grunt);
+            Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
 }
