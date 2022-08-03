@@ -16,6 +16,7 @@ public class GruntStateManager : MonoBehaviour
     public float health = 50;
     public int maxAmmo = 5;
     public bool isDead = false;
+    public bool isAsleep = false;
     public GruntRelaxedState relaxedState = new GruntRelaxedState();
     public GruntPatrollingState patrollingState = new GruntPatrollingState();
     public GruntSuspiciousState suspiciousState = new GruntSuspiciousState();
@@ -24,6 +25,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntReloadingState reloadingState = new GruntReloadingState();
     public GruntFiringState firingState = new GruntFiringState();
     public GruntDeathState deathState = new GruntDeathState();
+    public GruntSleepState sleepState = new GruntSleepState();
     public PlayerState playerState;
     public AudioSource reloadAud, fireAud;
     public ParticleSystem muzzleFlash;
@@ -35,6 +37,7 @@ public class GruntStateManager : MonoBehaviour
     public Animator animator;
     public Rigidbody body;
     float elapsed= 0f;
+    bool AlreadyAsleep = false;
     RaycastHit hit;
     void Start()
     {
@@ -49,6 +52,7 @@ public class GruntStateManager : MonoBehaviour
 
     void Update()
     {
+        HandleSleep();
         HandleDeath();
         currentState.UpdateState(this);
         UpdateAwareColor();
@@ -142,11 +146,36 @@ public class GruntStateManager : MonoBehaviour
     {
         if (this.health <= 0 && !isDead)
         {
-            isDead = true;
+            this.isDead = true;
             this.SwitchState(this.deathState);
         }
     }
 
+    void HandleSleep()
+    {
+        /*
+        isAsleep is a public variable that can be controlled by other gameobjects
+        AlreadyAsleep is a private var which makes sure that this method doesnt fire
+        multiple times
+        */
+        if (this.isAsleep && !this.AlreadyAsleep)
+        {
+            this.AlreadyAsleep = true;
+            StartCoroutine(GoToSleep());
+        }
+    }
+    IEnumerator GoToSleep()
+    {
+        this.SwitchState(this.sleepState);
+        yield return new WaitForSeconds(20.0f);
+        this.animator.SetTrigger("triggerAwake");
+        yield return new WaitForSeconds(1.0f);
+        this.isAsleep = false;
+        this.AlreadyAsleep = false;
+        this.animator.ResetTrigger("triggerAwake");
+        this.SwitchState(this.relaxedState);
+
+    }
     IEnumerator PlaySound(AudioSource audio, float buffer)
     {
         yield return new WaitForSeconds(buffer);
