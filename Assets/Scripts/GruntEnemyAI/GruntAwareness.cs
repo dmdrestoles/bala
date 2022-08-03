@@ -37,7 +37,7 @@ public class GruntAwareness : MonoBehaviour
 
     IEnumerator HandleSusObjectDecay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         susObject = null;
     }
 }

@@ -66,7 +66,7 @@ public class GruntStateManager : MonoBehaviour
         else
         {
             this.susObject = null;
-            ForgetSus();
+            //ForgetSus();
         }
     }
 
@@ -109,7 +109,14 @@ public class GruntStateManager : MonoBehaviour
 
     void UpdateSusPos()
     {
-        this.susPos = susObject.transform.position;
+        //Keep Last known Position
+        if (susObject == null && this.susPos !=null)
+        {}
+        else if (susObject !=null )
+        {
+            this.susPos = susObject.transform.position;
+        }
+
     }
 
     public void playReload()
@@ -139,7 +146,7 @@ public class GruntStateManager : MonoBehaviour
             awareIndi.SetActive(true);
             awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
             awareIndi.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.Lerp(Color.green, Color.red, susValue/50));
-            Debug.Log("Debug: "+awareIndi.GetComponent<Renderer>().material.color.ToString() );
+            //Debug.Log("Debug: "+awareIndi.GetComponent<Renderer>().material.color.ToString() );
         }
     }
 

@@ -3,61 +3,87 @@ using UnityEngine;
 
 public class GruntSuspiciousState : GruntBaseState
 {
+    GruntStateManager grunt;
     float elapsed = 0f;
-    public override void EnterState(GruntStateManager grunt)
+    public override void EnterState(GruntStateManager stateManager)
     {
-        grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
-        grunt.animator.SetBool("isWalking", true);
-        grunt.agent.speed = 3f;
-        grunt.awareness.awareRadius = 5f;
+        this.grunt = stateManager;
+        this.grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
+        this.grunt.animator.SetBool("isWalking", true);
+        this.grunt.agent.speed = 3f;
+        this.grunt.awareness.awareRadius = 5f;
     }
 
-    public override void SusDetected(GruntStateManager grunt)
-
+    public override void SusDetected(GruntStateManager stateManager)
     {
-        AddSusLevel(grunt);
-
-        if (grunt.aiMove_Utils.CheckDestinationReached(grunt.agent.transform.position, grunt.susPos, 5))
+        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
         {
-            grunt.aiMove_Utils.StopMovement(grunt.body, grunt.agent, grunt.animator);
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
         }
-        else if (grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.awareness.susObject != null)
         {
-            grunt.susValue = 50;
-            grunt.SwitchState(grunt.huntingState);
+            if (this.grunt.awareness.susObject.name == "Muzzle")
+            {
+                this.grunt.susValue +=20;
+                //this.grunt.SwitchState(grunt.huntingState);
+            } 
+            else if (this.grunt.awareness.susObject.name == "FootSteps")
+            {
+                this.grunt.susValue +=5;
+                //this.grunt.SwitchState(grunt.suspiciousState);
+            }
         }
         else
         {
-            grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
-            grunt.agent.SetDestination(grunt.susPos);
-            grunt.animator.SetBool("isMoving", true);
+            this.grunt.susValue -=1;
         }
+
     }
 
-    public override void UpdateState(GruntStateManager grunt)
+    public override void UpdateState(GruntStateManager stateManager)
     {
-        if (grunt.susValue >= 35)
+        RunEverySecond();
+        if (this.grunt.susValue >= 45)
         {
-            grunt.SwitchState(grunt.huntingState);
+            this.grunt.SwitchState(this.grunt.huntingState);
         }
-        else if (grunt.susPos != new Vector3(0,0,0))
+        else if (this.grunt.susValue <= 0)
         {
-            SusDetected(grunt);
+            this.grunt.SwitchState(grunt.relaxedState);
         }
-        else if(grunt.susPos == new Vector3(0,0,0) )
+        else if (this.grunt.susPos != new Vector3(0,0,0))
         {
-            grunt.susValue = 0;
-            grunt.SwitchState(grunt.relaxedState);
+            GoToSus();
+        }
+        else if(this.grunt.susPos == new Vector3(0,0,0) )
+        {
+            //this.grunt.susValue = 0;
+            //this.grunt.SwitchState(grunt.relaxedState);
         }
     }
 
-    void AddSusLevel(GruntStateManager grunt)
+    void GoToSus()
+    {
+        if (this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, this.grunt.susPos, 5))
+        {
+            this.grunt.aiMove_Utils.StopMovement(this.grunt.body, this.grunt.agent, this.grunt.animator);
+        }
+        else
+        {
+            this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
+            this.grunt.agent.SetDestination(this.grunt.susPos);
+            this.grunt.animator.SetBool("isMoving", true);
+        }
+    }
+
+    void RunEverySecond()
     {
         elapsed += Time.deltaTime;
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
-            grunt.susValue += 1;
-            Debug.Log("Debug: " + grunt.susValue);
+            SusDetected(this.grunt);
+            Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
 
