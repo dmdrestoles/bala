@@ -13,7 +13,7 @@ public class GruntDeathState : GruntBaseState
     {
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected()
     {
 
     }

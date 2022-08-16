@@ -6,10 +6,11 @@ public class GruntReloadingState : GruntBaseState
     public override void EnterState(GruntStateManager grunt)
     {
         grunt.animator.SetBool("isReloading", true);
+        grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
         grunt.playReload();
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected()
     {
         
     }

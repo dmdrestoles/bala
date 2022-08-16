@@ -14,7 +14,7 @@ public class GruntSuspiciousState : GruntBaseState
         this.grunt.awareness.awareRadius = 5f;
     }
 
-    public override void SusDetected(GruntStateManager stateManager)
+    public override void SusDetected()
     {
         if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
         {
@@ -36,7 +36,7 @@ public class GruntSuspiciousState : GruntBaseState
         }
         else
         {
-            this.grunt.susValue -=1;
+            this.grunt.susValue -=4;
         }
 
     }
@@ -55,11 +55,6 @@ public class GruntSuspiciousState : GruntBaseState
         else if (this.grunt.susPos != new Vector3(0,0,0))
         {
             GoToSus();
-        }
-        else if(this.grunt.susPos == new Vector3(0,0,0) )
-        {
-            //this.grunt.susValue = 0;
-            //this.grunt.SwitchState(grunt.relaxedState);
         }
     }
 
@@ -82,9 +77,8 @@ public class GruntSuspiciousState : GruntBaseState
         elapsed += Time.deltaTime;
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
-            SusDetected(this.grunt);
+            SusDetected();
             Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
-
 }

@@ -17,7 +17,7 @@ public class GruntPatrollingState : GruntBaseState
         this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
     }
 
-    public override void SusDetected(GruntStateManager stateManager)
+    public override void SusDetected()
     {
         if (this.grunt.awareness.susObject.name == "Muzzle")
         {
@@ -75,7 +75,7 @@ public class GruntPatrollingState : GruntBaseState
         elapsed += Time.deltaTime;
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
-            SusDetected(this.grunt);
+            SusDetected();
             Debug.Log("Debug: " + this.grunt.susValue);
         }
     }

@@ -14,7 +14,7 @@ public class GruntRelaxedState : GruntBaseState
         this.originalPos = grunt.originalPos;
     }
 
-    public override void SusDetected(GruntStateManager stateManager)
+    public override void SusDetected()
     {
         if (grunt.awareness.susObject.name == "Muzzle")
         {
@@ -64,7 +64,7 @@ public class GruntRelaxedState : GruntBaseState
         elapsed += Time.deltaTime;
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
-            SusDetected(this.grunt);
+            SusDetected();
             Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
