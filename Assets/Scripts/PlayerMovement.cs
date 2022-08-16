@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject footSteps;
     public Animator animator;
     
-    public static float moveSpeed = 7f;
+    public static float moveSpeed = 20f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 

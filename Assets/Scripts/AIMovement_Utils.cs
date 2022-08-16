@@ -25,6 +25,7 @@ public class AIMovement_Utils : MonoBehaviour
         {
             result = true;
         }
+        Debug.Log("Debug: "+ "Distance to target is " + distanceToTarget);
         return result;
     }
 }

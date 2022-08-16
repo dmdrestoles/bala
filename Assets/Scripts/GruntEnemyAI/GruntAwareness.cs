@@ -23,7 +23,7 @@ public class GruntAwareness : MonoBehaviour
      if (other.gameObject.tag == "SusObject")
         {
             susObject = other.gameObject;
-            Debug.Log(susObject.name);
+            //Debug.Log(susObject.name);
         }
     }
 
@@ -37,7 +37,7 @@ public class GruntAwareness : MonoBehaviour
 
     IEnumerator HandleSusObjectDecay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0);
         susObject = null;
     }
 }
