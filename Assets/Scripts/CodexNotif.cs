@@ -15,7 +15,7 @@ public class CodexNotif : MonoBehaviour
     {
         if (gameObject.active)
         {
-            Debug.Log("Notif now Active!");
+            //Debug.Log("Notif now Active!");
             StartCoroutine(Wait());
         }
     }

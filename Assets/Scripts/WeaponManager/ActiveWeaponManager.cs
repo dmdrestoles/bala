@@ -31,6 +31,7 @@ public class ActiveWeaponManager : MonoBehaviour
         Vector3 spawnPoint = activeWeapon.GetComponent<Gun>().muzzleFlash.transform.position;
         Quaternion spawnRotation = activeWeapon.GetComponent<Gun>().gunInstance.transform.rotation;
         GameObject droppedWeapon = Instantiate(activeWeapon.GetComponent<Gun>().gunInstance, spawnPoint, spawnRotation);
+        droppedWeapon.GetComponent<PickupStateManager>().isMain = false;
         droppedWeapon.name = activeWeapon.GetComponent<Gun>().weaponName;
         Debug.Log(gameObject.transform.position);
         droppedWeapon.SetActive(true);

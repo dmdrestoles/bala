@@ -7,4 +7,6 @@ public abstract class PickableObjectBaseState : MonoBehaviour
     public abstract void EnterState(PickableObjectStateManager obj);
 
     public abstract void UpdateState(PickableObjectStateManager obj);
+
+    public abstract void TransitionState(PickableObjectStateManager obj);
 }

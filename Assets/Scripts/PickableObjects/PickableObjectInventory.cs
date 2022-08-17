@@ -10,6 +10,10 @@ public class PickableObjectInventory : PickableObjectBaseState
 
     }
 
+    public override void TransitionState(PickableObjectStateManager obj){
+        
+    }
+
     public void OnMouseOver(){
 
     }

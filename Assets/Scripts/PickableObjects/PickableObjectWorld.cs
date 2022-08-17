@@ -38,7 +38,7 @@ public class PickableObjectWorld : PickableObjectBaseState
         }
     }
 
-    public void TransitionState(PickableObjectStateManager obj){
+    public override void TransitionState(PickableObjectStateManager obj){
         
     }
 
