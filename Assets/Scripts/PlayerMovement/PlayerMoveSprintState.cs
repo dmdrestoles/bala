@@ -1,10 +1,10 @@
-using System.Collections;
 using UnityEngine;
 
-public class PlayerMoveWalkState : PlayerMoveBaseState
+public class PlayerMoveSprintState : PlayerMoveBaseState
 {
     PlayerMoveStateManager playerMovement;
     float elapsed = 0f;
+
     public override void EnterState(PlayerMoveStateManager stateManager)
     {
         playerMovement = stateManager;
@@ -15,23 +15,20 @@ public class PlayerMoveWalkState : PlayerMoveBaseState
     {
         RunEverySecond();
         HandleCrouchingMovement();
-        if(Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftShift) || stateManager.energy <= 0)
         {
-            stateManager.SwitchState(stateManager.crouchState);
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && stateManager.energy >4)
-        {
-            stateManager.SwitchState(stateManager.sprintState);
-        }
+            stateManager.SwitchState(stateManager.walkState);
+        } 
     }
+
     public override void UpdateFootStepsRad()
     {
-        playerMovement.footSteps.radius = 4;
+        playerMovement.footSteps.radius = 10;
     }
 
     public override void UpdateSpeedMultiplier()
     {
-        playerMovement.speed = playerMovement.moveSpeed;
+        playerMovement.speed = playerMovement.moveSpeed * 1.5f;
     }
 
     public override void HandleCrouchingMovement()
@@ -47,22 +44,20 @@ public class PlayerMoveWalkState : PlayerMoveBaseState
             playerMovement.crouchHeight -= 0.2f;
         }
     }
-
     void RunEverySecond()
     {
         elapsed += Time.deltaTime;
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
-            GainEnergy();
+            DrainEnergy();
             //Debug.Log("Debug: " +"Energy:" + playerMovement.energy);
         }
     }
-
-    void GainEnergy()
+    void DrainEnergy()
     {
-        if (playerMovement.energy < 6)
+        if (playerMovement.energy > 0 )
         {
-            playerMovement.energy++;
+            playerMovement.energy--;
         }
     }
 }
