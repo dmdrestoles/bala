@@ -4,62 +4,79 @@ using UnityEngine.AI;
 
 public class GruntPatrollingState : GruntBaseState
 {
+    GruntStateManager grunt;
     bool patrolStarted = false;
+    float elapsed = 0;
 
 
-    public override void EnterState(GruntStateManager grunt)
+    public override void EnterState(GruntStateManager stateManager)
     {
         patrolStarted = false;
-        grunt.awareness.awareRadius = 3f;
-        grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
+        this.grunt = stateManager;
+        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected()
     {
-        if (grunt.awareness.susObject.name == "Muzzle")
+        if (this.grunt.awareness.susObject.name == "Muzzle")
         {
-            grunt.susValue = 40;
-            grunt.SwitchState(grunt.huntingState);
+            this.grunt.susValue += 20;
+            //this.grunt.SwitchState(this.grunt.huntingState);
         } 
-        else if (grunt.awareness.susObject.name == "FootSteps")
+        else if (this.grunt.awareness.susObject.name == "FootSteps")
         {
-            grunt.susValue +=30;
-            grunt.SwitchState(grunt.suspiciousState);
+            this.grunt.susValue += 5;
+            //this.grunt.SwitchState(this.grunt.suspiciousState);
         }
 
     }
 
-    public override void UpdateState(GruntStateManager grunt)
+    public override void UpdateState(GruntStateManager stateManager)
     {
-        //Debug.Log(grunt.CheckForPlayertInLineOfSight(45, 20));
-        if (grunt.CheckForPlayertInLineOfSight(45, 20))
+        //Debug.Log(this.grunt.CheckForPlayertInLineOfSight(45, 20));
+        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
         {
-            grunt.susValue = 50;
-            grunt.SwitchState(grunt.huntingState);
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
         }
-        else if (grunt.susObject)
+        else if (this.grunt.susValue >= 20)
         {
-            SusDetected(grunt);
+            this.grunt.SwitchState(this.grunt.suspiciousState);
         }
-        Patrol(grunt.patrol1, grunt.patrol2, grunt);
+        else if (this.grunt.susObject)
+        {
+            RunEverySecond();
+        }
+        Patrol(this.grunt.patrol1, this.grunt.patrol2);
     }
 
-    void Patrol(Vector3 start, Vector3 end, GruntStateManager grunt){
-        grunt.animator.SetBool("isMoving", true);
-        grunt.animator.SetBool("isWalking", true);
-        grunt.agent.speed = 3.0f;
-        if ((grunt.aiMove_Utils.CheckDestinationReached(grunt.agent.transform.position, start,1)) && !grunt.agent.pathPending )
+    void Patrol(Vector3 start, Vector3 end){
+        this.grunt.animator.SetBool("isMoving", true);
+        this.grunt.animator.SetBool("isWalking", true);
+        this.grunt.agent.speed = 3.0f;
+        if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, start,1)) && !this.grunt.agent.pathPending )
         {
-            grunt.agent.SetDestination(end);
+            this.grunt.agent.SetDestination(end);
         }
-        else if ((grunt.aiMove_Utils.CheckDestinationReached(grunt.agent.transform.position,end,1)) && !grunt.agent.pathPending )
+        else if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position,end,1)) && !this.grunt.agent.pathPending )
         {
-            grunt.agent.SetDestination(start);
+            this.grunt.agent.SetDestination(start);
         }
         else if(!patrolStarted)
         {
             patrolStarted = true;
-            grunt.agent.SetDestination(start);
+            this.grunt.agent.SetDestination(start);
+        }
+    }
+
+    void RunEverySecond()
+    {
+        elapsed += Time.deltaTime;
+        if (elapsed >= 1f) {
+            elapsed = elapsed % 1f;
+            SusDetected();
+            Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
 }

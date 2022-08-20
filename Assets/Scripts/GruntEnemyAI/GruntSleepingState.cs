@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GruntDeathState : GruntBaseState
+public class GruntSleepState : GruntBaseState
 {
     public override void EnterState(GruntStateManager grunt)
     {

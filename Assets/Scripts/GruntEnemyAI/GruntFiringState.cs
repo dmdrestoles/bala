@@ -15,13 +15,14 @@ public class GruntFiringState : GruntBaseState
         this.Shoot();
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected()
     {
 
     }
 
     public override void UpdateState(GruntStateManager grunt)
     {
+        grunt.transform.LookAt(new Vector3(grunt.playerTransform.position.x, grunt.transform.position.y, grunt.playerTransform.position.z));
         elapsed += Time.deltaTime;
         if (elapsed >= 2f)
         {

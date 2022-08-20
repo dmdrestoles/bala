@@ -11,7 +11,7 @@ public class GruntAimingState : GruntBaseState
         grunt.aiMove_Utils.StopMovement(grunt.body, grunt.agent, grunt.animator);
     }
 
-    public override void SusDetected(GruntStateManager grunt)
+    public override void SusDetected()
     {
     }
 
@@ -19,7 +19,7 @@ public class GruntAimingState : GruntBaseState
     {
         //Debug.Log(Vector3.Distance(grunt.transform.position, grunt.playerTransform.position));
         grunt.transform.LookAt(new Vector3(grunt.playerTransform.position.x, grunt.transform.position.y, grunt.playerTransform.position.z));
-        if (Vector3.Distance(grunt.transform.position, grunt.playerTransform.position) > 25)
+        if (Vector3.Distance(grunt.transform.position, grunt.playerTransform.position) > 25 || grunt.playerTransform.position == null)
         {   
             grunt.SwitchState(grunt.huntingState);
         }
@@ -38,7 +38,7 @@ public class GruntAimingState : GruntBaseState
             grunt.SwitchState(grunt.reloadingState);
         }
         else if (elapsed >= 1f) {
-            elapsed = elapsed % 1f;
+            elapsed = elapsed % 4f;
             grunt.SwitchState(grunt.firingState);
         }
     }
