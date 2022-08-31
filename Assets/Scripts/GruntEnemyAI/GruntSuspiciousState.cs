@@ -35,7 +35,7 @@ public class GruntSuspiciousState : GruntBaseState
             }
             else if (grunt.awareness.susObject.name == "Rock")
             {
-                this.grunt.susValue +=10;
+                this.grunt.susValue +=5;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
         }
@@ -65,7 +65,7 @@ public class GruntSuspiciousState : GruntBaseState
 
     void GoToSus()
     {
-        if (this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, this.grunt.susPos, 5))
+        if (this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, this.grunt.susPos, 2))
         {
             this.grunt.aiMove_Utils.StopMovement(this.grunt.body, this.grunt.agent, this.grunt.animator);
         }

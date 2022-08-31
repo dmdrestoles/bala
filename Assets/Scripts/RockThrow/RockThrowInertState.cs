@@ -8,8 +8,9 @@ public class RockThrowInertState : RockThrowBaseState
         sm.coll.radius = 0;
     }
 
-    public override void UpdateState(RockThrowStateManager stateManager)
+    public override void UpdateState(RockThrowStateManager sm)
     {
+        sm.Destroy();
     }
 
 }

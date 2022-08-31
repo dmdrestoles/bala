@@ -49,7 +49,7 @@ public class GruntHuntingState : GruntBaseState
             }
             else if (grunt.awareness.susObject.name == "Rock")
             {
-                this.grunt.susValue +=10;
+                this.grunt.susValue +=5;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
         }

@@ -34,4 +34,9 @@ public class RockThrowStateManager : MonoBehaviour
         Debug.Log("Debug: " + currentState.ToString());
     }
 
+    public void Destroy()
+    {
+        GameObject.Destroy(this.gameObject);
+    }
+
 }
