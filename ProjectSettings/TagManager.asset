@@ -12,6 +12,7 @@ TagManager:
   - BushTutorial
   - SusObject
   - GunShot
+  - Ground
   layers:
   - Default
   - TransparentFX
