@@ -7,7 +7,7 @@ public class PlayerMoveJumpState : PlayerMoveBaseState
     public override void EnterState(PlayerMoveStateManager stateManager)
     {
         playerMovement = stateManager;
-        stateManager.velocity.y = Mathf.Sqrt(stateManager.jumpHeight * -2f * stateManager.gravity);
+        playerMovement.animator.SetBool("isRunning", false);
         UpdateFootStepsRad();
     }
 

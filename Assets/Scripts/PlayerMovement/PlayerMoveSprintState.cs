@@ -8,6 +8,7 @@ public class PlayerMoveSprintState : PlayerMoveBaseState
     public override void EnterState(PlayerMoveStateManager stateManager)
     {
         playerMovement = stateManager;
+        playerMovement.animator.SetBool("isRunning", true);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }
@@ -17,6 +18,7 @@ public class PlayerMoveSprintState : PlayerMoveBaseState
         HandleCrouchingMovement();
         if (Input.GetKeyUp(KeyCode.LeftShift) || stateManager.energy <= 0)
         {
+            playerMovement.animator.SetBool("isRunning", false);
             stateManager.SwitchState(stateManager.walkState);
         } 
     }
