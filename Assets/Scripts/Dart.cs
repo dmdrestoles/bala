@@ -18,7 +18,7 @@ public class Dart : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Collsion");
+            Debug.Log("Collision");
             EnemyState enemyState = collision.gameObject.GetComponent<EnemyState>();
             enemyState.isAsleep = true;
             Destroy(gameObject);

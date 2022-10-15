@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: ce1069eb54c4bda4e98bd7caa6415f60
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -4001290526420615960
+    second: rig|rig|rig|rig|rig|Player_BoloSlash|rig|Player_BoloSlash|rig|rig|r
+  - first:
+      74: 2138831841599828777
+    second: rig|rig|rig|rig|rig|Player_PaltikAimStatic|rig|Player_PaltikAimStat
+  - first:
+      74: -1859173268798001512
+    second: rig|rig|rig|rig|rig|Player_PaltikAim|rig|Player_PaltikAim|rig|rig|r
+  - first:
+      74: 5473248802531504023
+    second: rig|rig|rig|rig|rig|Player_PaltikEquip|rig|Player_PaltikEquip|rig|r
+  - first:
+      74: 3920406657458061767
+    second: rig|rig|rig|rig|rig|Player_PaltikFire|rig|Player_PaltikFire|rig|rig
+  - first:
+      74: 2925453410179605571
+    second: rig|rig|rig|rig|rig|Player_PaltikIdle|rig|Player_PaltikIdle|rig|rig
+  - first:
+      74: 5891084508892047670
+    second: rig|rig|rig|rig|rig|Player_PaltikReload|rig|Player_PaltikReload|rig
+  - first:
+      74: 5209386298160149274
+    second: rig|rig|rig|rig|rig|Player_PaltikRunningTransition|rig|Player_P_903
+  - first:
+      74: 3814154792925887075
+    second: rig|rig|rig|rig|rig|Player_PaltikRunning|rig|Player_PaltikRunning|r
+  - first:
+      74: -3368033427198083009
+    second: rig|rig|rig|rig|rig|Player_PaltikUnequip|rig|Player_PaltikUnequip|r
+  - first:
+      74: 7580376773334041774
+    second: rig|rig|rig|rig|rig|Player_SumpitAimStaticLoaded|rig|Player_Sum_61a
+  - first:
+      74: -3995375123295842231
+    second: rig|rig|rig|rig|rig|Player_SumpitAimStaticUnloaded|rig|Player_S_db8
+  - first:
+      74: -3476699228799978607
+    second: rig|rig|rig|rig|rig|Player_SumpitAim|rig|Player_SumpitAim|rig|rig|r
+  - first:
+      74: 5152575216434019883
+    second: rig|rig|rig|rig|rig|Player_SumpitFire|rig|Player_SumpitFire|rig|rig
+  - first:
+      74: -3937498358361688436
+    second: rig|rig|rig|rig|rig|Player_SumpitLoadedEquip|rig|Player_SumpitL_9eb
+  - first:
+      74: -3532636229530293369
+    second: rig|rig|rig|rig|rig|Player_SumpitLoadedUnequip|rig|Player_Sumpi_b4c
+  - first:
+      74: -7546814112286403188
+    second: rig|rig|rig|rig|rig|Player_SumpitLoaded|rig|Player_SumpitLoaded|rig
+  - first:
+      74: 620798832379960663
+    second: rig|rig|rig|rig|rig|Player_SumpitReload|rig|Player_SumpitReload|rig
+  - first:
+      74: -2352112708390358418
+    second: rig|rig|rig|rig|rig|Player_SumpitUnloadedEquip|rig|Player_Sumpi_60c
+  - first:
+      74: 6831053831513480674
+    second: rig|rig|rig|rig|rig|Player_SumpitUnloadedUnequip|rig|Player_Sum_6a2
+  - first:
+      74: 5535882738901793692
+    second: rig|rig|rig|rig|rig|Player_SumpitUnloaded|rig|Player_SumpitUnloaded
+  - first:
+      74: -4443506070293124787
+    second: rig|rig|rig|rig|rig|Player_TPose|rig|Player_TPose|rig|rig|rig|Playe
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bamboo
+    second: {fileID: 2100000, guid: 5044a7681c3d1604796a95b8449abfdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cotton
+    second: {fileID: 2100000, guid: 9da5850cf1bfeb244a0febfa87597399, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iron
+    second: {fileID: 2100000, guid: bb682c457f5f2f54b8d4771a57c99c32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kaskas
+    second: {fileID: 2100000, guid: cf9b0045dee83de4bad71ae2d22dc79f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paltik
+    second: {fileID: 2100000, guid: c6ed2309e3dfba9409a503ba99f5677f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RamWood
+    second: {fileID: 2100000, guid: 1d7ea4c4c476a6147871be9c56e182b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arms
+    second: {fileID: 2100000, guid: e88d9bcab95415045af4f97c6db815bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bolo-texture
+    second: {fileID: 2100000, guid: dce298eb8d46565439aad4d24eb1cd2a, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

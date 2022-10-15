@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyState enemyState;
     NavMeshAgent agent;
     Rigidbody r;
-    private Vector3 playerLastPosition;
+    public Vector3 playerLastPosition;
     private bool knowsLastPosition = false;
     private bool patrolStarted = false;
     private float timer = 0.0f;
@@ -35,30 +35,34 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        isPlayerDetected = enemyState.isPlayerDetected;
-        if (!isPlayerDetected && !enemyState.hasPatrol && enemyState.alertLevel != 1)
+        if (GameManager.IsInputEnabled)
         {
-            StopMovement();
-        }
-        else if (enemyState.isAsleep)
-        {
-            animator.SetBool("isMoving", false);
-            StopMovement();
-        }
-        else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
-        {
-            animator.SetBool("isAiming", false);
-            HandleDetection(isPlayerDetected);
-        }
-        else if(enemyState.isFiring)
-        {
-            transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
-            StopMovement();
-        }
-        else
-        {
-            animator.SetBool("isAiming", false);
-            StopMovement();
+            isPlayerDetected = enemyState.isPlayerDetected;
+            if (!isPlayerDetected && !enemyState.hasPatrol && enemyState.alertLevel != 1)
+            {
+                StopMovement();
+            }
+            else if (enemyState.isAsleep)
+            {
+                animator.SetBool("isMoving", false);
+                StopMovement();
+            }
+            else if (!enemyState.isAsleep || !animator.GetBool("isAiming"))
+            {
+                animator.SetBool("isAiming", false);
+                
+                HandleDetection(isPlayerDetected);
+            }
+            else if(enemyState.isFiring || animator.GetBool("isAiming"))
+            {
+                transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
+                StopMovement();
+            }
+            else
+            {
+                animator.SetBool("isAiming", false);
+                StopMovement();
+            }
         }
     }
 
@@ -72,10 +76,10 @@ public class EnemyMovement : MonoBehaviour
             agent.destination = playerTransform.position;
             playerLastPosition = playerTransform.position;
             r.velocity *= 0.99f;
-            agent.speed = 20f;
+            agent.speed = 12f;
             animator.SetBool("isMoving", true);
             enemyState.distanceFromPlyaer = Vector3.Distance(transform.position, playerTransform.position);
-
+            
             transform.LookAt(new Vector3(playerTransform.transform.position.x, transform.position.y, playerTransform.position.z));
             HoldStillToFire();
         }
@@ -90,13 +94,11 @@ public class EnemyMovement : MonoBehaviour
             Vector3 end = RandomNavSphere(playerLastPosition, 3.5f, -1);
             PatrolKnownLastPosition(start, end,2);
             
-            
         }
         if(!isPlayerDetected && !knowsLastPosition && enemyState.hasPatrol)
         {
             ResumeMovement();
             Patrol(startPatrolLocation,endPatrolLocation);
-
         }
 
     }
@@ -167,7 +169,7 @@ public class EnemyMovement : MonoBehaviour
             timer = timer - time;
             knowsLastPosition = false;
             enemyState.alertLevel = 0;
-            agent.acceleration = 4;
+            agent.acceleration = 2;
             StopMovement();
         }
     }

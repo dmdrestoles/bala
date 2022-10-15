@@ -5,9 +5,13 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
-    public Transform playerBody, cameraTransform;
-
+    public Transform playerBody;
+    public GameObject armsCamera;
+    public static string selectedObject;
+    public RaycastHit hitObject;
     float xRotation = 0f;
+    private Transform cameraTransform;
+    
     
     void Start()
     {
@@ -19,6 +23,9 @@ public class MouseLook : MonoBehaviour
     {
         if (GameManager.IsInputEnabled == true)
         {
+            mouseSensitivity = PlayerPrefs.GetFloat("sense", 50);
+            GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
+            armsCamera.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
             xRotation -= mouseY;
@@ -26,7 +33,17 @@ public class MouseLook : MonoBehaviour
 
             cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
-        }        
+        }    
+
+        if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
+        {
+            selectedObject = hitObject.transform.gameObject.name;
+            //Debug.Log(selectedObject+"------"+hitObject.distance);
+        }    
+    }
+
+    public string GetSelectedObject(){
+        return selectedObject;
     }
 
     public IEnumerator Recoil(float recoilVal, float recoilIncrement)

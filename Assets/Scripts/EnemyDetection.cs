@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour {
     public float detectionDistance;
     public GameObject player;
-    public Gun[] weapons;
+    // public Gun[] weapons;
     private RaycastHit hit;
     public PlayerState playerState;
     public Detection_Utils utils;
@@ -16,30 +16,46 @@ public class EnemyDetection : MonoBehaviour {
     private EnemyState enemyState; 
     private EnemyMovement enemyMovement;
     private float originalDetectionDistance;
+    public AudioSource detect;
+    private bool playAudio;
+    private GameObject parent;
+    private List<GameObject> enemyList;
+    private Vector3 myFacePosition;
+    private float alertTime = 2.0f;
+    private float timer = 0.0f;
     
     void Start() 
     {
-        CheckActiveWeapons();
+        playAudio = true;
+        // CheckActiveWeapons();
         originalDetectionDistance = detectionDistance;
         animator = GetComponent<Animator>();
         enemyState = GetComponent<EnemyState>();
         enemyMovement = GetComponent<EnemyMovement>();
+        parent = transform.parent.gameObject;
+        enemyList = GetListEnemies(parent);
     }
     void Update() 
     {
-        playerTransform = player.transform;
-        if (!enemyState.isAsleep)
+        if (GameManager.IsInputEnabled)
         {
-            HandleSprintCrouching();
-            this.CheckForTargetInLineOfSight();
+            playerTransform = player.transform;
+            if (!enemyState.isAsleep)
+            {
+                myFacePosition = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+                HandleSprintCrouching();
+                this.CheckForTargetInLineOfSight();
+                this.HandleEnemyAlerts();
+            }
         }
     }
 
     private void CheckForTargetInLineOfSight()
     {
-        if (Physics.Linecast(transform.position, playerTransform.position, out hit))
+        
+        if (Physics.Linecast(myFacePosition, playerTransform.position, out hit))
         {
-            Debug.DrawLine(transform.position, hit.point, Color.green);
+            Debug.DrawLine(myFacePosition, hit.point, Color.green);
             if( (primary.isFiring && !primary.isSilent) || (secondary.isFiring && !secondary.isSilent) )
             {
                 animator.SetBool("isWalking", false);
@@ -50,11 +66,7 @@ public class EnemyDetection : MonoBehaviour {
             else if (hit.transform.CompareTag("Player") && utils.IsHitWithinObjectAngle(hit, transform, 45)
                     && utils.IsHitWithinObjectDistance(hit, detectionDistance) && IsPlayerVisible())
             {
-                animator.SetBool("isWalking", false);
-                enemyState.alertLevel = 1;
-                Debug.DrawLine(transform.position, hit.point,Color.red);
-                PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
-                enemyState.isPlayerDetected = true;
+               HandleAlertTime();
             }
             else if(enemyState.hasPatrol)
             {
@@ -62,17 +74,65 @@ public class EnemyDetection : MonoBehaviour {
                 enemyState.isFiring = false;
                 enemyMovement.ResumeMovement();
             }
-            else
+            /* commented out for bug fixing later on
+            else 
             {
                 enemyState.isPlayerDetected = false;
                 enemyState.isFiring = false;
-            }
+            }*/
         }
         else
         {
             enemyState.isFiring = false;
         }
         
+    }
+
+    IEnumerator ConnectEnemyLineCast(GameObject enemyOther) 
+    {
+        Vector3 enemyFacePosition = new Vector3(
+            enemyOther.transform.position.x, 
+            enemyOther.transform.position.y+3,
+            enemyOther.transform.position.z);
+
+        if(Physics.Linecast(myFacePosition, enemyFacePosition, out hit))
+        {
+            Debug.DrawLine(myFacePosition, hit.point, Color.magenta);
+            float distance = Vector3.Distance(enemyFacePosition, myFacePosition);
+            EnemyState enemyOtherState = enemyOther.GetComponent<EnemyState>();
+
+            if (enemyState.isPlayerDetected && distance < 10)
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.black);
+
+                yield return new WaitForSeconds(2);
+                enemyOtherState.isPlayerDetected = true;
+                enemyOtherState.hasPatrol = false;
+            }
+            else if (enemyState.isFiring)
+            {
+                Debug.DrawLine(myFacePosition, hit.point, Color.black);
+
+                yield return new WaitForSeconds(3);
+                enemyOtherState.isPlayerDetected = true;
+                enemyOtherState.hasPatrol = false;
+            }
+        }
+    }
+
+    private void HandleEnemyAlerts()
+    {
+        foreach (var enemy in enemyList)
+        {
+            if (transform.name == enemy.name)
+            {
+                continue;
+            } 
+            else 
+            {
+                StartCoroutine(ConnectEnemyLineCast(enemy));
+            }
+        }
     }
 
     private bool IsPlayerVisible()
@@ -83,6 +143,39 @@ public class EnemyDetection : MonoBehaviour {
             result = true;
         }
         return result;
+    }
+
+    private void HandleAlertTime()
+    {
+        if (timer >= alertTime)
+        {
+            animator.SetBool("isWalking", false);
+            enemyState.alertLevel = 1;
+            Debug.DrawLine(myFacePosition, hit.point,Color.red);
+            PlayerMovement pm = hit.transform.GetComponent<PlayerMovement>();
+            enemyState.isPlayerDetected = true;
+
+            if (playAudio)
+            {
+                playAudio = false;
+                StartCoroutine(PlaySound(detect));
+            }
+        } else
+        {
+            timer += Time.deltaTime;
+        }
+    }
+
+    IEnumerator PlaySound(AudioSource audio)
+    {
+        audio.Play();
+        yield return new WaitWhile( () => audio.isPlaying );
+    }
+
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        playAudio = true;
     }
 
     IEnumerator HandleGunFiring()
@@ -96,7 +189,7 @@ public class EnemyDetection : MonoBehaviour {
     {
         if (playerState.isCrouching)
         {
-            detectionDistance = originalDetectionDistance * 0.5f;
+            detectionDistance = originalDetectionDistance * 0.85f;
         } else if (playerState.isSprinting)
         {
             detectionDistance = originalDetectionDistance * 2.0f;
@@ -104,6 +197,17 @@ public class EnemyDetection : MonoBehaviour {
         {
             detectionDistance = originalDetectionDistance;
         }
+    }
+
+    public List<GameObject> GetListEnemies(GameObject Go)
+    {
+        List<GameObject> list = new List<GameObject>();
+        for (int i = 0; i< Go.transform.childCount; i++)
+        {
+            list.Add(Go.transform.GetChild(i).gameObject);
+        }
+    
+        return list;
     }
 
     void CheckActiveWeapons()

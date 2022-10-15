@@ -11,6 +11,7 @@ public class Melee : MonoBehaviour
 
     public bool isActive = false;
     public bool isReliable = true;
+    public static bool isBoloAcquired = false;
 
     public Animator animator;
     public GameObject weapon;
@@ -24,15 +25,31 @@ public class Melee : MonoBehaviour
 
     void Start()
     {
-        meleeAngle = meleeAngle == 0 ? meleeAngle : 45;
+        meleeAngle = 60;
     }
+
+    void Update()
+    {
+
+    }
+
     public void CheckForEnemies()
     {
         isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
-
+        if (isHitting)
+        {
+            Debug.Log("something was hit!");
+            Debug.Log(hit.transform.name);
+            Debug.Log(hit.distance);
+            float deg = Vector3.Angle( playerTransform.forward, hit.transform.position - playerTransform.position );
+            Debug.Log(deg);
+            
+        }
         if (isHitting && hit.transform.CompareTag("Enemy") && utils.IsHitWithinObjectAngle(hit, playerTransform, meleeAngle) 
             && utils.IsHitWithinObjectDistance(hit,meleeRange))
         {
+            Debug.Log("Enemy hit!");
+
             hit.transform.gameObject.GetComponent<EnemyState>().TakeDamage(damage);
         }
     }

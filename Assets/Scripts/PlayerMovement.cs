@@ -9,13 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public PlayerState playerState;
+    public GameObject footSteps;
     public Animator animator;
     
-    public static float moveSpeed = 10f;
+    public static float moveSpeed = 20f;
     public float gravity = -9.81f;
     public float jumpHeight = 3.0f;
 
-    public Vector3 velocity, originalCamPos;
+    public Vector3 velocity, originalCamPos, oldPosition;
     public bool isGrounded;
     
     private int energy;
@@ -24,12 +25,15 @@ public class PlayerMovement : MonoBehaviour
     public GameObject cameraHolder, playerBody;
     private float speed, maxCrouchHeight, crouchHeight;
 
+    public AudioSource bushrustling;
+
     void Start()
     {
         energy = 6;
         speed = moveSpeed;
         originalCamPos = cameraHolder.transform.position;
-        maxCrouchHeight = 0.68f;
+        maxCrouchHeight = 0.55f;
+        oldPosition = transform.position;
     }
     void Update()
     {
@@ -55,32 +59,39 @@ public class PlayerMovement : MonoBehaviour
                 // animator.SetBool("Moving", true);
             }
             
-            if(Input.GetKey(KeyCode.LeftControl))
+            if(Input.GetKeyUp(KeyCode.LeftControl) && !playerState.isCrouching)
             {
                 playerState.isCrouching = true;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 2;
                 playerState.isSprinting = false;
-                speed = moveSpeed * 0.5f;
-                if (crouchHeight < maxCrouchHeight)
-                {
-                    cameraHolder.transform.position = new Vector3(
-                        cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.1f, cameraHolder.transform.position.z);
-                    crouchHeight += 0.1f;
-                }
-               
             }
-            else if (Input.GetKeyUp(KeyCode.LeftControl))
+
+            else if (crouchHeight < maxCrouchHeight && playerState.isCrouching)
+            {
+                cameraHolder.transform.position = new Vector3(
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y- 0.2f, cameraHolder.transform.position.z);
+                crouchHeight += 0.2f;
+            }
+
+            else if (Input.GetKeyUp(KeyCode.LeftControl) && playerState.isCrouching)
             {
                 playerState.isCrouching = false;
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
+            }
+
+            else if (crouchHeight >= 0 && !playerState.isCrouching)
+            {
                 cameraHolder.transform.position = new Vector3(
-                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + crouchHeight, cameraHolder.transform.position.z);
-                crouchHeight = 0;
+                    cameraHolder.transform.position.x, cameraHolder.transform.position.y + 0.2f, cameraHolder.transform.position.z);
+                crouchHeight -= 0.2f;
             }
 
             else if (Input.GetKey(KeyCode.LeftShift) && energy > 0)
             {
                 playerState.isSprinting = true;
                 playerState.isCrouching = false;
-                // animator.SetBool("Running", true);
+                animator.SetBool("isRunning", true);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 10;
                 speed = moveSpeed * 1.5f;
                 if (energyDraining)
                 {
@@ -90,18 +101,27 @@ public class PlayerMovement : MonoBehaviour
             else if (energy < 1)
             {
                 playerState.isSprinting = false;
+                
+                animator.SetBool("isRunning", false);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 if (energyGaining)
                 {
                     StartCoroutine(GainEnergy());
                 }
             }
+
+            else if (playerState.isCrouching)
+            {
+                speed = moveSpeed * 0.5f;
+            }
             
             else
-            {
+            {     
                 playerState.isSprinting = false;
+                animator.SetBool("isRunning", false);
+                footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 4;
                 speed = moveSpeed;
             }
-
             controller.Move(move * speed * Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && isGrounded)
@@ -125,6 +145,14 @@ public class PlayerMovement : MonoBehaviour
         {
             playerState.isVisible = true;
         }
+        
+        if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) && other.gameObject.tag == "HidingSpot")
+        {
+            if (!bushrustling.isPlaying)
+            {
+                StartCoroutine(PlaySound(bushrustling));
+            }
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -138,6 +166,12 @@ public class PlayerMovement : MonoBehaviour
     public bool checkVisibility()
     {
         return playerState.isVisible;
+    }
+
+    IEnumerator PlaySound(AudioSource audio)
+    {
+        audio.Play();
+        yield return new WaitWhile( () => audio.isPlaying );
     }
 
     IEnumerator DrainEnergy()

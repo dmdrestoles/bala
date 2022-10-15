@@ -21,6 +21,12 @@ public class TutorialCutScene : MonoBehaviour
     public GameObject textHolder;
     public GameObject textHolder1;
 
+    //Text Objects
+    public GameObject speaker; //4
+    public GameObject dialogue; //5
+    public GameObject instructions; //6
+    public GameObject objectives; //7
+
 
     public static bool reachedMarker = false;
     public static bool reachedLastMarker = false;
@@ -28,12 +34,12 @@ public class TutorialCutScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(7).GetComponent<Text>().text = "";
+        speaker.GetComponent<Text>().text = "";
+        dialogue.GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "";
+        objectives.GetComponent<Text>().text = "";
         PlayerMovement.moveSpeed = 0;
-        officer.enabled = false;
+        Cursor.visible = false;
 
         GameManager.IsInputEnabled = false;
         canvas.SetActive(false);
@@ -42,7 +48,7 @@ public class TutorialCutScene : MonoBehaviour
 
     void Update()
     {
-        if (canvas.transform.GetChild(4).GetComponent<Text>().text != "" || canvas.transform.GetChild(5).GetComponent<Text>().text != "" || canvas.transform.GetChild(6).GetComponent<Text>().text != "")
+        if (speaker.GetComponent<Text>().text != "" || dialogue.GetComponent<Text>().text != "" || instructions.GetComponent<Text>().text != "")
         {
            textHolder.SetActive(true);
         }
@@ -51,7 +57,7 @@ public class TutorialCutScene : MonoBehaviour
             textHolder.SetActive(false);
         }
 
-        if (canvas.transform.GetChild(7).GetComponent<Text>().text != "" )
+        if (objectives.GetComponent<Text>().text != "" )
         {
             textHolder1.SetActive(true);
         }
@@ -72,12 +78,12 @@ public class TutorialCutScene : MonoBehaviour
         Cam1.SetActive(false);
         GameManager.IsInputEnabled = true;
         yield return new WaitForSeconds(2);
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "Officer";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "Fuego!";
+        speaker.GetComponent<Text>().text = "Officer";
+        dialogue.GetComponent<Text>().text = "Fuego!";
         yield return new WaitForSeconds(1);
-        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-        canvas.transform.GetChild(6).GetComponent<Text>().text = "Use mouse movement to aim\nTo shoot, use Mouse Left-Click";
+        speaker.GetComponent<Text>().text = "";
+        dialogue.GetComponent<Text>().text = "";
+        instructions.GetComponent<Text>().text = "Use mouse movement and Mouse Right-Click to aim\nTo shoot, use Mouse Left-Click";
 
         while (true)
         {
@@ -85,90 +91,88 @@ public class TutorialCutScene : MonoBehaviour
             {
                 
                 yield return new WaitForSeconds(0.5f);
-                canvas.transform.GetChild(6).GetComponent<Text>().text = "Press R to reload";
+                instructions.GetComponent<Text>().text = "Press R to reload";
 
                 while (true)
                 {
                     if (Input.GetKeyDown(KeyCode.R))
                     {
-                        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
+                        instructions.GetComponent<Text>().text = "";
                         yield return new WaitForSeconds(1);
-                        canvas.transform.GetChild(4).GetComponent<Text>().text = "Player";
-                        canvas.transform.GetChild(5).GetComponent<Text>().text = "Shit! 3 bullets left.";
+                        speaker.GetComponent<Text>().text = "Player";
+                        dialogue.GetComponent<Text>().text = "Shit! 4 bullets left.";
                         yield return new WaitForSeconds(4);
-                        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-                        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-                        canvas.transform.GetChild(6).GetComponent<Text>().text = "Use mouse movement to aim\nTo shoot, use Mouse Left-Click";
+                        speaker.GetComponent<Text>().text = "";
+                        dialogue.GetComponent<Text>().text = "";
+                        instructions.GetComponent<Text>().text = "Use mouse movement to aim\nTo shoot, use Mouse Left-Click";
                         
                         while (true)
                         {
                             if (Input.GetMouseButtonDown(0))
                             {
-                                canvas.transform.GetChild(6).GetComponent<Text>().text = "";
+                                instructions.GetComponent<Text>().text = "";
                                 GameManager.IsInputEnabled = false;
                                 yield return new WaitForSeconds(1);
-                                PlayerCam.SetActive(false);
-                                Player.SetActive(false);
                                 playerHolder.SetActive(true);
                                 Cam2.SetActive(true);
                                 yield return new WaitForSeconds(1);
-                                officer.enabled = true;
+                                officer.SetTrigger("triggerDeath");
                                 yield return new WaitForSeconds(1);
-                                canvas.transform.GetChild(4).GetComponent<Text>().text = "Officer";
-                                canvas.transform.GetChild(5).GetComponent<Text>().text = "AAHH!";
+                                speaker.GetComponent<Text>().text = "Officer";
+                                dialogue.GetComponent<Text>().text = "AAHH!";
                                 yield return new WaitForSeconds(1.5f);
-                                canvas.transform.GetChild(5).GetComponent<Text>().text = "[PLAYER]! Ven rapido!";
+                                dialogue.GetComponent<Text>().text = "[PLAYER]! Ven rapido!";
                                 yield return new WaitForSeconds(1.5f);
-                                canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-                                canvas.transform.GetChild(5).GetComponent<Text>().text = "";
+                                speaker.GetComponent<Text>().text = "";
+                                dialogue.GetComponent<Text>().text = "";
                                 Cam2.SetActive(false);
                                 PlayerCam.SetActive(true);
                                 Player.SetActive(true);
-                                playerHolder.SetActive(false);
+                                playerHolder.SetActive(true);
                                 GameManager.IsInputEnabled = true;
                                 PlayerMovement.moveSpeed = 12f;
-                                canvas.transform.GetChild(6).GetComponent<Text>().text = "Use W-A-S-D to move.";
-                                canvas.transform.GetChild(7).GetComponent<Text>().text = "Go to the Officer";
+                                instructions.GetComponent<Text>().text = "Use W-A-S-D to move.";
+                                objectives.GetComponent<Text>().text = "Go to the Officer";
                                 minimarker.SetActive(true);
 
                                 while (true)
                                 {
                                     if (reachedMarker == true)
                                     {
+                                        Debug.Log("Marker Reached");
                                         minimarker.SetActive(false);
-                                        canvas.transform.GetChild(6).GetComponent<Text>().text = "";
-                                        canvas.transform.GetChild(7).GetComponent<Text>().text = "";
-                                        Player.SetActive(false);
-                                        yield return new WaitForSeconds(0.5f);
+                                        instructions.GetComponent<Text>().text = "";
+                                        objectives.GetComponent<Text>().text = "";
+                                        //yield return new WaitForSeconds(0.5f);
                                         GameManager.IsInputEnabled = false;
-                                        PlayerCam.SetActive(false);
                                         Cam3.SetActive(true);
                                         yield return new WaitForSeconds(1);
-                                        canvas.transform.GetChild(4).GetComponent<Text>().text = "Officer";
-                                        canvas.transform.GetChild(5).GetComponent<Text>().text = "You need to go! Find Sancho Valenzuela and warn him of what happened here!";
+                                        speaker.GetComponent<Text>().text = "Officer";
+                                        dialogue.GetComponent<Text>().text = "You need to go! Find Sancho Valenzuela and warn him of what happened here!";
+                                        Debug.Log("Text Changed");
                                         yield return new WaitForSeconds(5);
                                         Cam4.SetActive(true); 
                                         Cam3.SetActive(false);
                                         yield return new WaitForSeconds(1);
-                                        canvas.transform.GetChild(4).GetComponent<Text>().text = "Spanish Soldier";
-                                        canvas.transform.GetChild(5).GetComponent<Text>().text = "Ataque!";
+                                        speaker.GetComponent<Text>().text = "Spanish Soldier";
+                                        dialogue.GetComponent<Text>().text = "Ataque!";
                                         yield return new WaitForSeconds(1);
                                         PlayerPrefs.SetInt("Secondary", 3);
                                         //Player.transform.parent.GetChild(1).GetChild(0).GetComponent<WeaponSwitch>().SetSecondary();
                                         objectiveMarker.SetActive(true);
-                                        canvas.transform.GetChild(4).GetComponent<Text>().text = "";
-                                        canvas.transform.GetChild(5).GetComponent<Text>().text = "";
-                                        Player.SetActive(true);
+                                        speaker.GetComponent<Text>().text = "";
+                                        dialogue.GetComponent<Text>().text = "";
                                         GameManager.IsInputEnabled = true;
                                         PlayerCam.SetActive(true);
                                         Cam4.SetActive(false);
-                                        canvas.transform.GetChild(7).GetComponent<Text>().text = "Go to the Marker!";
+                                        objectives.GetComponent<Text>().text = "Go to the Marker!";
+                                        instructions.GetComponent<Text>().text = "Press Shift to run\nWait for 5 seconds";
 
                                         while (true)
                                         {
                                             if (reachedLastMarker == true)
                                             {
-                                                canvas.transform.GetChild(7).GetComponent<Text>().text = "";
+                                                objectives.GetComponent<Text>().text = "";
                                             }
                                             yield return null;
                                         }

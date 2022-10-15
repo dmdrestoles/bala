@@ -9,6 +9,10 @@ TagManager:
   - WeaponsList
   - WeaponHolder
   - Enemy
+  - BushTutorial
+  - SusObject
+  - GunShot
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -20,9 +24,9 @@ TagManager:
   - 
   - Ground
   - icons
-  - 
-  - 
-  - 
+  - Player
+  - Arms
+  - Camera Light
   - 
   - 
   - 
