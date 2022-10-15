@@ -11,7 +11,7 @@ public class PauseScript : MonoBehaviour
     bool canvasOpen = false;
     private GameObject soundSlider, fovSlider, senseSlider;
     private float sound, fov, sense;
-    static float currFOV;
+    static float currFOV=50;
     // Start is called before the first frame update
     void Start()
     {

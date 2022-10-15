@@ -50,6 +50,7 @@ public class Gun : MonoBehaviour
     // Animations
     public Animator animator;
     public AnimatorOverrideController controller;
+    public float relAnimSpeed, fireAnimSpeed, aimAnimSpeed;
 
     void Start()
     {
@@ -68,6 +69,10 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
+        animator.SetFloat("relAnimSpeed", relAnimSpeed);
+        animator.SetFloat("fireAnimSpeed", fireAnimSpeed);
+        animator.SetFloat("aimAnimSpeed", aimAnimSpeed);
+        Debug.Log(animator.GetFloat("relAnimSpeed"));
         if ( !isEnemy && GameManager.IsInputEnabled )
         {
             if (isReloading)
