@@ -16,6 +16,7 @@ public class CodexItems : MonoBehaviour
     public void setDescription(string name)
     {
         descInstructions.SetActive(false);
+        descImage.GetComponent<Image>().preserveAspect = true;
 
         if (name == "Weapons")
         {
@@ -48,15 +49,20 @@ public class CodexItems : MonoBehaviour
             Debug.Log(peopleList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = peopleDescription[peopleList.IndexOf(image.name)].ToString();
         }
-        else if (name == "Locations")
+        else if (name == "Collectibles")
         {
-            ArrayList locationList = new ArrayList { "LocationTemplate" };
+            ArrayList locationList = new ArrayList { "LocationTemplate", "Ammunition", "Cedula", "Cross" };
             ArrayList locationDescription = new ArrayList{
-            " [insert weapon description for Location] "
+            " [insert weapon description for Location] ",
+            "The evolution of cartridges allowed for more compact handling of the bullet and gunpowder, while the breach-loading, loading the cartridge from behind the barrel, made it easier to load",
+            "Historically used as an identification document for Filipinos when treating with the Spanish Colonial Government. Its tearing during the cry of Pugad Lawin signifies the start of the Philippine Revolution",
+            "One of the Spanish influences that still resonates today; Catholicism is one of the pillars that helped the Spanish Colonial Government to rule the Philippines."
+
             };
 
             descContainer.SetActive(true);
             descName.GetComponent<TextMeshProUGUI>().text = image.name;
+            descImage.GetComponent<Image>().sprite = image.transform.GetChild(0).GetComponent<Image>().sprite;
             Debug.Log(locationList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = locationDescription[locationList.IndexOf(image.name)].ToString();
         }
