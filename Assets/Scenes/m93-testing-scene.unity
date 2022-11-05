@@ -468,7 +468,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
-  gunShotGO: {fileID: 0}
+  gunShotGO: {fileID: 1409819130}
   mouseLook: {fileID: 359595530}
   cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 530146731}

@@ -6,7 +6,7 @@ public class ActiveWeaponManager : MonoBehaviour
 {
     public List<GameObject> weapons;
 
-    [SerializeField] GameObject activeWeapon;
+    public GameObject activeWeapon;
     [SerializeField] AnimatorOverrideController controller;
 
     void Start()

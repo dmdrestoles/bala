@@ -67,7 +67,7 @@ public class PickupLookingAtState : PickupBaseState
 
             // Check if collectible, gun, etc.
             ChangeWeapon(psm);
-            
+            HandleAmmo(psm);
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
@@ -97,6 +97,23 @@ public class PickupLookingAtState : PickupBaseState
             psm.weaponManager.isPickup = true;
 
             psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+        }
+    }
+
+    void HandleAmmo(PickupStateManager psm)
+    {
+        if (psm.objectName== "Ammunition")
+        {
+            if (psm.weaponManager.primary.activeSelf)
+            {
+                //Debug.Log("Debug: Get Max Ammo: "+psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo);
+                psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo += 2;
+            }
+            if (psm.weaponManager.secondary.activeSelf)
+            {
+                //Debug.Log("Debug: Get Max Ammo: "+psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo  + " HERE");
+                psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo += 2;
+            }
         }
     }
 
