@@ -1,30 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
     public int checkpointNum;
     public GameObject barrier;
-    public GameObject enemies;
-    public GameObject nextLevelEnemies;
+    public GameObject player;
+    public GameObject door;
 
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            if (checkpointNum == 1)
+            barrier.SetActive(false);
+            if (player.transform.position.x > 22)
             {
-                barrier.SetActive(false);
-                enemies.SetActive(true);
+                Debug.Log("Debug: Door Closed");
+                door.SetActive(true);
+                //barrier.SetActive(true);
             }
-            else if (checkpointNum == 2)
-            {
-                barrier.SetActive(false);
-                enemies.SetActive(false);
-                nextLevelEnemies.SetActive(true);
-            }
+        }
+    }
+
+    void Update()
+    {
+        if (player.transform.position.x > 22)
+        {
+            Debug.Log("Debug: Door Closed");
+            door.SetActive(true);
+            //barrier.SetActive(true);
         }
     }
 }

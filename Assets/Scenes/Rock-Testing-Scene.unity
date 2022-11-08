@@ -262,6 +262,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 504673789}
   animator: {fileID: 0}
   controller: {fileID: 0}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &11917938
 GameObject:
   m_ObjectHideFlags: 0
@@ -19071,6 +19074,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 504673789}
   animator: {fileID: 1841870927}
   controller: {fileID: 22100000, guid: 82172b713ec54174eb1bdce5d637a193, type: 2}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &550309922
 GameObject:
   m_ObjectHideFlags: 0
@@ -23339,6 +23345,7 @@ MonoBehaviour:
   crouchHeight: 0
   isGrounded: 0
   velocity: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 256
@@ -36621,6 +36628,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 2115936112}
   animator: {fileID: 409002949}
   controller: {fileID: 0}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &1073145608
 GameObject:
   m_ObjectHideFlags: 0
@@ -75310,6 +75320,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 504673789}
   animator: {fileID: 1841870927}
   controller: {fileID: 22100000, guid: cb121585e9bc36540b4ab7d6cdd7e392, type: 2}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &1988833053
 GameObject:
   m_ObjectHideFlags: 0
@@ -81345,6 +81358,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 2115936112}
   animator: {fileID: 409002949}
   controller: {fileID: 0}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &2031664392
 GameObject:
   m_ObjectHideFlags: 0
@@ -84250,6 +84266,9 @@ MonoBehaviour:
   maxAmmoUI: {fileID: 504673789}
   animator: {fileID: 1841870927}
   controller: {fileID: 22100000, guid: b25e4b16f7723ca499d0ef7eaab8a416, type: 2}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!82 &2107555632
 AudioSource:
   m_ObjectHideFlags: 0
