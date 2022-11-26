@@ -26,6 +26,11 @@ public class GruntRelaxedState : GruntBaseState
             this.grunt.susValue +=5;
             //this.grunt.SwitchState(grunt.suspiciousState);
         }
+        else if (grunt.awareness.susObject.name == "Rock")
+        {
+            this.grunt.susValue +=10;
+            //this.grunt.SwitchState(grunt.suspiciousState);
+        }
     }
 
     public override void UpdateState(GruntStateManager stateManager)

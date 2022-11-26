@@ -17,7 +17,6 @@ public class ActiveWeaponManager : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     public AnimatorOverrideController GetController()
@@ -39,15 +38,15 @@ public class ActiveWeaponManager : MonoBehaviour
 
         foreach (GameObject weapon in weapons)
         {
-            Debug.Log(weapon.name);
+            Debug.Log("Debug: "+ wep + " " + weapon.name + " " + weapon.name.Equals(wep));
             if (weapon.name.Equals(wep))
             {
                 activeWeapon = weapon;
                 break;
             }
         }
-        Debug.Log("Activating: " + activeWeapon.name);
         activeWeapon.SetActive(true);
+        Debug.Log("Activating: " + activeWeapon.name);
         controller = activeWeapon.GetComponent<Gun>().GetController();
     }
 }

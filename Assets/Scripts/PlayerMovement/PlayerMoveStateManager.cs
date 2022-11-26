@@ -23,6 +23,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     public PlayerMoveCrouchState crouchState = new PlayerMoveCrouchState();
     public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
     CharacterController controller;
+    public Animator animator;
     public LayerMask groundMask;
     Vector3 originalCamPos;
     float groundDistance = 0.2f;

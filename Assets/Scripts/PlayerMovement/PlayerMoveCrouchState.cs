@@ -8,6 +8,7 @@ public class PlayerMoveCrouchState : PlayerMoveBaseState
     public override void EnterState(PlayerMoveStateManager stateManager)
     {
         playerMovement = stateManager;
+        playerMovement.animator.SetBool("isRunning", false);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }
