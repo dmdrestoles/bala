@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: d483d2a187823b4418949e3dcba38b64
-labels:
-- Bot
-- Example
-- Generic
-- MineBot
-- Spider
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 7400000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:120f3fad6af3e204d355e49a41c05a60b1455fb914d008ada5dd506657645389
+size 241

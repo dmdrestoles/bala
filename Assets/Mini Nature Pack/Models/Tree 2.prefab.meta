@@ -1,8 +1,3 @@
-fileFormatVersion: 2
-guid: 12ff573d21ef578469f7a25c286520fe
-labels:
-- tree
-NativeFormatImporter:
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:251e6f4f52295b2798f48e26aa99304144108d01b39e843abdd9bd1646dd056c
+size 153

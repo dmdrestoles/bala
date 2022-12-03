@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-guid: 63f1074c673e82e4c8e8d833d5411c80
-labels:
-- Example
-- FSM
-- FiniteStateMachine
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:94d418c81329b586c878dfd2381a9f6f88a77ef45563553399c3bdea61b9c28c
+size 288

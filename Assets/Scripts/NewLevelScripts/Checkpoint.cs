@@ -1,30 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
-
-public class Checkpoint : MonoBehaviour
-{
-    public int checkpointNum;
-    public GameObject barrier;
-    public GameObject enemies;
-    public GameObject nextLevelEnemies;
-
-    void OnTriggerStay(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            if (checkpointNum == 1)
-            {
-                barrier.SetActive(false);
-                enemies.SetActive(true);
-            }
-            else if (checkpointNum == 2)
-            {
-                barrier.SetActive(false);
-                enemies.SetActive(false);
-                nextLevelEnemies.SetActive(true);
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5cd89f77b74b9368aa4afd9d8cdad8b84dfce770213921900f997239447de834
+size 749

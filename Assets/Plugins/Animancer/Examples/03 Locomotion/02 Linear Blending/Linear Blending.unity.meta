@@ -1,10 +1,3 @@
-fileFormatVersion: 2
-guid: 9e115319934f3d74da38fccdc46a78a9
-labels:
-- BlendTree
-- Example
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:360abb6dd7867289848ff6442e5da37cad531d6326bd08be12db10b269697e43
+size 185

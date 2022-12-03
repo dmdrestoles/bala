@@ -1,11 +1,3 @@
-fileFormatVersion: 2
-guid: ec8d802a502ae8b478740d949bedbbdf
-labels:
-- Example
-- IK
-- InverseKinematics
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:e34a19d1f7f99bb4abd31afcb454d083b5cc226bef2bd4564c4f5dbd27204bac
+size 198

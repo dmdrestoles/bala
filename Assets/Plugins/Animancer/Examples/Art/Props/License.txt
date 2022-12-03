@@ -1,20 +1,3 @@
-////////////////////////////////////////////////////////////
-// Golf Club.prefab //
-////////////////////////////////////////////////////////////
-
-GolfClub.prefab is just a Unity cube and a cylinder.
-
-License: Unity Asset Store EULA:
-https://unity3d.com/legal/as_terms
-
-////////////////////////////////////////////////////////////
-// Pistol.fbx // CC 0 //
-////////////////////////////////////////////////////////////
-
-Animated Guns by Quaternius:
-https://quaternius.com/packs/animatedguns.html
-
-License: Creative Commons Zero (CC0 1.0)
-https://creativecommons.org/publicdomain/zero/1.0/
-
-////////////////////////////////////////////////////////////
+version https://git-lfs.github.com/spec/v1
+oid sha256:033f851376fa298065f96291216e8a487ce2cf2941845ee6f827e04194b65550
+size 647

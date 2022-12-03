@@ -1,23 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine;
-
-public class PickableObjectPaltik : PickableObjectStateManager
-{
-    public GameObject primary;
-    public Sprite paltikSprite;
-
-    public override void HandleObjectPickup(string objectName){
-        if (Input.GetKeyDown(KeyCode.F)){
-            Debug.Log("Picked up object: " + objectName);
-            gameObject.SetActive(false);
-            weaponManager.primary.GetComponent<ActiveWeaponManager>().SetNewWeapon(objectName);
-            weaponManager.isPickup = true;
-
-            primary.transform.GetChild(0).GetComponent<Image>().sprite = paltikSprite;
-
-            Destroy(gameObject);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1cec315a597880794aab802a8451387f3fbc6d0fd8c80b4d03f3c913f7aa5948
+size 718

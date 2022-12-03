@@ -1,16 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
-public class RockThrowInertState : RockThrowBaseState
-{
-    public override void EnterState(RockThrowStateManager sm)
-    {
-        sm.coll.radius = 0;
-    }
-
-    public override void UpdateState(RockThrowStateManager sm)
-    {
-        sm.Destroy();
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0612716d280cfea0198eaf8728b2e61364b00d1fe385c02ba66c3124c52f3f2a
+size 304

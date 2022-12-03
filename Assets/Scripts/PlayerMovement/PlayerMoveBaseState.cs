@@ -1,13 +1,3 @@
-using UnityEngine;
-
-public abstract class PlayerMoveBaseState
-{
-    public abstract void EnterState(PlayerMoveStateManager stateManager);    
-    public abstract void UpdateState(PlayerMoveStateManager stateManager);
-    //Handles updating the radius of the footsteps capsule collider.
-    public abstract void UpdateFootStepsRad();
-    //Handles updating the speed.
-    public abstract void UpdateSpeedMultiplier();
-    //Handles raising and lowering of camera when crouching.
-    public abstract void HandleCrouchingMovement();
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b3f15ab00e0be09e983d469c47cee6af3cfb73687880f2bc9c4acf0d4dfdfc9c
+size 531

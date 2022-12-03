@@ -1,12 +1,3 @@
-fileFormatVersion: 2
-guid: c2ecee9424461bf4e864486b30ec0e9e
-labels:
-- Example
-- HugeFBXMocapLibrary
-- Humanoid
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 7400000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d376928b595b68a28451460999f1ee80ff2c9166eb7ebecb6e4221892230ef8
+size 239

@@ -1,25 +1,3 @@
-// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
-
-using Animancer.Units;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.Playables;
-
-namespace Animancer
-{
-    /// <summary>Plays a single <see cref="AnimationClip"/>.</summary>
-    /// <remarks>
-    /// Documentation: <see href="https://kybernetik.com.au/animancer/docs/manual/playing/component-types">Component Types</see>
-    /// </remarks>
-    /// <example>
-    /// <see href="https://kybernetik.com.au/animancer/docs/examples/fine-control/solo-animation">Solo Animation</see>
-    /// </example>
-    /// https://kybernetik.com.au/animancer/api/Animancer/SoloAnimation
-    /// 
-    [AddComponentMenu(Strings.MenuPrefix + "Solo Animation")]
-    [DefaultExecutionOrder(DefaultExecutionOrder)]
-    [HelpURL(Strings.DocsURLs.APIDocumentation + "/" + nameof(SoloAnimation))]
-    public class SoloAnimation : SoloAnimationInternal { }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:18154ca57bda97643dfa3566d968a8530631c9beb9a74440856531f9cdc601af
+size 984

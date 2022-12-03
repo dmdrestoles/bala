@@ -1,14 +1,3 @@
-fileFormatVersion: 2
-guid: d9ed24903b167a6449d2d1ec7fd3d349
-labels:
-- AnimationEvent
-- Example
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:57e2fa0aede32c2bbe6d9f36def76722361e6d9a74f767a494b92a5efc41ca24
+size 278

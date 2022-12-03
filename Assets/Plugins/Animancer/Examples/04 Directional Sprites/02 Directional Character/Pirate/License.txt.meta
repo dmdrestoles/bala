@@ -1,12 +1,3 @@
-fileFormatVersion: 2
-guid: e45688c8a34326349aae8e10db7899ba
-labels:
-- CC0
-- ChasersGaming
-- Documentation
-- Example
-TextScriptImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:648fca21398d838ea469c6dc2b581f9731bceee6468745335baf57a73ebd1b96
+size 214

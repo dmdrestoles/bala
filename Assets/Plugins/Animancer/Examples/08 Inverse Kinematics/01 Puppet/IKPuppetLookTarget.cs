@@ -1,33 +1,3 @@
-// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
-
-using UnityEngine;
-
-namespace Animancer.Examples.InverseKinematics
-{
-    /// <summary>An object for a character to look at using Inverse Kinematics (IK).</summary>
-    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/ik/puppet">Puppet</see></example>
-    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.InverseKinematics/IKPuppetLookTarget
-    /// 
-    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Inverse Kinematics - IK Puppet Look Target")]
-    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(InverseKinematics) + "/" + nameof(IKPuppetLookTarget))]
-    public sealed class IKPuppetLookTarget : MonoBehaviour
-    {
-        /************************************************************************************************************************/
-
-        [SerializeField, Range(0, 1)] private float _Weight = 1;
-        [SerializeField, Range(0, 1)] private float _BodyWeight = 0.3f;
-        [SerializeField, Range(0, 1)] private float _HeadWeight = 0.6f;
-        [SerializeField, Range(0, 1)] private float _EyesWeight = 1;
-        [SerializeField, Range(0, 1)] private float _ClampWeight = 0.5f;
-
-        /************************************************************************************************************************/
-
-        public void UpdateAnimatorIK(Animator animator)
-        {
-            animator.SetLookAtWeight(_Weight, _BodyWeight, _HeadWeight, _EyesWeight, _ClampWeight);
-            animator.SetLookAtPosition(transform.position);
-        }
-
-        /************************************************************************************************************************/
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f25acb63f7470211eaaf677375f4da2c1ede8cee9e2a9fb9d11f8f7d88889fff
+size 1748

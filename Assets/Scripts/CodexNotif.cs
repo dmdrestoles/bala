@@ -1,28 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CodexNotif : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (gameObject.active)
-        {
-            //Debug.Log("Notif now Active!");
-            StartCoroutine(Wait());
-        }
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(3);
-        gameObject.SetActive(false);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6af2c06b8cddd277865b2b11c68382d488c590c9c9a822b9ca6598596cf876f3
+size 538

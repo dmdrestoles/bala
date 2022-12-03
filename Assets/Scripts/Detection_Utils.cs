@@ -1,27 +1,3 @@
-﻿using UnityEngine;
-
-public class Detection_Utils : MonoBehaviour
-{
-    public bool IsHitWithinObjectAngle(RaycastHit hit, Transform source, float degree)
-    {
-        bool result = false;
-        float deg = Vector3.Angle( source.forward, hit.transform.position - source.position );
-        //Debug.Log("Debug: "+ "Angle: " + deg);
-        if(deg <= degree)
-        {
-            result = true;
-        }
-        return result;
-    }
-
-    public bool IsHitWithinObjectDistance(RaycastHit hit, float distance)
-    {
-        //Debug.Log("Debug: "+ "Distance: " + hit.distance);
-        bool result = false;
-        if (hit.distance <= distance)
-        {
-            result = true;
-        }
-        return result;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c0f3d48256917b92057b6e7dbdb9ce4bb06b2c80b88dc8a53c5cdf5bcf13e0a7
+size 725

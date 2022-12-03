@@ -1,35 +1,3 @@
-// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
-
-#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
-
-using System;
-using UnityEngine;
-
-namespace Animancer.Examples.AnimatorControllers.GameKit
-{
-    /// <summary>The parameters that control a <see cref="Character"/>.</summary>
-    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/animator-controllers/3d-game-kit">3D Game Kit</see></example>
-    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.AnimatorControllers.GameKit/CharacterParameters
-    /// 
-    [Serializable]
-    public sealed class CharacterParameters
-    {
-        /************************************************************************************************************************/
-
-        [SerializeField]
-        private Vector3 _MovementDirection;
-        public Vector3 MovementDirection
-        {
-            get => _MovementDirection;
-            set => _MovementDirection = Vector3.ClampMagnitude(value, 1);
-        }
-
-        /************************************************************************************************************************/
-
-        public float ForwardSpeed { get; set; }
-        public float DesiredForwardSpeed { get; set; }
-        public float VerticalSpeed { get; set; }
-
-        /************************************************************************************************************************/
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2018c4699e178f3dfdad4274cc79657c972c5919ab667ae061f6bbce918bcd1
+size 1496

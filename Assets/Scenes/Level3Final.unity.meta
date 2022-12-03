@@ -1,12 +1,3 @@
-fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Scenes/Level2.unity.meta
-guid: 6f8eaa1846afa404b8e5f2ed96284b62
-=======
-guid: b8709ebf8bb7d79489d485d058b4d488
-folderAsset: yes
->>>>>>> jjavillo-ai-resting:Assets/Scenes/Level2.meta
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:a352026fc68e547ce7013b278377f246e03eaa1cf4c299f4ee51112755f7d86f
+size 318

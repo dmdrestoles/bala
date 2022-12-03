@@ -1,16 +1,3 @@
-fileFormatVersion: 2
-guid: 60f5cf4e20ac15d4cafbcb7342811e22
-labels:
-- CC0
-- ChasersGaming
-- Doctor
-- Example
-- MedicalExaminer
-- Nurse
-- Sprite
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 11400000
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:8861022f503c5debdfb03be931c2031658a2784efc2fddc7a39704602b247d1b
+size 273

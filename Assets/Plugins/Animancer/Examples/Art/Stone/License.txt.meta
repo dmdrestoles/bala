@@ -1,13 +1,3 @@
-fileFormatVersion: 2
-guid: 7e98091d1d79d6d45b09d33b2c4bd43b
-labels:
-- CC0
-- Documentation
-- Example
-- MitchFeatherston
-- OpenGameArt
-TextScriptImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:c907c5262db82b8d3a05f01e820586a2c51d85f8680c79459d8dac1e03589bbe
+size 231

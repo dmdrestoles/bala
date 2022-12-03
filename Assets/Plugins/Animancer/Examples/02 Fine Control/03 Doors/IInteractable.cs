@@ -1,17 +1,3 @@
-// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
-
-namespace Animancer.Examples.FineControl
-{
-    /// <summary>An object that can be interacted with.</summary>
-    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/fine-control/doors">Doors</see></example>
-    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.FineControl/IInteractable
-    /// 
-    public interface IInteractable
-    {
-        /************************************************************************************************************************/
-
-        void Interact();
-
-        /************************************************************************************************************************/
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0652bcfde464225f875e9c3bf97c14e261850f23e367611c2ecf114f71da7e24
+size 754

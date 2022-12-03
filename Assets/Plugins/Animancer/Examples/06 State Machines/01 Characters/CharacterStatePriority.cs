@@ -1,20 +1,3 @@
-// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
-
-#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
-
-namespace Animancer.Examples.StateMachines
-{
-    /// <summary>Levels of importance for <see cref="CharacterState"/>s.</summary>
-    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/fsm/interruptions">Interruptions</see></example>
-    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.StateMachines/CharacterStatePriority
-    /// 
-    public enum CharacterStatePriority
-    {
-        // Enums are ints starting at 0 by default.
-        // This means you can compare them with numerical operators like < and >.
-
-        Low,// Could specify "Low = 0," if we want to be explicit or change the order.
-        Medium,// Medium = 1,
-        High,// High = 2,
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:80fa438c0563c4e415e4d2bd1a0cabfd88f4b7a560cc6d21d2544366de2ce689
+size 887
