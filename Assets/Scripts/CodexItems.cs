@@ -53,7 +53,8 @@ public class CodexItems : MonoBehaviour
         {
             ArrayList locationList = new ArrayList { "LocationTemplate" };
             ArrayList locationDescription = new ArrayList{
-            " [insert weapon description for Location] "
+            " [insert weapon description for Location] "};
+        }
         else if (name == "Collectibles")
         {
             ArrayList locationList = new ArrayList { "LocationTemplate", "Ammunition", "Cedula", "Cross" };
