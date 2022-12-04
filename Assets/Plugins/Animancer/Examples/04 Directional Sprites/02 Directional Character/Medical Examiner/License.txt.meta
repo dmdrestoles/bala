@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf32e9f5f5e2eb96940d85de491fca32ff121f14422adc90440fad9dbfd2ab5b
-size 214
+fileFormatVersion: 2
+guid: 5d5f5e55e2fcf4e489186c9093661ede
+labels:
+- CC0
+- ChasersGaming
+- Documentation
+- Example
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

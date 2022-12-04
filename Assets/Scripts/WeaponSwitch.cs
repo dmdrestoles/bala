@@ -1,3 +1,121 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:84b4b9a7061df350694952bf79dc9c2bc016e4f0739ebb62758203a01662339e
-size 2883
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WeaponSwitch : MonoBehaviour
+{
+    public int equippedWeapon = 0;
+    public bool isSwitching = false;
+
+    public GameObject[] weapons;
+    public Animator animator;
+    
+    private int primaryWep;
+    private int secondaryWep;
+    private int melee;
+
+    void Start()
+    {
+        primaryWep = PlayerPrefs.GetInt("Primary");
+        secondaryWep = PlayerPrefs.GetInt("Secondary");
+        melee = PlayerPrefs.GetInt("Melee");
+        // LoadWeapons();
+        SelectActiveWeapons();
+        SelectWeapon();
+    }
+
+    void Update()
+    {
+        if (GameManager.IsInputEnabled)
+        {
+            int previousEquippedWeapon = equippedWeapon;
+
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                StartCoroutine(MeleeAttack());
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                equippedWeapon = primaryWep;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2) 
+            {
+                equippedWeapon = secondaryWep;
+            }
+
+            if (previousEquippedWeapon != equippedWeapon)
+            {
+                SelectWeapon();
+            }
+        }
+        
+    }
+
+    void SelectActiveWeapons()
+    {
+        weapons[primaryWep].GetComponent<Gun>().isActive = true;
+        weapons[secondaryWep].GetComponent<Gun>().isActive = true;
+        weapons[melee].GetComponent<Melee>().isActive = true;
+
+        equippedWeapon = primaryWep;
+    }
+
+    void SelectWeapon()
+    {
+        int i = 0;
+        isSwitching = true;
+
+        foreach (Transform weapon in transform)
+        {
+            if (i == equippedWeapon && weapon.GetComponent<Gun>().isActive )
+            {
+                weapon.gameObject.SetActive(true);
+            }
+            else
+            {
+                weapon.gameObject.SetActive(false);
+            }
+
+            i += 1;
+        }
+
+        isSwitching = false;
+    }
+
+    IEnumerator MeleeAttack()
+    {
+        weapons[equippedWeapon].SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].SetActive(true);
+        animator.SetTrigger("Melee");
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].GetComponent<Melee>().CheckForEnemies();
+        yield return new WaitForSeconds(0.25f);
+        weapons[melee].gameObject.SetActive(false);
+        weapons[equippedWeapon].SetActive(true);
+    }
+
+    public int GetPrimaryWeapon()
+    {
+        return primaryWep;
+    }
+
+    public int GetSecondaryWeapon()
+    {
+        return secondaryWep;
+    }
+
+    public void SetPrimary()
+    {
+        primaryWep = PlayerPrefs.GetInt("Primary");
+    }
+
+    public void SetSecondary()
+    {
+        secondaryWep = PlayerPrefs.GetInt("Secondary");
+        SelectActiveWeapons();
+    }
+
+}

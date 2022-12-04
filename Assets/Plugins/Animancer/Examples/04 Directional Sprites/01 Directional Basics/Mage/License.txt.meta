@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7669a74eb32cfac924ba0296d35d5cfa23f4c0b97843a1b0a5625b3499db898e
-size 222
+fileFormatVersion: 2
+guid: 9264a66ce3e45104ebcc240ed2713fba
+labels:
+- CC0
+- Documentation
+- Example
+- OpenGameArt
+- Saint11
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

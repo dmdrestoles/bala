@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:424cabfc0c41196b4aba332b7714fe1cc8d4c9668c6ee529fd2ee57a5580d401
-size 1501
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+#if ! UNITY_EDITOR
+#pragma warning disable CS0618 // Type or member is obsolete (for LinearMixerTransition in Animancer Lite).
+#endif
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
+using UnityEngine;
+
+namespace Animancer.Examples.StateMachines
+{
+    /// <summary>A <see cref="CharacterState"/> which plays an animation.</summary>
+    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/fsm/characters">Characters</see></example>
+    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.StateMachines/IdleState
+    /// 
+    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Characters - Idle State")]
+    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(StateMachines) + "/" + nameof(IdleState))]
+    public sealed class IdleState : CharacterState
+    {
+        /************************************************************************************************************************/
+
+        [SerializeField] private ClipTransition _Animation;
+
+        /************************************************************************************************************************/
+
+        private void OnEnable()
+        {
+            Character.Animancer.Play(_Animation);
+        }
+
+        /************************************************************************************************************************/
+    }
+}

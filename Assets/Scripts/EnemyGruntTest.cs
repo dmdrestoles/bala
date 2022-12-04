@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88fd4c5ba0f7a8a31e0cdaa6cbd940a23bc09753f847c6449ad9449ec8893162
-size 702
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyGruntTest : MonoBehaviour
+{
+    NavMeshAgent agent;
+    Rigidbody r;
+    public GameObject firstPlayer;
+    private Animator animator;
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        agent.SetDestination(firstPlayer.transform.position);
+        animator.SetBool("isMoving", true);
+        animator.SetBool("isWalking", true);
+        Debug.Log(agent.remainingDistance);
+    }
+
+}

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:55f1fdaedfb9436860e8ca481fd488c783d2217907ed9ebc5dc2b15644517ad1
-size 231
+fileFormatVersion: 2
+guid: 67f77504a2e56794389a22fd4e623c29
+labels:
+- CC0
+- Documentation
+- Example
+- OpenGameArt
+- Patvanmackelberg
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

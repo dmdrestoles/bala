@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f01fb75b47c7d9d8d2893512f585b0e72976c8c8d51e34b736b45591a43ea2a7
-size 355
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TestAnimatorOverrideController
+  m_Controller: {fileID: 9100000, guid: c8b12e97c0cec1044abcfd340527bd6e, type: 2}
+  m_Clips: []

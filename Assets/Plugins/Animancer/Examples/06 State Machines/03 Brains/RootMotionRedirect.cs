@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:050ba71ca1cbc39f4dada3126e99f031abd1581fd7241c2968d6d7106bb474ec
-size 1780
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
+using UnityEngine;
+
+namespace Animancer.Examples.StateMachines
+{
+    /// <summary>
+    /// Takes the root motion from the <see cref="Animator"/> attached to the same <see cref="GameObject"/> and applies
+    /// it to a <see cref="Rigidbody"/> on a different object.
+    /// </summary>
+    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/fsm/weapons">Weapons</see></example>
+    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.StateMachines/RootMotionRedirect
+    /// 
+    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Brains - Root Motion Redirect")]
+    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(StateMachines) + "/" + nameof(RootMotionRedirect))]
+    public sealed class RootMotionRedirect : MonoBehaviour
+    {
+        /************************************************************************************************************************/
+
+        [SerializeField] private Rigidbody _Rigidbody;
+        [SerializeField] private Animator _Animator;
+
+        /************************************************************************************************************************/
+
+        private void OnAnimatorMove()
+        {
+            if (_Animator.applyRootMotion)
+            {
+                _Rigidbody.MovePosition(_Rigidbody.position + _Animator.deltaPosition);
+                _Rigidbody.MoveRotation(_Rigidbody.rotation * _Animator.deltaRotation);
+            }
+        }
+
+        /************************************************************************************************************************/
+    }
+}

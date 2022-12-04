@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d3e3a33828f0135753e04506ff4f93ed6bf5ac8d2c3ecea02ddb76903a3bc0f6
-size 953
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+using UnityEngine;
+
+namespace Animancer
+{
+    /// <inheritdoc/>
+    /// https://kybernetik.com.au/animancer/api/Animancer/AnimancerTransitionAsset
+    [CreateAssetMenu(menuName = Strings.MenuPrefix + "Animancer Transition", order = Strings.AssetMenuOrder + 0)]
+    [HelpURL(Strings.DocsURLs.APIDocumentation + "/" + nameof(AnimancerTransitionAsset))]
+    public class AnimancerTransitionAsset : AnimancerTransitionAsset<ITransition>
+    {
+        /************************************************************************************************************************/
+
+#if UNITY_EDITOR
+        /// <inheritdoc/>
+        protected override void Reset()
+        {
+            Transition = new ClipTransition();
+        }
+#endif
+
+        /************************************************************************************************************************/
+    }
+}

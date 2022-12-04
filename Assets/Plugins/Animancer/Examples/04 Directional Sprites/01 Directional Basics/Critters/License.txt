@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8dab21188002b72b4ce30f8cf6ed026d7e6ac5be1b6248f91b6086a538753225
-size 578
+////////////////////////////////////////////////////////////
+// Critters.png // CC0 //
+////////////////////////////////////////////////////////////
+
+
+16x16 Animated Critters by patvanmackelberg:
+https://opengameart.org/content/16x16-animated-critters
+
+License: Creative Commons Zero (CC0 1.0)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+These sprites have been altered for use in Animancer:
+- Rearranged into a square for better use of texture memory.
+- Reordered for consistency.
+- Minor detail adjustments.
+
+////////////////////////////////////////////////////////////

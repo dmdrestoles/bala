@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6d63581dcf694551d765e15392c9aedd5237ccab1e8c549b87ee6be24719a8b4
-size 408
+////////////////////////////////////////////////////////////
+// Footsteps on Concrete // CC0 //
+////////////////////////////////////////////////////////////
+
+FootSteps in a Concrete Corridor 1.wav by cris
+https://freesound.org/people/cris/sounds/167685/
+
+License: Creative Commons Zero (CC0 1.0)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+////////////////////////////////////////////////////////////

@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ccc63e8491c62e582048d536f93d1f8b4edec9ea4855fdeb06c0ce36ae408bd0
-size 2073
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+#if ! UNITY_EDITOR
+#pragma warning disable CS0618 // Type or member is obsolete (for MixerState in Animancer Lite).
+#endif
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
+using UnityEngine;
+
+namespace Animancer.Examples.Locomotion
+{
+    /// <summary>
+    /// An example of how you can use a <see cref="LinearMixerState"/> to mix a set of animations based on a
+    /// <see cref="Speed"/> parameter.
+    /// </summary>
+    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/locomotion/linear-blending">Linear Blending</see></example>
+    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.Locomotion/LinearMixerLocomotion
+    /// 
+    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Locomotion - Linear Mixer Locomotion")]
+    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(Locomotion) + "/" + nameof(LinearMixerLocomotion))]
+    public sealed class LinearMixerLocomotion : MonoBehaviour
+    {
+        /************************************************************************************************************************/
+
+        [SerializeField] private AnimancerComponent _Animancer;
+        [SerializeField] private LinearMixerTransitionAsset.UnShared _Mixer;
+
+        /************************************************************************************************************************/
+
+        private void OnEnable()
+        {
+            _Animancer.Play(_Mixer);
+        }
+
+        /************************************************************************************************************************/
+
+        /// <summary>Controlled by a <see cref="UnityEngine.UI.Slider"/>.</summary>
+        public float Speed
+        {
+            get => _Mixer.State.Parameter;
+            set => _Mixer.State.Parameter = value;
+        }
+
+        /************************************************************************************************************************/
+    }
+}

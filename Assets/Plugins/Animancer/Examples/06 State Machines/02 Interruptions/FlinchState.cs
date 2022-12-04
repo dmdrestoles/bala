@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9e803cca2b40a82c1bfa7ef199cdb1d6312b3186f766f950704d4a570769973
-size 2050
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
+using UnityEngine;
+
+namespace Animancer.Examples.StateMachines
+{
+    /// <summary>A <see cref="CharacterState"/> which activates itself when the character takes damage.</summary>
+    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/fsm/interrupts">Interruptions</see></example>
+    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.StateMachines/FlinchState
+    /// 
+    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Interruptions - Flinch State")]
+    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(StateMachines) + "/" + nameof(FlinchState))]
+    public sealed class FlinchState : CharacterState
+    {
+        /************************************************************************************************************************/
+
+        [SerializeField] private ClipTransition _Animation;
+
+        /************************************************************************************************************************/
+
+        private void Awake()
+        {
+            _Animation.Events.OnEnd = Character.StateMachine.ForceSetDefaultState;
+
+            Character.Health.OnHitReceived += () => Character.StateMachine.TryResetState(this);
+        }
+
+        /************************************************************************************************************************/
+
+        private void OnEnable()
+        {
+            Character.Animancer.Play(_Animation);
+        }
+
+        /************************************************************************************************************************/
+
+        public override CharacterStatePriority Priority => CharacterStatePriority.High;
+
+        public override bool CanInterruptSelf => true;
+
+        /************************************************************************************************************************/
+    }
+}

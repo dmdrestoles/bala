@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b4781f82b0d5c2daa0d7f05d128600c25bdf60ed4ed2cf95298a1be504be7e18
-size 370
+{
+    "name": "Animancer",
+    "references": [
+        "GUID:2c573e6b271651846a79655161004c5b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

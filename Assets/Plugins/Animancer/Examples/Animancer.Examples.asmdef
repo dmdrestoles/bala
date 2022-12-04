@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa0f3081967f1217d7199c7e15a090c26215793279d68a77fd1f729eabdd7be4
-size 405
+{
+    "name": "Animancer.Examples",
+    "references": [
+        "Animancer",
+        "Animancer.FSM",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

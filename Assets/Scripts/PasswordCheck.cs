@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:78a37f15cfe272741a35570671924fadbb2574ab9e379d3aa5b3d154ce60aca9
-size 593
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PasswordCheck : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public InputField passwordField;
+    private string password = "Para sa Katipunan";
+    public GameObject nextScreen;
+
+    void Start()
+    {
+        passwordField.text = "";
+    }
+    public void CheckPasswordIfCorrect()
+    {
+        if (passwordField.text == password)
+        {
+            nextScreen.SetActive(true);
+            this.gameObject.SetActive(false);
+        }
+    }
+}

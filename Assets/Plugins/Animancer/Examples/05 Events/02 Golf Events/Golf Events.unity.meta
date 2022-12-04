@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0796224faa14402b90d17f24726e679162db2eb301e3235a97fb1a7dcfe42063
-size 190
+fileFormatVersion: 2
+guid: f9482e3815ac7924eb2abc3ca3a77ead
+labels:
+- AnimationEvent
+- Example
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

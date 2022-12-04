@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc55d0ecfd43df51f355e62a1d5e6fd329c6b3c49d15d011ff60c454e4c08537
-size 538
+////////////////////////////////////////////////////////////
+// Mage.png // CC0 //
+////////////////////////////////////////////////////////////
+
+16x16 Mage by saint11:
+https://opengameart.org/content/16x16-mage
+
+License: Creative Commons Zero (CC0 1.0)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+These sprites have been altered for use in Animancer:
+- Rearranged into a square for better use of texture memory.
+- Reordered for consistency.
+- Minor detail adjustments.
+
+////////////////////////////////////////////////////////////

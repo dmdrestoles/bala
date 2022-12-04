@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d17127d4b430f7ff924f2585a717116648c1bd42e05941487f4e982b2669acc
-size 253
+fileFormatVersion: 2
+guid: 0efc3d6baa8609441bdc4f3a166c875a
+labels:
+- CC0
+- Example
+- MitchFeatherston
+- OpenGameArt
+- Stone
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

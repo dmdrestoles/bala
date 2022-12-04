@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fa413805ec9a78f77ee2ba0981f6e665a251a6966dc03c289e894329239e9ec4
-size 186
+fileFormatVersion: 2
+guid: cb642f0b925465b41b0a772842af75db
+labels:
+- Example
+- RootMotion
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,3 +1,58 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:227ce278cb5b239e0460e3279b69d6eec96a90dd15b0c32ce4ec1ca9dfe68e60
-size 1931
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MouseLook : MonoBehaviour
+{
+    public float mouseSensitivity = 100f;
+    public Transform playerBody;
+    public GameObject armsCamera;
+    public static string selectedObject;
+    public RaycastHit hitObject;
+    float xRotation = 0f;
+    private Transform cameraTransform;
+    
+    
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        cameraTransform = GetComponent<Transform>();
+    }
+
+    void Update()
+    {
+        if (GameManager.IsInputEnabled == true)
+        {
+            mouseSensitivity = PlayerPrefs.GetFloat("sense", 50);
+            GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
+            armsCamera.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("fov",50);
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }    
+
+        if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
+        {
+            selectedObject = hitObject.transform.gameObject.name;
+            //Debug.Log(selectedObject+"------"+hitObject.distance);
+        }    
+    }
+
+    public string GetSelectedObject(){
+        return selectedObject;
+    }
+
+    public IEnumerator Recoil(float recoilVal, float recoilIncrement)
+    {
+        while (Mathf.Abs(xRotation) <= recoilVal)
+        {   
+            xRotation -= recoilVal * recoilIncrement;
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            yield return null;
+        }
+    }
+}

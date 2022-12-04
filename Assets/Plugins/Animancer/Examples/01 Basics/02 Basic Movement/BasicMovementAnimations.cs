@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88f4bdda6669016dbb4c8d33ccfecf5bee38cf46b4fc5238b8cbf16980a98b0a
-size 1761
+// Animancer // https://kybernetik.com.au/animancer // Copyright 2022 Kybernetik //
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value.
+
+using UnityEngine;
+
+namespace Animancer.Examples.Basics
+{
+    /// <summary>
+    /// Plays a movement animation while the user holds W or Up Arrow.
+    /// Otherwise plays an idle animation.
+    /// </summary>
+    /// <example><see href="https://kybernetik.com.au/animancer/docs/examples/basics/movement">Basic Movement</see></example>
+    /// https://kybernetik.com.au/animancer/api/Animancer.Examples.Basics/BasicMovementAnimations
+    /// 
+    [AddComponentMenu(Strings.ExamplesMenuPrefix + "Basics - Basic Movement Animations")]
+    [HelpURL(Strings.DocsURLs.ExampleAPIDocumentation + nameof(Basics) + "/" + nameof(BasicMovementAnimations))]
+    public sealed class BasicMovementAnimations : MonoBehaviour
+    {
+        /************************************************************************************************************************/
+
+        [SerializeField] private AnimancerComponent _Animancer;
+        [SerializeField] private AnimationClip _Idle;
+        [SerializeField] private AnimationClip _Move;
+
+        /************************************************************************************************************************/
+
+        private void Update()
+        {
+            float forward = ExampleInput.WASD.y;
+            if (forward > 0)
+            {
+                _Animancer.Play(_Move);
+            }
+            else
+            {
+                _Animancer.Play(_Idle);
+            }
+        }
+
+        /************************************************************************************************************************/
+    }
+}

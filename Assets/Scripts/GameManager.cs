@@ -1,3 +1,108 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac2a1ddce792590c90431c342c15c917f1f61d843fe95cf1c3239cd39f0a20e4
-size 2910
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+public class GameManager : MonoBehaviour
+{
+    bool gameHasEnded = false;
+
+    public float restartDelay = 1f;
+    public static bool IsInputEnabled = true;
+
+    public GameObject reachedBridgeUI;
+    public GameObject playerDiedUI;
+
+    [HideInInspector]
+    public static string currentScene = "MainMenu";
+
+    void Awake()
+    {
+        Debug.Log("GameManager ready.");
+    }
+
+    public void CompleteLevelOne()
+    {
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the marker!");
+        Invoke("LoadLevelTwo", restartDelay);
+    }
+
+    public void CompleteLevelTwo()
+    {
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the marker!");
+        Invoke("LoadLevelThree", restartDelay);
+    }
+
+    public void CompleteLevelThree()
+    {
+        reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the bridge!");
+        Invoke("LoadLevelFour", restartDelay);
+    }
+
+    public void CompleteLevelFour()
+    {
+        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
+        reachedBridgeUI.SetActive(true);
+        Debug.Log("You have reached the safehouse!");
+        Invoke("LoadMainMenu", 3f);
+    }
+
+    public void EndGame()
+    {
+        if (!gameHasEnded)
+        {
+            playerDiedUI.SetActive(true);
+            gameHasEnded = true;
+            Debug.Log("GAME OVER!");
+            Invoke("Restart", restartDelay);
+        }
+    }
+
+    void LoadMainMenu()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "MainMenu";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void LoadLevelTwo()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level2";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void LoadLevelThree()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level3";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void LoadLevelFour()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "level4";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game!");
+        Application.Quit();
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+}

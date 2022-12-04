@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bcc9cab7300dfb266ce89dc33381a890bd0b764351e4bc450c2819cbee00b342
-size 225
+fileFormatVersion: 2
+guid: 3e34f48df91ef634a9dfaeca840341de
+labels:
+- Documentation
+- Example
+- HugeFBXMocapLibrary
+- Humanoid
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

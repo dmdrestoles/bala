@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:405f6d795a4eafb843cf3aa92f65c15cb187051d40c712408b391925224fb129
-size 437
+using System.Collections;
+using UnityEngine;
+
+public class RockThrowThrownState : RockThrowBaseState
+{
+    public override void EnterState(RockThrowStateManager sm)
+    {
+        sm.coll.radius = 0;
+    }
+
+    public override void UpdateState(RockThrowStateManager sm)
+    {
+        
+        if (Physics.CheckSphere(sm.transform.position, 0.5f, sm.groundMask))
+        {
+            sm.SwitchState(sm.distractingState);
+        }
+    }
+}

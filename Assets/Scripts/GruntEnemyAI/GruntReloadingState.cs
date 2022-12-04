@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:31a88e76b58baf1cd8365b859878086dacab6de1c7028b7ede8f0c5192b101d7
-size 735
+using UnityEngine;
+
+public class GruntReloadingState : GruntBaseState
+{
+    float elapsed = 0f;
+    public override void EnterState(GruntStateManager grunt)
+    {
+        grunt.animator.SetBool("isReloading", true);
+        grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
+        grunt.playReload();
+    }
+
+    public override void SusDetected()
+    {
+        
+    }
+
+    public override void UpdateState(GruntStateManager grunt)
+    {
+        elapsed += Time.deltaTime;
+        if (elapsed >= 6f)
+        {
+            elapsed = elapsed % 6f;
+            grunt.animator.SetBool("isReloading", false);
+            grunt.currentAmmo = 5;
+            grunt.SwitchState(grunt.aimingState);
+        }       
+    }
+}

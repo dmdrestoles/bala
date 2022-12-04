@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:afe49f2d49db4a847510aa07e87e37219c1e4cc92c883bcb266016a3f31aab58
-size 288
+fileFormatVersion: 2
+guid: 41577e5cac23540419de1d4bb8b4f078
+labels:
+- Example
+- FSM
+- FiniteStateMachine
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

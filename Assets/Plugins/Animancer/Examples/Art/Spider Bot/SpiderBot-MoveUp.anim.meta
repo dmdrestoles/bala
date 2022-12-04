@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11a31d3837f7cce74ca022d471b271d7d019f9da2d49b33cde9b9fc39af55367
-size 241
+fileFormatVersion: 2
+guid: 4a451500da41b454b8701bfda41c74f1
+labels:
+- Bot
+- Example
+- Generic
+- MineBot
+- Spider
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

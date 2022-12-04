@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af211b1ae55c229a99a541f8f2e3ffdcd5ee4192231a31ae8fabccfdf676248c
-size 224
+fileFormatVersion: 2
+guid: d6bffd55b3028c8459fe581100f09792
+labels:
+- Example
+- Knight
+- Sprite
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

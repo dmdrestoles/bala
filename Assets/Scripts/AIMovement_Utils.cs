@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9306428c23cd9a0fc40208e45b838b8dcce78a506a4f53d19413396a10e4fc03
-size 1031
+using UnityEngine;
+using UnityEngine.AI;
+
+public class AIMovement_Utils : MonoBehaviour
+{
+    public void StopMovement(Rigidbody r, NavMeshAgent agent, Animator animator){
+        animator.SetBool("isMoving", false);
+        r.freezeRotation = true;
+        r.constraints = RigidbodyConstraints.FreezePosition;
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+    }
+
+    public void ResumeMovement(Rigidbody r, NavMeshAgent agent, Animator animator) {
+        r.freezeRotation = false;
+        r.constraints = RigidbodyConstraints.None;
+        agent.isStopped = false;
+        animator.SetBool("isMoving", true);
+    }
+    
+    public bool CheckDestinationReached(Vector3 self, Vector3 target, float stopDistance) {
+        float distanceToTarget = Vector3.Distance(self, target);
+        bool result = false;
+        if(distanceToTarget < stopDistance)
+        {
+            result = true;
+        }
+        //Debug.Log("Debug: "+ "Distance to target is " + distanceToTarget);
+        return result;
+    }
+}

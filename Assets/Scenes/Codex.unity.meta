@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:803c5d026333af57fdfae446b87782cafe4975567e0cb760453b382f329f9e18
-size 335
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animator.meta
+guid: 02b6f9eee9e6a3947b7ecc64e7b0933d
+folderAsset: yes
+=======
+guid: aea7bf46fd65ea843aef230f4f516ad9
+>>>>>>> origin/CathGolles/Codex-Minimap-UI-Updates:Assets/Scenes/Codex.unity.meta
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

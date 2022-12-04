@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4ab3e7de625801d34c637c596c061f7019f766e44494df378646d0183c9185b3
-size 979
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
+
+public class CodexCollectibles : MonoBehaviour
+{
+    public GameObject collectible;
+    public GameObject container;
+    public GameObject otherContainer;
+    public GameObject anotherContainer;
+    public GameObject descInstructions;
+    public GameObject descContainer;
+
+    void Start()
+    {
+        descInstructions.SetActive(true);
+    }
+
+    public void showItems()
+    {
+        container.SetActive(true);
+        descInstructions.GetComponent<TextMeshProUGUI>().text = "Please choose item to view";
+    }
+
+    public void closeOtherContainers()
+    {
+        otherContainer.SetActive(false);
+        anotherContainer.SetActive(false);
+        descContainer.SetActive(false);
+        descInstructions.SetActive(true);
+        descInstructions.GetComponent<TextMeshProUGUI>().text = "Please choose item to view";
+    }
+}
+

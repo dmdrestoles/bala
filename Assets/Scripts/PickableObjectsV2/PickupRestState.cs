@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c88cb04efb4a47cdaed3d6dfb15b0a2d9c3b0d8e9da5acbbddf12ec3e40756f
-size 410
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PickupRestState : PickupBaseState
+{
+    public override void EnterState(PickupStateManager psm)
+    {
+        // default on instantiate
+    }
+
+    public override void UpdateState(PickupStateManager psm)
+    {
+        if (psm.OnMouseOver())
+        {
+            psm.Transition(psm.lookAtState);
+        }
+    }
+}

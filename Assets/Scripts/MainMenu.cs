@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:502c22c382c40591c1dfb328200294c0e8b0d0ddea469151758c30e6bc63edbc
-size 890
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MainMenu : MonoBehaviour
+{
+    public GameObject start, level2, level3, level4, videoScriptObject;
+    public VideoPlayerScript videoPlayerScript;
+    void Start()
+    {
+        if (GameManager.currentScene == "level2")
+        {
+            videoScriptObject.SetActive(true);
+            videoPlayerScript.PlayPaltikVid();
+        } else if (GameManager.currentScene == "level3")
+        {
+            start.SetActive(false);
+            level3.SetActive(true);
+        } else if (GameManager.currentScene == "level4")
+        {
+            start.SetActive(false);
+            level4.SetActive(true);
+        }
+    }
+    public void PlayGame()
+    {
+
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT");
+        Application.Quit();
+    }    
+}

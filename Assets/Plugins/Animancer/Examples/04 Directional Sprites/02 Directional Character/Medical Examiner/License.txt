@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bc5766fa267c7f52a6353ec36d50429a5063d7193c3d584627eb71851e28ce86
-size 577
+////////////////////////////////////////////////////////////
+// Medical Examiner.png // CC0 //
+////////////////////////////////////////////////////////////
+
+Medical Examiner (female) by Chasersgaming:
+https://chasersgaming.itch.io/medical-examiner-female
+https://www.patreon.com/Chasersgaming
+
+License: Creative Commons Zero (CC0 1.0)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+These sprites have been altered for use in Animancer:
+- Rearranged for better use of texture memory.
+- Minor detail adjustments.
+
+////////////////////////////////////////////////////////////

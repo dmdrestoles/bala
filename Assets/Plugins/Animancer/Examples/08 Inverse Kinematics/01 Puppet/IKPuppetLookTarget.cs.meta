@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8dacb09c4e1baf7835b60a9dc1bb18a91023bccc2410b0ea11fd952bd8925634
-size 286
+fileFormatVersion: 2
+guid: 4a3ef06791eb10d47bfbd6fc2f3c92af
+labels:
+- Example
+- IK
+- InverseKinematics
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
