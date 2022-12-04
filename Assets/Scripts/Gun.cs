@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     public bool isSilent = false;
 
     public GameObject gunInstance;
+    public GameObject gunModelInHand;
     public Rigidbody dart;
     public GameObject bullet, crosshair;
     public Transform dartOrigin, bulletOrigin;
@@ -72,7 +73,7 @@ public class Gun : MonoBehaviour
         animator.SetFloat("relAnimSpeed", relAnimSpeed);
         animator.SetFloat("fireAnimSpeed", fireAnimSpeed);
         animator.SetFloat("aimAnimSpeed", aimAnimSpeed);
-        Debug.Log(animator.GetFloat("relAnimSpeed"));
+        //Debug.Log(animator.GetFloat("relAnimSpeed"));
         if ( !isEnemy && GameManager.IsInputEnabled )
         {
             if (isReloading)
@@ -94,13 +95,13 @@ public class Gun : MonoBehaviour
                 return;
             }
             
-            if (Input.GetKeyDown(KeyCode.R) && currentAmmo == 0 && maxAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0)
             {
                 StartCoroutine(FullReload());
                 return;
             }
 
-            else if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineAmmo && maxAmmo > 0)
+            else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
                 StartCoroutine(HotReload());
                 return;
@@ -153,10 +154,12 @@ public class Gun : MonoBehaviour
     IEnumerator HotReload()
     {
         isReloading = true;
-        yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", true);
+        animator.SetBool("isReliable", isReliable);
+        animator.SetBool("isFull", false);
+        yield return new WaitForSeconds(0.25f);
         startReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.50f);
         while (currentAmmo < magazineAmmo && maxAmmo > 0)
         {
             loadBulletSound.Play();
@@ -168,9 +171,9 @@ public class Gun : MonoBehaviour
             
             yield return new WaitForSeconds(bulletReload);
         }
-
+        animator.SetBool("isFull", true);
+        yield return new WaitForSeconds(0.25f);
         endReloadSound.Play();
-        yield return new WaitForSeconds(0.5f);
         animator.SetBool("isReloading", false);
         isReloading = false;
 

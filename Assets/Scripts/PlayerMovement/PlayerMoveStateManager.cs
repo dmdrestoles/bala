@@ -22,20 +22,25 @@ public class PlayerMoveStateManager : MonoBehaviour
     public PlayerMoveSprintState sprintState = new PlayerMoveSprintState();
     public PlayerMoveCrouchState crouchState = new PlayerMoveCrouchState();
     public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
+    public PlayerMoveIdleState idleState = new PlayerMoveIdleState();
     CharacterController controller;
+    public WeaponManager weaponManager;
     public Animator animator;
     public LayerMask groundMask;
     Vector3 originalCamPos;
     float groundDistance = 0.2f;
     bool energyDraining = true;
     bool energyGaining = true;
+    public Vector3 move;
+
     void Start()
     {
+        animator = weaponManager.animator;
         speed = moveSpeed;
         originalCamPos = cameraHolder.transform.position;
         controller = this.GetComponent<CharacterController>();
 
-        currentState = walkState;
+        currentState = idleState;
         currentState.EnterState(this);
     }
 
@@ -46,9 +51,17 @@ public class PlayerMoveStateManager : MonoBehaviour
             currentState.UpdateState(this);
             HandleJump();
             HandleMovement();
+            HandleIdle();
         }
     }
 
+    void HandleIdle()
+    {
+        if (move.magnitude == 0 && currentState != crouchState)
+        {
+            SwitchState(idleState);
+        }
+    }
     //Handles movement using the wasd keys
     void HandleMovement()
     {
@@ -61,7 +74,7 @@ public class PlayerMoveStateManager : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        move = transform.right * x + transform.forward * z;
         StartCoroutine(HandleJump());
         //Debug.Log("Debug: " + "Vector Move of Player: " + move);
         velocity.y += gravity * Time.deltaTime;

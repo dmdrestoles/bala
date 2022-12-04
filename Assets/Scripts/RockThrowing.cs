@@ -27,6 +27,6 @@ public class RockThrowing : MonoBehaviour
         GameObject rockForward;
 
         rockForward = Instantiate(rock, rockOrigin.transform.position, rockOrigin.transform.rotation);
-        rockForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 25 ); 
+        rockForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * -25 ); 
     }
 }

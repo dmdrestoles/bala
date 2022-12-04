@@ -49,6 +49,12 @@ public class CodexItems : MonoBehaviour
             Debug.Log(peopleList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = peopleDescription[peopleList.IndexOf(image.name)].ToString();
         }
+        else if (name == "Locations")
+        {
+            ArrayList locationList = new ArrayList { "LocationTemplate" };
+            ArrayList locationDescription = new ArrayList{
+            " [insert weapon description for Location] "};
+        }
         else if (name == "Collectibles")
         {
             ArrayList locationList = new ArrayList { "LocationTemplate", "Ammunition", "Cedula", "Cross" };

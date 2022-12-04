@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +34,7 @@ public class ActiveWeaponManager : MonoBehaviour
         droppedWeapon.name = activeWeapon.GetComponent<Gun>().weaponName;
         Debug.Log(gameObject.transform.position);
         droppedWeapon.SetActive(true);
+        activeWeapon.GetComponent<Gun>().gunModelInHand.SetActive(false);
         activeWeapon.SetActive(false);
 
         foreach (GameObject weapon in weapons)
@@ -46,6 +47,7 @@ public class ActiveWeaponManager : MonoBehaviour
             }
         }
         activeWeapon.SetActive(true);
+        activeWeapon.GetComponent<Gun>().gunModelInHand.SetActive(true);
         Debug.Log("Activating: " + activeWeapon.name);
         controller = activeWeapon.GetComponent<Gun>().GetController();
     }

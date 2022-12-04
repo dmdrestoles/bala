@@ -504,6 +504,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< HEAD
+=======
 --- !u!1 &5091040232299391236
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +580,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+>>>>>>> 4a08bd64877f237a2d2b4f7425a55093416dfb8b
 --- !u!1 &6294110807360497377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,7 +2611,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6294110809422324571}
+<<<<<<< HEAD
+  m_RootOrder: 0
+=======
   m_RootOrder: 1
+>>>>>>> 4a08bd64877f237a2d2b4f7425a55093416dfb8b
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4285,7 +4292,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 9.999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
+=======
   - {fileID: 7517666650733701165}
+>>>>>>> 4a08bd64877f237a2d2b4f7425a55093416dfb8b
   - {fileID: 6294110808383350781}
   m_Father: {fileID: 6294110807879233912}
   m_RootOrder: 2
@@ -4510,6 +4520,8 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+<<<<<<< HEAD
+=======
 --- !u!1 &8603000089011677348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4659,3 +4671,4 @@ MonoBehaviour:
   descName: {fileID: 6294110809414135243}
   description: {fileID: 6294110808655133517}
   descInstructions: {fileID: 6294110808347159897}
+>>>>>>> 4a08bd64877f237a2d2b4f7425a55093416dfb8b

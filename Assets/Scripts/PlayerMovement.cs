@@ -52,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
             if ( move.magnitude <= 0.001f )
             {
-                // animator.SetBool("Moving", false);
+                 animator.SetBool("isMoving", false);
             }
             else
             {
-                // animator.SetBool("Moving", true);
+                 animator.SetBool("isMoving", true);
             }
             
             if(Input.GetKeyUp(KeyCode.LeftControl) && !playerState.isCrouching)
