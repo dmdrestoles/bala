@@ -1,3 +1,199 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a7e810d76f4ed040906357f568772748edd2392244e8b14fc9f78c5ffec3107
-size 5974
+fileFormatVersion: 2
+guid: 1464d0833f47e044a887a883d938fb14
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -5482046331486622226
+    second: Man1|Man1|Man1|Man_AimStatic|Man1|Man_AimStatic
+  - first:
+      74: -4402995675536377532
+    second: Man1|Man1|Man1|Man_Aim|Man1|Man_Aim
+  - first:
+      74: 3670358657483016895
+    second: Man1|Man1|Man1|Man_BoltReload|Man1|Man_BoltReload
+  - first:
+      74: 7985747024511341967
+    second: Man1|Man1|Man1|Man_ClipReload|Man1|Man_ClipReload
+  - first:
+      74: 4803832076775135732
+    second: Man1|Man1|Man1|Man_Death|Man1|Man_Death
+  - first:
+      74: 6038499784780117609
+    second: Man1|Man1|Man1|Man_Fire|Man1|Man_Fire
+  - first:
+      74: 792795536850660618
+    second: Man1|Man1|Man1|Man_Idle|Man1|Man_Idle
+  - first:
+      74: 1355915804093722764
+    second: Man1|Man1|Man1|Man_RunLoop|Man1|Man_RunLoop
+  - first:
+      74: -1389543928812285639
+    second: Man1|Man1|Man1|Man_RunToIdle|Man1|Man_RunToIdle
+  - first:
+      74: 448393341680114037
+    second: Man1|Man1|Man1|Man_TPose.001|Man1|Man_TPose.001
+  - first:
+      74: -7256339185709327542
+    second: Man1|Man1|Man1|Man_TPose.002|Man1|Man_TPose.002
+  - first:
+      74: -4220323794196865986
+    second: Man1|Man1|Man1|Man_TPose|Man1|Man_TPose
+  - first:
+      74: -5369227902453588764
+    second: Man1|Man1|Man1|Man_Unaim|Man1|Man_Unaim
+  - first:
+      74: 7528108438335111963
+    second: Man1|Man1|Man1|Man_WalkLoop|Man1|Man_WalkLoop
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackPlastic
+    second: {fileID: 2100000, guid: efa584a888b0a7849b1a83cc1dbd272b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bullet
+    second: {fileID: 2100000, guid: bcf0e4787b372894a9039e153e7d65b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clip
+    second: {fileID: 2100000, guid: 2e5424188db57e64d8c9ee44bc97f475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Friendly
+    second: {fileID: 2100000, guid: 94271313d5ce9b145b08eefc4300cb5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iron
+    second: {fileID: 2100000, guid: c7d96ca3dcbe8e64983b3a41e370d6ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LeatherBag
+    second: {fileID: 2100000, guid: ca98555ab2fe257429b05d71921e3ba2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StrawHat
+    second: {fileID: 2100000, guid: 98427a1fcfc28d14cb6906ac8e8e69c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 440de9dc2d6ee0c47819d88d94fdd97b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: generic_male_1
+    second: {fileID: 2100000, guid: 70a714d5fcf2e1f409f10b9e0f25dbb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: high-poly
+    second: {fileID: 2100000, guid: 44be8fc64fff54e45a5e5bb395b4a6f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes01
+    second: {fileID: 2100000, guid: d0ccfcc9b1baaf04fb1c980a6a712d43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: short02
+    second: {fileID: 2100000, guid: 339de344570d35944bc4b63568efd288, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

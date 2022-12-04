@@ -56,11 +56,12 @@ public class PickupLookingAtState : PickupBaseState
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Picked up object: " + gameObject.name);
-
+            Debug.Log("Debug: codex notif active " + !psm.codex.activeSelf);
             if (!psm.codex.activeSelf)
             {
                 psm.codex.SetActive(true);
                 psm.codexNotif.SetActive(true);
+                //Debug.Log("Debug: codex notif active " );
                 psm.codexNotif.transform.GetChild(1).GetComponent<Image>().sprite = psm.sprite;
                 psm.codexNotif.transform.GetChild(2).GetComponent<Text>().text = gameObject.name;
             }
@@ -88,15 +89,16 @@ public class PickupLookingAtState : PickupBaseState
         {
             psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
+            psm.weaponManager.isPrimary = true;
 
-            psm.primaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+            //psm.primaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
         }
         else if (psm.isSecondary)
         {
             psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
-
-            psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+            psm.weaponManager.isPrimary = false;
+            //psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
         }
     }
 

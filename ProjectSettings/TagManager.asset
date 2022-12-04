@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:294b6e5472f8cb489dfc19dfcb41115d7d4ddfc542211d33b641bfb787e16122
-size 536
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - player
+  - HidingSpot
+  - WeaponsList
+  - WeaponHolder
+  - Enemy
+  - BushTutorial
+  - SusObject
+  - GunShot
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - icons
+  - Player
+  - Arms
+  - Camera Light
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - trees
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

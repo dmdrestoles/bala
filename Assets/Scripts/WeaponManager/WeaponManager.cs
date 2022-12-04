@@ -9,7 +9,7 @@ public class WeaponManager : MonoBehaviour
 {
     private bool isAiming = false;
     private bool isReloading = false;
-    private bool isPrimary = true;
+    public bool isPrimary = true;
     
     public Animator animator;
     public GameObject primary;
@@ -22,6 +22,11 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
         animator.runtimeAnimatorController = primary.GetComponent<ActiveWeaponManager>().GetController();
+        animator.SetBool("isAiming", false);
+        animator.ResetTrigger("Firing");
+        animator.SetTrigger("Unequip");
+        isPrimary = true;
+        StartCoroutine(ChangeWeapon(isPrimary));
     }
 
     // Update is called once per frame
@@ -82,7 +87,7 @@ public class WeaponManager : MonoBehaviour
         melee.SetActive(false);
     }
 
-    IEnumerator ChangeWeapon(bool isPrimary)
+    public IEnumerator ChangeWeapon(bool isPrimary)
     {
         yield return new WaitForSeconds(0.167f);
         if (isPrimary)
