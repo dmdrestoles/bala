@@ -209,7 +209,7 @@ public class Gun : MonoBehaviour
             float speed = 50;
 
             dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
-            dartForward.velocity = transform.TransformDirection(Vector3.forward * speed);
+            dartForward.velocity = transform.TransformDirection(Vector3.forward * -speed);
             return;
         }
         
@@ -217,7 +217,7 @@ public class Gun : MonoBehaviour
         fireSound.Play();
         muzzle.Play();
         bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);
-        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * 500);
+        bulletForward.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * -500);
         if (Physics.Raycast(muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
             Debug.Log(hit.GetType());
