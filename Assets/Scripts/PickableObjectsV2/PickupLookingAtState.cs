@@ -82,6 +82,7 @@ public class PickupLookingAtState : PickupBaseState
             Melee.isBoloAcquired = true;
             psm.meleeInv.transform.GetChild(1).gameObject.SetActive(true);
             psm.meleeInv.transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log("Debug: Is Bolo Acquired " + Melee.isBoloAcquired);
             return;
         }
 
