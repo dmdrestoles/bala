@@ -35,7 +35,7 @@ public class Melee : MonoBehaviour
 
     public void CheckForEnemies()
     {
-        isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
+        isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * -meleeRange), out hit);
         if (isHitting)
         {
             Debug.Log("something was hit!");

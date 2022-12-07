@@ -61,11 +61,21 @@ public class LevelSummaryScript : MonoBehaviour
             }
             if (objectives[i].name == "No Detection")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.ghostObjective);
+                int check = 1;
+                if (GameManager.ghostObjective == 1)
+                {
+                    check = 0; 
+                }
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), check);
             }
             if (objectives[i].name == "Pacifist")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.pacifistObjective);
+                int check = 1;
+                if (GameManager.pacifistObjective == 1)
+                {
+                    check = 0; 
+                }
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), check);
             }
             if (objectives[i].name == "Kill All")
             {

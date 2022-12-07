@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static GameObject objectiveUI;
 
     // Objectives related
-    public static int mainObjective, easterEggObjectives, rifleObjective, revolverObjective, ghostObjective, pacifistObjective, killObjective; 
+    public static int mainObjective, easterEggObjectives, rifleObjective, revolverObjective, ghostObjective, pacifistObjective, killObjective;
 
     [HideInInspector]
     public static string currentScene = "MainMenu";
@@ -46,11 +46,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Debug.Log("GameManager ready.");
-        ghostObjective = 1;
-        pacifistObjective = 1;
         objectiveUI = mainCanvas.transform.GetChild(7).gameObject;
         objectiveMarker = refObjectiveMarker;
-        Debug.Log(objectiveUI.name);
     }
 
     public void CompleteLevelOne()

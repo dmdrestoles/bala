@@ -42,7 +42,7 @@ public class CodexItems : MonoBehaviour
             ArrayList peopleDescription = new ArrayList{
             " [insert weapon description for Person] ",
             " José Rizal, in full José Protasio Rizal Mercado y Alonso Realonda, (born June 19, 1861, Calamba, Philippines—died December 30, 1896, Manila), patriot, physician, and man of letters who was an inspiration to the Philippine nationalist movement.",
-            " Mahal kong Jose,\n Maaring hindi na tayo magtagpo, pero iyong tandaan na sa iyo aking puso.",
+            " Mahal kong Victoria,\n Maaring hindi na tayo magtagpo, pero iyong tandaan na sa iyo aking puso.",
             " Wala ng bala, wala ng pagkain.",
             " Bilisan niyo ang iyong paggalaw. Dapat tayo mauna bago ang Caviteno ",
             " Alam nila na parating tayo. Nakaistasyon ang mga artilleros sa San Juan.",

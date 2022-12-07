@@ -7,7 +7,8 @@ public class GruntDeathState : GruntBaseState
     {
         grunt.animator.SetTrigger("triggerDeath");
         grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
-        GameManager.pacifistObjective = 0;
+        GameManager.pacifistObjective = 1;
+        Debug.Log("Pacifist: " + GameManager.pacifistObjective);
         GameManager.killObjective += 1;
     }
 

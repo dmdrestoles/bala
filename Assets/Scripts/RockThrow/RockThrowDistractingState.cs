@@ -6,7 +6,7 @@ public class RockThrowDistractingState : RockThrowBaseState
     float elapsed = 0f;
     public override void EnterState(RockThrowStateManager sm)
     {
-        sm.coll.radius = 5.0f;
+        sm.coll.radius = 10.0f;
     }
 
     public override void UpdateState(RockThrowStateManager sm)
