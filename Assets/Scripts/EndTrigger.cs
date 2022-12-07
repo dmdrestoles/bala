@@ -6,7 +6,7 @@ public class EndTrigger : MonoBehaviour
     public GameManager gameManager;
     public int level;
     [HideInInspector]
-    private float objectiveTime = 5.0f;
+    private float objectiveTime = 3.0f;
     private float timer = 0.0f;
     void OnTriggerStay(Collider col)
     {
@@ -36,6 +36,10 @@ public class EndTrigger : MonoBehaviour
             else if ( level == 4 )
             {
                 gameManager.CompleteLevelFour();
+            }
+            else if (level == 5)
+            {
+                gameManager.CompleteLevelFive();
             }
         }
     }

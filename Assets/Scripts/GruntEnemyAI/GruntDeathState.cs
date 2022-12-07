@@ -7,6 +7,8 @@ public class GruntDeathState : GruntBaseState
     {
         grunt.animator.SetTrigger("triggerDeath");
         grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
+        GameManager.pacifistObjective = 0;
+        GameManager.killObjective += 1;
     }
 
     public override void UpdateState(GruntStateManager grunt)

@@ -19,6 +19,7 @@ public class PauseScript : MonoBehaviour
 
         Debug.Log("PS: FOV on start" + PlayerPrefs.GetFloat("fov"));
         currFOV = PlayerPrefs.GetFloat("fov");
+        currFOV = 50;
     }
 
     // Update is called once per frame

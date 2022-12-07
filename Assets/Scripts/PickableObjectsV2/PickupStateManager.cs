@@ -65,7 +65,7 @@ public class PickupStateManager : MonoBehaviour
     {
         if(transform.position.y < -2.8f)
         {
-            Debug.Log("FALLS THROUGH");
+            //Debug.Log("FALLS THROUGH");
             transform.position = new Vector3(transform.position.x, -2.0f, transform.position.z);
             transform.rotation = new Quaternion(0,0,0,0);
         }

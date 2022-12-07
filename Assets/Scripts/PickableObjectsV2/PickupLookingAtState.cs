@@ -66,6 +66,13 @@ public class PickupLookingAtState : PickupBaseState
                 psm.codexNotif.transform.GetChild(2).GetComponent<Text>().text = gameObject.name;
             }
 
+            if (gameObject.GetComponent<Objective>() != null)
+            {
+                string objectiveName = gameObject.GetComponent<Objective>().name;
+
+                GameManager.UpdateObjective(objectiveName);
+            }
+
             // Check if collectible, gun, etc.
             ChangeWeapon(psm);
             HandleAmmo(psm);
@@ -148,4 +155,6 @@ public class PickupLookingAtState : PickupBaseState
             }
         }
     }
+    
+
 }
