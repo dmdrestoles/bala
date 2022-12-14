@@ -8,6 +8,8 @@ public class PlayerMoveWalkState : PlayerMoveBaseState
     public override void EnterState(PlayerMoveStateManager stateManager)
     {
         playerMovement = stateManager;
+        playerMovement.animator.SetBool("isMoving", true);
+        playerMovement.animator.SetBool("isRunning", false);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }

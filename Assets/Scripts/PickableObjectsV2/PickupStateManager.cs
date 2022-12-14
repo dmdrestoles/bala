@@ -48,6 +48,7 @@ public class PickupStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+        HandleObjectFallThroughFloor();
     }
 
     public void Transition(PickupBaseState newState)
@@ -58,6 +59,16 @@ public class PickupStateManager : MonoBehaviour
 
     public bool OnMouseOver(){
         return mouseLook.GetSelectedObject() == gameObject.name;
+    }
+
+    void HandleObjectFallThroughFloor()
+    {
+        if(transform.position.y < -2.8f)
+        {
+            //Debug.Log("FALLS THROUGH");
+            transform.position = new Vector3(transform.position.x, -2.0f, transform.position.z);
+            transform.rotation = new Quaternion(0,0,0,0);
+        }
     }
 
     /*

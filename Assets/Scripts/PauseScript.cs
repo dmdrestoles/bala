@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour
 {
-    GameObject pauseCanvas, mainCanvas;
+    public GameObject pauseCanvas, mainCanvas;
     public GameObject codexCanvas;
     bool paused = false;
     bool canvasOpen = false;
@@ -15,12 +15,11 @@ public class PauseScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseCanvas = GameObject.Find("PauseCanvas");
-        mainCanvas = GameObject.Find("MainCanvas");
         pauseCanvas.gameObject.SetActive (false);
 
         Debug.Log("PS: FOV on start" + PlayerPrefs.GetFloat("fov"));
         currFOV = PlayerPrefs.GetFloat("fov");
+        currFOV = 50;
     }
 
     // Update is called once per frame

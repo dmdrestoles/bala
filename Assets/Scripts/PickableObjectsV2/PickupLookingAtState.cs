@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,18 +56,26 @@ public class PickupLookingAtState : PickupBaseState
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Picked up object: " + gameObject.name);
-
+            Debug.Log("Debug: codex notif active " + !psm.codex.activeSelf);
             if (!psm.codex.activeSelf)
             {
                 psm.codex.SetActive(true);
                 psm.codexNotif.SetActive(true);
+                //Debug.Log("Debug: codex notif active " );
                 psm.codexNotif.transform.GetChild(1).GetComponent<Image>().sprite = psm.sprite;
                 psm.codexNotif.transform.GetChild(2).GetComponent<Text>().text = gameObject.name;
             }
 
+            if (gameObject.GetComponent<Objective>() != null)
+            {
+                string objectiveName = gameObject.GetComponent<Objective>().name;
+
+                GameManager.UpdateObjective(objectiveName);
+            }
+
             // Check if collectible, gun, etc.
             ChangeWeapon(psm);
-            
+            HandleAmmo(psm);
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
@@ -81,6 +89,7 @@ public class PickupLookingAtState : PickupBaseState
             Melee.isBoloAcquired = true;
             psm.meleeInv.transform.GetChild(1).gameObject.SetActive(true);
             psm.meleeInv.transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log("Debug: Is Bolo Acquired " + Melee.isBoloAcquired);
             return;
         }
 
@@ -88,15 +97,33 @@ public class PickupLookingAtState : PickupBaseState
         {
             psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
+            psm.weaponManager.isPrimary = true;
 
-            psm.primaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+            //psm.primaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
         }
         else if (psm.isSecondary)
         {
             psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
+            psm.weaponManager.isPrimary = false;
+            //psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+        }
+    }
 
-            psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+    void HandleAmmo(PickupStateManager psm)
+    {
+        if (psm.objectName== "Ammunition")
+        {
+            if (psm.weaponManager.primary.activeSelf)
+            {
+                //Debug.Log("Debug: Get Max Ammo: "+psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo);
+                psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo += 5;
+            }
+            if (psm.weaponManager.secondary.activeSelf)
+            {
+                //Debug.Log("Debug: Get Max Ammo: "+psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo  + " HERE");
+                psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo += 5;
+            }
         }
     }
 
@@ -128,4 +155,6 @@ public class PickupLookingAtState : PickupBaseState
             }
         }
     }
+    
+
 }

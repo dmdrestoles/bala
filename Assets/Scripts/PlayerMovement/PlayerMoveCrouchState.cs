@@ -9,6 +9,7 @@ public class PlayerMoveCrouchState : PlayerMoveBaseState
     {
         playerMovement = stateManager;
         playerMovement.animator.SetBool("isRunning", false);
+        playerMovement.animator.SetBool("isMoving", false);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }

@@ -8378,23 +8378,32 @@ MonoBehaviour:
   isActive: 0
   isEnemy: 0
   isSilent: 1
+  gunInstance: {fileID: 0}
+  gunModelInHand: {fileID: 0}
   dart: {fileID: 0}
   bullet: {fileID: 0}
   crosshair: {fileID: 243943608}
   dartOrigin: {fileID: 0}
   bulletOrigin: {fileID: 0}
-  weaponSwitch: {fileID: 0}
   fireSound: {fileID: 0}
   fullReloadSound: {fileID: 75010000}
-  animator: {fileID: 1280070007}
+  startReloadSound: {fileID: 0}
+  loadBulletSound: {fileID: 0}
+  endReloadSound: {fileID: 0}
   fpsCamera: {fileID: 140753998}
   muzzleFlash: {fileID: 0}
   aimedMuzzleFlash: {fileID: 0}
   isFiring: 0
+  gunShotGO: {fileID: 0}
   mouseLook: {fileID: 0}
   cameraShake: {fileID: 0}
   currentAmmoUI: {fileID: 152976506}
   maxAmmoUI: {fileID: 1000114025}
+  animator: {fileID: 1280070007}
+  controller: {fileID: 0}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!1 &76181677
 GameObject:
   m_ObjectHideFlags: 0
@@ -10116,6 +10125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d9223e78383344e838ea4df2a41fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
+  mainCanvas: {fileID: 0}
   codexCanvas: {fileID: 1612510653}
 --- !u!4 &120925825
 Transform:
@@ -11972,23 +11983,32 @@ MonoBehaviour:
   isActive: 0
   isEnemy: 0
   isSilent: 0
+  gunInstance: {fileID: 0}
+  gunModelInHand: {fileID: 0}
   dart: {fileID: 220602884}
   bullet: {fileID: 1540798479}
   crosshair: {fileID: 243943608}
   dartOrigin: {fileID: 0}
   bulletOrigin: {fileID: 0}
-  weaponSwitch: {fileID: 0}
   fireSound: {fileID: 146057757}
   fullReloadSound: {fileID: 146057756}
-  animator: {fileID: 1280070007}
+  startReloadSound: {fileID: 0}
+  loadBulletSound: {fileID: 0}
+  endReloadSound: {fileID: 0}
   fpsCamera: {fileID: 140753998}
   muzzleFlash: {fileID: 36320104}
   aimedMuzzleFlash: {fileID: 1485544614}
   isFiring: 0
+  gunShotGO: {fileID: 0}
   mouseLook: {fileID: 140754000}
   cameraShake: {fileID: 140753999}
   currentAmmoUI: {fileID: 152976506}
   maxAmmoUI: {fileID: 1000114025}
+  animator: {fileID: 1280070007}
+  controller: {fileID: 0}
+  relAnimSpeed: 0
+  fireAnimSpeed: 0
+  aimAnimSpeed: 0
 --- !u!4 &150523936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 16f4040965adc81439577095b45ecbe1,
@@ -13714,6 +13734,7 @@ MonoBehaviour:
   restartDelay: 3
   reachedBridgeUI: {fileID: 2016287884}
   playerDiedUI: {fileID: 50208779}
+  mainCanvas: {fileID: 0}
 --- !u!4 &198919315
 Transform:
   m_ObjectHideFlags: 0
@@ -18442,6 +18463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a53804c0208668747bbc73eb3a0cd0cc, type: 3}
+--- !u!4 &307885124 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 307885123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &308434413
 GameObject:
   m_ObjectHideFlags: 0
@@ -86331,12 +86357,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 307885123}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1612510659 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6294110807769183170, guid: a53804c0208668747bbc73eb3a0cd0cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 307885123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1612549476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1e6b9959cd96c6e4d938dd7814674b68,
@@ -109615,6 +109635,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerState: {fileID: 2029390031}
+  footSteps: {fileID: 0}
   animator: {fileID: 1280070007}
   gravity: -15
   jumpHeight: 1.5
@@ -109657,7 +109678,7 @@ Transform:
   - {fileID: 877172379}
   - {fileID: 635754181}
   - {fileID: 1402041824}
-  - {fileID: 1612510659}
+  - {fileID: 307885124}
   - {fileID: 2122113962}
   - {fileID: 1432808907}
   - {fileID: 1694479754}

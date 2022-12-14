@@ -13,6 +13,8 @@ public class GruntHuntingState : GruntBaseState
         this.grunt.animator.SetBool("isWalking", false);
         this.grunt.awareness.awareRadius = 8f;
         this.grunt.agent.speed = 10f;
+
+        GameManager.ghostObjective = 1;
     }
 
     public override void SusDetected()
