@@ -144,12 +144,17 @@ MonoBehaviour:
   susPos: {x: 0, y: 0, z: 0}
   susValue: 0
   currentAmmo: 0
+  health: 50
   maxAmmo: 5
+  isDead: 0
+  isAsleep: 0
+  playerState: {fileID: 0}
   reloadAud: {fileID: 3498080749075117782}
   fireAud: {fileID: 3498080749075117780}
   muzzleFlash: {fileID: 7571523672733750615}
   patrol1: {x: 0, y: 0, z: 0}
   patrol2: {x: 0, y: 0, z: 0}
+  originalPos: {x: 0, y: 0, z: 0}
   detect_Utils: {fileID: 0}
   aiMove_Utils: {fileID: 0}
   awareness: {fileID: 4641203951705294651}
@@ -3694,7 +3699,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c10593767f8138144a2a2eb6b3d8af82, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

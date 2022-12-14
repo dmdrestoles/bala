@@ -52,22 +52,27 @@ public class GruntStateManager : MonoBehaviour
 
     void Update()
     {
+        
         HandleSleep();
         HandleDeath();
-        currentState.UpdateState(this);
-        UpdateAwareColor();
-        if (awareness.susObject)
+        if (Vector3.Distance(playerTransform.position,this.transform.position) <=250)
         {
-            this.susObject = awareness.susObject;
-            UpdateSusPos();
-            //Debug.Log("Debug: SusPos: " + susPos);
-            //Debug.Log("Debug: SusObject Detected");
+            currentState.UpdateState(this);
+            UpdateAwareColor();
+            if (awareness.susObject)
+            {
+                this.susObject = awareness.susObject;
+                UpdateSusPos();
+                //Debug.Log("Debug: SusPos: " + susPos);
+                //Debug.Log("Debug: SusObject Detected");
+            }
+            else
+            {
+                this.susObject = null;
+                //ForgetSus();
+            }
         }
-        else
-        {
-            this.susObject = null;
-            //ForgetSus();
-        }
+        
     }
 
     public void SwitchState(GruntBaseState state)
