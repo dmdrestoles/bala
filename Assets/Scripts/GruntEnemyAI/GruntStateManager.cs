@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -51,12 +50,12 @@ public class GruntStateManager : MonoBehaviour
     }
 
     void Update()
-    {
-        
-        HandleSleep();
-        HandleDeath();
+    { 
         if (Vector3.Distance(playerTransform.position,this.transform.position) <=250)
         {
+            agent.enabled = true;
+            HandleSleep();
+            HandleDeath();
             currentState.UpdateState(this);
             UpdateAwareColor();
             if (awareness.susObject)
@@ -72,7 +71,10 @@ public class GruntStateManager : MonoBehaviour
                 //ForgetSus();
             }
         }
-        
+        else
+        {
+            agent.enabled = false;
+        }  
     }
 
     public void SwitchState(GruntBaseState state)
