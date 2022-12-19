@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -51,23 +50,31 @@ public class GruntStateManager : MonoBehaviour
     }
 
     void Update()
-    {
-        HandleSleep();
-        HandleDeath();
-        currentState.UpdateState(this);
-        UpdateAwareColor();
-        if (awareness.susObject)
+    { 
+        if (Vector3.Distance(playerTransform.position,this.transform.position) <=250)
         {
-            this.susObject = awareness.susObject;
-            UpdateSusPos();
-            //Debug.Log("Debug: SusPos: " + susPos);
-            //Debug.Log("Debug: SusObject Detected");
+            agent.enabled = true;
+            HandleSleep();
+            HandleDeath();
+            currentState.UpdateState(this);
+            UpdateAwareColor();
+            if (awareness.susObject)
+            {
+                this.susObject = awareness.susObject;
+                UpdateSusPos();
+                //Debug.Log("Debug: SusPos: " + susPos);
+                //Debug.Log("Debug: SusObject Detected");
+            }
+            else
+            {
+                this.susObject = null;
+                //ForgetSus();
+            }
         }
         else
         {
-            this.susObject = null;
-            //ForgetSus();
-        }
+            agent.enabled = false;
+        }  
     }
 
     public void SwitchState(GruntBaseState state)

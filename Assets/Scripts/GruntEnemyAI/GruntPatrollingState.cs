@@ -60,15 +60,15 @@ public class GruntPatrollingState : GruntBaseState
         this.grunt.animator.SetBool("isMoving", true);
         this.grunt.animator.SetBool("isWalking", true);
         this.grunt.agent.speed = 3.0f;
-        if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, start,1)) && !this.grunt.agent.pathPending )
+        if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, start,1)) && !this.grunt.agent.pathPending && this.grunt.agent.destination != end )
         {
             this.grunt.agent.SetDestination(end);
         }
-        else if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position,end,1)) && !this.grunt.agent.pathPending )
+        else if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position,end,1)) && !this.grunt.agent.pathPending && this.grunt.agent.destination != start )
         {
             this.grunt.agent.SetDestination(start);
         }
-        else if(!patrolStarted)
+        else if(!patrolStarted && this.grunt.agent.destination != start)
         {
             patrolStarted = true;
             this.grunt.agent.SetDestination(start);
