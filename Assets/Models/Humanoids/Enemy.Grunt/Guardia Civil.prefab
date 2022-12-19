@@ -5222,7 +5222,7 @@ GameObject:
   - component: {fileID: 4641203951705294629}
   - component: {fileID: 4641203951705294628}
   - component: {fileID: 4641203951705294651}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Awareness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
