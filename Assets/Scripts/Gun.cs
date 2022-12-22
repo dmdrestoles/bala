@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", !animator.GetBool("isAiming"));
                 DisableCrosshair();
@@ -97,12 +97,16 @@ public class Gun : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0)
             {
+                animator.SetBool("isAiming", false);
+                DisableCrosshair();
                 StartCoroutine(FullReload());
                 return;
             }
 
             else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
+                animator.SetBool("isAiming", false);
+                DisableCrosshair();
                 StartCoroutine(HotReload());
                 return;
             }
@@ -183,14 +187,18 @@ public class Gun : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("isReloading", true);
+        Debug.Log("Reloading start!");
         animator.ResetTrigger("Firing");
         yield return new WaitForSeconds(0.25f);
         fullReloadSound.Play();
+        Debug.Log("Reloading wait!");
         yield return new WaitForSeconds(reloadTime);
+        Debug.Log("Update ammo!");
         maxAmmo -= magazineAmmo;
         currentAmmo = magazineAmmo;
-        yield return new WaitForSeconds(0.25f);
+        //yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", false);
+        Debug.Log("Reloading done!");
         isReloading = false;
     }
     void Shoot()
