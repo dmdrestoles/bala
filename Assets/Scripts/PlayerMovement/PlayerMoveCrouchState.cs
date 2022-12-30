@@ -10,6 +10,7 @@ public class PlayerMoveCrouchState : PlayerMoveBaseState
         playerMovement = stateManager;
         playerMovement.animator.SetBool("isRunning", false);
         playerMovement.animator.SetBool("isMoving", false);
+        playerMovement.animator.SetBool("isCrouching", true);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }
@@ -26,6 +27,10 @@ public class PlayerMoveCrouchState : PlayerMoveBaseState
         {
             stateManager.SwitchState(stateManager.sprintState);
         }
+        else if (stateManager.move.magnitude > 0)
+        {
+            stateManager.SwitchState(stateManager.crouchWalkState);
+        }
     }
 
     public override void UpdateFootStepsRad()
@@ -35,7 +40,7 @@ public class PlayerMoveCrouchState : PlayerMoveBaseState
 
     public override void UpdateSpeedMultiplier()
     {
-        playerMovement.speed = playerMovement.moveSpeed * 0.5f;
+        playerMovement.speed = playerMovement.moveSpeed * 0.25f;
     }
 
     public override void HandleCrouchingMovement()

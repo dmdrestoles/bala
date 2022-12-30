@@ -10,6 +10,7 @@ public class PlayerMoveWalkState : PlayerMoveBaseState
         playerMovement = stateManager;
         playerMovement.animator.SetBool("isMoving", true);
         playerMovement.animator.SetBool("isRunning", false);
+        playerMovement.animator.SetBool("isCrouching", false);
         UpdateFootStepsRad();
         UpdateSpeedMultiplier();
     }

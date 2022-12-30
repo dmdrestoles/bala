@@ -23,6 +23,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     public PlayerMoveCrouchState crouchState = new PlayerMoveCrouchState();
     public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
     public PlayerMoveIdleState idleState = new PlayerMoveIdleState();
+    public PlayerMoveCrouchWalkState crouchWalkState = new PlayerMoveCrouchWalkState();
     CharacterController controller;
     public WeaponManager weaponManager;
     public Animator animator;
@@ -57,9 +58,13 @@ public class PlayerMoveStateManager : MonoBehaviour
 
     void HandleIdle()
     {
-        if (move.magnitude == 0 && currentState != crouchState)
+        if (move.magnitude == 0 && currentState != crouchState && currentState != crouchWalkState)
         {
             SwitchState(idleState);
+        }
+        else if (move.magnitude == 0 && (currentState == crouchState || currentState == crouchWalkState))
+        {
+            SwitchState(crouchState);
         }
     }
     //Handles movement using the wasd keys
@@ -95,7 +100,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     public void SwitchState(PlayerMoveBaseState state)
     {
         currentState = state;
-        //Debug.Log("Debug: " + currentState.ToString());
+        Debug.Log("Debug: " + currentState.ToString());
         state.EnterState(this);
     }
 
