@@ -20,7 +20,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     public PlayerMoveBaseState currentState;
     public PlayerMoveWalkState walkState = new PlayerMoveWalkState();
     public PlayerMoveSprintState sprintState = new PlayerMoveSprintState();
-    public PlayerMoveCrouchState crouchState = new PlayerMoveCrouchState();
+    public PlayerMoveCrouchIdleState crouchState = new PlayerMoveCrouchIdleState();
     public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
     public PlayerMoveIdleState idleState = new PlayerMoveIdleState();
     public PlayerMoveCrouchWalkState crouchWalkState = new PlayerMoveCrouchWalkState();
@@ -100,7 +100,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     public void SwitchState(PlayerMoveBaseState state)
     {
         currentState = state;
-        Debug.Log("Debug: " + currentState.ToString());
+        //Debug.Log("Debug: " + currentState.ToString());
         state.EnterState(this);
     }
 

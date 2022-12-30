@@ -44,10 +44,10 @@ public class PlayerMoveCrouchWalkState : PlayerMoveBaseState
             playerMovement.cameraHolder.transform.position = new Vector3
             (
                 playerMovement.cameraHolder.transform.position.x, 
-                playerMovement.cameraHolder.transform.position.y + 0.2f, 
+                playerMovement.cameraHolder.transform.position.y - 0.2f, 
                 playerMovement.cameraHolder.transform.position.z
             );
-            playerMovement.crouchHeight -= 0.2f;
+            playerMovement.crouchHeight += 0.2f;
         }
     }
 
