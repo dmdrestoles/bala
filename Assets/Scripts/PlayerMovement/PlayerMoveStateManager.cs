@@ -4,34 +4,43 @@ using UnityEngine;
 
 public class PlayerMoveStateManager : MonoBehaviour
 {
+    [Header("Stats")]
     public float moveSpeed = 20f;
     public float gravity = 0;
     public float jumpHeight = 4.0f;
     public float maxCrouchHeight = 0.55f;
     public int energy = 6;
     public float speed;
+    public Vector3 move;
+    public float crouchHeight;
+
+    [Header("States")]
+    public bool isGrounded;
+    public PlayerMoveBaseState currentState;
+
+    [Header("Object References")]
     public Transform groundCheck;
     public CapsuleCollider footSteps;
     public AudioSource bushrustling;
     public GameObject cameraHolder, playerBody;
-    public float crouchHeight;
-    public bool isGrounded;
     public Vector3 velocity;
-    public PlayerMoveBaseState currentState;
-    public PlayerMoveWalkState walkState = new PlayerMoveWalkState();
-    public PlayerMoveSprintState sprintState = new PlayerMoveSprintState();
-    public PlayerMoveCrouchState crouchState = new PlayerMoveCrouchState();
-    public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
-    public PlayerMoveIdleState idleState = new PlayerMoveIdleState();
-    CharacterController controller;
     public WeaponManager weaponManager;
     public Animator animator;
     public LayerMask groundMask;
+
+    [Header("Move States")]
+    public PlayerMoveWalkState walkState = new PlayerMoveWalkState();
+    public PlayerMoveSprintState sprintState = new PlayerMoveSprintState();
+    public PlayerMoveCrouchIdleState crouchState = new PlayerMoveCrouchIdleState();
+    public PlayerMoveJumpState jumpState = new PlayerMoveJumpState();
+    public PlayerMoveIdleState idleState = new PlayerMoveIdleState();
+    public PlayerMoveCrouchWalkState crouchWalkState = new PlayerMoveCrouchWalkState();
+
     Vector3 originalCamPos;
     float groundDistance = 0.2f;
     bool energyDraining = true;
     bool energyGaining = true;
-    public Vector3 move;
+    CharacterController controller;
 
     void Start()
     {
@@ -57,9 +66,13 @@ public class PlayerMoveStateManager : MonoBehaviour
 
     void HandleIdle()
     {
-        if (move.magnitude == 0 && currentState != crouchState)
+        if (move.magnitude == 0 && currentState != crouchState && currentState != crouchWalkState)
         {
             SwitchState(idleState);
+        }
+        else if (move.magnitude == 0 && (currentState == crouchState || currentState == crouchWalkState))
+        {
+            SwitchState(crouchState);
         }
     }
     //Handles movement using the wasd keys

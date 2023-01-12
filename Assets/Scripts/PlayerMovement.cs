@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
                 playerState.isSprinting = true;
                 playerState.isCrouching = false;
                 animator.SetBool("isRunning", true);
+                animator.SetBool("isAiming", false);
                 footSteps.gameObject.GetComponent<CapsuleCollider>().radius = 10;
                 speed = moveSpeed * 1.5f;
                 if (energyDraining)

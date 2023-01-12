@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class PickupStateManager : MonoBehaviour
 {
+    [Header("Object Info")]
+    public string objectName;
+    public bool isMain, isPrimary, isSecondary, isMelee;
+
+    [Header("States")]
     public PickupBaseState currentState;
     public PickupDebugState debugState;
     public PickupGlowingState glowingState;
     public PickupRestState restState;
 
-    public bool isMain, isPrimary, isSecondary, isMelee;
-
+    [Header("Object References")]
     public MouseLook mouseLook;
-    public string objectName;
-
     public GameObject codexNotif;
     public GameObject codex;
     public Sprite sprite;
-
     public WeaponManager weaponManager;
     public GameObject primaryInv, secondaryInv, meleeInv;
     public AudioSource pickupSFX;

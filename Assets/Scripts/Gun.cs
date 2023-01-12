@@ -4,54 +4,58 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Gun Information")]
+    public string weaponName;
+    public Image weaponImage;
+
+    [Header("Gun Values")]
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
     public float impactForce = 30f;
     public float reloadTime = 3f;
     public float bulletReload = 0.5f;
-
     public int maxAmmo = 50;
     public int magazineAmmo = 5;
     public int currentAmmo;
-    
-    public string weaponName;
-    public Image weaponImage;
-
     public bool isReliable = true;
-    public bool isActive = false;
     public bool isEnemy = false;
     public bool isSilent = false;
 
+    [Header("Gun Status")]
+    public bool isActive = false;
+    public bool isFiring = false;
+    private float nextTimeToFire = 0f;
+    bool isReloading = false;
+    bool isAiming = false;
+
+    [Header("Object References")]
     public GameObject gunInstance;
     public GameObject gunModelInHand;
     public Rigidbody dart;
     public GameObject bullet, crosshair;
     public Transform dartOrigin, bulletOrigin;
+    public Camera fpsCamera;
+    public ParticleSystem muzzleFlash, aimedMuzzleFlash;
+    public GameObject gunShotGO;
+    public MouseLook mouseLook;
+    public CameraShake cameraShake;
+
+    [Header("Audio")]
     public AudioSource fireSound;
     public AudioSource fullReloadSound;
     public AudioSource startReloadSound;
     public AudioSource loadBulletSound;
     public AudioSource endReloadSound;
-
-    public Camera fpsCamera;
-    public ParticleSystem muzzleFlash, aimedMuzzleFlash;
-    public bool isFiring = false;
-    public GameObject gunShotGO;
-
-    private float nextTimeToFire = 0f;
-    bool isReloading = false;
-    bool isAiming = false;
-    public MouseLook mouseLook;
-    public CameraShake cameraShake;
-    //For Ammo Count UI
+    
+    [Header("UI References")]
     public GameObject currentAmmoUI;
     public GameObject maxAmmoUI;
 
-    // Animations
+    [Header("Animator Info")]
     public Animator animator;
     public AnimatorOverrideController controller;
-    public float relAnimSpeed, fireAnimSpeed, aimAnimSpeed;
+    public float relAnimSpeed, fireAnimSpeed, aimAnimSpeed, moveAnimSpeed;
 
     void Start()
     {
@@ -73,6 +77,7 @@ public class Gun : MonoBehaviour
         animator.SetFloat("relAnimSpeed", relAnimSpeed);
         animator.SetFloat("fireAnimSpeed", fireAnimSpeed);
         animator.SetFloat("aimAnimSpeed", aimAnimSpeed);
+        animator.SetFloat("moveAnimSpeed", moveAnimSpeed);
         //Debug.Log(animator.GetFloat("relAnimSpeed"));
         if ( !isEnemy && GameManager.IsInputEnabled )
         {
@@ -81,7 +86,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", !animator.GetBool("isAiming"));
                 DisableCrosshair();
@@ -97,12 +102,16 @@ public class Gun : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0)
             {
+                animator.SetBool("isAiming", false);
+                DisableCrosshair();
                 StartCoroutine(FullReload());
                 return;
             }
 
             else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0)
             {
+                animator.SetBool("isAiming", false);
+                DisableCrosshair();
                 StartCoroutine(HotReload());
                 return;
             }
@@ -183,14 +192,18 @@ public class Gun : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("isReloading", true);
+        Debug.Log("Reloading start!");
         animator.ResetTrigger("Firing");
         yield return new WaitForSeconds(0.25f);
         fullReloadSound.Play();
+        Debug.Log("Reloading wait!");
         yield return new WaitForSeconds(reloadTime);
+        Debug.Log("Update ammo!");
         maxAmmo -= magazineAmmo;
         currentAmmo = magazineAmmo;
-        yield return new WaitForSeconds(0.25f);
+        //yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", false);
+        Debug.Log("Reloading done!");
         isReloading = false;
     }
     void Shoot()

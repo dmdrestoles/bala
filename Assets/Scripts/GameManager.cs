@@ -5,11 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
+    [Header("Game States")]
     bool gameHasEnded = false;
 
+    [Header("Game Values")]
     public float restartDelay = 1f;
     public static bool IsInputEnabled = true;
 
+    [Header("Object References")]
     public GameObject reachedBridgeUI;
     public GameObject playerDiedUI;
     public GameObject mainCanvas;
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
     public static GameObject objectiveUI;
 
     // Objectives related
+    [Header("Objectives Scoring")]
     public static int mainObjective, easterEggObjectives, rifleObjective, revolverObjective, ghostObjective, pacifistObjective, killObjective;
 
     [HideInInspector]
