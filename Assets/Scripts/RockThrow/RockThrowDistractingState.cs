@@ -7,6 +7,7 @@ public class RockThrowDistractingState : RockThrowBaseState
     public override void EnterState(RockThrowStateManager sm)
     {
         sm.coll.radius = 10.0f;
+        sm.rockThrowSFX.Play();
     }
 
     public override void UpdateState(RockThrowStateManager sm)

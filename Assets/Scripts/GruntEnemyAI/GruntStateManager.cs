@@ -56,7 +56,7 @@ public class GruntStateManager : MonoBehaviour
             agent.enabled = true;
             HandleSleep();
             HandleDeath();
-            currentState.UpdateState(this);
+            //currentState.UpdateState(this);
             UpdateAwareColor();
             if (awareness.susObject)
             {

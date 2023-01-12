@@ -6,7 +6,7 @@ public class PickupStateManager : MonoBehaviour
 {
     public PickupBaseState currentState;
     public PickupDebugState debugState;
-    public PickupLookingAtState lookAtState;
+    public PickupGlowingState glowingState;
     public PickupRestState restState;
 
     public bool isMain, isPrimary, isSecondary, isMelee;
@@ -20,18 +20,22 @@ public class PickupStateManager : MonoBehaviour
 
     public WeaponManager weaponManager;
     public GameObject primaryInv, secondaryInv, meleeInv;
+    public AudioSource pickupSFX;
+    
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.AddComponent<PickupDebugState>();
-        gameObject.AddComponent<PickupLookingAtState>();
+        gameObject.AddComponent<PickupGlowingState>();
         gameObject.AddComponent<PickupRestState>();
 
         debugState = gameObject.GetComponent<PickupDebugState>();
-        lookAtState = gameObject.GetComponent<PickupLookingAtState>();
+        glowingState = gameObject.GetComponent<PickupGlowingState>();
         restState = gameObject.GetComponent<PickupRestState>();
 
+        player = GameObject.Find("Player");
         if (isMain)
         {
             currentState = debugState;
@@ -55,6 +59,10 @@ public class PickupStateManager : MonoBehaviour
     {
         currentState = newState;
         currentState.EnterState(this);
+    }
+
+    public bool IsPlayerNear(){
+        return Vector3.Distance(player.transform.position, gameObject.transform.position) <= 25;
     }
 
     public bool OnMouseOver(){

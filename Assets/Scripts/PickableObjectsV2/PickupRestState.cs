@@ -11,9 +11,9 @@ public class PickupRestState : PickupBaseState
 
     public override void UpdateState(PickupStateManager psm)
     {
-        if (psm.OnMouseOver())
+        if (psm.IsPlayerNear())
         {
-            psm.Transition(psm.lookAtState);
+            psm.Transition(psm.glowingState);
         }
     }
 }

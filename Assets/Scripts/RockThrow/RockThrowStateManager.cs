@@ -7,6 +7,7 @@ public class RockThrowStateManager : MonoBehaviour
     public RockThrowBaseState currentState;
     public LayerMask groundMask;
     public CapsuleCollider coll;
+    public AudioSource rockThrowSFX;
     //public string currentStateString;
     //public GameObject rock, origin;
 
@@ -18,6 +19,7 @@ public class RockThrowStateManager : MonoBehaviour
     {
         currentState = thrownState;
         currentState.EnterState(this);
+        rockThrowSFX = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()

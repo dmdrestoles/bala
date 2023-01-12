@@ -162,8 +162,11 @@ public class GameManager : MonoBehaviour
     {
         if (objectiveName == "Main")
         {
+            AudioSource objectiveCompleteSFX = GameObject.Find("ObjectiveCompleteSFX").GetComponent<AudioSource>();
+
             mainObjective = 1;
             objectiveUI.GetComponent<Text>().text = "Get the Letter and Escape (1/1)";
+            objectiveCompleteSFX.Play();
             objectiveUI.SetActive(true);
             GameManager.PerformCoroutine();
             objectiveMarker.SetActive(true);
