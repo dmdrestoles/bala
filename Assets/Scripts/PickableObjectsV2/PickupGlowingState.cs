@@ -60,6 +60,7 @@ public class PickupGlowingState : PickupBaseState
         {
             Debug.Log("Picked up object: " + gameObject.name);
             Debug.Log("Debug: codex notif active " + !psm.codex.activeSelf);
+            HandlePreferences(gameObject.name);
             psm.pickupSFX.Play();
             if (!psm.codex.activeSelf)
             {
@@ -85,6 +86,38 @@ public class PickupGlowingState : PickupBaseState
         }
     }
 
+    void HandlePreferences(string name)
+    {
+        if (name.Contains("Letter-1"))
+        {
+            PlayerPrefs.SetInt("isLetter1Found", 1);
+        } 
+        else if (name.Contains("Letter-2"))
+        {
+            PlayerPrefs.SetInt("isLetter2Found", 1);
+        }
+        else if (name.Contains("Letter-3"))
+        {
+            PlayerPrefs.SetInt("isLetter3Found", 1);
+        }
+        else if (name.Contains("Letter-4"))
+        {
+            PlayerPrefs.SetInt("isLetter4Found", 1);
+        }
+        else if (name.Contains("Letter-5"))
+        {
+            PlayerPrefs.SetInt("isLetter5Found", 1);
+        }
+        else if (name.Contains("Cross"))
+        {
+            PlayerPrefs.SetInt("isCrossFound", 1);
+        }
+        else if (name.Contains("Cedula"))
+        {
+            PlayerPrefs.SetInt("isCedulaFound", 1);
+        }
+    }
+
     void ChangeWeapon(PickupStateManager psm)
     {
         // behavior on weapon change
@@ -93,7 +126,8 @@ public class PickupGlowingState : PickupBaseState
             Melee.isBoloAcquired = true;
             psm.meleeInv.transform.GetChild(1).gameObject.SetActive(true);
             psm.meleeInv.transform.GetChild(0).gameObject.SetActive(false);
-            Debug.Log("Debug: Is Bolo Acquired " + Melee.isBoloAcquired);
+            PlayerPrefs.SetInt("isBoloFound", 1);
+            //Debug.Log("Debug: Is Bolo Acquired " + Melee.isBoloAcquired);
             return;
         }
 
@@ -102,7 +136,15 @@ public class PickupGlowingState : PickupBaseState
             psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
             psm.weaponManager.isPrimary = true;
-
+            if (gameObject.name == "M93")
+            {
+                PlayerPrefs.SetInt("isM93Found", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("isPaltikFound",1);
+            }
+            Debug.Log("Debug: " + gameObject.name + " acquired");
             //psm.primaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
         }
         else if (psm.isSecondary)
@@ -110,6 +152,7 @@ public class PickupGlowingState : PickupBaseState
             psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
             psm.weaponManager.isPrimary = false;
+            PlayerPrefs.SetInt("isRevolverFound", 1);
             //psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
         }
     }
@@ -118,6 +161,7 @@ public class PickupGlowingState : PickupBaseState
     {
         if (psm.objectName== "Ammunition")
         {
+            PlayerPrefs.SetInt("isAmmunitionFound", 1);
             if (psm.weaponManager.primary.activeSelf)
             {
                 //Debug.Log("Debug: Get Max Ammo: "+psm.weaponManager.primary.GetComponent<ActiveWeaponManager>().activeWeapon.GetComponent<Gun>().maxAmmo);

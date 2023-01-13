@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager ready.");
         objectiveUI = mainCanvas.transform.GetChild(7).gameObject;
         objectiveMarker = refObjectiveMarker;
+        InitializePreferences();
+        //ResetPreferences();
     }
 
     public void CompleteLevelOne()
@@ -90,6 +92,13 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Level Summary...";
         reachedBridgeUI.SetActive(true);
+    
+        PlayerPrefs.SetInt("easterEggObjective",easterEggObjectives);
+        PlayerPrefs.SetInt("rifleObjective",rifleObjective);
+        PlayerPrefs.SetInt("revolverObjective",revolverObjective);
+        PlayerPrefs.SetInt("pacifistObjective",pacifistObjective);
+        PlayerPrefs.SetInt("ghostObjective",ghostObjective);
+        PlayerPrefs.SetInt("killObjective",killObjective);
         Invoke("LoadLevelSummary", 3f);
     }
 
@@ -142,6 +151,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         currentScene = "levelSummary";
         SceneManager.LoadScene("LevelSummary");
+        InitializePreferences();
     }
 
     public void QuitGame()
@@ -153,13 +163,42 @@ public class GameManager : MonoBehaviour
     void Restart()
     {
         mainObjective = 0;
+        /*
         easterEggObjectives = 0;
         rifleObjective = 0;
         revolverObjective = 0;
         pacifistObjective = 1;
         ghostObjective = 1;
         killObjective = 0;
+        */
+        InitializePreferences();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void InitializePreferences()
+    {
+        easterEggObjectives = PlayerPrefs.GetInt("easterEggObjective",0);
+        rifleObjective = PlayerPrefs.GetInt("rifleObjective",0);
+        revolverObjective = PlayerPrefs.GetInt("revolverObjective",0);
+        pacifistObjective = PlayerPrefs.GetInt("pacifistObjective",1);
+        ghostObjective  = PlayerPrefs.GetInt("ghostObjective",1);
+        killObjective = PlayerPrefs.GetInt("killObjective",0);
+
+        //Debug.Log("Debug: " + "PlayerPrefs - Pacifist: " + PlayerPrefs.GetInt("pacifistObjective"));
+        //Debug.Log("Debug: " + "PlayerPrefs - ghost: " + PlayerPrefs.GetInt("ghostObjective"));
+
+        Debug.Log("Debug: " + "PlayerPrefs - Pacifist: " + pacifistObjective);
+        Debug.Log("Debug: " + "PlayerPrefs - ghost: " + ghostObjective);
+    }
+
+    void ResetPreferences()
+    {
+        PlayerPrefs.SetInt("easterEggObjective",0);
+        PlayerPrefs.SetInt("rifleObjective",0);
+        PlayerPrefs.SetInt("revolverObjective",0);
+        PlayerPrefs.SetInt("pacifistObjective",1);
+        PlayerPrefs.SetInt("ghostObjective",1);
+        PlayerPrefs.SetInt("killObjective",0);
     }
 
     public static void UpdateObjective(string objectiveName)
@@ -176,7 +215,7 @@ public class GameManager : MonoBehaviour
             objectiveMarker.SetActive(true);
         }
 
-        else if (objectiveName == "Collectible")
+        else if (objectiveName == "Collectible" && easterEggObjectives < 6)
         {
             easterEggObjectives += 1;
             objectiveUI.GetComponent<Text>().text = "Easter Eggs Collected: " + easterEggObjectives + "/6";
@@ -184,7 +223,7 @@ public class GameManager : MonoBehaviour
             GameManager.PerformCoroutine();
         }
 
-        else if (objectiveName == "M93")
+        else if (objectiveName == "M93" && rifleObjective == 0)
         {
             rifleObjective = 1;
             objectiveUI.GetComponent<Text>().text = "M93 Taken (1/1)";
@@ -192,7 +231,7 @@ public class GameManager : MonoBehaviour
             GameManager.PerformCoroutine();
         }
 
-        else if (objectiveName == "Revolver")
+        else if (objectiveName == "Revolver" && revolverObjective == 0)
         {
             revolverObjective = 1;
             objectiveUI.GetComponent<Text>().text = "Revolver Taken (1/1)";
