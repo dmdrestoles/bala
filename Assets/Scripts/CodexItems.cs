@@ -20,7 +20,7 @@ public class CodexItems : MonoBehaviour
 
         if (name == "Weapons")
         {
-            ArrayList weaponList = new ArrayList { "Bolo", "Paltik", "Sumpit", "SW Model 3", "Remington Rolling Block", "Spanish M93" };
+            ArrayList weaponList = new ArrayList { "BoloCodex", "PaltikCodex", "SumpitCodex", "SW Model 3", "Remington Rolling Block", "Spanish M93" };
             ArrayList weaponDescription = new ArrayList{
             " [insert weapon description for Bolo] ",
             " [insert weapon description for Paltik] ",

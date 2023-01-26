@@ -18,9 +18,9 @@ public class MinimapIcons : MonoBehaviour
     void LateUpdate()
     {
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minimapCamera.transform.position.x - 13.5f, 13.5f + minimapCamera.transform.position.x),
-            transform.position.y + 5f,
-            Mathf.Clamp(transform.position.z, minimapCamera.transform.position.z - 14f, 14f + minimapCamera.transform.position.z)
+            Mathf.Clamp(transform.position.x, minimapCamera.transform.position.x - 39.5f, 39.5f + minimapCamera.transform.position.x),
+            transform.position.y + 10f,
+            Mathf.Clamp(transform.position.z, minimapCamera.transform.position.z - 40f, 40f + minimapCamera.transform.position.z)
             );
     }
 }

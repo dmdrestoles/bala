@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/jjavillo-cbreak-test-scene.unity.meta
 guid: 250d349ad62e4a44abe197eefa60bf6a
 DefaultImporter:
+========
+guid: 77d180fd657a66f4d86eab133cfdcd0c
+NativeFormatImporter:
+>>>>>>>> origin/CathGolles/updated-levels-for-testing:Assets/Images/Materials/SearchArea.mat.meta
   externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

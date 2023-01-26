@@ -47,10 +47,19 @@ public class GameManager : MonoBehaviour
         gameManager.StartCoroutine(Wait());
     }
 
+    void Start()
+    {   
+        if (SceneManager.GetActiveScene().name == "Level2Final")
+        {
+            Melee.isBoloAcquired = true;
+            Debug.Log("Bolo activated!");
+        }
+    }
+
     void Awake()
     {
         Debug.Log("GameManager ready.");
-        objectiveUI = mainCanvas.transform.GetChild(7).gameObject;
+        objectiveUI = mainCanvas.transform.GetChild(10).gameObject;
         objectiveMarker = refObjectiveMarker;
         InitializePreferences();
         //ResetPreferences();
