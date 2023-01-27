@@ -70,7 +70,7 @@ public class GruntRelaxedState : GruntBaseState
         if (elapsed >= 1f) {
             elapsed = elapsed % 1f;
             SusDetected();
-            Debug.Log("Debug: " + this.grunt.susValue);
+            //Debug.Log("Debug: " + this.grunt.susValue);
         }
     }
 }

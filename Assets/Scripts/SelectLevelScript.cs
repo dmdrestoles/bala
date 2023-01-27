@@ -30,6 +30,11 @@ public class SelectLevelScript : MonoBehaviour
         sceneName = "Level4Final";
     }
 
+    public void SelectOutpostLevel()
+    {
+        sceneName = "Jared-Level-5-Scene-Improvments";
+    }
+
     public void setSceneName(string name)
     {
         sceneName = name;

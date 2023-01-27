@@ -35,10 +35,11 @@ public class Melee : MonoBehaviour
 
     public void CheckForEnemies()
     {
-        isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * -meleeRange), out hit);
+        //Debug.Log("Melee attack!");
+        isHitting = Physics.Linecast(playerTransform.position, transform.position + (transform.forward * meleeRange), out hit);
         if (isHitting)
         {
-            Debug.Log("something was hit!");
+            //Debug.Log("something was hit!");
             Debug.Log(hit.transform.name);
             Debug.Log(hit.distance);
             float deg = Vector3.Angle( playerTransform.forward, hit.transform.position - playerTransform.position );
@@ -49,8 +50,7 @@ public class Melee : MonoBehaviour
             && utils.IsHitWithinObjectDistance(hit,meleeRange))
         {
             Debug.Log("Enemy hit!");
-
-            hit.transform.gameObject.GetComponent<EnemyState>().TakeDamage(damage);
+            hit.transform.GetComponent<GruntStateManager>().health -= damage;
         }
     }
  

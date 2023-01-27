@@ -32,7 +32,7 @@ public class WeaponSwitch : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.V))
             {
-                StartCoroutine(MeleeAttack());
+                //StartCoroutine(MeleeAttack());
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))

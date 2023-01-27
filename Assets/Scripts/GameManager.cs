@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the marker!");
+        Debug.Log("You have escaped the firefight!");
         Invoke("LoadLevelTwo", restartDelay);
     }
 
@@ -77,8 +77,8 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the marker!");
-        Invoke("LoadLevelThree", restartDelay);
+        Debug.Log("You have escaped the forest!");
+        Invoke("LoadOutpostLevel", restartDelay);
     }
 
     public void CompleteLevelThree()
@@ -151,6 +151,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "level4";
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void LoadOutpostLevel()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        currentScene = "outpostLevel";
         SceneManager.LoadScene("MainMenu");
     }
 

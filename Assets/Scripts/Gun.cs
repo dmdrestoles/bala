@@ -195,7 +195,7 @@ public class Gun : MonoBehaviour
         Debug.Log("Reloading start!");
         animator.ResetTrigger("Firing");
         yield return new WaitForSeconds(0.25f);
-        fullReloadSound.Play();
+        fullReloadSound?.Play();
         Debug.Log("Reloading wait!");
         yield return new WaitForSeconds(reloadTime);
         Debug.Log("Update ammo!");

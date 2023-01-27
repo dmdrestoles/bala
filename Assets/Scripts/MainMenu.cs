@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject start, level2, level3, level4, videoScriptObject;
+    public GameObject start, level2, level3, level4, outpostLevel, videoScriptObject;
     public VideoPlayerScript videoPlayerScript;
     void Start()
     {
@@ -21,6 +21,11 @@ public class MainMenu : MonoBehaviour
         {
             start.SetActive(false);
             level4.SetActive(true);
+        }
+        else if (GameManager.currentScene == "outpostLevel")
+        {
+            start.SetActive(false);
+            outpostLevel.SetActive(true);
         }
     }
     public void PlayGame()
