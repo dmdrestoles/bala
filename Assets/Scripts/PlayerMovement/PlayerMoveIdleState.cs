@@ -43,7 +43,7 @@ public class PlayerMoveIdleState : PlayerMoveBaseState
 
     public override void UpdateFootStepsRad()
     {
-        playerMovement.footSteps.radius = 4;
+        playerMovement.footSteps.radius = 1;
     }
 
     public override void UpdateSpeedMultiplier()

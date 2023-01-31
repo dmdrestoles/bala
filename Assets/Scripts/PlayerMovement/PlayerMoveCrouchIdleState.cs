@@ -35,7 +35,7 @@ public class PlayerMoveCrouchIdleState : PlayerMoveBaseState
 
     public override void UpdateFootStepsRad()
     {
-        playerMovement.footSteps.radius = 2;
+        playerMovement.footSteps.radius = 0.5f;
     }
 
     public override void UpdateSpeedMultiplier()

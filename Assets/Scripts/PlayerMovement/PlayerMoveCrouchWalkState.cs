@@ -29,7 +29,7 @@ public class PlayerMoveCrouchWalkState : PlayerMoveBaseState
     }
     public override void UpdateFootStepsRad()
     {
-        playerMovement.footSteps.radius = 3;
+        playerMovement.footSteps.radius = 2.0f;
     }
 
     public override void UpdateSpeedMultiplier()
