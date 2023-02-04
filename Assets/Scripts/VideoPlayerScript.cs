@@ -5,12 +5,13 @@ using UnityEngine.Video;
 
 public class VideoPlayerScript : MonoBehaviour
 {
-    public VideoClip introVid, continueVid, paltikVid;
+    public VideoClip introVid, continueVid, paltikVid, boloVid;
     public SelectLevelScript selectLevelScript;
     private GameObject mainCamera, mainCanvas;
     private VideoPlayer videoPlayer;
     private bool introPlayed = false;
     private bool paltikPlayed = false;
+    private bool boloPlayed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class VideoPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!videoPlayer.isPlaying && (introPlayed || paltikPlayed))
+        if(!videoPlayer.isPlaying && (introPlayed || paltikPlayed || boloPlayed))
         {
             PlayContinueClip();
         }
@@ -47,6 +48,16 @@ public class VideoPlayerScript : MonoBehaviour
         paltikPlayed = true;
         Debug.Log(videoPlayer.clip.name);
         videoPlayer.clip = paltikVid;
+        videoPlayer.Play();
+        mainCanvas.SetActive(false);
+    }
+
+    public void PlayBoloVid()
+    {
+        FindMainCanvasMaincamera();
+        boloPlayed = true;
+        Debug.Log(videoPlayer.clip.name);
+        videoPlayer.clip = boloVid;
         videoPlayer.Play();
         mainCanvas.SetActive(false);
     }
@@ -76,6 +87,12 @@ public class VideoPlayerScript : MonoBehaviour
             else if (paltikPlayed)
             {
                 selectLevelScript.SelectLevelTwo();
+                selectLevelScript.PlayScene();
+            }
+
+            else if (boloPlayed)
+            {
+                selectLevelScript.SelectOutpostLevel();
                 selectLevelScript.PlayScene();
             }
         }

@@ -24,8 +24,8 @@ public class MainMenu : MonoBehaviour
         }
         else if (GameManager.currentScene == "outpostLevel")
         {
-            start.SetActive(false);
-            outpostLevel.SetActive(true);
+            videoScriptObject.SetActive(true);
+            videoPlayerScript.PlayBoloVid();
         }
     }
     public void PlayGame()
