@@ -91,10 +91,10 @@ public class GameManager : MonoBehaviour
 
     public void CompleteLevelFour()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
-        reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the safehouse!");
-        Invoke("LoadMainMenu", 3f);
+        //reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
+        //reachedBridgeUI.SetActive(true);
+        //Debug.Log("You have reached the safehouse!");
+        Invoke("LoadMainMenu", 0.2f);
     }
 
     public void CompleteLevelFive()
@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
 
     void LoadMainMenu()
     {
+        Debug.Log("LOADING TO MAIN MENU");
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "MainMenu";

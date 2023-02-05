@@ -20,25 +20,30 @@ public class CodexItems : MonoBehaviour
 
         if (name == "Weapons")
         {
-            ArrayList weaponList = new ArrayList { "BoloCodex", "PaltikCodex", "SumpitCodex", "SW Model 3", "Remington Rolling Block", "Spanish M93" };
+            ArrayList weaponList = new ArrayList { "BoloCodex", "PaltikCodex", "SumpitCodex", "SW Model 3Codex", "Remington Rolling Block", "Mauser 1893Codex" };
             ArrayList weaponDescription = new ArrayList{
-            " [insert weapon description for Bolo] ",
-            " [insert weapon description for Paltik] ",
+            " The Bolo mainly used as a farming tool is also useful in close quarter combat ",
+            " An improvised firearm made using scrap metal and wood; extremely inaccurate ",
             " [insert weapon description for Sumpit] ",
             " A single-action, cartridge-firing revolver. Its top-break cylinder is distinct from most modern revolvers",
             " A breech-loading single-shot rifle used by many colonial armies in the world ",
-            " A bolt-action rifle used mainly by the Spanish Army "
+            " A breech-loading single-shot rifle used by many colonial armies in the world  "
             };
 
             descContainer.SetActive(true);
-            descName.GetComponent<TextMeshProUGUI>().text = image.name;
+            
             descImage.GetComponent<Image>().sprite = image.transform.GetChild(0).GetComponent<Image>().sprite;
             Debug.Log(weaponList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = weaponDescription[weaponList.IndexOf(image.name)].ToString();
+
+            string title = image.name;
+            title = title.Remove(title.Length-5 ,5);
+            descName.GetComponent<TextMeshProUGUI>().text = title;
+            Debug.Log("title:"+title);
         }
         else if (name == "People")
         {
-            ArrayList peopleList = new ArrayList { "PeopleTemplate", "Jose Rizal", "Letter-1", "Letter-2", "Letter-3", "Letter-4", "Letter-5", };
+            ArrayList peopleList = new ArrayList { "PeopleTemplate", "Jose Rizal", "Letter-1Codex", "Letter-2Codex", "Letter-3Codex", "Letter-4Codex", "Letter-5Codex", };
             ArrayList peopleDescription = new ArrayList{
             " [insert weapon description for Person] ",
             " José Rizal, in full José Protasio Rizal Mercado y Alonso Realonda, (born June 19, 1861, Calamba, Philippines—died December 30, 1896, Manila), patriot, physician, and man of letters who was an inspiration to the Philippine nationalist movement.",
@@ -50,9 +55,13 @@ public class CodexItems : MonoBehaviour
             };
 
             descContainer.SetActive(true);
-            descName.GetComponent<TextMeshProUGUI>().text = image.name;
             Debug.Log(peopleList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = peopleDescription[peopleList.IndexOf(image.name)].ToString();
+
+            string title = image.name;
+            title = title.Remove(title.Length-5 ,5);
+            descName.GetComponent<TextMeshProUGUI>().text = title;
+            Debug.Log("title:"+title);
         }
         else if (name == "Locations")
         {
@@ -62,7 +71,7 @@ public class CodexItems : MonoBehaviour
         }
         else if (name == "Collectibles")
         {
-            ArrayList locationList = new ArrayList { "LocationTemplate", "Ammunition", "Cedula", "Cross",  };
+            ArrayList locationList = new ArrayList { "LocationTemplate", "AmmunitionCodex", "CedulaCodex", "CrossCodex",  };
             ArrayList locationDescription = new ArrayList{
             " [insert weapon description for Location] ",
             "The evolution of cartridges allowed for more compact handling of the bullet and gunpowder, while the breach-loading, loading the cartridge from behind the barrel, made it easier to load",
@@ -71,10 +80,14 @@ public class CodexItems : MonoBehaviour
             };
 
             descContainer.SetActive(true);
-            descName.GetComponent<TextMeshProUGUI>().text = image.name;
             descImage.GetComponent<Image>().sprite = image.transform.GetChild(0).GetComponent<Image>().sprite;
             Debug.Log(locationList.IndexOf(image.name));
             description.GetComponent<TextMeshProUGUI>().text = locationDescription[locationList.IndexOf(image.name)].ToString();
+
+            string title = image.name;
+            title = title.Remove(title.Length-5 ,5);
+            descName.GetComponent<TextMeshProUGUI>().text = title;
+            Debug.Log("title:"+title);
         }
     }
 }
