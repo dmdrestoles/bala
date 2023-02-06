@@ -148,7 +148,7 @@ public class GruntStateManager : MonoBehaviour
         {
             awareIndi.SetActive(false);
         }
-        else if(susValue > 0)
+        else if(susValue > 0 && currentState != deathState)
         {
             awareIndi.SetActive(true);
             awareIndi.GetComponent<Renderer>().material.color = Color.Lerp(Color.green, Color.red, susValue/50);
