@@ -221,7 +221,7 @@ public class Gun : MonoBehaviour
         {
             float speed = 50;
 
-            dartForward = Instantiate(dart, dartOrigin.position, dartOrigin.rotation) as Rigidbody;
+            dartForward = Instantiate(dart, dartOrigin.position, Quaternion.Euler(Vector3.forward * Time.fixedDeltaTime)) as Rigidbody;
             dartForward.velocity = transform.TransformDirection(Vector3.forward * -speed);
             return;
         }
