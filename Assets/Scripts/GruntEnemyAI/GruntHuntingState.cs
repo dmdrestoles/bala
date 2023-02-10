@@ -14,7 +14,7 @@ public class GruntHuntingState : GruntBaseState
         this.grunt.awareness.awareRadius = 8f;
         this.grunt.agent.speed = 10f;
 
-        GameManager.ghostObjective = 1;
+        PlayerPrefs.SetInt("ghostObjective",0);
     }
 
     public override void SusDetected()

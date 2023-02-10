@@ -9,6 +9,8 @@ public class QuestArea : MonoBehaviour
     public GameObject searchAreaMarker;
     public GameObject collectible;
 
+    static bool mainObjDone = false;
+
     void Update()
     {
         UpdateMinimap();
@@ -20,7 +22,7 @@ public class QuestArea : MonoBehaviour
         {
             minimapHighlight.SetActive(true);
             questMarker.SetActive(false);
-            Debug.Log("Player inside Search Area");
+            // Debug.Log("Player inside Search Area");
         }
     }
     void OnTriggerStay(Collider col)
@@ -29,7 +31,7 @@ public class QuestArea : MonoBehaviour
         {
             minimapHighlight.SetActive(true);
             questMarker.SetActive(false);
-            Debug.Log("Player still inside of Search Area");
+            // Debug.Log("Player still inside of Search Area");
         }
     }
     void OnTriggerExit(Collider col)
@@ -38,7 +40,7 @@ public class QuestArea : MonoBehaviour
         {
             minimapHighlight.SetActive(false);
             questMarker.SetActive(true);
-            Debug.Log("Player went out");
+            // Debug.Log("Player went out");
         }
     }
 
@@ -55,11 +57,11 @@ public class QuestArea : MonoBehaviour
 
             if (name == "Letter-4")
             {
-                Debug.Log("Disable Search Area 7.1");
+                // Debug.Log("Disable Search Area 7.1");
                 this.transform.parent.Find("SearchAreaMarker").gameObject.SetActive(false);
             }
         }
-        else if (this.transform.parent.name == "Search Area7.4")
+        else if (this.transform.parent.name == "Search Area7.4" && !mainObjDone)
         {
             if (collectible.transform.childCount < 2)
             {
@@ -80,8 +82,9 @@ public class QuestArea : MonoBehaviour
                     obj.SetActive(false);
                 }
 
-                Debug.Log("Disable Search Area 7.4");
+                // Debug.Log("Disable Search Area 7.4");
                 this.transform.parent.Find("SearchAreaMarker").gameObject.SetActive(false);
+                mainObjDone = true;
             }
         }
         else if (collectible.transform.childCount == 0)
