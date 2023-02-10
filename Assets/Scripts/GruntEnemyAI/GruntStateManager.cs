@@ -75,6 +75,12 @@ public class GruntStateManager : MonoBehaviour
         {
             agent.enabled = false;
         }  
+
+        if (isDead == true)
+        {
+            this.transform.Find("Icon").gameObject.SetActive(false);
+            this.transform.Find("Hat").GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void SwitchState(GruntBaseState state)

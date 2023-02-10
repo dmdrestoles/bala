@@ -29,23 +29,23 @@ public class GameManager : MonoBehaviour
     public static string currentScene = "MainMenu";
     static GameManager gameManager;
 
-    private static void Init()
+    /*private static void Init()
     {
         if (gameManager == null)
         {
             GameObject go = new GameObject("Game Manager");
             gameManager = go.AddComponent<GameManager>();
         }
-    }
+    }*/
 
     public static void PerformCoroutine()
     {
         //Call the Initialization
-        Init();
+        //Init();
 
 
         //Call the Coroutine
-        gameManager.StartCoroutine(Wait());
+       // gameManager.StartCoroutine(Wait());
     }
 
     void Start()
