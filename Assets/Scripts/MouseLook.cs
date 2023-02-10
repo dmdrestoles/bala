@@ -38,7 +38,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
         {
             selectedObject = hitObject.transform.gameObject.name;
-            //Debug.Log(selectedObject+"------"+hitObject.distance);
+            Debug.Log(selectedObject+"------"+hitObject.distance);
         }    
     }
 

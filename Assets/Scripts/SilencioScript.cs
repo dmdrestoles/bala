@@ -23,10 +23,10 @@ public class SilencioScript : MonoBehaviour
 
     IEnumerator RemoveDisplay()
     {
-        Debug.Log("Start waiting");
+        // Debug.Log("Start waiting");
         yield return new WaitForSeconds(3);
         this.GetComponent<Text>().text = "";
         // this.SetActive(false);
-        Debug.Log("End waiting");
+        // Debug.Log("End waiting");
     }
 }
