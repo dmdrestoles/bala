@@ -19,7 +19,6 @@ public class CodexPreferencesManager : MonoBehaviour
         InitializeCodexGO();
         InitializePreferences();
         UpdateCodexWithPreferences();
-        // RestartCodexPreferences();
     }
 
     // Update is called once per frame

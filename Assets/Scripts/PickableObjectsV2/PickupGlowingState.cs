@@ -152,8 +152,13 @@ public class PickupGlowingState : PickupBaseState
             psm.weaponManager.secondary.GetComponent<ActiveWeaponManager>().SetNewWeapon(gameObject.name);
             psm.weaponManager.isPickup = true;
             psm.weaponManager.isPrimary = false;
+
+            psm.secondaryInv.transform.GetChild(1).gameObject.SetActive(true);
+            psm.secondaryInv.transform.GetChild(0).gameObject.SetActive(false);
+            psm.secondaryInv.transform.GetChild(1).GetComponent<Image>().sprite = psm.sprite;
+
             PlayerPrefs.SetInt("isRevolverFound", 1);
-            //psm.secondaryInv.transform.GetChild(0).GetComponent<Image>().sprite = psm.sprite;
+            
         }
     }
 
