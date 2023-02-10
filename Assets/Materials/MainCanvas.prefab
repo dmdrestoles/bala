@@ -924,7 +924,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
-    m_FontSize: 60
+    m_FontSize: 55
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -932,8 +932,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'You have escaped the encirclement!
 
@@ -1046,8 +1046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 502.4, y: 224.5}
-  m_SizeDelta: {x: -1027, y: -469}
+  m_AnchoredPosition: {x: 457.66, y: 204.53}
+  m_SizeDelta: {x: -939.28687, y: -432.00885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &127706991148455983
 CanvasRenderer:
@@ -3310,8 +3310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 543.16, y: 204.52}
-  m_SizeDelta: {x: -1105.4115, y: -429.51727}
+  m_AnchoredPosition: {x: 457.5, y: 204.52}
+  m_SizeDelta: {x: -1233.2875, y: -429.51727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8618656888020731801
 CanvasRenderer:
