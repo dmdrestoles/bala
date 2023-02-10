@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
 
     [Header("Game Values")]
-    public float restartDelay = 1f;
+    public float restartDelay = 3f;
     public static bool IsInputEnabled = true;
 
     [Header("Object References")]
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject refObjectiveMarker;
     public static GameObject objectiveMarker;
     public static GameObject objectiveUI;
+    public GameObject fade;
 
     // Objectives related
     [Header("Objectives Scoring")]
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
+
+        fade.SetActive(true);
         Debug.Log("You have escaped the firefight!");
         Invoke("LoadLevelTwo", restartDelay);
     }
@@ -77,6 +80,8 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the marker!";
         reachedBridgeUI.SetActive(true);
+
+        fade.SetActive(true);
         Debug.Log("You have escaped the forest!");
         Invoke("LoadOutpostLevel", restartDelay);
     }
@@ -85,23 +90,28 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(1).GetComponent<Text>().text = "You have reached the bridge!";
         reachedBridgeUI.SetActive(true);
+
+        fade.SetActive(true);
         Debug.Log("You have reached the bridge!");
         Invoke("LoadLevelFour", restartDelay);
     }
 
     public void CompleteLevelFour()
     {
-        reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
-        reachedBridgeUI.SetActive(true);
-        Debug.Log("You have reached the safehouse!");
-        Invoke("LoadMainMenu", 3f);
+        //reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Main Menu...";
+        //reachedBridgeUI.SetActive(true);
+        //Debug.Log("You have reached the safehouse!");
+
+        fade.SetActive(true);
+        Invoke("LoadMainMenu", 0.2f);
     }
 
     public void CompleteLevelFive()
     {
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Level Summary...";
         reachedBridgeUI.SetActive(true);
-    
+        
+        fade.SetActive(true);
         PlayerPrefs.SetInt("easterEggObjective",easterEggObjectives);
         PlayerPrefs.SetInt("rifleObjective",rifleObjective);
         PlayerPrefs.SetInt("revolverObjective",revolverObjective);
@@ -124,6 +134,7 @@ public class GameManager : MonoBehaviour
 
     void LoadMainMenu()
     {
+        Debug.Log("LOADING TO MAIN MENU");
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "MainMenu";
