@@ -19,13 +19,16 @@ public class CodexPreferencesManager : MonoBehaviour
         InitializeCodexGO();
         InitializePreferences();
         UpdateCodexWithPreferences();
-        //RestartCodexPreferences();
+        // RestartCodexPreferences();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+         if ( Input.GetKeyDown(KeyCode.F11))
+        {
+            RestartCodexPreferences();
+        }
     }
 
     void UpdateCodexWithPreferences()
@@ -61,9 +64,9 @@ public class CodexPreferencesManager : MonoBehaviour
         collectiblesContainer = GameObject.Find("CollectiblesContainer");
 
         bolo = GameObject.Find("BoloCodex");
-        revolver = GameObject.Find("SWCodex");
+        revolver = GameObject.Find("SW Model 3Codex");
         paltik = GameObject.Find("PaltikCodex");
-        m93 = GameObject.Find("M93Codex");
+        m93 = GameObject.Find("Mauser 1893Codex");
 
         letter1 = GameObject.Find("Letter-1Codex");
         letter2 = GameObject.Find("Letter-2Codex");
@@ -116,6 +119,7 @@ public class CodexPreferencesManager : MonoBehaviour
 
     void RestartCodexPreferences()
     {
+        Debug.Log("Resetting codex preferences");
         PlayerPrefs.SetInt("isBoloFound", 0);
         PlayerPrefs.SetInt("isPaltikFound", 0);
         PlayerPrefs.SetInt("isRevolverFound", 0);

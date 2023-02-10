@@ -28,15 +28,16 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static string currentScene = "MainMenu";
     static GameManager gameManager;
+    static float elapsed = 0.0f;
 
-    /*private static void Init()
+    private static void Init()
     {
         if (gameManager == null)
         {
             GameObject go = new GameObject("Game Manager");
             gameManager = go.AddComponent<GameManager>();
         }
-    }*/
+    }
 
     public static void PerformCoroutine()
     {
@@ -63,7 +64,15 @@ public class GameManager : MonoBehaviour
         objectiveUI = mainCanvas.transform.GetChild(10).gameObject;
         objectiveMarker = refObjectiveMarker;
         InitializePreferences();
-        //ResetPreferences();
+        // ResetPreferences();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            ResetPreferences();
+        }
     }
 
     public void CompleteLevelOne()
@@ -102,7 +111,6 @@ public class GameManager : MonoBehaviour
         //reachedBridgeUI.SetActive(true);
         //Debug.Log("You have reached the safehouse!");
 
-        fade.SetActive(true);
         Invoke("LoadMainMenu", 0.2f);
     }
 
@@ -221,6 +229,7 @@ public class GameManager : MonoBehaviour
 
     void ResetPreferences()
     {
+        Debug.Log("Resetting game preferences");
         PlayerPrefs.SetInt("easterEggObjective",0);
         PlayerPrefs.SetInt("rifleObjective",0);
         PlayerPrefs.SetInt("revolverObjective",0);
@@ -239,7 +248,6 @@ public class GameManager : MonoBehaviour
             objectiveUI.GetComponent<Text>().text = "Get the Letter and Escape (1/1)";
             objectiveCompleteSFX.Play();
             objectiveUI.SetActive(true);
-            GameManager.PerformCoroutine();
             objectiveMarker.SetActive(true);
         }
 
@@ -248,7 +256,6 @@ public class GameManager : MonoBehaviour
             easterEggObjectives += 1;
             objectiveUI.GetComponent<Text>().text = "Easter Eggs Collected: " + easterEggObjectives + "/6";
             objectiveUI.SetActive(true);
-            GameManager.PerformCoroutine();
         }
 
         else if (objectiveName == "M93" && rifleObjective == 0)
@@ -256,7 +263,6 @@ public class GameManager : MonoBehaviour
             rifleObjective = 1;
             objectiveUI.GetComponent<Text>().text = "M93 Taken (1/1)";
             objectiveUI.SetActive(true);
-            GameManager.PerformCoroutine();
         }
 
         else if (objectiveName == "Revolver" && revolverObjective == 0)
@@ -264,16 +270,15 @@ public class GameManager : MonoBehaviour
             revolverObjective = 1;
             objectiveUI.GetComponent<Text>().text = "Revolver Taken (1/1)";
             objectiveUI.SetActive(true);
-            GameManager.PerformCoroutine();
         }
     }
 
-    public static IEnumerator Wait()
+    static IEnumerator DisplayObjective()
     {
         Debug.Log("Start waiting");
         yield return new WaitForSeconds(3);
-        GameManager.objectiveUI.GetComponent<Text>().text = "";
-        GameManager.objectiveUI.SetActive(false);
+        objectiveUI.GetComponent<Text>().text = "";
+        objectiveUI.SetActive(false);
         Debug.Log("End waiting");
     }
 }
