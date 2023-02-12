@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;                      
 
 public class PickupStateManager : MonoBehaviour
@@ -28,6 +27,7 @@ public class PickupStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         gameObject.AddComponent<PickupDebugState>();
         gameObject.AddComponent<PickupGlowingState>();
         gameObject.AddComponent<PickupRestState>();
@@ -53,7 +53,7 @@ public class PickupStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
-        HandleObjectFallThroughFloor();
+        //HandleObjectFallThroughFloor();
     }
 
     public void Transition(PickupBaseState newState)
@@ -72,11 +72,11 @@ public class PickupStateManager : MonoBehaviour
 
     void HandleObjectFallThroughFloor()
     {
-        if(transform.position.y < -2.8f)
+        if(gameObject.transform.position.y < 0f && SceneManager.GetActiveScene().name == "Jared-Level-5-Scene-Improvments")
         {
-            //Debug.Log("FALLS THROUGH");
-            transform.position = new Vector3(transform.position.x, -2.0f, transform.position.z);
-            transform.rotation = new Quaternion(0,0,0,0);
+            Debug.Log( "Debug: "+ gameObject.name+" FALLS THROUGH " + transform.position.y);
+            transform.position = new Vector3(transform.position.x, transform.position.y+ 3.0f, transform.position.z);
+            //transform.rotation = new Quaternion(0,0,0,0);
         }
     }
 
