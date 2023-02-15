@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject refObjectiveMarker;
     public static GameObject objectiveMarker;
     public static GameObject objectiveUI;
+    public static GameObject objectivePanel;
     public GameObject fade;
 
     // Objectives related
@@ -61,7 +62,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Debug.Log("GameManager ready.");
-        objectiveUI = mainCanvas.transform.GetChild(10).gameObject;
+        objectiveUI = mainCanvas.transform.Find("Objectives").gameObject;
+        objectivePanel = mainCanvas.transform.Find("objPanel").gameObject;
         objectiveMarker = refObjectiveMarker;
         InitializePreferences();
         // ResetPreferences();
@@ -248,6 +250,7 @@ public class GameManager : MonoBehaviour
             objectiveUI.GetComponent<Text>().text = "Get the Letter and Escape (1/1)";
             objectiveCompleteSFX.Play();
             objectiveUI.SetActive(true);
+            objectivePanel.SetActive(true);
             objectiveMarker.SetActive(true);
         }
 
@@ -256,6 +259,7 @@ public class GameManager : MonoBehaviour
             easterEggObjectives += 1;
             objectiveUI.GetComponent<Text>().text = "Easter Eggs Collected: " + easterEggObjectives + "/6";
             objectiveUI.SetActive(true);
+            objectivePanel.SetActive(true);
         }
 
         else if (objectiveName == "M93" && rifleObjective == 0)
@@ -263,6 +267,7 @@ public class GameManager : MonoBehaviour
             rifleObjective = 1;
             objectiveUI.GetComponent<Text>().text = "M93 Taken (1/1)";
             objectiveUI.SetActive(true);
+            objectivePanel.SetActive(true);
         }
 
         else if (objectiveName == "Revolver" && revolverObjective == 0)
@@ -270,15 +275,17 @@ public class GameManager : MonoBehaviour
             revolverObjective = 1;
             objectiveUI.GetComponent<Text>().text = "Revolver Taken (1/1)";
             objectiveUI.SetActive(true);
+            objectivePanel.SetActive(true);
         }
     }
 
-    static IEnumerator DisplayObjective()
+    /*static IEnumerator DisplayObjective()
     {
         Debug.Log("Start waiting");
         yield return new WaitForSeconds(3);
         objectiveUI.GetComponent<Text>().text = "";
         objectiveUI.SetActive(false);
+        objectivePanel.SetActive(true);
         Debug.Log("End waiting");
-    }
+    }*/
 }

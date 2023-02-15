@@ -18,7 +18,7 @@ public class QuestArea : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Player")
+        if (col.gameObject.name == "Player" && this.transform.parent.Find("SearchAreaMarker").gameObject.active)
         {
             minimapHighlight.SetActive(true);
             questMarker.SetActive(false);
@@ -27,16 +27,21 @@ public class QuestArea : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Player")
+        if (col.gameObject.name == "Player" && this.transform.parent.Find("SearchAreaMarker").gameObject.active)
         {
             minimapHighlight.SetActive(true);
             questMarker.SetActive(false);
             // Debug.Log("Player still inside of Search Area");
         }
+        else if (col.gameObject.name == "Player" && !this.transform.parent.Find("SearchAreaMarker").gameObject.active)
+        {
+            minimapHighlight.SetActive(false);
+            //Debug.Log("Player still inside of Search Area but letter is collected");
+        }
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "Player")
+        if (col.gameObject.name == "Player" && this.transform.parent.Find("SearchAreaMarker").gameObject.active)
         {
             minimapHighlight.SetActive(false);
             questMarker.SetActive(true);
@@ -59,6 +64,7 @@ public class QuestArea : MonoBehaviour
             {
                 // Debug.Log("Disable Search Area 7.1");
                 this.transform.parent.Find("SearchAreaMarker").gameObject.SetActive(false);
+                this.transform.parent.Find("QuestMarker").gameObject.SetActive(false);
             }
         }
         else if (this.transform.parent.name == "Search Area7.4" && !mainObjDone)
@@ -84,6 +90,8 @@ public class QuestArea : MonoBehaviour
 
                 // Debug.Log("Disable Search Area 7.4");
                 this.transform.parent.Find("SearchAreaMarker").gameObject.SetActive(false);
+                this.transform.parent.Find("QuestMarker").gameObject.SetActive(false);
+
                 mainObjDone = true;
             }
         }

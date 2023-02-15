@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class SilencioScript : MonoBehaviour
 {
     float elapsed = 0.0f;
+    public static GameObject objPanel;
     // Start is called before the first frame update
     void Start()
     {
-        
+        objPanel = this.transform.parent.Find("objPanel").gameObject;
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class SilencioScript : MonoBehaviour
         // Debug.Log("Start waiting");
         yield return new WaitForSeconds(3);
         this.GetComponent<Text>().text = "";
+        objPanel.SetActive(false);
         // this.SetActive(false);
         // Debug.Log("End waiting");
     }
