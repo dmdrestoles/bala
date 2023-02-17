@@ -16,6 +16,9 @@ public class PlayerMoveWalkState : PlayerMoveBaseState
     }
     public override void UpdateState(PlayerMoveStateManager stateManager)
     {
+        playerMovement.animator.SetBool("isMoving", true);
+        playerMovement.animator.SetBool("isRunning", false);
+        playerMovement.animator.SetBool("isCrouching", false);
         RunEverySecond();
         HandleCrouchingMovement();
         if(Input.GetKeyUp(KeyCode.LeftControl))
