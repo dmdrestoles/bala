@@ -89,6 +89,7 @@ public class WeaponManager : MonoBehaviour
 
     public IEnumerator ChangeWeapon(bool isPrimary)
     {
+        PlayerPrefs.SetFloat("fov", PauseScript.getFOV());
         yield return new WaitForSeconds(0.167f);
         if (isPrimary)
         {
@@ -101,6 +102,6 @@ public class WeaponManager : MonoBehaviour
         animator.Update(0f);
         secondary.SetActive(!isPrimary);
         primary.SetActive(isPrimary);
-        animator.ResetTrigger("Unequip");
+        animator.ResetTrigger("Unequip");;
     }
 }
