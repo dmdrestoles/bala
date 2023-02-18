@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
 
         else if (objectiveName == "Collectible" && easterEggObjectives < 6)
         {
-            easterEggObjectives += 1;
+            easterEggObjectives = PlayerPrefs.GetInt("isLetter1Found") + PlayerPrefs.GetInt("isLetter2Found") + PlayerPrefs.GetInt("isLetter3Found") + PlayerPrefs.GetInt("isLetter5Found") + PlayerPrefs.GetInt("isCrossFound") + PlayerPrefs.GetInt("isCedulaFound");
             objectiveUI.GetComponent<Text>().text = "Easter Eggs Collected: " + easterEggObjectives + "/6";
             objectiveUI.SetActive(true);
             objectivePanel.SetActive(true);

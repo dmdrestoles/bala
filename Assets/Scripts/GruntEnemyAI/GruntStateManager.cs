@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -86,7 +87,7 @@ public class GruntStateManager : MonoBehaviour
     public void SwitchState(GruntBaseState state)
     {
         currentState = state;
-        Debug.Log("Debug: " + currentState.ToString());
+        Debug.Log("Debug: " + currentState.ToString() + " " + gameObject.name);
         state.EnterState(this);
     }
 
@@ -165,7 +166,7 @@ public class GruntStateManager : MonoBehaviour
 
     void HandleDeath()
     {
-        if (this.health <= 0 && !isDead)
+        if (this.health <= 0 && !this.isDead)
         {
             this.isDead = true;
             this.SwitchState(this.deathState);
@@ -179,7 +180,7 @@ public class GruntStateManager : MonoBehaviour
         AlreadyAsleep is a private var which makes sure that this method doesnt fire
         multiple times
         */
-        if (this.isAsleep && !this.AlreadyAsleep)
+        if (this.isAsleep && !this.AlreadyAsleep && !this.isDead) 
         {
             this.AlreadyAsleep = true;
             StartCoroutine(GoToSleep());

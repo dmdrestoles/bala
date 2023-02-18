@@ -45,7 +45,7 @@ public class LevelSummaryScript : MonoBehaviour
         {
             if (objectives[i].name == "Main Objective")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.mainObjective);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("isLetter4Found"));
             }
             if (objectives[i].name == "Easter Eggs")
             {
@@ -53,33 +53,23 @@ public class LevelSummaryScript : MonoBehaviour
             }
             if (objectives[i].name == "M93")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.rifleObjective);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("isM93Found"));
             }
             if (objectives[i].name == "Revolver")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.revolverObjective);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("isRevolverFound"));
             }
             if (objectives[i].name == "No Detection")
             {
-                int check = 0;
-                if (GameManager.ghostObjective == 1)
-                {
-                    check = 1; 
-                }
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), check);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("ghostObjective"));
             }
             if (objectives[i].name == "Pacifist")
             {
-                int check = 0;
-                if (GameManager.pacifistObjective == 1)
-                {
-                    check = 1; 
-                }
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), check);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("pacifistObjective"));
             }
             if (objectives[i].name == "Kill All")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.killObjective);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("killObjective"));
             }
         }
     }
