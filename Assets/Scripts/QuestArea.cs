@@ -54,10 +54,13 @@ public class QuestArea : MonoBehaviour
         var name = "";
         if (this.transform.parent.name == "Search Area7.1")
         {
-            
-            if (collectible.transform.childCount < 2)
+            if (collectible.transform.childCount == 1)
             {
                 name = collectible.transform.GetChild(0).name;
+            }
+            else if (collectible.transform.childCount == 0)
+            {
+                name = "none";
             }
 
             if (name == "Letter-4")
@@ -69,12 +72,16 @@ public class QuestArea : MonoBehaviour
         }
         else if (this.transform.parent.name == "Search Area7.4" && !mainObjDone)
         {
-            if (collectible.transform.childCount < 2)
+            if (collectible.transform.childCount == 1)
             {
                 name = collectible.transform.GetChild(0).name;
             }
+            else if (collectible.transform.childCount == 0)
+            {
+                name = "none";
+            }
 
-            if (name == "Letter-1")
+            if (name == "Letter-1" || name == "none")
             {
                 var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "SearchAreaMarker");
                 var objects1 = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "QuestMarker");
