@@ -19,13 +19,13 @@ public class LevelSummaryScript : MonoBehaviour
 
         EnumerateObjectives();
 
-        Debug.Log(GameManager.mainObjective);
-        Debug.Log(GameManager.easterEggObjectives);
-        Debug.Log(GameManager.rifleObjective);
-        Debug.Log(GameManager.revolverObjective);
-        Debug.Log(GameManager.ghostObjective);
-        Debug.Log(GameManager.pacifistObjective);
-        Debug.Log(GameManager.killObjective);
+        // Debug.Log(GameManager.mainObjective);
+        // Debug.Log(GameManager.easterEggObjectives);
+        // Debug.Log(GameManager.rifleObjective);
+        // Debug.Log(GameManager.revolverObjective);
+        // Debug.Log(GameManager.ghostObjective);
+        // Debug.Log(GameManager.pacifistObjective);
+        // Debug.Log(GameManager.killObjective);
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class LevelSummaryScript : MonoBehaviour
             }
             if (objectives[i].name == "Easter Eggs")
             {
-                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), GameManager.easterEggObjectives);
+                UpdateObjective(objectives[i].transform.GetChild(0).GetComponent<Text>(), PlayerPrefs.GetInt("easterEggObjective"));
             }
             if (objectives[i].name == "M93")
             {

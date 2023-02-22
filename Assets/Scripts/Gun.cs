@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
                 return;
             }
             
-            if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0 && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", false);
                 DisableCrosshair();
@@ -108,7 +108,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0)
+            else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0 && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", false);
                 DisableCrosshair();
