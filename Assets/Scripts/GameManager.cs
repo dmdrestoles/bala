@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         objectiveUI = mainCanvas.transform.Find("Objectives").gameObject;
         objectivePanel = mainCanvas.transform.Find("objPanel").gameObject;
         objectiveMarker = refObjectiveMarker;
-        InitializePreferences();
         // ResetPreferences();
     }
 
@@ -130,6 +129,7 @@ public class GameManager : MonoBehaviour
     {
         reachedBridgeUI.transform.GetChild(0).GetComponent<Text>().text = "You have escaped the Spanish encirclement!\nReturning to Level Summary...";
         reachedBridgeUI.SetActive(true);
+        PlayerPrefs.SetInt("isGameDone", 1);
         
         fade.SetActive(true);
         Invoke("LoadLevelSummary", 3f);
@@ -193,7 +193,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         currentScene = "levelSummary";
         SceneManager.LoadScene("LevelSummary");
-        InitializePreferences();
     }
 
     public void QuitGame()
@@ -211,11 +210,12 @@ public class GameManager : MonoBehaviour
     void InitializePreferences()
     {
         PlayerPrefs.SetInt("easterEggObjective",0);
-        PlayerPrefs.SetInt("rifleObjective",0);
-        PlayerPrefs.SetInt("revolverObjective",0);
+        PlayerPrefs.SetInt("isM93Found",0);
+        PlayerPrefs.SetInt("isRevolverFound",0);
         PlayerPrefs.SetInt("pacifistObjective",1);
         PlayerPrefs.SetInt("ghostObjective",1);
         PlayerPrefs.SetInt("killObjective",0);
+        PlayerPrefs.SetInt("isGameDone", 0);
 
         //Debug.Log("Debug: " + "PlayerPrefs - Pacifist: " + PlayerPrefs.GetInt("pacifistObjective"));
         //Debug.Log("Debug: " + "PlayerPrefs - ghost: " + PlayerPrefs.GetInt("ghostObjective"));
@@ -233,6 +233,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("pacifistObjective",1);
         PlayerPrefs.SetInt("ghostObjective",1);
         PlayerPrefs.SetInt("killObjective",0);
+        PlayerPrefs.SetInt("isGameDone", 0);
     }
 
     public static void UpdateObjective(string objectiveName)
