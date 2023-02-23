@@ -235,12 +235,18 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
             Debug.Log(hit.GetType());
-
             GruntStateManager enemy = hit.transform.GetComponent<GruntStateManager>();
+            EnemyState enemyState = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)
             {
                 enemy.health -= damage;
+            }
+
+            if (enemyState != null)
+            {
+                Debug.Log("HIT");
+                enemyState.TakeDamage(damage);
             }
 
             if (hit.rigidbody != null)
