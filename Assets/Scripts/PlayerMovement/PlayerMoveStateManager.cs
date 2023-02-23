@@ -88,6 +88,7 @@ public class PlayerMoveStateManager : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         move = transform.right * x + transform.forward * z;
+        // Debug.Log("Magnitude: " + move.magnitude + " | " + currentState);
         StartCoroutine(HandleJump());
         //Debug.Log("Debug: " + "Vector Move of Player: " + move);
         velocity.y += gravity * Time.deltaTime;
