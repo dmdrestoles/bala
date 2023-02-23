@@ -33,7 +33,7 @@ public class GruntHuntingState : GruntBaseState
             this.grunt.animator.SetBool("isWalking", false);
         }
         */
-        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 20))
         {
             this.grunt.SwitchState(this.grunt.aimingState);
         }
@@ -79,7 +79,7 @@ public class GruntHuntingState : GruntBaseState
 
     void GoToSus()
     {
-        if (grunt.CheckForPlayertInLineOfSight(60, 12))
+        if (grunt.CheckForPlayerInLineOfSight(60, 12))
         {
             this.grunt.SwitchState(this.grunt.aimingState);
         }

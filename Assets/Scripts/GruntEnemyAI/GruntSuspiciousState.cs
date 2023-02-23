@@ -16,7 +16,12 @@ public class GruntSuspiciousState : GruntBaseState
 
     public override void SusDetected()
     {
-        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
+        {
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
+        }
+        else if (this.grunt.CheckForPlayerInLineOfSight(45, 20) && this.grunt.playerMoveStateManager.isVisible)
         {
             this.grunt.susValue = 50;
             this.grunt.SwitchState(this.grunt.huntingState);

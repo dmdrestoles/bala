@@ -26,6 +26,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntFiringState firingState = new GruntFiringState();
     public GruntDeathState deathState = new GruntDeathState();
     public GruntSleepState sleepState = new GruntSleepState();
+    public PlayerMoveStateManager playerMoveStateManager;
     public PlayerState playerState;
     public AudioSource reloadAud, fireAud;
     public ParticleSystem muzzleFlash;
@@ -46,6 +47,7 @@ public class GruntStateManager : MonoBehaviour
         body = GetComponent<Rigidbody>();
         currentState = relaxedState;
         currentState.EnterState(this);
+        playerMoveStateManager = GameObject.Find("Player").GetComponent<PlayerMoveStateManager>();
 
         originalPos = transform.position;
     }
@@ -93,7 +95,7 @@ public class GruntStateManager : MonoBehaviour
         state.EnterState(this);
     }
 
-    public bool CheckForPlayertInLineOfSight(float angle, float distance)
+    public bool CheckForPlayerInLineOfSight(float angle, float distance)
     {
         Vector3 selfPos = new Vector3(this.transform.position.x , this.transform.position.y + 3, this.transform.position.z);
         bool result = false;

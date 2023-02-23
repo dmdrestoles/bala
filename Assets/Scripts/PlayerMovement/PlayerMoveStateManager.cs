@@ -16,6 +16,7 @@ public class PlayerMoveStateManager : MonoBehaviour
 
     [Header("States")]
     public bool isGrounded;
+    public bool isVisible;
     public PlayerMoveBaseState currentState;
 
     [Header("Object References")]
@@ -118,11 +119,11 @@ public class PlayerMoveStateManager : MonoBehaviour
     {
         if (other.gameObject.tag == "HidingSpot" && this.currentState == crouchState)
         {
-            // playerState.isVisible = false;
+            this.isVisible = false;
         }
         else
         {
-            // playerState.isVisible = true;
+            this.isVisible = true;
         }
         
         if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) && other.gameObject.tag == "HidingSpot")
@@ -138,7 +139,7 @@ public class PlayerMoveStateManager : MonoBehaviour
     {
         if (other.gameObject.tag == "HidingSpot")
         {
-           //playerState.isVisible = true;
+           this.isVisible = true;
         }
     }
 
