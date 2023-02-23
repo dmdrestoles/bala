@@ -81,6 +81,8 @@ public class GruntStateManager : MonoBehaviour
         {
             this.transform.Find("Icon").gameObject.SetActive(false);
             this.transform.Find("Hat").GetChild(0).gameObject.SetActive(false);
+            this.reloadAud.Stop();
+            this.fireAud.Stop();
         }
     }
 

@@ -118,11 +118,11 @@ public class PlayerMoveStateManager : MonoBehaviour
     {
         if (other.gameObject.tag == "HidingSpot" && this.currentState == crouchState)
         {
-            //playerState.isVisible = false;
+            // playerState.isVisible = false;
         }
         else
         {
-            //playerState.isVisible = true;
+            // playerState.isVisible = true;
         }
         
         if ((Input.GetButton("Vertical") || Input.GetButton("Horizontal")) && other.gameObject.tag == "HidingSpot")
