@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
     void LoadMainMenu()
     {
         Debug.Log("LOADING TO MAIN MENU");
+        InitializePreferences();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "MainMenu";
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         currentScene = "outpostLevel";
+        InitializePreferences();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -203,7 +205,7 @@ public class GameManager : MonoBehaviour
 
     void Restart()
     {
-        InitializePreferences();
+        ResetPreferences();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -227,9 +229,6 @@ public class GameManager : MonoBehaviour
     void ResetPreferences()
     {
         Debug.Log("Resetting game preferences");
-        PlayerPrefs.SetInt("easterEggObjective",0);
-        PlayerPrefs.SetInt("rifleObjective",0);
-        PlayerPrefs.SetInt("revolverObjective",0);
         PlayerPrefs.SetInt("pacifistObjective",1);
         PlayerPrefs.SetInt("ghostObjective",1);
         PlayerPrefs.SetInt("killObjective",0);
@@ -252,9 +251,9 @@ public class GameManager : MonoBehaviour
         else if (objectiveName == "Collectible")
         {
             Debug.Log(PlayerPrefs.GetInt("easterEggObjective"));
-            int numOfEasterEggs = PlayerPrefs.GetInt("easterEggObjective") + 1;
-            PlayerPrefs.SetInt("easterEggObjective", numOfEasterEggs);
-            // easterEggObjectives = PlayerPrefs.GetInt("isLetter1Found") + PlayerPrefs.GetInt("isLetter2Found") + PlayerPrefs.GetInt("isLetter3Found") + PlayerPrefs.GetInt("isLetter5Found") + PlayerPrefs.GetInt("isCrossFound") + PlayerPrefs.GetInt("isCedulaFound");
+            // int numOfEasterEggs = PlayerPrefs.GetInt("easterEggObjective") + 1;
+            int easterEggObjectives = PlayerPrefs.GetInt("isLetter1Found") + PlayerPrefs.GetInt("isLetter2Found") + PlayerPrefs.GetInt("isLetter3Found") + PlayerPrefs.GetInt("isLetter5Found") + PlayerPrefs.GetInt("isCrossFound") + PlayerPrefs.GetInt("isCedulaFound");
+            PlayerPrefs.SetInt("easterEggObjective", easterEggObjectives);
             objectiveUI.GetComponent<Text>().text = "Easter Eggs Collected: " + PlayerPrefs.GetInt("easterEggObjective") + "/6";
             objectiveUI.SetActive(true);
             objectivePanel.SetActive(true);

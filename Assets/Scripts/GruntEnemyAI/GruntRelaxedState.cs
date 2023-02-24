@@ -9,7 +9,7 @@ public class GruntRelaxedState : GruntBaseState
     public override void EnterState(GruntStateManager stateManager)
     {
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.StopMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
         this.originalPos = grunt.originalPos;
     }

@@ -13,7 +13,7 @@ public class GruntPatrollingState : GruntBaseState
     {
         patrolStarted = false;
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
     }
 

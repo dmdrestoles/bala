@@ -11,7 +11,7 @@ public class GruntHuntingState : GruntBaseState
         this.grunt.animator.SetBool("isAiming", false);
         this.grunt.animator.SetBool("isMoving", true);
         this.grunt.animator.SetBool("isWalking", false);
-        this.grunt.awareness.awareRadius = 8f;
+        this.grunt.awareness.awareRadius = 10f;
         this.grunt.agent.speed = 10f;
 
         PlayerPrefs.SetInt("ghostObjective",0);
@@ -33,7 +33,7 @@ public class GruntHuntingState : GruntBaseState
             this.grunt.animator.SetBool("isWalking", false);
         }
         */
-        if (this.grunt.CheckForPlayerInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 15))
         {
             this.grunt.SwitchState(this.grunt.aimingState);
         }
