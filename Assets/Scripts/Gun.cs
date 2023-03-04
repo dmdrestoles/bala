@@ -135,7 +135,8 @@ public class Gun : MonoBehaviour
                 }
                 else
                 {
-                    //StartCoroutine(HotReload());
+                    if (isReliable) StartCoroutine(HotReload());
+                    else StartCoroutine(FullReload());
                 }
             }
         }
