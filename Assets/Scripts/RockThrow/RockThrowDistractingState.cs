@@ -6,6 +6,7 @@ public class RockThrowDistractingState : RockThrowBaseState
     float elapsed = 0f;
     public override void EnterState(RockThrowStateManager sm)
     {
+        elapsed = 0f;
         sm.coll.radius = 10.0f;
         sm.rockThrowSFX.Play();
     }
@@ -22,6 +23,7 @@ public class RockThrowDistractingState : RockThrowBaseState
     void TurnInert(RockThrowStateManager sm)
     {
         elapsed += Time.deltaTime;
+        Debug.Log(elapsed);
         if (elapsed >= 5f) {
             elapsed = elapsed % 5f;
             sm.SwitchState(sm.inertState);

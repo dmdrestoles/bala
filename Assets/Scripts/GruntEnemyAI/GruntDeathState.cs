@@ -10,7 +10,8 @@ public class GruntDeathState : GruntBaseState
         grunt.aiMove_Utils.StopMovement(grunt.body,grunt.agent,grunt.animator);
         grunt.awareIndi.SetActive(false);
         PlayerPrefs.SetInt("pacifistObjective",0);
-        PlayerPrefs.SetInt("killObjective", PlayerPrefs.GetInt("killObjective") + 1);
+        int killCounter = PlayerPrefs.GetInt("killObjective") + 1;
+        PlayerPrefs.SetInt("killObjective", killCounter);
     }
 
     public override void UpdateState(GruntStateManager grunt)

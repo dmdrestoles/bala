@@ -9,7 +9,7 @@ public class GruntRelaxedState : GruntBaseState
     public override void EnterState(GruntStateManager stateManager)
     {
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.StopMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
         this.originalPos = grunt.originalPos;
     }
@@ -36,7 +36,12 @@ public class GruntRelaxedState : GruntBaseState
     public override void UpdateState(GruntStateManager stateManager)
     {
         this.originalPos = grunt.originalPos;
-        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
+        {
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
+        }
+        else if (this.grunt.CheckForPlayerInLineOfSight(45, 20) && this.grunt.playerMoveStateManager.isVisible)
         {
             this.grunt.susValue = 50;
             this.grunt.SwitchState(this.grunt.huntingState);

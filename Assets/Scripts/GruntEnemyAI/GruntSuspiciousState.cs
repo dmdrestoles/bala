@@ -11,12 +11,17 @@ public class GruntSuspiciousState : GruntBaseState
         this.grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
         this.grunt.animator.SetBool("isWalking", true);
         this.grunt.agent.speed = 3f;
-        this.grunt.awareness.awareRadius = 5f;
+        this.grunt.awareness.awareRadius = 7f;
     }
 
     public override void SusDetected()
     {
-        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
+        {
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
+        }
+        else if (this.grunt.CheckForPlayerInLineOfSight(45, 20) && this.grunt.playerMoveStateManager.isVisible)
         {
             this.grunt.susValue = 50;
             this.grunt.SwitchState(this.grunt.huntingState);

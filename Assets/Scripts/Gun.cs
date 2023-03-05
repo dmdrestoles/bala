@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
                 return;
             }
             
-            if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0)
+            if (Input.GetKeyDown(KeyCode.R) && !isReliable && currentAmmo == 0 && maxAmmo > 0 && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", false);
                 DisableCrosshair();
@@ -108,7 +108,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0)
+            else if (Input.GetKeyDown(KeyCode.R) && isReliable && currentAmmo < magazineAmmo && maxAmmo > 0 && !animator.GetBool("isRunning"))
             {
                 animator.SetBool("isAiming", false);
                 DisableCrosshair();
@@ -235,12 +235,18 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.forward, out hit, range) && !isSilent )
         {
             Debug.Log(hit.GetType());
-
             GruntStateManager enemy = hit.transform.GetComponent<GruntStateManager>();
+            EnemyState enemyState = hit.transform.GetComponent<EnemyState>();
 
             if (enemy != null)
             {
                 enemy.health -= damage;
+            }
+
+            if (enemyState != null)
+            {
+                Debug.Log("HIT");
+                enemyState.TakeDamage(damage);
             }
 
             if (hit.rigidbody != null)

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 23347514160988619}
   - component: {fileID: 23347514160988660}
   - component: {fileID: 23347514160988661}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Muzzle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 3093838383763555850}
   m_Layer: 0
   m_Name: DEF-f_middle.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4858,7 +4858,7 @@ GameObject:
   - component: {fileID: 7534315205211498958}
   m_Layer: 0
   m_Name: Man1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4889,7 +4889,7 @@ GameObject:
   - component: {fileID: 1542048814586977483}
   m_Layer: 0
   m_Name: DEF-thumb.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 3219074437243701277}
   m_Layer: 0
   m_Name: DEF-f_index.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 2187143120490312246}
   m_Layer: 0
   m_Name: DEF-pelvis.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4982,7 +4982,7 @@ GameObject:
   - component: {fileID: 3501134898983307472}
   m_Layer: 0
   m_Name: DEF-toe.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 1511330579487578552}
   m_Layer: 0
   m_Name: gun_trigger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5042,7 +5042,7 @@ GameObject:
   - component: {fileID: 3233401246741225565}
   m_Layer: 0
   m_Name: DEF-f_ring.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5073,7 +5073,7 @@ GameObject:
   - component: {fileID: 5790143312552169398}
   m_Layer: 0
   m_Name: ORG-shoulder.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5106,7 +5106,7 @@ GameObject:
   - component: {fileID: 1306547354553157029}
   m_Layer: 0
   m_Name: Shoes
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5286,7 +5286,7 @@ GameObject:
   - component: {fileID: 6000181886007638894}
   m_Layer: 0
   m_Name: DEF-palm.04.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5317,7 +5317,7 @@ GameObject:
   - component: {fileID: 6310821107763586763}
   m_Layer: 0
   m_Name: DEF-upper_arm.L.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5350,7 +5350,7 @@ GameObject:
   - component: {fileID: 5939673089385516733}
   m_Layer: 0
   m_Name: Suit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5530,7 +5530,7 @@ GameObject:
   - component: {fileID: 6355809895568834671}
   m_Layer: 0
   m_Name: DEF-thigh.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5561,7 +5561,7 @@ GameObject:
   - component: {fileID: 6026772444733397108}
   m_Layer: 0
   m_Name: DEF-foot.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5592,7 +5592,7 @@ GameObject:
   - component: {fileID: 256150737891697269}
   m_Layer: 0
   m_Name: gun_bullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5622,7 +5622,7 @@ GameObject:
   - component: {fileID: 55359914434587560}
   m_Layer: 0
   m_Name: DEF-shin.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5653,7 +5653,7 @@ GameObject:
   - component: {fileID: 8696112168931838064}
   m_Layer: 0
   m_Name: DEF-f_middle.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5684,7 +5684,7 @@ GameObject:
   - component: {fileID: 3655569960175969247}
   m_Layer: 0
   m_Name: DEF-f_pinky.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5715,7 +5715,7 @@ GameObject:
   - component: {fileID: 3874795780753701371}
   m_Layer: 0
   m_Name: DEF-f_ring.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5746,7 +5746,7 @@ GameObject:
   - component: {fileID: 4262236843289599402}
   m_Layer: 0
   m_Name: ORG-pelvis.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5777,7 +5777,7 @@ GameObject:
   - component: {fileID: 8598860882235600696}
   m_Layer: 0
   m_Name: DEF-f_pinky.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5807,7 +5807,7 @@ GameObject:
   - component: {fileID: 1015572501987468094}
   m_Layer: 0
   m_Name: DEF-thumb.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5838,7 +5838,7 @@ GameObject:
   - component: {fileID: 624292492696775856}
   m_Layer: 0
   m_Name: DEF-hand.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5872,7 +5872,7 @@ GameObject:
   - component: {fileID: 3832761135488009676}
   m_Layer: 0
   m_Name: DEF-f_middle.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5903,7 +5903,7 @@ GameObject:
   - component: {fileID: 3380450347745688624}
   m_Layer: 0
   m_Name: DEF-palm.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5934,7 +5934,7 @@ GameObject:
   - component: {fileID: 2781079618289515055}
   m_Layer: 0
   m_Name: ORG-shoulder.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5966,7 +5966,7 @@ GameObject:
   - component: {fileID: 8983229374943307321}
   m_Layer: 0
   m_Name: gun_shell
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5997,7 +5997,7 @@ GameObject:
   - component: {fileID: 1950525936813865788}
   m_Layer: 0
   m_Name: DEF-upper_arm.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6029,7 +6029,7 @@ GameObject:
   - component: {fileID: 2141332824803898017}
   m_Layer: 0
   m_Name: Eye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6209,7 +6209,7 @@ GameObject:
   - component: {fileID: 1402226067959577135}
   m_Layer: 0
   m_Name: ORG-pelvis.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6240,7 +6240,7 @@ GameObject:
   - component: {fileID: 6851100504331278282}
   m_Layer: 0
   m_Name: DEF-spine.006
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6270,7 +6270,7 @@ GameObject:
   - component: {fileID: 3711779171145796601}
   m_Layer: 0
   m_Name: DEF-upper_arm.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6301,7 +6301,7 @@ GameObject:
   - component: {fileID: 8853079643670109195}
   m_Layer: 0
   m_Name: ORG-palm.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6333,7 +6333,7 @@ GameObject:
   - component: {fileID: 4456817863680665429}
   m_Layer: 0
   m_Name: DEF-thumb.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6364,7 +6364,7 @@ GameObject:
   - component: {fileID: 2345660159023273686}
   m_Layer: 0
   m_Name: DEF-f_pinky.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6395,7 +6395,7 @@ GameObject:
   - component: {fileID: 592557775304112244}
   m_Layer: 0
   m_Name: DEF-f_pinky.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6426,7 +6426,7 @@ GameObject:
   - component: {fileID: 3219100216206375330}
   m_Layer: 0
   m_Name: DEF-palm.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6457,7 +6457,7 @@ GameObject:
   - component: {fileID: 5191759833244715886}
   m_Layer: 0
   m_Name: DEF-palm.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6488,7 +6488,7 @@ GameObject:
   - component: {fileID: 591194445597014946}
   m_Layer: 0
   m_Name: gun_bolt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6519,7 +6519,7 @@ GameObject:
   - component: {fileID: 963067283536001097}
   m_Layer: 0
   m_Name: DEF-thigh.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6550,7 +6550,7 @@ GameObject:
   - component: {fileID: 6739953697691987553}
   m_Layer: 0
   m_Name: DEF-f_pinky.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6580,7 +6580,7 @@ GameObject:
   - component: {fileID: 6210803415786425193}
   m_Layer: 0
   m_Name: ORG-palm.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6614,7 +6614,7 @@ GameObject:
   - component: {fileID: 2945439567713786613}
   m_Layer: 0
   m_Name: Hat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6794,7 +6794,7 @@ GameObject:
   - component: {fileID: 8662101651304860431}
   m_Layer: 0
   m_Name: DEF-toe.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6824,7 +6824,7 @@ GameObject:
   - component: {fileID: 1886020465179400201}
   m_Layer: 0
   m_Name: ORG-palm.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6856,7 +6856,7 @@ GameObject:
   - component: {fileID: 1316058966234979464}
   m_Layer: 0
   m_Name: MCH-spine.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6887,7 +6887,7 @@ GameObject:
   - component: {fileID: 8933703579220257854}
   m_Layer: 0
   m_Name: DEF-f_index.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6918,7 +6918,7 @@ GameObject:
   - component: {fileID: 5871976322317059544}
   m_Layer: 0
   m_Name: DEF-f_ring.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6948,7 +6948,7 @@ GameObject:
   - component: {fileID: 2619485782919250863}
   m_Layer: 0
   m_Name: DEF-upper_arm.R.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6980,7 +6980,7 @@ GameObject:
   - component: {fileID: 5227898467975273472}
   m_Layer: 0
   m_Name: DEF-spine.004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7011,7 +7011,7 @@ GameObject:
   - component: {fileID: 8036725886766744883}
   m_Layer: 0
   m_Name: DEF-f_ring.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7042,7 +7042,7 @@ GameObject:
   - component: {fileID: 1551706512868242215}
   m_Layer: 0
   m_Name: DEF-spine.005
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7073,7 +7073,7 @@ GameObject:
   - component: {fileID: 2467005398309335266}
   m_Layer: 0
   m_Name: ORG-spine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7107,7 +7107,7 @@ GameObject:
   - component: {fileID: 8337384262168635951}
   m_Layer: 0
   m_Name: torso
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7140,7 +7140,7 @@ GameObject:
   - component: {fileID: 1453780383948694696}
   m_Layer: 0
   m_Name: Gun_Wood
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7320,7 +7320,7 @@ GameObject:
   - component: {fileID: 3481564125057281418}
   m_Layer: 0
   m_Name: DEF-palm.04.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7351,7 +7351,7 @@ GameObject:
   - component: {fileID: 7367319793351307498}
   m_Layer: 0
   m_Name: DEF-foot.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7382,7 +7382,7 @@ GameObject:
   - component: {fileID: 5880308334789509352}
   m_Layer: 0
   m_Name: ORG-spine.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7414,7 +7414,7 @@ GameObject:
   - component: {fileID: 5219512418488647229}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7447,7 +7447,7 @@ GameObject:
   - component: {fileID: 6970929449678944100}
   m_Layer: 0
   m_Name: DEF-hand.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7481,7 +7481,7 @@ GameObject:
   - component: {fileID: 274211513825628720}
   m_Layer: 0
   m_Name: DEF-shin.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7512,7 +7512,7 @@ GameObject:
   - component: {fileID: 1579614341877010107}
   m_Layer: 0
   m_Name: DEF-f_index.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7542,7 +7542,7 @@ GameObject:
   - component: {fileID: 4281861620120435001}
   m_Layer: 0
   m_Name: DEF-shin.L.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7573,7 +7573,7 @@ GameObject:
   - component: {fileID: 2648638894667229547}
   m_Layer: 0
   m_Name: DEF-f_ring.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7603,7 +7603,7 @@ GameObject:
   - component: {fileID: 3749173057109161500}
   m_Layer: 0
   m_Name: DEF-thigh.R.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7635,7 +7635,7 @@ GameObject:
   - component: {fileID: 7093663998126748714}
   m_Layer: 0
   m_Name: ORG-palm.04.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7668,7 +7668,7 @@ GameObject:
   - component: {fileID: 8264995918501891106}
   m_Layer: 0
   m_Name: Gun_Plastic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7848,7 +7848,7 @@ GameObject:
   - component: {fileID: 1163712206998015063}
   m_Layer: 0
   m_Name: DEF-f_pinky.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7879,7 +7879,7 @@ GameObject:
   - component: {fileID: 2377020827084769952}
   m_Layer: 0
   m_Name: DEF-forearm.R.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7910,7 +7910,7 @@ GameObject:
   - component: {fileID: 7515045609399093231}
   m_Layer: 0
   m_Name: MCH-spine.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7941,7 +7941,7 @@ GameObject:
   - component: {fileID: 8391781893847751322}
   m_Layer: 0
   m_Name: DEF-f_index.01.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7972,7 +7972,7 @@ GameObject:
   - component: {fileID: 1354052014930722529}
   m_Layer: 0
   m_Name: DEF-palm.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8003,7 +8003,7 @@ GameObject:
   - component: {fileID: 966423579393112191}
   m_Layer: 0
   m_Name: DEF-shin.R.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8036,7 +8036,7 @@ GameObject:
   - component: {fileID: 5121216561382241353}
   m_Layer: 0
   m_Name: Shell
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8216,7 +8216,7 @@ GameObject:
   - component: {fileID: 120077063436686787}
   m_Layer: 0
   m_Name: DEF-palm.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8246,7 +8246,7 @@ GameObject:
   - component: {fileID: 4649847438800560293}
   m_Layer: 0
   m_Name: DEF-f_middle.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8276,7 +8276,7 @@ GameObject:
   - component: {fileID: 2518114701545309382}
   m_Layer: 0
   m_Name: ORG-palm.04.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8308,7 +8308,7 @@ GameObject:
   - component: {fileID: 647371510596514142}
   m_Layer: 0
   m_Name: DEF-spine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8339,7 +8339,7 @@ GameObject:
   - component: {fileID: 9203206090602553744}
   m_Layer: 0
   m_Name: DEF-f_middle.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8385,7 +8385,7 @@ GameObject:
   - component: {fileID: 6470031311816155764}
   m_Layer: 0
   m_Name: Guardia Civil
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9258,7 +9258,7 @@ GameObject:
   - component: {fileID: 2235099998369554463}
   m_Layer: 0
   m_Name: ORG-palm.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9290,7 +9290,7 @@ GameObject:
   - component: {fileID: 7320876538409580805}
   m_Layer: 0
   m_Name: tweak_spine.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9321,7 +9321,7 @@ GameObject:
   - component: {fileID: 3646063514748026090}
   m_Layer: 0
   m_Name: DEF-f_ring.02.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9352,7 +9352,7 @@ GameObject:
   - component: {fileID: 7002101405289920988}
   m_Layer: 0
   m_Name: DEF-palm.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9383,7 +9383,7 @@ GameObject:
   - component: {fileID: 6567785507985111519}
   m_Layer: 0
   m_Name: DEF-spine.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9414,7 +9414,7 @@ GameObject:
   - component: {fileID: 1722205731877730439}
   m_Layer: 0
   m_Name: DEF-f_index.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9445,7 +9445,7 @@ GameObject:
   - component: {fileID: 4981728343967725117}
   m_Layer: 0
   m_Name: ORG-palm.02.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9478,7 +9478,7 @@ GameObject:
   - component: {fileID: 381657018583872785}
   m_Layer: 0
   m_Name: Clip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9658,7 +9658,7 @@ GameObject:
   - component: {fileID: 6111614572132837463}
   m_Layer: 0
   m_Name: DEF-thumb.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9690,7 +9690,7 @@ GameObject:
   - component: {fileID: 336039307075470625}
   m_Layer: 0
   m_Name: Gun_Iron
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9870,7 +9870,7 @@ GameObject:
   - component: {fileID: 1742125317735786420}
   m_Layer: 0
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9903,7 +9903,7 @@ GameObject:
   - component: {fileID: 6457043891239323408}
   m_Layer: 0
   m_Name: DEF-forearm.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9934,7 +9934,7 @@ GameObject:
   - component: {fileID: 1623565999514364174}
   m_Layer: 0
   m_Name: DEF-pelvis.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9966,7 +9966,7 @@ GameObject:
   - component: {fileID: 7900605641897470742}
   m_Layer: 0
   m_Name: DEF-spine.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9997,7 +9997,7 @@ GameObject:
   - component: {fileID: 4223540737153724578}
   m_Layer: 0
   m_Name: DEF-f_middle.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10027,7 +10027,7 @@ GameObject:
   - component: {fileID: 4102144709256956391}
   m_Layer: 0
   m_Name: MCH-spine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10058,7 +10058,7 @@ GameObject:
   - component: {fileID: 2191336865786852982}
   m_Layer: 0
   m_Name: DEF-forearm.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10089,7 +10089,7 @@ GameObject:
   - component: {fileID: 5796243028239079134}
   m_Layer: 0
   m_Name: DEF-thumb.03.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10119,7 +10119,7 @@ GameObject:
   - component: {fileID: 1647306841260273517}
   m_Layer: 0
   m_Name: ORG-palm.01.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10153,7 +10153,7 @@ GameObject:
   - component: {fileID: 5072549824179176043}
   m_Layer: 0
   m_Name: Hair
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10333,7 +10333,7 @@ GameObject:
   - component: {fileID: 7305045484416103888}
   m_Layer: 0
   m_Name: DEF-spine.003
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10365,7 +10365,7 @@ GameObject:
   - component: {fileID: 2407425377173805334}
   m_Layer: 0
   m_Name: Bag
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10545,7 +10545,7 @@ GameObject:
   - component: {fileID: 251439235948366332}
   m_Layer: 0
   m_Name: DEF-f_index.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10575,7 +10575,7 @@ GameObject:
   - component: {fileID: 5108271276391020789}
   m_Layer: 0
   m_Name: DEF-thigh.L.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10607,7 +10607,7 @@ GameObject:
   - component: {fileID: 3907587671445041945}
   m_Layer: 0
   m_Name: gun_clip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10639,7 +10639,7 @@ GameObject:
   - component: {fileID: 196877772162109146}
   m_Layer: 0
   m_Name: EyeCornea
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10819,7 +10819,7 @@ GameObject:
   - component: {fileID: 2164487610247217278}
   m_Layer: 0
   m_Name: tweak_spine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10851,7 +10851,7 @@ GameObject:
   - component: {fileID: 772604897187452358}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11031,7 +11031,7 @@ GameObject:
   - component: {fileID: 1554236905334161717}
   m_Layer: 0
   m_Name: DEF-shoulder.R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11062,7 +11062,7 @@ GameObject:
   - component: {fileID: 5999483543897405188}
   m_Layer: 0
   m_Name: DEF-forearm.L.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11094,7 +11094,7 @@ GameObject:
   - component: {fileID: 8562552054798314218}
   m_Layer: 0
   m_Name: Skin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11274,7 +11274,7 @@ GameObject:
   - component: {fileID: 5199169249980123278}
   m_Layer: 0
   m_Name: MCH-spine.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11305,7 +11305,7 @@ GameObject:
   - component: {fileID: 6576550658812769057}
   m_Layer: 0
   m_Name: DEF-thumb.03.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11335,7 +11335,7 @@ GameObject:
   - component: {fileID: 4771588480900148150}
   m_Layer: 0
   m_Name: DEF-shoulder.L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

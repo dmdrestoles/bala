@@ -13,7 +13,7 @@ public class GruntPatrollingState : GruntBaseState
     {
         patrolStarted = false;
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 3f;
+        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
     }
 
@@ -39,8 +39,13 @@ public class GruntPatrollingState : GruntBaseState
 
     public override void UpdateState(GruntStateManager stateManager)
     {
-        //Debug.Log(this.grunt.CheckForPlayertInLineOfSight(45, 20));
-        if (this.grunt.CheckForPlayertInLineOfSight(45, 20))
+        //Debug.Log(this.grunt.CheckForPlayerInLineOfSight(45, 20));
+        if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
+        {
+            this.grunt.susValue = 50;
+            this.grunt.SwitchState(this.grunt.huntingState);
+        }
+        else if (this.grunt.CheckForPlayerInLineOfSight(45, 20) && this.grunt.playerMoveStateManager.isVisible)
         {
             this.grunt.susValue = 50;
             this.grunt.SwitchState(this.grunt.huntingState);
