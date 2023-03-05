@@ -10,6 +10,7 @@ public class StealthLevelScript : MonoBehaviour
     public GameObject Player;
     public GameObject textHolder;
     public GameObject textHolder1;
+    public GameObject objPanel;
 
     //Text Objects
     public GameObject speaker; //4
@@ -66,11 +67,14 @@ public class StealthLevelScript : MonoBehaviour
     IEnumerator StartLevelSequence()
     {
         GameManager.IsInputEnabled = true;
-        yield return new WaitForSeconds(1.0f);
-        speaker.GetComponent<Text>().text = "";
-        dialogue.GetComponent<Text>().text = "";
+        objPanel.SetActive(true);
+        objectives.SetActive(true);
+        objectives.GetComponent<Text>().text = "Reach the river on the North side.";
         instructions.GetComponent<Text>().text = "An Enemy in front of me\n I should take him out quietly.";
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(2.0f);
+        objectives.GetComponent<Text>().text = "";
+        objPanel.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
         instructions.GetComponent<Text>().text = "Press Left CTRL to toggle crouch. \nTo melee, press V.";
         yield return new WaitForSeconds(5.0f);
         instructions.GetComponent<Text>().text = "";
