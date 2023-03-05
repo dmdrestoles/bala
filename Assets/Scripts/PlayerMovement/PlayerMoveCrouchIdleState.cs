@@ -12,13 +12,13 @@ public class PlayerMoveCrouchIdleState : PlayerMoveBaseState
         playerMovement.animator.SetBool("isMoving", false);
         playerMovement.animator.SetBool("isCrouching", true);
         UpdateFootStepsRad();
-        UpdateSpeedMultiplier();
     }
 
     public override void UpdateState(PlayerMoveStateManager stateManager)
     {
         RunEverySecond();
         HandleCrouchingMovement();
+        UpdateSpeedMultiplier();
         if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             stateManager.SwitchState(stateManager.walkState);

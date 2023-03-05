@@ -9,6 +9,11 @@ public class GruntAimingState : GruntBaseState
         grunt.animator.SetBool("isAiming",true);
         grunt.muzzle.GetComponent<Collider>().enabled = false;
         grunt.aiMove_Utils.StopMovement(grunt.body, grunt.agent, grunt.animator);
+        float rand = Random.Range(0.0f, 1.0f);
+        if (rand <= 0.2f)
+        {
+            grunt.getHimAud.Play();
+        }
     }
 
     public override void SusDetected()

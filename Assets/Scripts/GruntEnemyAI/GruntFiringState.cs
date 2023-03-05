@@ -10,6 +10,11 @@ public class GruntFiringState : GruntBaseState
     GruntStateManager grunt;
     public override void EnterState(GruntStateManager grunt)
     {
+        float rand = Random.Range(0.0f, 1.0f);
+        if (rand <= 0.2f)
+        {
+            grunt.getHimAud.Play();
+        }
         this.grunt = grunt;
         this.grunt.muzzle.GetComponent<Collider>().enabled = true;
         this.Shoot();

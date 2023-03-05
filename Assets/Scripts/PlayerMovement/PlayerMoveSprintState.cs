@@ -11,12 +11,13 @@ public class PlayerMoveSprintState : PlayerMoveBaseState
         playerMovement.animator.SetBool("isRunning", true);
         playerMovement.animator.SetBool("isCrouching", false);
         UpdateFootStepsRad();
-        UpdateSpeedMultiplier();
+        
     }
     public override void UpdateState(PlayerMoveStateManager stateManager)
     {
         RunEverySecond();
         HandleCrouchingMovement();
+        UpdateSpeedMultiplier();
         if (Input.GetKeyUp(KeyCode.LeftShift) || stateManager.energy <= 0)
         {
             playerMovement.animator.SetBool("isRunning", false);
