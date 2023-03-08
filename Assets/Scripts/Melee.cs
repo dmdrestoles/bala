@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
-    public float nextTimeToFire = 0f;
-    public float fireRate = 1f;
+    public static float nextTimeToMelee = 0f;
+    public static float attackSpeed = 0.9f;
 
     public string weaponName;
 
@@ -25,7 +25,7 @@ public class Melee : MonoBehaviour
 
     void Start()
     {
-        meleeAngle = 60;
+        meleeAngle = 90;
     }
 
     void Update()
