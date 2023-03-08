@@ -20,6 +20,7 @@ public class TutorialCutScene : MonoBehaviour
     public GameObject playerHolder;
     public GameObject textHolder;
     public GameObject textHolder1;
+    public GameObject objPanel;
 
     //Text Objects
     public GameObject speaker; //4
@@ -133,6 +134,7 @@ public class TutorialCutScene : MonoBehaviour
                                 PlayerMovement.moveSpeed = 12f;
                                 instructions.GetComponent<Text>().text = "Use W-A-S-D to move.";
                                 objectives.GetComponent<Text>().text = "Go to the Officer";
+                                objPanel.SetActive(true);
                                 minimarker.SetActive(true);
 
                                 while (true)
@@ -143,6 +145,7 @@ public class TutorialCutScene : MonoBehaviour
                                         minimarker.SetActive(false);
                                         instructions.GetComponent<Text>().text = "";
                                         objectives.GetComponent<Text>().text = "";
+                                        objPanel.SetActive(false);
                                         //yield return new WaitForSeconds(0.5f);
                                         GameManager.IsInputEnabled = false;
                                         Cam3.SetActive(true);
@@ -166,6 +169,7 @@ public class TutorialCutScene : MonoBehaviour
                                         PlayerCam.SetActive(true);
                                         Cam4.SetActive(false);
                                         objectives.GetComponent<Text>().text = "Go to the Marker!";
+                                        objPanel.SetActive(true);
                                         instructions.GetComponent<Text>().text = "Press Shift to run\nWait for 5 seconds";
 
                                         while (true)
@@ -173,6 +177,7 @@ public class TutorialCutScene : MonoBehaviour
                                             if (reachedLastMarker == true)
                                             {
                                                 objectives.GetComponent<Text>().text = "";
+                                                objPanel.SetActive(false);
                                             }
                                             yield return null;
                                         }
