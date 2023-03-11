@@ -27,7 +27,7 @@ public class CodexItems : MonoBehaviour
             " [insert weapon description for Sumpit] ",
             " A single-action, cartridge-firing revolver. Its top-break cylinder is distinct from most modern revolvers",
             " A breech-loading single-shot rifle used by many colonial armies in the world ",
-            " A breech-loading single-shot rifle used by many colonial armies in the world  "
+            " The Spanish M93 is the standard-issue rifle of the Spanish Army during this time period "
             };
 
             descContainer.SetActive(true);
