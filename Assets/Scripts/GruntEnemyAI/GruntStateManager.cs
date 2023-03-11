@@ -28,7 +28,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntSleepState sleepState = new GruntSleepState();
     public PlayerMoveStateManager playerMoveStateManager;
     public PlayerState playerState;
-    public AudioSource reloadAud, fireAud;
+    public AudioSource reloadAud, fireAud, getHimAud, isSomebodyThereAud, theWindAud, waitTillAud;
     public ParticleSystem muzzleFlash;
     public Vector3 patrol1, patrol2, originalPos;
     public Detection_Utils detect_Utils;

@@ -27,6 +27,7 @@ public class WeaponManager : MonoBehaviour
         animator.SetTrigger("Unequip");
         isPrimary = true;
         StartCoroutine(ChangeWeapon(isPrimary));
+        
     }
 
     // Update is called once per frame
@@ -62,8 +63,9 @@ public class WeaponManager : MonoBehaviour
                 isPickup = false;
             }
 
-            else if (Input.GetKeyDown(KeyCode.V) && Melee.isBoloAcquired)
+            else if (Input.GetKeyDown(KeyCode.V) && Melee.isBoloAcquired && Time.time >= Melee.nextTimeToMelee)
             {
+                Melee.nextTimeToMelee = Time.time + 1f / Melee.attackSpeed;
                 animator.SetBool("isAiming", false);
                 animator.ResetTrigger("Firing");
                 StartCoroutine(MeleeAttack(isPrimary));
@@ -73,10 +75,9 @@ public class WeaponManager : MonoBehaviour
 
     IEnumerator MeleeAttack(bool isPrimary)
     {
-        melee.SetActive(true);
         primary.SetActive(false);
         secondary.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
+        melee.SetActive(true);
         animator.SetTrigger("Melee");
         yield return new WaitForSeconds(0.45f);
         meleeScript.CheckForEnemies();

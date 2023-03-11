@@ -10969,10 +10969,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff14b40509852fa46bf58dd63a79996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introVid: {fileID: 32900000, guid: c3a005643894e7a45b966084fa6d9bad, type: 3}
+  introVid: {fileID: 32900000, guid: e42e1d8c3b060e54ca9d3d30e735d41f, type: 3}
   continueVid: {fileID: 32900000, guid: dabaafe93d609944a8fedfcfa028a2a1, type: 3}
-  paltikVid: {fileID: 32900000, guid: 71626ccf35b91ad41a0738e9860eb11a, type: 3}
-  boloVid: {fileID: 32900000, guid: 1c71275ca8b5de9498c67e5901d997ff, type: 3}
+  paltikVid: {fileID: 32900000, guid: 5c5b03cf5c8b68344991e66e55ecb13a, type: 3}
+  boloVid: {fileID: 32900000, guid: e8c86afd849ab084d9aed65e22429dbc, type: 3}
   selectLevelScript: {fileID: 209270071}
 --- !u!4 &1649474169
 Transform:
@@ -11253,7 +11253,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774598740}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c3a005643894e7a45b966084fa6d9bad, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: e42e1d8c3b060e54ca9d3d30e735d41f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1774598742}

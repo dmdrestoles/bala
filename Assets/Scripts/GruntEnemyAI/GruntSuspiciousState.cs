@@ -56,10 +56,12 @@ public class GruntSuspiciousState : GruntBaseState
         RunEverySecond();
         if (this.grunt.susValue >= 45)
         {
+            this.grunt.waitTillAud.Play();
             this.grunt.SwitchState(this.grunt.huntingState);
         }
         else if (this.grunt.susValue <= 0)
         {
+            this.grunt.theWindAud.Play();
             this.grunt.SwitchState(grunt.relaxedState);
         }
         else if (this.grunt.susPos != new Vector3(0,0,0))

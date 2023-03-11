@@ -40,6 +40,7 @@ public class Gun : MonoBehaviour
     public GameObject gunShotGO;
     public MouseLook mouseLook;
     public CameraShake cameraShake;
+    public PlayerMoveStateManager playerMoveStateManager;
 
     [Header("Audio")]
     public AudioSource fireSound;
@@ -63,7 +64,7 @@ public class Gun : MonoBehaviour
         DisableCrosshair();
         getFOV();
         Debug.Log("Gun: Current FOV = " + getFOV());
-
+        playerMoveStateManager = GameObject.Find("Player").GetComponent<PlayerMoveStateManager>();
         animator.runtimeAnimatorController = controller;
     }
 
@@ -83,7 +84,12 @@ public class Gun : MonoBehaviour
         {
             if (isReloading)
             {
+                playerMoveStateManager.moveSpeed = 5.0f;
                 return;
+            }
+            else
+            {
+                playerMoveStateManager.moveSpeed = 20.0f;
             }
 
             if (Input.GetButtonDown("Fire2") && !animator.GetBool("isRunning"))
@@ -135,7 +141,8 @@ public class Gun : MonoBehaviour
                 }
                 else
                 {
-                    //StartCoroutine(HotReload());
+                    if (isReliable) StartCoroutine(HotReload());
+                    else StartCoroutine(FullReload());
                 }
             }
         }

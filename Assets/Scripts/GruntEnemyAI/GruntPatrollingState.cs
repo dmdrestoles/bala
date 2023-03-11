@@ -52,6 +52,7 @@ public class GruntPatrollingState : GruntBaseState
         }
         else if (this.grunt.susValue >= 20)
         {
+            this.grunt.isSomebodyThereAud.Play();
             this.grunt.SwitchState(this.grunt.suspiciousState);
         }
         else if (this.grunt.susObject)
