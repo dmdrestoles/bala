@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
             playerDiedUI.SetActive(true);
             gameHasEnded = true;
             Debug.Log("GAME OVER!");
+            ResetPreferences();
             Invoke("Restart", restartDelay);
         }
     }
