@@ -16,6 +16,7 @@ public class GruntAwareness : MonoBehaviour
     void Update()
     {
         this.GetComponent<CapsuleCollider>().radius = awareRadius;
+        Debug.Log( "Awareness Radius: "+ this.GetComponent<CapsuleCollider>().radius);
     }
 
     void OnTriggerStay(Collider other)

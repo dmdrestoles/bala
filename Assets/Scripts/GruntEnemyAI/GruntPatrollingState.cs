@@ -13,7 +13,6 @@ public class GruntPatrollingState : GruntBaseState
     {
         patrolStarted = false;
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.ResumeMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
     }
 
@@ -21,17 +20,17 @@ public class GruntPatrollingState : GruntBaseState
     {
         if (this.grunt.awareness.susObject.name == "Muzzle")
         {
-            this.grunt.susValue += 20;
+            this.grunt.susValue += 20 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(this.grunt.huntingState);
         } 
         else if (this.grunt.awareness.susObject.name == "FootSteps")
         {
-            this.grunt.susValue += 5;
+            this.grunt.susValue += 5 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(this.grunt.suspiciousState);
         }
         else if (grunt.awareness.susObject.name == "Rock")
         {
-            this.grunt.susValue +=10;
+            this.grunt.susValue +=10 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(grunt.suspiciousState);
         }
 
@@ -40,6 +39,7 @@ public class GruntPatrollingState : GruntBaseState
     public override void UpdateState(GruntStateManager stateManager)
     {
         //Debug.Log(this.grunt.CheckForPlayerInLineOfSight(45, 20));
+        this.grunt.awareness.awareRadius = 5f * stateManager.difficultyMultiplier;
         if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
         {
             this.grunt.susValue = 50;
@@ -65,7 +65,7 @@ public class GruntPatrollingState : GruntBaseState
     void Patrol(Vector3 start, Vector3 end){
         this.grunt.animator.SetBool("isMoving", true);
         this.grunt.animator.SetBool("isWalking", true);
-        this.grunt.agent.speed = 3.0f;
+        this.grunt.agent.speed = 3.0f * this.grunt.difficultyMultiplier ;
         if ((this.grunt.aiMove_Utils.CheckDestinationReached(this.grunt.agent.transform.position, start,1)) && !this.grunt.agent.pathPending && this.grunt.agent.destination != end )
         {
             this.grunt.agent.SetDestination(end);

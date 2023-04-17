@@ -11,6 +11,7 @@ public class GruntDeathState : GruntBaseState
         grunt.awareIndi.SetActive(false);
         PlayerPrefs.SetInt("pacifistObjective",0);
         int killCounter = PlayerPrefs.GetInt("killObjective") + 1;
+        grunt.enemyManager.enemyCount -=1;
         PlayerPrefs.SetInt("killObjective", killCounter);
     }
 

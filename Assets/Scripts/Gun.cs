@@ -234,7 +234,7 @@ public class Gun : MonoBehaviour
             return;
         }
         
-        gunShotGO.SetActive(true);
+        gunShotGO.SetActive(true); // MUZZLE SUS OBJECT
         fireSound.Play();
         muzzle.Play();
         bulletForward = Instantiate(bullet, muzzle.GetComponentInParent<Transform>().position, fpsCamera.transform.rotation);

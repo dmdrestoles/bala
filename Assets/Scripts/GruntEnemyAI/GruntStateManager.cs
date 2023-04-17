@@ -12,9 +12,9 @@ public class GruntStateManager : MonoBehaviour
     public Vector3 susPos;
     public GruntBaseState currentState;
     public float susValue = 0;
-    public int currentAmmo = 0;
+    public int currentAmmo = 2;
     public float health = 50;
-    public int maxAmmo = 5;
+    public int maxAmmo = 2;
     public bool isDead = false;
     public bool isAsleep = false;
     public GruntRelaxedState relaxedState = new GruntRelaxedState();
@@ -28,6 +28,7 @@ public class GruntStateManager : MonoBehaviour
     public GruntSleepState sleepState = new GruntSleepState();
     public PlayerMoveStateManager playerMoveStateManager;
     public PlayerState playerState;
+    public EnemyManager enemyManager;
     public AudioSource reloadAud, fireAud, getHimAud, isSomebodyThereAud, theWindAud, waitTillAud;
     public ParticleSystem muzzleFlash;
     public Vector3 patrol1, patrol2, originalPos;
@@ -37,6 +38,7 @@ public class GruntStateManager : MonoBehaviour
     public NavMeshAgent agent;
     public Animator animator;
     public Rigidbody body;
+    public float difficultyMultiplier = 1.0f;
     float elapsed= 0f;
     bool AlreadyAsleep = false;
     RaycastHit hit;
@@ -48,17 +50,20 @@ public class GruntStateManager : MonoBehaviour
         currentState = relaxedState;
         currentState.EnterState(this);
         playerMoveStateManager = GameObject.Find("Player").GetComponent<PlayerMoveStateManager>();
+        enemyManager = GameObject.Find("Enemy List").GetComponent<EnemyManager>();
 
         originalPos = transform.position;
     }
 
     void Update()
     { 
-        if (Vector3.Distance(playerTransform.position,this.transform.position) <=250)
+        if (Vector3.Distance(playerTransform.position,this.transform.position) <=450)
         {
             agent.enabled = true;
             HandleSleep();
             HandleDeath();
+            HandleDifficultyMultiplier();
+            HandleDamage();
             currentState.UpdateState(this);
             UpdateAwareColor();
             if (awareness.susObject)
@@ -177,6 +182,14 @@ public class GruntStateManager : MonoBehaviour
         }
     }
 
+    void HandleDamage()
+    {
+        if (this.health < 50)
+        {
+            this.susValue = 50;
+        }
+    }
+
     void HandleSleep()
     {
         /*
@@ -190,6 +203,24 @@ public class GruntStateManager : MonoBehaviour
             StartCoroutine(GoToSleep());
         }
     }
+
+    void HandleDifficultyMultiplier()
+    {
+        if (enemyManager.enemyKilled >= 15)
+        {
+            difficultyMultiplier = 2.0f;
+        }
+        else if(enemyManager.enemyKilled >= 10)
+        {
+            difficultyMultiplier = 1.5f;
+        }
+        else if (enemyManager.enemyKilled >= 5)
+        {
+            difficultyMultiplier = 1.2f;
+        }
+
+    }
+
     IEnumerator GoToSleep()
     {
         this.SwitchState(this.sleepState);

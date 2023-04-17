@@ -10,11 +10,6 @@ public class GruntFiringState : GruntBaseState
     GruntStateManager grunt;
     public override void EnterState(GruntStateManager grunt)
     {
-        float rand = Random.Range(0.0f, 1.0f);
-        if (rand <= 0.2f)
-        {
-            grunt.getHimAud.Play();
-        }
         this.grunt = grunt;
         this.grunt.muzzle.GetComponent<Collider>().enabled = true;
         this.Shoot();
@@ -29,9 +24,9 @@ public class GruntFiringState : GruntBaseState
     {
         grunt.transform.LookAt(new Vector3(grunt.playerTransform.position.x, grunt.transform.position.y, grunt.playerTransform.position.z));
         elapsed += Time.deltaTime;
-        if (elapsed >= 2f)
+        if (elapsed >= 4f)
         {
-            elapsed = elapsed % 2f;
+            elapsed = elapsed % 4f;
             grunt.animator.ResetTrigger("triggerFire");
             grunt.currentAmmo -= 1;
             grunt.SwitchState(grunt.aimingState);
@@ -59,6 +54,9 @@ public class GruntFiringState : GruntBaseState
         float distance = Vector3.Distance(grunt.transform.position, grunt.playerTransform.position);
         double missFactor = System.Math.Pow(2, 0.01*(double)distance) - 1;
         float a = (float)missFactor;
+
+        float missChanceFactor = 2.0f;
+        a *= missChanceFactor;
 
         float xRand = Random.Range(-a, a);
         float yRand = Random.Range(-a, a);

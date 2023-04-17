@@ -30,6 +30,7 @@ public class GruntAimingState : GruntBaseState
         }
         else
         {
+            grunt.aiMove_Utils.StopMovement(grunt.body, grunt.agent, grunt.animator);
             AddSusLevel(grunt);
             HandleShooting(grunt);
         }

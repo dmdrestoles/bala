@@ -11,8 +11,7 @@ public class GruntHuntingState : GruntBaseState
         this.grunt.animator.SetBool("isAiming", false);
         this.grunt.animator.SetBool("isMoving", true);
         this.grunt.animator.SetBool("isWalking", false);
-        this.grunt.awareness.awareRadius = 10f;
-        this.grunt.agent.speed = 10f;
+
 
         PlayerPrefs.SetInt("ghostObjective",0);
     }
@@ -41,23 +40,23 @@ public class GruntHuntingState : GruntBaseState
         {
             if (this.grunt.awareness.susObject.name == "Muzzle")
             {
-                this.grunt.susValue +=20;
+                this.grunt.susValue +=20  * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.huntingState);
             } 
             else if (this.grunt.awareness.susObject.name == "FootSteps")
             {
-                this.grunt.susValue +=5;
+                this.grunt.susValue +=5  * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
             else if (grunt.awareness.susObject.name == "Rock")
             {
-                this.grunt.susValue +=5;
+                this.grunt.susValue +=5  * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
         }
         else
         {
-            this.grunt.susValue -=4;
+            this.grunt.susValue -=3;
         }
     }
 
@@ -65,6 +64,8 @@ public class GruntHuntingState : GruntBaseState
 
     public override void UpdateState(GruntStateManager grunt)
     {
+        this.grunt.awareness.awareRadius = 10f * this.grunt.difficultyMultiplier;
+        this.grunt.agent.speed = 10f  * this.grunt.difficultyMultiplier;
         RunEverySecond();
         if (grunt.susValue < 35)
         {
