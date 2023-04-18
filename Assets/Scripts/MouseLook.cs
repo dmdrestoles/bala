@@ -7,7 +7,7 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public GameObject armsCamera;
-    public static string selectedObject;
+    [SerializeField] public static string selectedObject;
     public RaycastHit hitObject;
     float xRotation = 0f;
     private Transform cameraTransform;
@@ -39,6 +39,10 @@ public class MouseLook : MonoBehaviour
         {
             selectedObject = hitObject.transform.gameObject.name;
             // Debug.Log(selectedObject+"------"+hitObject.distance);
+        }
+        else
+        {
+            selectedObject = "";
         }    
     }
 

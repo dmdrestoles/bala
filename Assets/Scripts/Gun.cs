@@ -52,6 +52,7 @@ public class Gun : MonoBehaviour
     [Header("UI References")]
     public GameObject currentAmmoUI;
     public GameObject maxAmmoUI;
+    public GameObject hitMarker;
 
     [Header("Animator Info")]
     public Animator animator;
@@ -249,13 +250,17 @@ public class Gun : MonoBehaviour
 
             if (enemy != null)
             {
+                HitActive();
                 enemy.health -= damage;
+                Invoke("HitDisable", 0.2f);
             }
 
             if (enemyState != null)
             {
                 Debug.Log("HIT");
+                HitActive();
                 enemyState.TakeDamage(damage);
+                Invoke("HitDisable", 0.2f);
             }
 
             if (hit.rigidbody != null)
@@ -333,5 +338,15 @@ public class Gun : MonoBehaviour
     static float getFOV()
     {
         return PauseScript.getFOV();
+    }
+
+    void HitActive()
+    {
+        hitMarker.SetActive(true);
+    }
+
+    void HitDisable()
+    {
+        hitMarker.SetActive(false);
     }
 }

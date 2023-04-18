@@ -21,6 +21,7 @@ public class PickupStateManager : MonoBehaviour
     public WeaponManager weaponManager;
     public GameObject primaryInv, secondaryInv, meleeInv;
     public AudioSource pickupSFX;
+    public GameObject pickupHand;
     
     GameObject player;
 
@@ -37,6 +38,7 @@ public class PickupStateManager : MonoBehaviour
         restState = gameObject.GetComponent<PickupRestState>();
 
         player = GameObject.Find("Player");
+
         if (isMain)
         {
             currentState = debugState;
@@ -67,7 +69,13 @@ public class PickupStateManager : MonoBehaviour
     }
 
     public bool OnMouseOver(){
-        return mouseLook.GetSelectedObject() == gameObject.name;
+        if (mouseLook.GetSelectedObject() == gameObject.name)
+        {
+            HandActive();
+            Debug.Log("Hovering on: " +  mouseLook.GetSelectedObject());
+            return true;
+        }
+        return false;
     }
 
     void HandleObjectFallThroughFloor()
@@ -78,6 +86,18 @@ public class PickupStateManager : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y+ 3.0f, transform.position.z);
             //transform.rotation = new Quaternion(0,0,0,0);
         }
+    }
+
+    public void HandActive()
+    {
+        Debug.Log("Looking at: " + gameObject.name);
+        pickupHand.SetActive(true);
+    }
+
+    public void HandDisable()
+    {
+        Debug.Log("Disabling: " + gameObject.name);
+        pickupHand.SetActive(false);
     }
 
     /*

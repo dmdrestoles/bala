@@ -13,6 +13,7 @@ TagManager:
   - SusObject
   - GunShot
   - Ground
+  - PickupHand
   layers:
   - Default
   - TransparentFX

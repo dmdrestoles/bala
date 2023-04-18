@@ -81,8 +81,9 @@ public class PickupGlowingState : PickupBaseState
             // Check if collectible, gun, etc.
             ChangeWeapon(psm);
             HandleAmmo(psm);
+            psm.HandDisable();
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy(gameObject, 2.0f);
         }
     }
 
@@ -208,6 +209,4 @@ public class PickupGlowingState : PickupBaseState
             }
         }
     }
-    
-
 }
