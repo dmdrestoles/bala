@@ -230,6 +230,7 @@ public class GameManager : MonoBehaviour
     void ResetPreferences()
     {
         Debug.Log("Resetting game preferences");
+        Melee.isBoloAcquired = false;
         PlayerPrefs.SetInt("pacifistObjective",1);
         PlayerPrefs.SetInt("ghostObjective",1);
         PlayerPrefs.SetInt("killObjective",0);
