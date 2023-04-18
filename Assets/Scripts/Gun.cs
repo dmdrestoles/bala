@@ -170,6 +170,7 @@ public class Gun : MonoBehaviour
     IEnumerator HotReload()
     {
         isReloading = true;
+        PlayerPrefs.SetFloat("fov", getFOV());
         animator.SetBool("isReloading", true);
         animator.SetBool("isReliable", isReliable);
         animator.SetBool("isFull", false);
@@ -198,6 +199,7 @@ public class Gun : MonoBehaviour
     IEnumerator FullReload()
     {
         isReloading = true;
+        PlayerPrefs.SetFloat("fov", getFOV());
         animator.SetBool("isReloading", true);
         Debug.Log("Reloading start!");
         animator.ResetTrigger("Firing");
@@ -208,7 +210,7 @@ public class Gun : MonoBehaviour
         Debug.Log("Update ammo!");
         maxAmmo -= magazineAmmo;
         currentAmmo = magazineAmmo;
-        //yield return new WaitForSeconds(0.25f);
+        // yield return new WaitForSeconds(0.25f);
         animator.SetBool("isReloading", false);
         Debug.Log("Reloading done!");
         isReloading = false;

@@ -212,6 +212,7 @@ public class GameManager : MonoBehaviour
 
     void InitializePreferences()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("easterEggObjective",0);
         PlayerPrefs.SetInt("isM93Found",0);
         PlayerPrefs.SetInt("isRevolverFound",0);
