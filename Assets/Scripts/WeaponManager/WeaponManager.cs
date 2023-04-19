@@ -63,7 +63,7 @@ public class WeaponManager : MonoBehaviour
                 isPickup = false;
             }
 
-            else if (Input.GetKeyDown(KeyCode.V) && Melee.isBoloAcquired && Time.time >= Melee.nextTimeToMelee)
+            else if (Input.GetKeyDown(KeyCode.E) && Melee.isBoloAcquired && Time.time >= Melee.nextTimeToMelee)
             {
                 Melee.nextTimeToMelee = Time.time + 1f / Melee.attackSpeed;
                 animator.SetBool("isAiming", false);

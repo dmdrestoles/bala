@@ -7,6 +7,7 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public GameObject armsCamera;
+    public GameObject pickupHand;
     [SerializeField] public static string selectedObject;
     public RaycastHit hitObject;
     float xRotation = 0f;
@@ -38,10 +39,20 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hitObject) && hitObject.distance <= 5)
         {
             selectedObject = hitObject.transform.gameObject.name;
+            
+            if (hitObject.transform.gameObject.GetComponent<PickupStateManager>() != null)
+            {
+                pickupHand.SetActive(true);
+            }
+            else
+            {
+                pickupHand.SetActive(false);
+            }
             // Debug.Log(selectedObject+"------"+hitObject.distance);
         }
         else
         {
+            pickupHand.SetActive(false);
             selectedObject = "";
         }    
     }
