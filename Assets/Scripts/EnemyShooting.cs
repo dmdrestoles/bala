@@ -55,7 +55,7 @@ public class EnemyShooting : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hit.point, Color.black, 2f);
             PlayerState player = hit.transform.GetComponent<PlayerState>();
-            player.TakeDamage(25);
+            player.TakeDamage(30);
         }
     }
 

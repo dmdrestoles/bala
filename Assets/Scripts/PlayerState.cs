@@ -13,7 +13,7 @@ public class PlayerState : MonoBehaviour
     public GameManager gameManager;
     public Image damageScreen;
     private Color alphaColor;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     public AudioSource playerDamaged;
     public AudioSource playerDied;
@@ -62,17 +62,18 @@ public class PlayerState : MonoBehaviour
         else
         {
             StartCoroutine(UpdateUIOnHit());
+            StartCoroutine(Heal());
             playerDamaged.Play();
         }
     }
 
-    public void Heal()
+    public IEnumerator Heal()
     {
-        if (currentHealth < maxHealth)
+        while (currentHealth < maxHealth)
         {
-            alphaColor.a -= .20f;
-            damageScreen.color = alphaColor;
+            IncrementPostProcessSaturation(3.0f);
             currentHealth += 1;
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -90,6 +91,19 @@ public class PlayerState : MonoBehaviour
 
         mainCameraColorGradingLayer.saturation.value = value;
         armsCameraColorGradingLayer.saturation.value = value;
+    }
+
+    void IncrementPostProcessSaturation(float value)
+    {
+        ColorGrading mainCameraColorGradingLayer, armsCameraColorGradingLayer = null;
+        mainCameraEffectProfile.TryGetSettings(out mainCameraColorGradingLayer);
+        armsCameraEffectProfile.TryGetSettings(out armsCameraColorGradingLayer);
+
+        if (mainCameraColorGradingLayer.saturation.value < 0.0f)
+        {
+            mainCameraColorGradingLayer.saturation.value += value;
+            armsCameraColorGradingLayer.saturation.value += value;
+        }
     }
 
     IEnumerator UpdateUIOnHit()
