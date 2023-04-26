@@ -83,7 +83,7 @@ public class QuestArea : MonoBehaviour
 
             if (name == "Letter-1" || name == "none")
             {
-                var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "SearchAreaMarker");
+                /*var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "SearchAreaMarker");
                 var objects1 = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "QuestMarker");
 
                 foreach (GameObject obj in objects)
@@ -93,7 +93,7 @@ public class QuestArea : MonoBehaviour
                 foreach (GameObject obj in objects1)
                 {
                     obj.SetActive(false);
-                }
+                }*/
 
                 // Debug.Log("Disable Search Area 7.4");
                 this.transform.parent.Find("SearchAreaMarker").gameObject.SetActive(false);

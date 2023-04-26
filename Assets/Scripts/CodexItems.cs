@@ -24,7 +24,7 @@ public class CodexItems : MonoBehaviour
             ArrayList weaponDescription = new ArrayList{
             " The Bolo mainly used as a farming tool is also useful in close quarter combat ",
             " An improvised firearm made using scrap metal and wood; extremely inaccurate ",
-            " [insert weapon description for Sumpit] ",
+            " General term for blowguns, usually tipped with iron spearheads, used for hunting and warfare ",
             " A single-action, cartridge-firing revolver. Its top-break cylinder is distinct from most modern revolvers",
             " A breech-loading single-shot rifle used by many colonial armies in the world ",
             " The Spanish M93 is the standard-issue rifle of the Spanish Army during this time period "
