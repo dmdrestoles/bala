@@ -9,7 +9,6 @@ public class GruntRelaxedState : GruntBaseState
     public override void EnterState(GruntStateManager stateManager)
     {
         this.grunt = stateManager;
-        this.grunt.awareness.awareRadius = 5f;
         this.grunt.aiMove_Utils.StopMovement(this.grunt.body,this.grunt.agent,this.grunt.animator);
         this.originalPos = grunt.originalPos;
     }
@@ -18,23 +17,24 @@ public class GruntRelaxedState : GruntBaseState
     {
         if (grunt.awareness.susObject.name == "Muzzle")
         {
-            this.grunt.susValue +=20;
+            this.grunt.susValue += 20 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(grunt.huntingState);
         } 
         else if (grunt.awareness.susObject.name == "FootSteps")
         {
-            this.grunt.susValue +=5;
+            this.grunt.susValue += 5 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(grunt.suspiciousState);
         }
         else if (grunt.awareness.susObject.name == "Rock")
         {
-            this.grunt.susValue +=10;
+            this.grunt.susValue += 10 * this.grunt.difficultyMultiplier;
             //this.grunt.SwitchState(grunt.suspiciousState);
         }
     }
 
     public override void UpdateState(GruntStateManager stateManager)
     {
+        this.grunt.awareness.awareRadius = 5f * stateManager.difficultyMultiplier;
         this.originalPos = grunt.originalPos;
         if (this.grunt.CheckForPlayerInLineOfSight(45, 10))
         {

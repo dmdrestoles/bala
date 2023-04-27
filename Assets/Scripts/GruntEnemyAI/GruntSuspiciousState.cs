@@ -10,8 +10,6 @@ public class GruntSuspiciousState : GruntBaseState
         this.grunt = stateManager;
         this.grunt.aiMove_Utils.ResumeMovement(grunt.body,grunt.agent,grunt.animator);
         this.grunt.animator.SetBool("isWalking", true);
-        this.grunt.agent.speed = 3f;
-        this.grunt.awareness.awareRadius = 7f;
     }
 
     public override void SusDetected()
@@ -30,17 +28,17 @@ public class GruntSuspiciousState : GruntBaseState
         {
             if (this.grunt.awareness.susObject.name == "Muzzle")
             {
-                this.grunt.susValue +=20;
+                this.grunt.susValue += 20 * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.huntingState);
             } 
             else if (this.grunt.awareness.susObject.name == "FootSteps")
             {
-                this.grunt.susValue +=5;
+                this.grunt.susValue +=5 * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
             else if (grunt.awareness.susObject.name == "Rock")
             {
-                this.grunt.susValue +=5;
+                this.grunt.susValue +=5 * this.grunt.difficultyMultiplier;
                 //this.grunt.SwitchState(grunt.suspiciousState);
             }
         }
@@ -54,6 +52,8 @@ public class GruntSuspiciousState : GruntBaseState
     public override void UpdateState(GruntStateManager stateManager)
     {
         RunEverySecond();
+        this.grunt.agent.speed = 3f * stateManager.difficultyMultiplier;
+        this.grunt.awareness.awareRadius = 7f * stateManager.difficultyMultiplier;
         if (this.grunt.susValue >= 45)
         {
             this.grunt.waitTillAud.Play();
