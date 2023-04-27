@@ -84,7 +84,6 @@ public class CodexPreferencesManager : MonoBehaviour
 
         bolo.SetActive(false);
         revolver.SetActive(false);
-        paltik.SetActive(false);
         m93.SetActive(false);
 
         letter1.SetActive(false);
