@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
     public GameObject pauseCanvas, mainCanvas;
     public GameObject codexCanvas;
+    //public GameObject mainmenu;
     bool paused = false;
     bool canvasOpen = false;
     private GameObject soundSlider, fovSlider, senseSlider;
     private float sound, fov, sense;
     static float currFOV=50;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +64,11 @@ public class PauseScript : MonoBehaviour
         GameManager.IsInputEnabled = true;
         Cursor.lockState = CursorLockMode.Locked ;
         Cursor.visible = false;
+    }
+
+    public void BackToMainMenu()
+    { 
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void UpdateSliders()
